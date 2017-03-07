@@ -6,7 +6,11 @@ import Button from '@/components/Button'
 import SearchView from '@/views/SearchView'
 import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
+<<<<<<< HEAD
 import IndexView from '@/views/IndexView'
+=======
+import AddressView from '@/views/AddressView'
+>>>>>>> e5990803cbc7bd67c2b3ed38485f8f7dc7773abd
 
 Vue.use(Router)
 
@@ -43,6 +47,11 @@ export default new Router({
       path: '/btn',
       name: 'Button',
       component: Button
+    },
+    {
+      path: '/address',
+      name: 'address',
+      component: AddressView
     }
   ]
 })

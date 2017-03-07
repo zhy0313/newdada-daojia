@@ -1,0 +1,243 @@
+/*html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, big, cite, code,del,em, img,
+ins, kbd, q, s, samp,small, strike, strong, sub, sup, b, u, i, center, dl, dt, dd, ol, ul, li,fieldset, form, label,
+legend,table, caption, tbody, tfoot, thead, tr, th, td { margin: 0;padding: 0;border: 0;outline: 0; font-weight:normal; font-style:normal;}*/
+* {margin: 0;padding: 0;border: 0;outline: 0; font-weight:normal; font-style:normal;}
+select,option { word-wrap:normal; }
+select { font-size:16px; font-family:'Microsoft YaHei',Verdana,Arial,Helvetica,sans-serif; }
+textarea { font-size:15px; }
+img { border:0; vertical-align:auto; }
+ul, li, ol, dl, dt, dd{ list-style:none; }
+br { height:0; line-height:0; font-size:0; overflow:hidden; vertical-align:top; }
+body { margin:0; padding:0; font-family:'Microsoft YaHei',Verdana,Arial,Helvetica,sans-serif; color:#3c3c3c; font-size:14px; line-height:1.4; background-color:#f4f4f4;
+word-wrap:break-word; -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-touch-callout: none;  -webkit-user-drag:none;  -webkit-user-select:none; }
+body.whiteBg { background-color:#fff; }
+a { text-decoration:none; /*-webkit-tap-highlight-color: rgba(26,26,26,0.301961);*/ -webkit-touch-callout: none; -webkit-user-drag:none;  -webkit-user-select:none;color:#555; }
+
+button { /*-webkit-tap-highlight-color:rgba(26,26,26,0.301961);*/ font-family:'Microsoft YaHei',Verdana,Arial,Helvetica,sans-serif;outline-style: none;}
+
+/*单选框样式*/
+.checkbox, input[type=checkbox]{ vertical-align:middle;display: inline-block;width: 44px;height: 44px;-webkit-appearance:none; appearance:none; /*-webkit-tap-highlight-color:rgba(0,0,0,0);*/}
+.less .checkbox{background: url(http://teststatic.jd.com/daojia/new/images/icon/icon_checkbox_none1.png) no-repeat center center;background-size: 24px 24px;}
+.checked , input[type=checkbox]:checked {background-position: -88px -308px}
+/*input[type=search]搜索框去默认样式*/
+input::-webkit-search-decoration,input::-webkit-search-cancel-button {	display: none;}
+
+
+
+
+.curr , .show { display:block; }
+/*设备ID 登录验证*/
+.hide , .none { display:none;  }
+img.hidden { visibility:hidden; }
+/*显示正在加载中*/
+.loading { height:100%;  background:#fff url(http://teststatic.jd.com/daojia/new/images/icon/newLoading.gif) center center no-repeat; background-size:93px auto; }
+.loading-error { height:100%; min-height:66px; background:url(http://teststatic.jd.com/daojia/new/images/icon/fail.png) center center no-repeat; background-size:100px 100px; }
+.loading-mask { position:fixed; left:0; right:0; top:0; bottom:0; z-index:9; background:url(http://teststatic.jd.com/daojia/new/images/icon/loading.gif) center center no-repeat; background-size:31px 31px;}
+
+
+
+/*垂直居中*/
+.vertical-middle { position:fixed; z-index:2000; left:0; top:0; right:0; bottom:0; width:100%; height:100%; background-color:rgba(0,0,0,.8); }
+.vertical-middle td,.vertical-middle-msg td { text-align:center; vertical-align:middle; }
+.vertical-middle-msg{position:fixed; z-index:3000; left:0; top:0; right:0; bottom:0; width:100%; height:120%;}
+
+/*msg()*/
+.msg-content { position:relative; top:-50px; display:inline-block; min-width:140px; padding: 25px; color:#fff; font-size:17px; line-height:28px; border-radius:10px; background-color:rgba(0,0,0,0.75); margin: 0 60px;}
+
+/*Alert()*/
+.alert { position:relative; width:270px; color:#000; font-size:14px; line-height:19px; border-radius:8px;background-color: #ffffff; overflow:hidden;text-align: center;left: 50%;top: 50%;transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%);}
+.alert h2 {font-size: 17px; color:#000; font-family:"黑体 Arial"; font-weight:bold;height: 60px;line-height: 60px;background-color: #ffffff;}
+.alert-msg { line-height:19px; text-align:center;padding: 0 33px 22px 33px;}
+.alert-msg > em { color:#ed1c24; }
+.alert-msg > a {color: #2cafcf;}
+.alert-buttons { position:relative; height:44px; line-height:44px; font-size:17px; color:#0b7ffe; border-radius:0 0 9px 9px; }
+.alert-buttons.border-t:after{border-top:1px solid #d9d9d9; }
+.alert-two-buttons li {font-size: 15px;position:absolute; height:44px; width:50%; left:50%; top:0; color: #0078ff;font-weight: bold;}
+.alert-two-buttons li:first-child { left:0;}
+.alert-two-buttons li.btn-f.border-r:after {border-right:1px solid #d9d9d9;}
+.alert-buttons > .touchon { background-color:#d9d9d9; opacity:1; }
+.alert-no-title .alert h2{
+    display: none;
+}
+.alert-no-title .alert-msg{
+    padding: 22px 33px;
+}
+/*哎呀，获取不到网络**/
+.network-error { padding-top:140px; height:auto; background-color:#ebebeb; }
+.network-error .fresh { padding-top:100px; height:64px; line-height:32px; font-size:16px; color:#555; text-align:center; background:url(http://teststatic.jd.com/daojia/new/images/icon/wifi.png) center top no-repeat; background-size:96px auto; }
+
+
+/*列表加载提示*/
+.list-load-tip--doneall { text-align:center; padding-bottom:10px; }
+
+
+/*swipe-7*/
+/*
+	<div class="swipe7">
+		<ul class="swipe7list>
+			<li class="swipe7item">...</li><li class="swipe7item">...</li><li class="swipe7item">...</li>
+		</ul>
+	</div>
+	html注意事项：<li>之间不留空格
+*/
+.swipe7 { /*width:100%;*/ position:relative; z-index:8; white-space:nowrap; text-align:left; overflow:hidden; }
+.swipe7list { position:relative; }
+.swipe7item { position:relative; display:inline-block; vertical-align:top; width:100%; text-align:center; }
+.swipe7 img , .swipe7 a { display:block; width:100%; }
+
+.swipe7Indicator { height:10px; text-align:right; position:absolute; z-index: 3; left:0; right:0px; bottom:6px; text-align: center;}
+.swipe7Indicator.hide { display:none; }
+.swipe7IndicatorItem { display: inline-block; vertical-align:top; width:3px; height:3px; border:2px solid #fff; border-radius:8px; margin: 2px 2px; }
+.swipe7IndicatorItem.current { background-color:#fff; border-color:#fff; }
+
+/*底部导航 by xx'*/
+.footer-nav { position:fixed; z-index:801; left:0; right:0; bottom:0; width:100%; height:50px; background:#fff; border-top:1px solid #d9d9d9; }
+.footer-nav a.index,.footer-nav a.faxian,.footer-nav a.homeCategorySearch, .footer-nav a.cartList,.footer-nav a.orderList,.footer-nav a.mine,.footer-nav a.news{ display:inline-block; vertical-align:top; width:20%; font-size:12px; line-height:17px; text-align:center; padding-top:30px; height:20px; background-image:url(http://teststatic.jd.com/daojia/new/images/nav4.png); background-repeat:no-repeat; background-size:24px 600px; }
+.footer-nav a.index { background-position:center -250px; }
+.footer-nav a.faxian { background-position:center -500px; position:relative; }
+.footer-nav a.homeCategorySearch { background-position:center -300px; }
+.footer-nav a.cartList { background-position:center -350px; }
+.footer-nav a.orderList { background-position:center -400px;  }
+.footer-nav a.mine {  background-position:center -450px; }
+.footer-nav a.news, .wallet-wrapper .news{
+  position: relative;
+}
+.footer-nav a.news::after, .wallet-wrapper .news::after{
+  content: " ";
+  position: absolute;
+  border: 4px solid #ff5757;
+  width: 0;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  top: 5px;
+  right: 33%;
+}
+.footer-nav .faxian-unread { display:none; position:absolute; top:7px; left:50%; width:15px; height:15px; line-height:14px; text-align:center; background-color:#ff5452; color:#fff; font-size:9px; border-radius:15px; }
+/*47b34e ?*/
+.footer-nav.index 		a.index { background-position:center 0; color:#39ac69; }
+.footer-nav.faxian 		a.faxian { background-position:center -550px; color:#39ac69; }
+.footer-nav.homeCategorySearch 		a.homeCategorySearch { background-position:center -50px; color:#39ac69; }
+.footer-nav.cartList 	a.cartList {  background-position:center -100px;color:#39ac69; }
+.footer-nav.orderList 	a.orderList { background-position:center -150px;color:#39ac69; }
+.footer-nav.mine 		a.mine {background-position:center -200px; color:#39ac69; }
+/**/
+.fuli-message { display:none; position:absolute; left:30%; top:-32px; margin-left:-22px; font-size:13px; color:#fff; width:45%; height:24px; background-color:#47b34f; padding:0 5px 0 28px; }
+.fuli-message-img { position:absolute; z-index:2; left:5px; top:3px; width:16px; height:16px; border:1px solid #fff; border-radius:1px; }
+.fuli-message-p { width:100%; height:24px; line-height:24px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+.fuli-message-i { position:absolute; z-index:0; width:8px; height:8px; background-color:#47b34f;  left:19px; top:20px; transform-origin:center center; transform:rotate(45deg); -webkit-transform-origin:center center; -webkit-transform:rotate(45deg); }
+
+/* 解决页面以动画形式切换时，底部导航上浮的bug
+section.moving .footer-nav { position:absolute; }*/
+
+/*mine .footer-mine em {color: #47b34f;}*/
+.public-title {height:36px;line-height: 36px;font-size: 14px; padding:0 5px 0 15px;color:#555; border-bottom:1px solid #f0f0f0;overflow: hidden; position:relative;text-overflow: ellipsis;  white-space: nowrap;}
+.public-title a {display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+
+/* icon */
+.icon-near{background: url(http://teststatic.jd.com/daojia/new/images/icon/icon_near.png) no-repeat 10px center;background-size:20px auto;text-indent:30px;}
+
+
+/*线条样式*/
+.line-top { background-image:url(http://teststatic.jd.com/daojia/new/images/line/top.png); background-position:left top; background-repeat:repeat-x; background-size:1px 1px;  }
+.line-bottom { background-image:url(http://teststatic.jd.com/daojia/new/images/line/bottom.png); background-position:left bottom; background-repeat:repeat-x; background-size:1px 1px;}
+/*暂时没有被用到，保留注释
+.line-right { background-image:url(http://teststatic.jd.com/daojia/new/images/line/right.png); background-position:right top; background-repeat:repeat-y; background-size:1px 1px; }
+*/
+
+/*清浮动*/
+.clearfix:after{clear:both;display:block;content:"...";visibility:hidden;height:0;font-size:0;}
+.clearfix{*zoom:1;}
+
+/* GLOBAL ICON BACKGROUND*/
+.pdj-icon {
+	background: url(http://teststatic.jd.com/daojia/new/images/icon/pdj_2_sprites.png) no-repeat;
+	background-size: 320px auto;
+	display: inline-block;
+}
+
+.msg-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+}
+/*吸顶start*/
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    right: 0;
+    left: 0;
+    display: none;
+}
+.sticky {
+    position: -webkit-sticky;
+    position: -ms-sticky ;
+    position: -moz-sticky ;
+    position: -o-sticky ;
+    position: sticky ;
+    top: 0;
+    z-index: 999;
+    right: 0;
+    left: 0;
+}
+/*吸顶end*/
+
+/*retina 1像素 start*/
+ /*border-r（右）,border-l（左）,border-t（上）,border-b（下）加入到需要添加border的元素内即可
+   默认颜色#e8e8e8
+ */
+.border-r,.border-l,.border-t,.border-b{ position: relative;}
+.border-r::after {
+    height: 100%;
+    content: '';
+    width: 1px;
+    border-right: 1px solid #e8e8e8;
+    position: absolute;
+    top: 0;
+    right: -1px;
+    transform: scaleX(0.5);
+    -webkit-transform: scaleX(0.5);
+    z-index: 2;
+}
+
+.border-l::before {
+    height: 100%;
+    content: '';
+    width: 1px;
+    border-left: 1px solid #e8e8e8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0.5);
+    -webkit-transform: scaleX(0.5);
+    z-index: 10;
+}
+
+.border-t::after {
+    height: 1px;
+    content: '';
+    width: 100%;
+    border-top: 1px solid #e8e8e8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+    z-index: 10;
+}
+
+.border-b::before {
+    height: 1px;
+    content: '';
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+    z-index: 10;
+}
+
+/*retina 1像素 end*/
