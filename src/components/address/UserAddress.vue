@@ -2,8 +2,8 @@
 <template>
   <div class='address-main-div'>
     <div class='main-header border-b'>
-      <h2 v-on:click='changeCity' class='main-header-city none'>{{'北京市'}}</h2>
-      <input v-on:click='test' class='main-header-search defaultWidth' maxlength='50' type='text' placeholder='选择城市、小区、写字楼、学校' />
+      <h2 v-on:click='changeCity' class='main-header-city' v-show='false'>{{'北京市'}}</h2>
+      <input v-on:click='test' ref='inputCity' class='main-header-search' v-bind:class='{defaultWidth:showCity}' maxlength='50' type='text' placeholder='选择城市、小区、写字楼、学校' />
     </div>
     <div class='main-list-content'>
       <div class='main-locate'>
@@ -59,14 +59,28 @@ export default{
     historyData: Array,
     city: Array
   },
+  data: function () {
+    return {
+      'showCity': true
+    }
+  },
+  computed: {
+    test: function () {
+      return {
+        'showCity': false
+      }
+    }
+  },
   methods: {
-    test: function (e) {
-      // $(e.currentTarget).removeClass('defaultWidth');
-      // $('.detail-btn').addClass('none');
-      // $('.main-header-city').removeClass('none');
-      // $('.main-list-content').addClass('none');
-      // $('.main-history-content').removeClass('none');
-    },
+    // test: function (e) {
+    //   // console.log(this.$refs.inputCity)
+    //   // this.$refs.inputCity.removeClass('defaultWidth')
+    //   // $(e.currentTarget).removeClass('defaultWidth');
+    //   // $('.detail-btn').addClass('none');
+    //   // $('.main-header-city').removeClass('none');
+    //   // $('.main-list-content').addClass('none');
+    //   // $('.main-history-content').removeClass('none');
+    // },
     changeCity: function (e) {
       // $('.address-city-div').removeClass('none');
       // $('.main-history-content').addClass('none');
