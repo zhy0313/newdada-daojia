@@ -6,6 +6,7 @@ import HomeView from '@/views/HomeView'
 import SearchView from '@/views/SearchView'
 import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
+import AddressView from '@/views/AddressView'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ export default new Router({
       path: '/btn',
       name: 'Button',
       component: Button
+    },
+    {
+      path: '/address',
+      name: 'address',
+      component: AddressView
     }
   ]
 })
