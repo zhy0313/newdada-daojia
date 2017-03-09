@@ -18,10 +18,17 @@ export default {
   created () {
     // 实例外部使用 Vue.postAPI
     this.$getAPI({
-      functionId: 'login/testLogin',
-      body: {jdPin: 'jd_57593b3c2bc17'}
+      functionId: 'login/testLogin'
+      // functionId: 'login/testLogin',
+      // body: {jdPin: 'jd_57593b3c2bc17'}
     }).then((response) => {
-      console.log(response)
+      if (response.body.code === '0') {
+        console.log('接口成功')
+        console.log('response', response.result)
+      } else {
+        console.log('接口失败', response.body)
+      }
+      this.$toast({message: response.body.msg, position: 'center'})
     }, (err) => {
       console.log('err', err)
     })
@@ -31,7 +38,7 @@ export default {
       functionId: 'user/getUserInfo',
       body: {}
     }).then((response) => {
-      console.log(response)
+      console.log('response', response.result)
     }, (err) => {
       console.log('err', err)
     })

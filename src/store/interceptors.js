@@ -20,9 +20,18 @@ export default (store) => {
 
     store.commit(MutationTypes.LOADING, true) // loading true
     next((response) => {
-      // 请求后的处理逻辑
       store.commit(MutationTypes.LOADING, false) // loading false
-      return response
+      let responseData = { ...response }
+      // if (response.data.success) {
+      //   console.log('接口成功')
+      // } else {
+      //   console.log('接口失败')
+      //   responseData.status = 404
+      // }
+      responseData.result = response.data.result
+      // console.log(responseData)
+      // debugger
+      return responseData
     })
   })
 }
