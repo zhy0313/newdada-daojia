@@ -18,9 +18,9 @@ export default {
   created () {
     // 实例外部使用 Vue.postAPI
     this.$getAPI({
-      functionId: 'login/testLogin'
-      // functionId: 'login/testLogin',
-      // body: {jdPin: 'jd_57593b3c2bc17'}
+      // functionId: 'login/testLogin'
+      functionId: 'login/testLogin',
+      body: {jdPin: 'jd_57593b3c2bc17'}
     }).then((response) => {
       if (response.body.code === '0') {
         console.log('接口成功')
