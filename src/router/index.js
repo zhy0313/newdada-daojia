@@ -8,6 +8,7 @@ import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
 import IndexView from '@/views/IndexView'
 import AddressView from '@/views/AddressView'
+import CashierView from '@/views/CashierView'
 
 Vue.use(Router)
 
@@ -49,6 +50,11 @@ export default new Router({
       path: '/address',
       name: 'address',
       component: AddressView
+    },
+    {
+      path: '/cashier',
+      name: 'cashier',
+      component: CashierView
     }
   ]
 })

@@ -15,6 +15,7 @@ const state = {
   count: 0,
   number: 0,
   books: [],
+  currentShoppingCart: [],
   isLoading: false
 }
 
