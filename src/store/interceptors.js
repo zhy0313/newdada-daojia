@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
+import * as MutationTypes from './mutation-types'
 
 Vue.use(VueResource)
 
@@ -17,10 +18,10 @@ export default (store) => {
     request.params.body = JSON.stringify(request.params.body)
     request.params = {...request.params, platCode: 'H5', appName: 'paidaojia', appVersion: '3.8.0'}
 
-    store.commit('loading', true) // loading true
+    store.commit(MutationTypes.LOADING, true) // loading true
     next((response) => {
       // 请求后的处理逻辑
-      store.commit('loading', false) // loading false
+      store.commit(MutationTypes.LOADING, false) // loading false
       return response
     })
   })

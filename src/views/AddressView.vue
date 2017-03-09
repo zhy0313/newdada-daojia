@@ -20,8 +20,42 @@ export default{
       city: city
     }
   },
+  created () {
+    this.getAddress()
+  },
+  // mounted() {
+  //
+  // },
   components: {
     UserAddress
+  },
+  methods: {
+    getAddress: function () {
+      let data = {
+        functionId: 'addresspdj/getAddressList',
+        body: {}
+      }
+      this.$http.get('/client', {params: data}).then(response => {
+        address = response.body.result
+        this.items = address
+      }, response => {
+        // return response
+      })
+    }
+  },
+  computed: {
+    // getAddress: function () {
+    //   let data = {
+    //     functionId: 'addresspdj/getAddressList',
+    //     body: {}
+    //   }
+    //   this.$http.get('/client', {params: data}).then(response => {
+    //     address = response.body.result
+    //     return address
+    //   }, response => {
+    //     return response
+    //   })
+    // }
   }
 }
 </script>
