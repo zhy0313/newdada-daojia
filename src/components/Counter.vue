@@ -1,3 +1,4 @@
+<!-- 示例代码 -->
 <template>
     <div>
         <group-title>Counter</group-title>
