@@ -7,6 +7,7 @@ import SearchView from '@/views/SearchView'
 import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
 import IndexView from '@/views/IndexView'
+import HomeView from '@/views/HomeView'
 import AddressView from '@/views/AddressView'
 import CashierView from '@/views/CashierView'
 
@@ -25,6 +26,11 @@ export default new Router({
       path: '/counter',
       name: 'CounterView',
       component: CounterView
+    },
+    {
+      path: '/home',
+      name: 'HomeView',
+      component: HomeView
     },
     {
       path: '/search',

@@ -6,6 +6,7 @@ import mutations from './mutations'
 import * as actions from './actions'
 import * as getters from './getters'
 import interceptors from './interceptors'
+import './api'
 
 Vue.use(Vuex)
 
