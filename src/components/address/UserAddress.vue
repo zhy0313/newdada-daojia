@@ -1,11 +1,11 @@
 <!-- 用户当前的所有地址 -->
 <template>
   <div class='address-main-div'>
-    <div class='main-header border-b'>
-      <h2 v-on:click='changeCity' class='main-header-city none'>{{'北京市'}}</h2>
-      <input v-on:click='test' class='main-header-search defaultWidth' maxlength='50' type='text' placeholder='选择城市、小区、写字楼、学校' />
+    <div class='main-header border-b' v-bind:class='{none:showHeader}'>
+      <h2 v-on:click='changeCity' class='main-header-city' v-bind:class='{none:showHeaderCity}'>{{defaultCityName}}</h2>
+      <input v-on:click='test' ref='inputCity' class='main-header-search' v-bind:class='{defaultWidth:showHeaderCity}' maxlength='50' type='text' placeholder='选择城市、小区、写字楼、学校' />
     </div>
-    <div class='main-list-content'>
+    <div class='main-list-content' v-bind:class='{none:showAddressList}'>
       <div class='main-locate'>
           <i></i>
           <p>点击定位当前地点</p>
@@ -30,7 +30,7 @@
           </ul>
         </div>
       </div>
-        <div class='main-history-content none'>
+        <div class='main-history-content' v-bind:class='{none:showHistory}'>
           <HistoryAddress :historyData='historyData'></HistoryAddress>
         </div>
         <div class='main-poi-content none'>
@@ -38,9 +38,9 @@
 
             </ul>
         </div>
-    <div class='address-city-div none'>
+    <div class='address-city-div' v-bind:class='{none:showCityName}'>
         <h2 class='address-city-title'><span>已开通城市</span></h2>
-        <CityView :city='city'></CityView>
+        <CityView :city='city' v-on:chooseCity='hasChooseCity'></CityView>
     </div>
     <div class='address-list-div none'>
         <ul></ul>
@@ -59,21 +59,45 @@ export default{
     historyData: Array,
     city: Array
   },
+  data: function () {
+    return {
+      'showCityName': true,
+      'showHeader': false,
+      'showHistory': true,
+      'showHeaderCity': true,
+      'showAddressList': false,
+      'defaultCityName': '北京市'
+    }
+  },
+  computed: {
+    // test: function () {
+    //   return {
+    //     'showCity': false
+    //   }
+    // }
+  },
   methods: {
     test: function (e) {
-      // $(e.currentTarget).removeClass('defaultWidth');
-      // $('.detail-btn').addClass('none');
-      // $('.main-header-city').removeClass('none');
-      // $('.main-list-content').addClass('none');
-      // $('.main-history-content').removeClass('none');
+      this.showHeaderCity = false
+      this.showAddressList = true
+      this.showHistory = false
+      // console.log(this.$refs.inputCity)
     },
     changeCity: function (e) {
-      // $('.address-city-div').removeClass('none');
-      // $('.main-history-content').addClass('none');
+      this.showHeader = true
+      this.showHistory = true
+      this.showCityName = false
     },
     chooseAddress: function (e) {
       // 选择地址之后返回上个页面
 
+    },
+    hasChooseCity: function (cityId, cityName) {
+      this.showHeader = false
+      this.showHistory = true
+      this.showCityName = true
+      this.showAddressList = false
+      this.defaultCityName = cityName
     }
   },
   components: {
