@@ -5,7 +5,6 @@ import impression from 'vue-impression'
 import App from './App'
 import router from './router'
 import store from './store'
-import './store/api'
 import 'vue-impression/dist/styles/index' // 外部样式引用，导入的代码库中的样式
 
 // 全局配置

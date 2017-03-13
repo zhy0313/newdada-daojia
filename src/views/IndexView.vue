@@ -11,10 +11,16 @@
                 <cell to="search">search</cell>
             </group>
         </flex-item>
+        <FooterNav></FooterNav>
     </flex>
 </template>
 <script>
+import FooterNav from '@/components/FooterNav'
+
 export default {
+  components: {
+    FooterNav
+  },
   created () {
     // 实例外部使用 Vue.postAPI
     this.$getAPI({
