@@ -10,6 +10,7 @@ import HomeView from '@/views/HomeView'
 // 示例代码 END
 import AddressView from '@/views/AddressView'
 import CashierView from '@/views/CashierView'
+import AddressListView from '@/views/AddressListView'
 
 Vue.use(Router)
 
@@ -51,6 +52,11 @@ export default new Router({
       path: '/cashier',
       name: 'cashier',
       component: CashierView
+    },
+    {
+      path: '/addressList',
+      name: 'addressList',
+      component: AddressListView
     }
   ]
 })
