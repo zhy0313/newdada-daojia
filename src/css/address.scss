@@ -456,3 +456,140 @@
     height: 100%;
     background: #fff;
 }
+.txmap{
+  position: absolute;
+  left: 0;
+  bottom: 0
+}
+.addresslist-title{
+    line-height: 30px;
+    font-size: 14px;
+    color: #666666;
+    padding: 10px 15px;
+}
+.addresslist-item .address-edit{
+    // background: url(../images/settlement/icon_address_edit.png) no-repeat center;
+    width: 42px;
+    height: 100%;
+    display: block;
+    background-size: 18px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+}
+.addresslist-new {
+    display         : block;
+    padding-left    : 45px;
+    color           : #333333;
+    font-size       : 15px;
+    line-height     : 40px;
+    // background      : url(../images/icon/address_add.png) no-repeat #fff 15px;
+    background-size : 18px;
+    position: relative;
+}
+.jd_address.border-b:before {
+    border-bottom : 1px solid #d9d9d9;
+}
+.addresslist-new::after {
+    content         : '';
+    position        : absolute;
+    right           : 0px;
+    width           : 44px;
+    height          : 44px;
+    // background      : url(../images/icon/pdj_2_sprites.png) no-repeat -80px -264px;
+    background-size : 320px auto;
+}
+.addresslist-item {
+    /*margin-top       : 9px;*/
+    background-color : #fff;
+    padding-left: 15px;
+    margin-bottom: 45px;
+}
+.addresslist-item li {
+    position    : relative;
+    padding     : 15px 0px 10px 0px;
+    color       : #666666;
+    line-height : 20px;
+}
+.addresslist-item li.border-t:after{
+    border-top  : 1px solid #d8d8d8;
+}
+.addresslist-item li .opera_info {
+    color         : #555555;
+    line-height : 40px;
+    font-size: 13px;
+}
+.addresslist-item li .user_info span {
+    margin-left : 15px;
+}
+.addresslist-item li .opera_info .isChecked {
+    display         : inline-block;
+    padding-left    : 30px;
+    line-height     : 25px;
+    // background      : url(../images/icon/icon_nochecked.png) left no-repeat;
+    background-size : 18px 18px;
+}
+.addresslist-item li .opera_info .isChecked.selected {
+    // background: url(../images/icon/icon_checked.png) left no-repeat;
+}
+.addresslist-item li .address_info {
+    color         : #333333;
+    line-height   : 20px;
+    font-size: 14px;
+    max-width: 80%;
+}
+.addresslist-item li .user_info {
+    line-height : 20px;
+    font-size: 14px;
+}
+.addresslist-item li.selected .isChecked {
+    // background-image : url(../images/icon/icon_checked.png);
+}
+.addresslist-item li:first-child {
+    border-top : none;
+}
+.addresslist-item p {
+    line-height : 28px;
+}
+.addresslist-item .delete,
+.addresslist-item .edit {
+    width           : 38px;
+    height          : 40px;
+    float           : right;
+    padding-left    : 25px;
+    // background      : url(../images/icon/icon_edit.png) left no-repeat;
+    background-size : 20px 20px;
+    font-size: 13px;
+}
+.addresslist-item .delete {
+    right            : 0;
+    // background-image : url(../images/icon/icon_trash.png);
+}
+
+/*新建地址*/
+
+
+.newaddress-save-button {
+    margin : 15px;
+}
+.newaddress-save-button i {
+    display          : block;
+    color            : #fff;
+    border-radius    : 5px;
+    text-align       : center;
+    font-size        : 16px;
+    line-height      : 44px;
+    line-height      : 44px;
+    background-color : #47b34f;
+}
+.address-del{
+    width: 43px;
+    height:43px;
+    display: inline-block;
+    // background: url(../images/address/icon_delete.png) no-repeat;
+    background-size: 100%;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    margin-left: -21px;
+}
