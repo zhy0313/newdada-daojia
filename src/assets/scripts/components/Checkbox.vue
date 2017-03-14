@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
+  import Sync from '../mixins/sync'
 
   export default {
     name: 'checkbox',
@@ -26,35 +26,35 @@
       type: {
         type: String,
         default: 'square',
-        validator(value) {
-          return ['square', 'circle'].indexOf(value) > -1;
-        },
-      },
+        validator (value) {
+          return ['square', 'circle'].indexOf(value) > -1
+        }
+      }
     },
-    data() {
-      let currentValue;
+    data () {
+      let currentValue
 
-      if(this.isGroupChildComponent) {
+      if (this.isGroupChildComponent) {
         currentValue = this.$parent.currentValue &&
-          this.$parent.currentValue.indexOf(this.value) > -1;
+          this.$parent.currentValue.indexOf(this.value) > -1
       } else {
-        currentValue = this.value;
+        currentValue = this.value
       }
 
-      return { currentValue };
+      return { currentValue }
     },
     watch: {
-      currentValue(val) {
-        if(this.isGroupChildComponent) {
-          this.$parent.$emit('optionChecked', this.value);
+      currentValue (val) {
+        if (this.isGroupChildComponent) {
+          this.$parent.$emit('optionChecked', this.value)
         }
 
-        this.$emit('input', val);
-      },
+        this.$emit('input', val)
+      }
     },
-    beforeCreate() {
+    beforeCreate () {
       // 是否CheckboxGroup下的子组件
-      this.isGroupChildComponent = this.$parent.$options._componentTag === 'checkbox-group';
-    },
-  };
+      this.isGroupChildComponent = this.$parent.$options._componentTag === 'checkbox-group'
+    }
+  }
 </script>

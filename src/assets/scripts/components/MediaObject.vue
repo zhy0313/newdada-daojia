@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    name: 'media-object',
+    name: 'media-object'
   }
 </script>

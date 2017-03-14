@@ -8,8 +8,7 @@
   export default {
     name: 'slideup-body',
     props: {
-      noPadding: Boolean,
-    },
-  };
+      noPadding: Boolean
+    }
+  }
 </script>
-=

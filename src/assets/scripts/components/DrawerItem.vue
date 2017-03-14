@@ -12,10 +12,10 @@
 </template>
 
 <script>
-  import TabItem from '../mixins/tabItem';
+  import TabItem from '../mixins/tabItem'
 
   export default {
     name: 'drawer-item',
-    mixins: [TabItem],
-  };
+    mixins: [TabItem]
+  }
 </script>

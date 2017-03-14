@@ -5,15 +5,15 @@
 </template>
 
 <script>
-  import Tab from '../mixins/tab';
+  import Tab from '../mixins/tab'
 
   export default {
     name: 'navigation',
     mixins: [Tab],
     props: {
       activeKey: {
-        default: 0,
-      },
-    },
-  };
+        default: 0
+      }
+    }
+  }
 </script>

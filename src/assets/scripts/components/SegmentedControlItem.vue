@@ -11,10 +11,10 @@
 </template>
 
 <script>
-  import TabItem from '../mixins/tabItem';
+  import TabItem from '../mixins/tabItem'
 
   export default {
     name: 'segmented-control-item',
-    mixins: [TabItem],
-  };
+    mixins: [TabItem]
+  }
 </script>

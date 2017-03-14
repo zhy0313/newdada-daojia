@@ -5,30 +5,30 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
+  import Sync from '../mixins/sync'
 
   export default {
     name: 'checkbox-group',
     mixins: [Sync],
-    data() {
+    data () {
       return {
-        currentValue: this.value || [],
-      };
+        currentValue: this.value || []
+      }
     },
     methods: {
-      optionCheckedHandle(option) {
-        this.currentValue = this.currentValue || [];
-        const index = this.currentValue.indexOf(option);
+      optionCheckedHandle (option) {
+        this.currentValue = this.currentValue || []
+        const index = this.currentValue.indexOf(option)
 
-        if(index === -1) {
-          this.currentValue.push(option);
+        if (index === -1) {
+          this.currentValue.push(option)
         } else {
-          this.currentValue.splice(index, 1);
+          this.currentValue.splice(index, 1)
         }
-      },
+      }
     },
-    created() {
-      this.$on('optionChecked', this.optionCheckedHandle);
-    },
-  };
+    created () {
+      this.$on('optionChecked', this.optionCheckedHandle)
+    }
+  }
 </script>

@@ -5,11 +5,11 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
-  import Select from '../mixins/select';
+  import Sync from '../mixins/sync'
+  import Select from '../mixins/select'
 
   export default {
     name: 'selector',
-    mixins: [Sync, Select],
-  };
+    mixins: [Sync, Select]
+  }
 </script>

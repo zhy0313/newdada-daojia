@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
+  import Sync from '../mixins/sync'
 
   export default {
     name: 'slideup',
@@ -18,17 +18,17 @@
     props: {
       transition: {
         type: String,
-        default: 'slide-up',
+        default: 'slide-up'
       },
       closeOnClickMask: {
         type: Boolean,
-        default: true,
-      },
+        default: true
+      }
     },
     watch: {
-      currentValue(val) {
-        val ? this.$emit('show') : this.$emit('close');
-      },
-    },
-  };
+      currentValue (val) {
+        val ? this.$emit('show') : this.$emit('close')
+      }
+    }
+  }
 </script>

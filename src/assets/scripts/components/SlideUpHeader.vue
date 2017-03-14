@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    name: 'slideup-header',
-  };
+    name: 'slideup-header'
+  }
 </script>

@@ -26,19 +26,19 @@
       // 初始化指示器位置
       initSelectedIndicator () {
         this.$children.forEach((child, index) => {
-          if(this.currentActiveKey === child.currentEventKey) {
-            let $indicator = this.$refs.indicator,
-              translateX = index * this.indicatorWidth
+          if (this.currentActiveKey === child.currentEventKey) {
+            let $indicator = this.$refs.indicator
+            let translateX = index * this.indicatorWidth
 
             setTranslate($indicator, translateX, 0)
           }
         })
-      },
+      }
     },
     watch: {
       currentActiveKey () {
         this.initSelectedIndicator()
-      },
+      }
     },
     mounted () {
       this.setIndicatorWidth()

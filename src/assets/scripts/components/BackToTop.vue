@@ -15,21 +15,21 @@
     name: 'back-to-top',
     data () {
       return {
-        active: false,
+        active: false
       }
     },
     methods: {
       /* global window:true document:true requestAnimationFrame:true */
       scrollToTopHandle () {
-        let scrollTop = this.getScrollTop(),
-          startTime = Date.now()
+        let scrollTop = this.getScrollTop()
+        let startTime = Date.now()
 
         let frameFunc = () => {
-          let timestamp = Date.now(),
-            time = timestamp - startTime
+          let timestamp = Date.now()
+          let time = timestamp - startTime
 
           this.setScrollTop(easeInOutCubic(time, scrollTop, 0, 450))
-          if(time < 450) {
+          if (time < 450) {
             requestAnimationFrame(frameFunc)
           }
         }
@@ -42,7 +42,7 @@
         ? window.pageYOffset : this.scrollTargetEl.scrollTop
       },
       setScrollTop (val) {
-        if(this.scrollTargetEl === document) {
+        if (this.scrollTargetEl === document) {
           document.body.scrollTop = val
           document.documentElement.scrollTop = val
 
@@ -60,15 +60,15 @@
         ? window.pageYOffset : this.scrollTargetEl.scrollTop
 
         // 显示
-        if(scrollTop < this._offsetY && (this._offsetY - scrollTop > 60)) {
+        if (scrollTop < this._offsetY && (this._offsetY - scrollTop > 60)) {
           this.active = true
-        } else if(Math.abs(this._offsetY - scrollTop) > 60) {
+        } else if (Math.abs(this._offsetY - scrollTop) > 60) {
           // 隐藏
           this.active = false
         }
 
         this._offsetY = scrollTop
-      },
+      }
     },
     mounted () {
       this.scrollTargetEl = getScrollContainer(this.$el)

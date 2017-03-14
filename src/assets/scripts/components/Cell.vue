@@ -59,7 +59,7 @@
       }
     },
     computed: {
-      clickable() {
+      clickable () {
         return this.href || (this._events.click)
       }
     }

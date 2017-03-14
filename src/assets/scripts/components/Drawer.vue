@@ -5,15 +5,15 @@
 </template>
 
 <script>
-  import Tab from '../mixins/tab';
+  import Tab from '../mixins/tab'
 
   export default {
     name: 'drawer',
     mixins: [Tab],
     methods: {
-      reset() {
-        this.currentActiveKey = undefined;
-      },
-    },
-  };
+      reset () {
+        this.currentActiveKey = undefined
+      }
+    }
+  }
 </script>

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
+  import Sync from '../mixins/sync'
 
   export default {
     name: 'input-number',
@@ -27,34 +27,34 @@
     props: {
       value: {
         type: Number,
-        default: 0,
+        default: 0
       },
       max: {
         type: Number,
-        default: Infinity,
+        default: Infinity
       },
       min: {
         type: Number,
-        default: -Infinity,
+        default: -Infinity
       },
       step: {
         type: Number,
-        default: 1,
-      },
+        default: 1
+      }
     },
     methods: {
       // 减
-      minusHandle() {
-        if(this.disabled || this.currentValue <= this.min) return;
+      minusHandle () {
+        if (this.disabled || this.currentValue <= this.min) return
 
-        this.currentValue -= this.step;
+        this.currentValue -= this.step
       },
       // 加
-      plusHandle() {
-        if(this.disabled || this.currentValue >= this.max) return;
+      plusHandle () {
+        if (this.disabled || this.currentValue >= this.max) return
 
-        this.currentValue += this.step;
-      },
-    },
-  };
+        this.currentValue += this.step
+      }
+    }
+  }
 </script>

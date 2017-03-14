@@ -87,7 +87,7 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
+  import Sync from '../mixins/sync'
 
   export default {
     name: 'input-text',
@@ -98,47 +98,47 @@
       type: {
         type: String,
         default: 'text',
-        validator(value) {
-          return ['text', 'number', 'tel', 'date', 'datetime', 'time', 'password', 'email'].indexOf(value) > -1;
-        },
+        validator (value) {
+          return ['text', 'number', 'tel', 'date', 'datetime', 'time', 'password', 'email'].indexOf(value) > -1
+        }
       },
       state: {
         type: String,
-        validator(value) {
-          return ['success', 'warning', 'error'].indexOf(value) > -1;
-        },
-      },
+        validator (value) {
+          return ['success', 'warning', 'error'].indexOf(value) > -1
+        }
+      }
     },
-    data() {
+    data () {
       return {
         focus: false,
-        currentDisabled: this.disabled || this.$parent.disabled,
-      };
+        currentDisabled: this.disabled || this.$parent.disabled
+      }
     },
     methods: {
-      blur() {
-        this.focus = false;
+      blur () {
+        this.focus = false
       },
-      clearHandle() {
-        if(!this.currentDisabled) {
-          this.currentValue = '';
-          this.$refs.input.focus();
+      clearHandle () {
+        if (!this.currentDisabled) {
+          this.currentValue = ''
+          this.$refs.input.focus()
         }
       },
-      getStateClass() {
+      getStateClass () {
         return {
           success: 'text-success',
           warning: 'text-warning',
-          error: 'text-danger',
-        }[this.state];
+          error: 'text-danger'
+        }[this.state]
       },
-      getStateIcon() {
+      getStateIcon () {
         return {
           success: 'check',
           warning: 'exclamation-triangle',
-          error: 'exclamation-circle',
-        }[this.state];
-      },
-    },
-  };
+          error: 'exclamation-circle'
+        }[this.state]
+      }
+    }
+  }
 </script>

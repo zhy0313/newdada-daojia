@@ -15,19 +15,19 @@
       align: {
         type: String,
         default: 'top',
-        validator(value) {
-          return ['top', 'bottom', 'center'].indexOf(value) > -1;
-        },
-      },
+        validator (value) {
+          return ['top', 'bottom', 'center'].indexOf(value) > -1
+        }
+      }
     },
     methods: {
-      getAlignClass() {
+      getAlignClass () {
         return {
           top: 'flex-align-top',
           center: 'flex-align-middle',
-          bottom: 'flex-align-bottom',
-        }[this.align];
-      },
-    },
-  };
+          bottom: 'flex-align-bottom'
+        }[this.align]
+      }
+    }
+  }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <hr class="hr" :class="{
     [`border-${type}`]: type,
-    [`border-${theme}`]: theme,
+    [`border-${theme}`]: theme
   }">
 </template>
 
@@ -11,16 +11,16 @@
     props: {
       type: {
         type: String,
-        validator(value) {
-          return ['dashed', 'dotted'].indexOf(value) > -1;
-        },
+        validator (value) {
+          return ['dashed', 'dotted'].indexOf(value) > -1
+        }
       },
       theme: {
         type: String,
-        validator(value) {
-          return ['primary', 'secondary', 'warning', 'success', 'danger'].indexOf(value) > -1;
-        },
-      },
-    },
-  };
+        validator (value) {
+          return ['primary', 'secondary', 'warning', 'success', 'danger'].indexOf(value) > -1
+        }
+      }
+    }
+  }
 </script>

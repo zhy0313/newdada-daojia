@@ -21,7 +21,7 @@
       // 尺寸
       size: {
         type: String,
-        validator(value) {
+        validator (value) {
           return ['sm'].indexOf(value) > -1
         }
       },
@@ -29,14 +29,14 @@
       theme: {
         type: String,
         default: 'primary',
-        validator(value) {
+        validator (value) {
           return ['primary', 'default', 'success', 'warning', 'danger'].indexOf(value) > -1
         }
       },
       // 形状
       shape: {
         type: String,
-        validator(value) {
+        validator (value) {
           return ['pill'].indexOf(value) > -1
         }
       }

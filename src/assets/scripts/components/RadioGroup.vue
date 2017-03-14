@@ -5,10 +5,10 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
+  import Sync from '../mixins/sync'
 
   export default {
     name: 'radio-group',
-    mixins: [Sync],
-  };
+    mixins: [Sync]
+  }
 </script>

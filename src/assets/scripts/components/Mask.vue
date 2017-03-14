@@ -14,12 +14,12 @@
     props: {
       transition: {
         type: String,
-        default: 'fade',
+        default: 'fade'
       },
       clickable: {
         type: Boolean,
-        default: true,
-      },
-    },
-  };
+        default: true
+      }
+    }
+  }
 </script>

@@ -15,8 +15,8 @@
     props: {
       flex: {
         type: [Number, String],
-        default: 1,
-      },
-    },
-  };
+        default: 1
+      }
+    }
+  }
 </script>

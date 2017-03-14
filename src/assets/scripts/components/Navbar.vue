@@ -20,10 +20,10 @@
       theme: {
         type: String,
         default: 'primary',
-        validator(value) {
-          return ['primary', 'default'].indexOf(value) > -1;
-        },
-      },
-    },
-  };
+        validator (value) {
+          return ['primary', 'default'].indexOf(value) > -1
+        }
+      }
+    }
+  }
 </script>

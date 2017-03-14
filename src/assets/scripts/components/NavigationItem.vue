@@ -11,13 +11,13 @@
 </template>
 
 <script>
-  import TabItem from '../mixins/tabItem';
+  import TabItem from '../mixins/tabItem'
 
   export default {
     name: 'navigation-item',
     mixins: [TabItem],
     props: {
-      label: String,
-    },
-  };
+      label: String
+    }
+  }
 </script>

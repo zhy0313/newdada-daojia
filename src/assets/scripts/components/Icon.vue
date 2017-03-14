@@ -14,20 +14,20 @@
 
 <script>
   export default {
-  name: 'icon',
-  props: {
-    left: Boolean,
-    right: Boolean,
-    name: {
-    type: String,
-    required: true,
-    },
-    size: {
-    type: String,
-    validator(value) {
-      return ['lg', '2x', '3x', '4x', '5x'].indexOf(value) > -1;
+    name: 'icon',
+    props: {
+      left: Boolean,
+      right: Boolean,
+      name: {
+        type: String,
+        required: true
+      },
+      size: {
+        type: String,
+        validator (value) {
+          return ['lg', '2x', '3x', '4x', '5x'].indexOf(value) > -1
+        }
+      }
     }
-    }
-  }
   }
 </script>

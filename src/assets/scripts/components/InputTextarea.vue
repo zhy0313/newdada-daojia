@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
+  import Sync from '../mixins/sync'
 
   export default {
     name: 'input-textarea',
@@ -21,24 +21,24 @@
       countable: Boolean,
       maxLength: {
         type: Number,
-        default: 200,
+        default: 200
       },
       rows: {
         type: Number,
-        default: 4,
-      },
+        default: 4
+      }
     },
-    data() {
+    data () {
       return {
-        stage: 0,
-      };
+        stage: 0
+      }
     },
     watch: {
-      currentValue(val) {
-        if(val.length > this.maxLength) {
-          this.currentValue = val.substring(0, this.maxLength);
+      currentValue (val) {
+        if (val.length > this.maxLength) {
+          this.currentValue = val.substring(0, this.maxLength)
         }
-      },
-    },
-  };
+      }
+    }
+  }
 </script>

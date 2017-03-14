@@ -21,24 +21,24 @@
     props: {
       value: {},
       val: {},
-      disabled: Boolean,
+      disabled: Boolean
     },
     computed: {
       model: {
-        get() {
-          return this.isGroupChildComponent ? this.$parent.value : this.value;
+        get () {
+          return this.isGroupChildComponent ? this.$parent.value : this.value
         },
-        set(val) {
-          if(this.isGroupChildComponent) {
-            this.$parent.$emit('input', val);
+        set (val) {
+          if (this.isGroupChildComponent) {
+            this.$parent.$emit('input', val)
           } else {
-            this.$emit('input', val);
+            this.$emit('input', val)
           }
-        },
-      },
+        }
+      }
     },
-    beforeCreate() {
-      this.isGroupChildComponent = this.$parent.$options._componentTag === 'radio-group';
-    },
-  };
+    beforeCreate () {
+      this.isGroupChildComponent = this.$parent.$options._componentTag === 'radio-group'
+    }
+  }
 </script>
