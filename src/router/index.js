@@ -10,7 +10,14 @@ import HomeView from '@/views/HomeView'
 // 示例代码 END
 import AddressView from '@/views/AddressView'
 import CashierView from '@/views/CashierView'
+<<<<<<< HEAD
 import StoreHome from '@/views/StoreHome/StoreHome.vue'
+=======
+import AddressListView from '@/views/AddressListView'
+import NewAddressView from '@/views/NewAddressView'
+import EditAddressView from '@/views/EditAddressView'
+
+>>>>>>> 72ff636973ee52f9a3826c0f08a3b53cde14bd1d
 Vue.use(Router)
 
 export default new Router({
@@ -53,9 +60,25 @@ export default new Router({
       component: CashierView
     },
     {
+<<<<<<< HEAD
       path: '/storeHome',
       name: 'storeHome',
       component: StoreHome
+=======
+      path: '/addressList',
+      name: 'addressList',
+      component: AddressListView
+    },
+    {
+      path: '/newAddress',
+      name: 'newAddress',
+      component: NewAddressView
+    },
+    {
+      path: '/editAddress',
+      name: 'editAddress',
+      component: EditAddressView
+>>>>>>> 72ff636973ee52f9a3826c0f08a3b53cde14bd1d
     }
   ]
 })

@@ -2,8 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 
-import impression from 'vue-impression' // 新达达 Vue 组件库
-// import
+// import impression from 'vue-impression' // 新达达 Vue 组件库
+/* eslint-disable */
+import impression from './assets/scripts/components/index'
+/*  eslint-enable */
+
 import App from './App'
 import router from './router'
 import store from './store'
