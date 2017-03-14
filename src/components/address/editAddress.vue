@@ -62,7 +62,10 @@ export default {
           'latitude': This.address.latitude
         }
       }).then(response => {
-        alert('成功')
+        if (response.body.result) {
+          alert('成功')
+          history.go(-1)
+        }
       }, response => {
 
       })
