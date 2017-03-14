@@ -593,3 +593,111 @@
     left: 50%;
     margin-left: -21px;
 }
+/*新建地址页面css*/
+.address-wrapper {
+    width : 100%;
+}
+.address-wrapper .showTit {
+    padding: 10px 0 10px 30px;
+    color        : #ee7a12;
+    background-color   : #fbf9e3;
+    position: relative;
+    font-size: 12px;
+    border-top: 1px solid #e2d1ad;
+    border-bottom: 1px solid #e2d1ad;
+}
+.address-wrapper .showTit:before {
+    content: '';
+    width: 15px;
+    height: 17px;
+    // background: url(../images/settlement/icon_new_mark.png) no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 10px;
+    top: 12px;
+}
+.address-wrapper .showTit em {
+    color : #47b34f;
+}
+.address-wrapper .address-detail,
+.address-wrapper .address-mobile,
+.address-wrapper .address-name {
+    margin-top       : 10px;
+    padding-left     : 10px;
+    font-size        : 15px;
+    line-height      : 40px;
+    background-color : #fff;
+}
+.address-wrapper .address-detail.border-t:after,
+.address-wrapper .address-mobile.border-t:after,
+.address-wrapper .address-name.border-t:after{
+    border-top : 1px solid #e8e8e8;
+    top: -1px;
+}
+.address-wrapper .address-detail.border-b:before,
+.address-wrapper .address-mobile.border-b:before,
+.address-wrapper .address-name.border-b:before{
+    border-bottom : 1px solid #e8e8e8;
+}
+.address-wrapper .address-detail input,
+.address-wrapper .address-mobile input,
+.address-wrapper .address-name input {
+    width       : 80%;
+    padding     : 10px 0 10px 10px;
+    border      : 0;
+    outline     : none;
+    font-size   : 15px;
+    line-height : 20px;
+}
+.address-wrapper .address-detail ul {
+    width : 100%;
+}
+.address-wrapper .address-detail .address-locate {
+    position : relative;
+    width    : 100%;
+}
+.address-wrapper .address-detail .address-locate span {
+    position : absolute;
+}
+.address-wrapper .address-detail .address-locate p {
+    margin-left     : 60px;
+    padding         : 0 10px 0 16px;
+    // background      : url(../images/icon/icon_dingwei.png) no-repeat left center;
+    background-size : auto 13px;
+}
+.address-wrapper .address-detail .address-locate p.border-b:before{
+    border-bottom   : 1px solid #e8e8e8;
+}
+.address-locate p.textColor i {
+    color : #a3a3a3;
+}
+.address-locate p i {
+    display         : block;
+    color           : initial;
+    text-overflow   : ellipsis;
+    font-family     : Arial;
+    white-space     : nowrap;
+    overflow        : hidden;
+    // background      : url(../images/icon/more.png) right center no-repeat;
+    background-size : auto 11px;
+}
+.address-wrapper .address-detail input {
+    width        : 80%;
+    padding-left : 60px;
+}
+.noAddress .indexaddress-failtip {
+    top : 54px;
+}
+.user-serv-content {
+    margin-top : 10px;
+}
+.user-logout-wrap {
+    padding-bottom: 64px;
+}
+.unbindCard{
+    color: #a3a3a3;
+}
+.icon-bind-cart{
+    // background: url(../images/user/wallet.png) 0 -226px no-repeat;
+    background-size:19px auto ;
+}
