@@ -1,0 +1,276 @@
+.store-home-wrap {
+  box-sizing: border-box;
+  padding: 5px 10px;
+}
+//*行业标签背景图 生鲜 1 外卖 2 医药3 服务类（鲜花 5）*/
+.store-industry-1 {
+  background: url(https://static-o2o.360buyimg.com/daojia/new/images/store_industry_1.jpg) 0 0 no-repeat #7bb364;
+     -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+}
+
+//* 外卖 2 背景红色*/
+.store-industry-2 {
+    background: #c87354 url(https://static-o2o.360buyimg.com/daojia/new/images/store_industry_4.jpg) 0 0 no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+
+}
+//* 医药3 背景蓝色*/
+.store-industry-3 {
+    background: #83abce url(https://static-o2o.360buyimg.com/daojia/new/images/store_industry_5.jpg) 0 0 no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+
+}
+//* 鲜花类*/
+.store-industry-4 {
+     background: #d6aa9f url(https://static-o2o.360buyimg.com/daojia/new/images/store_industry_flower.jpg) 0 0 no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+}
+//* 服务类 5*/
+.store-industry-5 {
+     background: #d6aa9f url(https://static-o2o.360buyimg.com/daojia/new/images/store_industry_service.jpg) 0 0 no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+}
+.store-title-wrap{
+  color: #fff;
+  position: relative;
+  min-height: 62px;
+}
+.store-title-wrap .store-logo{
+  float: left;
+  width: 52px;
+  height: 53px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.8);
+  background-color: #fff;
+  margin: 6px 0 0 2px;
+}
+.store-title-wrap .info-wrap{
+  padding-left: 10px;
+  line-height: 20px;
+  padding-right: 58px;
+  min-height: 64px;
+  overflow: hidden;
+  font-weight: bold;
+  text-overflow: ellipsis;
+    .info-title{
+      padding-top: 5px;
+      line-height: 28px;
+      overflow: hidden;
+      font-size: 18px;
+      white-space: nowrap;
+      font-weight: bold;
+      text-overflow: ellipsis;
+    }
+
+    .delivery-tip{
+        line-height: 14px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: bold;
+        white-space: nowrap;
+        font-size: 10px;
+    }
+}
+.store-title-wrap .line_split{
+  padding: 0 2px;
+  display: inline-block;
+  width: 8px;
+  height: 10px;
+  background: url(//static-o2o.360buyimg.com/daojia/new/images/index/icon_line_split.jpg) no-repeat center 2px;
+}
+.store-title-wrap .delivery-time{
+  font-weight: bold;
+}
+.store-title-wrap .store-icon-txt{
+  font-weight: bold;
+}
+.store-title-wrap .store-collection-wrap{
+  position: absolute;
+  top: 6px;
+  right: 2px;
+  width: 22px;
+  height: 26px;
+  font-size: 12px;
+  color: #FFF;
+  text-align: right;
+}
+.store-collection-wrap .collection-btn{
+  float: left;
+  width: 22px;
+  height: 18px;
+  background-image: url(//static-o2o.360buyimg.com/daojia/new/images/store/focus.png);
+  background-repeat: no-repeat;
+  background-position: 0px -2px;
+  -webkit-background-size: 60px auto;
+  background-size: 60px auto;
+}
+.collection-active .collection-btn{
+      background-position: 0 -41px;
+}
+.list-tag-wrap{
+  position: relative;
+  padding-top: 8px;
+  border-top: none;
+  margin-top: 0;
+}
+.list-tag-wrap .list-tag-ul{
+  display: inline-block;
+  width: 75%;
+  font-size: 10px;
+  color: #fff;
+  font-size: 11px;
+}
+.list-tag-wrap .list-tag-li{
+  font-weight: bold;
+  position: relative;
+  padding-left: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -ms-line-clamp: 2;
+  -moz-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  display: -webkit-box;
+  display: -ms-box;
+  display: -moz-box;
+  display: box;
+  height: 19px;
+  margin-bottom: 4px;
+  font-size: 11px;
+  line-height: 19px;
+}
+.list-tag-wrap .list-tag-li .tag-icon{
+  display: inline-block;
+  padding: 0 2px;
+  margin-right: 4px;
+  border-radius: 2px;
+  color: #ffffff;
+  height: 16px;
+  line-height: 16px;
+  font-weight: bold;
+  background-color: #fdc44c;
+}
+.list-tag-wrap .list-tag-li .tag-des{
+  font-weight: bold;
+}
+.store-info-floor{
+  padding-bottom: 35px;
+}
+.store-comment-wrap{
+  padding-top: 25px;
+  color: #FFF;
+}
+.store-public-title{
+  position: relative;
+  margin-bottom: 20px;
+}
+.store-public-title .public-store-title{
+  position: relative;
+  width: 32%;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 18px;
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+}
+.store-public-title::before{
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  right: 64%;
+  border-top: 1px solid rgba(255,255,255,0.4);
+}
+.store-public-title::after{
+  content: '';
+  position: absolute;
+  left: 64%;
+  top: 9px;
+  right: 0;
+  border-top: 1px solid rgba(255,255,255,0.4);
+}
+.store-disc-address{
+  padding: 10px;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-bottom: 10px;
+  margin-top: -1px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.store-disc-address::before {
+    border-bottom: 1px dashed rgba(236,236,236,0.5);
+    z-index: 2;
+}
+.border-r, .border-l, .border-t, .border-b {
+    position: relative;
+}
+.border-r::after {
+    height: 100%;
+    content: '';
+    width: 1px;
+    border-right: 1px solid #e8e8e8;
+    position: absolute;
+    top: 0;
+    right: -1px;
+    transform: scaleX(0.5);
+    -webkit-transform: scaleX(0.5);
+    z-index: 2;
+}
+.border-b::before{
+  height: 1px;
+  content: '';
+  width: 100%;
+  border-bottom: 1px dashed rgba(236,236,236,0.5);
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  z-index: 10;
+}
+.store-comment-wrap{
+  padding: 15px 0;
+  color: #fff;
+}
+.store-comment-wrap .store-comment-dl{
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+}
+.store-comment-wrap .store-comment-dl dt{
+  text-align: center;
+  font-size: 27px;
+  font-weight: bold;
+  height: 36px;
+  line-height: 36px;
+  overflow: hidden;
+}
+.store-comment-wrap .store-comment-dl dd{
+  overflow: hidden;
+  text-align: center;
+  font-size: 12px;
+  height: 18px;
+  line-height: 18px;
+}
