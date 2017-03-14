@@ -10,7 +10,7 @@
       </li>
     </ul>
     <p class='detail-btn'>
-        <a>新建收货地址</a>
+        <router-link to="/newAddress">新建收货地址</router-link>
     </p>
   </div>
 </template>

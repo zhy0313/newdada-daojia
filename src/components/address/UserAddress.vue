@@ -161,6 +161,7 @@ export default{
   },
   created: function () {
     window.addEventListener('message', function (event) {
+      window.removeEventListener('message')
       var loc = event.data
       if (loc && loc.module === 'locationPicker') {
         console.log('location', loc)

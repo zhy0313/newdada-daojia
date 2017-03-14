@@ -11,6 +11,7 @@ import HomeView from '@/views/HomeView'
 import AddressView from '@/views/AddressView'
 import CashierView from '@/views/CashierView'
 import AddressListView from '@/views/AddressListView'
+import NewAddressView from '@/views/NewAddressView'
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
       path: '/addressList',
       name: 'addressList',
       component: AddressListView
+    },
+    {
+      path: '/newAddress',
+      name: 'newAddress',
+      component: NewAddressView
     }
   ]
 })
