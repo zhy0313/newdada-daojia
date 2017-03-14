@@ -1,11 +1,11 @@
 <template>
   <i
   @click="$emit('click')"
-  class="fa"
+  class="icon"
   :class="[
-    'fa-' + name,
+    'icon-' + name,
     {
-    ['fa-' + size]: size,
+    /*['icon-' + size]: size,*/
     'gap-left': left,
     'gap-right': right
     }
@@ -21,12 +21,12 @@
       name: {
         type: String,
         required: true
-      },
-      size: {
-        type: String,
-        validator (value) {
-          return ['lg', '2x', '3x', '4x', '5x'].indexOf(value) > -1
-        }
+      // },
+      // size: {
+      //   type: String,
+      //   validator (value) {
+      //     return ['lg', '2x', '3x', '4x', '5x'].indexOf(value) > -1
+      //   }
       }
     }
   }
