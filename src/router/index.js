@@ -1,12 +1,13 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello' // 等同于 '../components/Hello'
-import Button from '@/components/Button'
 import SearchView from '@/views/SearchView'
+// 示例代码 START
 import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
 import IndexView from '@/views/IndexView'
+import HomeView from '@/views/HomeView'
+// 示例代码 END
 import AddressView from '@/views/AddressView'
 import CashierView from '@/views/CashierView'
 
@@ -27,6 +28,11 @@ export default new Router({
       component: CounterView
     },
     {
+      path: '/home',
+      name: 'HomeView',
+      component: HomeView
+    },
+    {
       path: '/search',
       name: 'SearchView',
       component: SearchView
@@ -35,16 +41,6 @@ export default new Router({
       path: '/square',
       name: 'SquareView',
       component: SquareView
-    },
-    {
-      path: '/hello',
-      name: 'Hello',
-      component: Hello
-    },
-    {
-      path: '/btn',
-      name: 'Button',
-      component: Button
     },
     {
       path: '/address',
