@@ -20,9 +20,6 @@ export default{
     this.getAddress()
     this.getCity()
   },
-  // mounted() {
-  //
-  // },
   components: {
     UserAddress
   },
