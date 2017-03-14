@@ -3,10 +3,10 @@
   <div>
     <p class='addresslist-title'>我的收货地址</p>
     <ul class='addresslist-item'>
-      <li v-for='address in addressList'>
+      <li v-for='address in addressList' v-on:click='editAddress'>
           <p class='user_info'>{{address.name}} <span>{{address.mobile}}</span></p>
           <p class='address_info'>{{address.fullAddress}}</p>
-          <span class='address-edit'></span>
+          <router-link to="/editAddress"><span class='address-edit'>编辑</span></router-link>
       </li>
     </ul>
     <p class='detail-btn'>
