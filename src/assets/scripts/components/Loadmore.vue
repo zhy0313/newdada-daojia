@@ -74,9 +74,9 @@
       showLoading: {
         type: Boolean,
         default: false
-      },
+      }
     },
-    data() {
+    data () {
       return {
         topStatus: '',
         topText: '',
@@ -90,12 +90,12 @@
         startScrollTop: 0,
         currentY: 0,
         direction: '',
-        translate: 0,
+        translate: 0
       }
     },
     watch: {
-      topStatus(status) {
-        switch(status) {
+      topStatus (status) {
+        switch (status) {
           case 'pull':
             this.topText = this.topPullText
             break
@@ -110,8 +110,8 @@
         }
         this.$emit('topStatusChanged', status)
       },
-      bottomStatus(status) {
-        switch(status) {
+      bottomStatus (status) {
+        switch (status) {
           case 'pull':
             this.bottomText = this.bottomPullText
             break
@@ -125,53 +125,53 @@
             break
         }
         this.$emit('bottomStatusChanged', status)
-      },
+      }
     },
     methods: {
-      getScrollElement(element) {
-        let currentNode = element,
-          overflowY = ''
+      getScrollElement (element) {
+        let currentNode = element
+        let overflowY = ''
 
-        while(
+        while (
           currentNode &&
           currentNode.tagName !== 'HTML' &&
           currentNode.tagName !== 'BODY' &&
           currentNode.nodeType === 1
         ) {
           overflowY = document.defaultView.getComputedStyle(currentNode).overflowY
-          if(overflowY === 'scroll' || overflowY === 'auto') return currentNode
+          if (overflowY === 'scroll' || overflowY === 'auto') return currentNode
           currentNode = currentNode.parentNode
         }
 
         return window
       },
-      getScrollTop(element) {
-        if(element === window) {
+      getScrollTop (element) {
+        if (element === window) {
           return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop)
         }
 
         return element.scrollTop
       },
-      handleTouchStart(event) {
+      handleTouchStart (event) {
         this.startY = event.touches[0].clientY
         this.startScrollTop = this.getScrollTop(this.scrollElement)
         this.bottomReached = false
 
-        if(this.topStatus !== 'loading') {
+        if (this.topStatus !== 'loading') {
           this.topStatus = 'pull'
           this.topDropped = false
         }
 
-        if(this.bottomStatus !== 'loading') {
+        if (this.bottomStatus !== 'loading') {
           this.bottomStatus = 'pull'
           this.bottomDropped = false
         }
       },
-      handleTouchMove(event) {
+      handleTouchMove (event) {
         // outside element
         const rect = this.$el.getBoundingClientRect()
 
-        if(this.startY < rect.top && this.startY > rect.bottom) return
+        if (this.startY < rect.top && this.startY > rect.bottom) return
 
         // hand moved
         let distance = 0
@@ -183,7 +183,7 @@
         this.direction = distance > 0 ? 'down' : 'up'
 
         // pull down
-        if(
+        if (
           typeof this.topMethod === 'function' &&
           this.topStatus !== 'loading' &&
           this.direction === 'down' &&
@@ -193,16 +193,16 @@
           event.preventDefault()
           event.stopPropagation()
           this.translate = distance - this.startScrollTop
-          if(this.translate < 0) this.translate = 0
+          if (this.translate < 0) this.translate = 0
           this.topStatus = this.translate >= this.topDistance ? 'drop' : 'pull'
         }
 
         // pull up
-        if(this.direction === 'up') {
+        if (this.direction === 'up') {
           this.bottomReached = this.bottomReached || this.isBottomReached()
         }
 
-        if(
+        if (
           typeof this.bottomMethod === 'function' &&
           this.bottomStatus !== 'loading' &&
           this.direction === 'up' &&
@@ -211,22 +211,23 @@
         ) {
           event.preventDefault()
           event.stopPropagation()
-          this.translate = this.getScrollTop(this.scrollElement)
-            - this.startScrollTop
-            + distance
-          if(this.translate > 0) this.translate = 0
+          this.translate = this.getScrollTop(this.scrollElement) -
+            this.startScrollTop +
+            distance
+
+          if (this.translate > 0) this.translate = 0
           this.bottomStatus = -this.translate >= this.bottomDistance ? 'drop' : 'pull'
         }
       },
-      handleTouchEnd() {
+      handleTouchEnd () {
         // pull down
-        if(this.direction === 'down' &&
+        if (this.direction === 'down' &&
           this.getScrollTop(this.scrollElement) === 0 &&
           this.translate > 0
         ) {
           this.topDropped = true
 
-          if(this.topStatus === 'drop') {
+          if (this.topStatus === 'drop') {
             this.translate = 50
             this.topStatus = 'loading'
             this.topMethod()
@@ -237,7 +238,7 @@
         }
 
         // pull up
-        if(
+        if (
           this.direction === 'up' &&
           this.bottomReached &&
           this.translate < 0
@@ -246,7 +247,7 @@
           // reset after pull up takes effect
           this.bottomReached = false
 
-          if(this.bottomStatus === 'drop') {
+          if (this.bottomStatus === 'drop') {
             this.translate = -50
             this.bottomStatus = 'loading'
             this.bottomMethod()
@@ -259,45 +260,45 @@
         // reset direction
         this.direction = ''
       },
-      isBottomReached() {
-        if(this.scrollElement === window) {
+      isBottomReached () {
+        if (this.scrollElement === window) {
           return (
-            document.documentElement.clientHeight + document.body.scrollTop
-            === document.body.scrollHeight
+            document.documentElement.clientHeight + document.body.scrollTop ===
+              document.body.scrollHeight
           )
         }
 
         return (
-          this.scrollElement.getBoundingClientRect().bottom
-          >= this.$el.getBoundingClientRect().bottom
+          this.scrollElement.getBoundingClientRect().bottom >=
+            this.$el.getBoundingClientRect().bottom
         )
       },
-      onTopLoaded() {
+      onTopLoaded () {
         this.translate = 0
         setTimeout(() => {
           this.topStatus = 'pull'
         }, 200)
       },
-      onBottomLoaded() {
+      onBottomLoaded () {
         this.bottomStatus = 'pull'
         this.bottomDropped = false
         this.$nextTick(() => {
-          if(this.scrollElement === window) {
+          if (this.scrollElement === window) {
             document.body.scrollTop += 50
           } else {
             this.scrollElement.scrollTop += 50
           }
           this.translate = 0
         })
-      },
+      }
     },
-    mounted() {
+    mounted () {
       this.topText = this.topPullText
       this.topStatus = 'pull'
       this.bottomStatus = 'pull'
       this.scrollElement = this.getScrollElement(this.$el)
 
-      if(
+      if (
         typeof this.topMethod === 'function' ||
         typeof this.bottomMethod === 'function'
       ) {
@@ -306,8 +307,8 @@
         this.$el.addEventListener('touchend', this.handleTouchEnd)
       }
     },
-    beforeDestroy() {
-      if(
+    beforeDestroy () {
+      if (
         typeof this.topMethod === 'function' ||
         typeof this.bottomMethod === 'function'
       ) {
@@ -315,6 +316,6 @@
         this.$el.removeEventListener('touchmove', this.handleTouchMove)
         this.$el.removeEventListener('touchend', this.handleTouchEnd)
       }
-    },
+    }
   }
 </script>

@@ -14,9 +14,9 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
-  import draggable from '../utils/draggable';
-  import { getTranslate, setTranslate } from '../utils/translate';
+  import Sync from '../mixins/sync'
+  import draggable from '../utils/draggable'
+  import { getTranslate, setTranslate } from '../utils/translate'
 
   export default {
     name: 'picker',
@@ -24,136 +24,136 @@
     props: {
       size: {
         type: String,
-        validator(value) {
-          return ['sm', 'lg'].indexOf(value) > -1;
-        },
-      },
+        validator (value) {
+          return ['sm', 'lg'].indexOf(value) > -1
+        }
+      }
     },
-    data() {
+    data () {
       return {
         dragging: false,
         itemHeight: 0,
-        pickedIndex: -1,
-      };
+        pickedIndex: -1
+      }
     },
     methods: {
       // 计算拖拽区间
-      getDragRange() {
-        let { pickerList } = this.$refs;
+      getDragRange () {
+        let { pickerList } = this.$refs
 
         return {
           min: -1 * this.getOptionHeight() * (pickerList.children.length - 1),
-          max: 0,
-        };
+          max: 0
+        }
       },
       // 获取每个Option高度
-      getOptionHeight() {
-        if(this.itemHeight) return this.itemHeight;
+      getOptionHeight () {
+        if (this.itemHeight) return this.itemHeight
 
         let style = document.body.currentStyle ||
-        document.defaultView.getComputedStyle(document.body, '');
+        document.defaultView.getComputedStyle(document.body, '')
 
-        this.itemHeight = 3 * parseInt(style.fontSize, 10);
+        this.itemHeight = 3 * parseInt(style.fontSize, 10)
 
-        return this.itemHeight;
+        return this.itemHeight
       },
       // 选择Option
-      pickOption() {
-        let pickIndex = 0;
+      pickOption () {
+        let pickIndex = 0
 
         this.$children.forEach((option, index) => {
-          if(option.value === this.currentValue) {
-            pickIndex = index;
+          if (option.value === this.currentValue) {
+            pickIndex = index
           }
-        });
+        })
 
-        let itemHeight = this.getOptionHeight(),
-          translate = itemHeight * pickIndex * -1;
+        let itemHeight = this.getOptionHeight()
+        let translate = itemHeight * pickIndex * -1
 
-        setTranslate(this.$refs.pickerList, null, translate);
-        this.pickedIndex = Math.abs(pickIndex);
+        setTranslate(this.$refs.pickerList, null, translate)
+        this.pickedIndex = Math.abs(pickIndex)
       },
       // 事件初始化
-      initDrag() {
-        let { picker, pickerList } = this.$refs,
-          prevTranslateY;
+      initDrag () {
+        let { picker, pickerList } = this.$refs
+        let prevTranslateY
 
         draggable(picker, {
           effectEl: pickerList,
           onDragStart: ({ translateY }, event) => {
-            event.preventDefault();
-            prevTranslateY = translateY;
+            event.preventDefault()
+            prevTranslateY = translateY
           },
           onDrag: ({ dragging, effectEl, translateY }, event) => {
-            event.preventDefault();
-            this.dragging = dragging;
+            event.preventDefault()
+            this.dragging = dragging
 
-            let maxTranslateY = this.getOptionHeight() * 3;
-            let currentTranslateY = translateY;
-            let pickerHeight = this.$children.length * this.getOptionHeight();
+            let maxTranslateY = this.getOptionHeight() * 3
+            let currentTranslateY = translateY
+            let pickerHeight = this.$children.length * this.getOptionHeight()
 
-            if(translateY > 0) {
-              let rate = (maxTranslateY - translateY) / maxTranslateY;
+            if (translateY > 0) {
+              let rate = (maxTranslateY - translateY) / maxTranslateY
 
-              rate = rate >= 0 ? rate : 0.1;
+              rate = rate >= 0 ? rate : 0.1
 
-              currentTranslateY = prevTranslateY + rate * (translateY - prevTranslateY);
-            } else if(translateY < -pickerHeight) {
-              let rate = ((translateY - pickerHeight) - maxTranslateY) / maxTranslateY;
+              currentTranslateY = prevTranslateY + rate * (translateY - prevTranslateY)
+            } else if (translateY < -pickerHeight) {
+              let rate = ((translateY - pickerHeight) - maxTranslateY) / maxTranslateY
 
-              rate = rate >= 0 ? rate : 0.1;
+              rate = rate >= 0 ? rate : 0.1
 
-              currentTranslateY = prevTranslateY + rate * (translateY - prevTranslateY);
+              currentTranslateY = prevTranslateY + rate * (translateY - prevTranslateY)
             }
 
-            prevTranslateY = currentTranslateY;
-            setTranslate(effectEl, null, currentTranslateY);
+            prevTranslateY = currentTranslateY
+            setTranslate(effectEl, null, currentTranslateY)
           },
           onDragEnd: ({ dragging, startTimestamp, velocityTranslateY }, event) => {
-            event.preventDefault();
+            event.preventDefault()
 
-            this.dragging = dragging;
-            let momentumRatio = 10,
-              itemHeight = this.getOptionHeight(),
-              translateY = getTranslate(pickerList).y,
-              duration = new Date() - startTimestamp;
+            this.dragging = dragging
+            let momentumRatio = 10
+            let itemHeight = this.getOptionHeight()
+            let translateY = getTranslate(pickerList).y
+            let duration = new Date() - startTimestamp
 
-            let momentumTranslate;
+            let momentumTranslate
 
-            if(duration < 300) {
-              momentumTranslate = translateY + (velocityTranslateY * momentumRatio);
+            if (duration < 300) {
+              momentumTranslate = translateY + (velocityTranslateY * momentumRatio)
             }
 
             this.$nextTick(() => {
-              let translate;
-              let dragRange = this.getDragRange();
+              let translate
+              let dragRange = this.getDragRange()
 
-              if(momentumTranslate) {
-                translate = Math.round(momentumTranslate / itemHeight) * itemHeight;
+              if (momentumTranslate) {
+                translate = Math.round(momentumTranslate / itemHeight) * itemHeight
               } else {
-                translate = Math.round(translateY / itemHeight) * itemHeight;
+                translate = Math.round(translateY / itemHeight) * itemHeight
               }
 
-              translate = Math.max(Math.min(translate, dragRange.max), dragRange.min);
-              setTranslate(pickerList, null, translate);
+              translate = Math.max(Math.min(translate, dragRange.max), dragRange.min)
+              setTranslate(pickerList, null, translate)
 
-              this.pickedIndex = Math.abs(translate / itemHeight);
-            });
-          },
-        });
-      },
+              this.pickedIndex = Math.abs(translate / itemHeight)
+            })
+          }
+        })
+      }
     },
     watch: {
-      pickedIndex(val) {
-        this.currentValue = this.$children[val].value;
+      pickedIndex (val) {
+        this.currentValue = this.$children[val].value
       },
-      value() {
-        this.pickOption();
-      },
+      value () {
+        this.pickOption()
+      }
     },
-    mounted() {
-      this.pickOption();
-      this.initDrag();
-    },
-  };
+    mounted () {
+      this.pickOption()
+      this.initDrag()
+    }
+  }
 </script>

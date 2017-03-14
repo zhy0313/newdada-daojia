@@ -5,8 +5,8 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
-  import Select from '../mixins/select';
+  import Sync from '../mixins/sync'
+  import Select from '../mixins/select'
 
   export default {
     name: 'inline-selector',
@@ -15,10 +15,10 @@
       theme: {
         type: String,
         default: 'primary',
-        validator(value) {
-          return ['primary', 'success', 'warning', 'danger'].indexOf(value) > -1;
-        },
-      },
-    },
-  };
+        validator (value) {
+          return ['primary', 'success', 'warning', 'danger'].indexOf(value) > -1
+        }
+      }
+    }
+  }
 </script>

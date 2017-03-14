@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import Sync from '../mixins/sync';
+  import Sync from '../mixins/sync'
 
   export default {
     name: 'searchbar',
@@ -13,24 +13,24 @@
     props: {
       clearable: {
         type: Boolean,
-        default: true,
+        default: true
       },
       shape: {
         type: String,
-        validator(value) {
-          return ['circle'].indexOf(value) > -1;
-        },
-      },
+        validator (value) {
+          return ['circle'].indexOf(value) > -1
+        }
+      }
     },
-    data() {
+    data () {
       return {
-        focus: false,
-      };
+        focus: false
+      }
     },
     methods: {
-      blur() {
-        this.focus = false;
-      },
-    },
-  };
+      blur () {
+        this.focus = false
+      }
+    }
+  }
 </script>

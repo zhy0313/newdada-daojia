@@ -28,12 +28,12 @@
   export default {
     name: 'searchbar-placeholder',
     methods: {
-      clickHandle() {
-        this.$parent.focus = true;
+      clickHandle () {
+        this.$parent.focus = true
         setTimeout(() => {
-          this.$refs.input.focus();
-        }, 300);
-      },
-    },
-  };
+          this.$refs.input.focus()
+        }, 300)
+      }
+    }
+  }
 </script>

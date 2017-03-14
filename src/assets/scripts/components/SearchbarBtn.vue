@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    name: 'searchbar-btn',
-  };
+    name: 'searchbar-btn'
+  }
 </script>

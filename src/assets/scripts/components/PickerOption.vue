@@ -10,7 +10,7 @@
   export default {
     name: 'picker-option',
     props: {
-      value: {},
-    },
-  };
+      value: {}
+    }
+  }
 </script>
