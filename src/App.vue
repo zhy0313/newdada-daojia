@@ -18,5 +18,6 @@ export default {
   // text-align: center;
   color: #2c3e50;
   background: #f4f4f4;
+  box-sizing: content-box;
 }
 </style>
