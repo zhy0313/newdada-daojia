@@ -6,7 +6,7 @@
       <input v-on:click='test' v-on:input='inputAddress' ref='inputCity' class='main-header-search' v-bind:class='{defaultWidth:showHeaderCity}' maxlength='50' type='text' placeholder='选择城市、小区、写字楼、学校' />
     </div>
     <div class='main-list-content' v-bind:class='{none:showAddressList}'>
-      <div class='main-locate'>
+      <div class='main-locate' v-on:click='testMap'>
           <i></i>
           <p>点击定位当前地点</p>
       </div>
@@ -43,6 +43,9 @@
     <div class='address-list-div none'>
         <ul></ul>
     </div>
+    <iframe :class='{none:showMap}' class='txmap' width='100%' height='100%' frameborder=0
+                src='https://3gimg.qq.com/lightmap/components/locationPicker2/index_https.html?search=1&type=1&key=TVABZ-XEVAX-M6E4K-ZAUPQ-L5U7O-OPB6P&referer=jddjapp'>
+    </iframe>
   </div>
 </template>
 
@@ -70,7 +73,8 @@ export default{
       'showPoi': true,
       'defaultCityName': '北京市',
       'poiAddress': poiAddress,
-      'historyData': historyData
+      'historyData': historyData,
+      'showMap': true
     }
   },
   computed: {
@@ -115,7 +119,7 @@ export default{
             key: inputValue
           }
         }
-        this.$http.get('/client', {params: data}).then(response => {
+        this.$getAPI(data).then(response => {
           this.showPoi = false
           this.showHistory = true
           this.poiAddress = response.body.result
@@ -135,7 +139,7 @@ export default{
         functionId: 'local/getSearchInfos',
         body: {}
       }
-      this.$http.get('/client', {params: data}).then(response => {
+      this.$getAPI(data).then(response => {
         this.historyData = response.body.result
         if (this.historyData && this.historyData.length > 0) {
           this.showHistory = false
@@ -143,12 +147,25 @@ export default{
       }, reposonse => {
 
       })
+    },
+    testMap: function () {
+      this.showMap = false
+      this.showHeader = true
+      this.showAddressList = true
     }
   },
   components: {
     HistoryAddress,
     CityView,
     PoiView
+  },
+  created: function () {
+    window.addEventListener('message', function (event) {
+      var loc = event.data
+      if (loc && loc.module === 'locationPicker') {
+        console.log('location', loc)
+      }
+    })
   }
 }
 </script>
