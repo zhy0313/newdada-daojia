@@ -66,7 +66,7 @@ export default new Router({
       component: NewAddressView
     },
     {
-      path: '/editAddress',
+      path: '/editAddress/:name/:tel/:id/:poi/:title',
       name: 'editAddress',
       component: EditAddressView
     }

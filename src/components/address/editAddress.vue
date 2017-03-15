@@ -34,6 +34,14 @@ import locateView from './locateView.vue'
 let address
 
 export default {
+  props: {
+    id: String,
+    name: String,
+    mobile: String,
+    poi: String,
+    fullAddress: String,
+    isEdit: Boolean
+  },
   data: function () {
     return {
       'showMap': false,
@@ -46,29 +54,56 @@ export default {
     },
     save: function () {
       let This = this
-      this.$postAPI({
-        functionId: 'addresspdj/addAddress',
-        body: {
-          'name': This.$refs.username.value,
-          'mobile': This.$refs.usertel.value,
-          'addressDetail': This.address.address,
-          'cityName': This.address.city,
-          'countyName': This.address.district,
-          'poi': This.address.title,
-          'cityId': This.address.areaCode,
-          'countyId': This.address.districtCode,
-          'coordType': 2,
-          'longitude': This.address.longitude,
-          'latitude': This.address.latitude
-        }
-      }).then(response => {
-        if (response.body.result) {
-          alert('成功')
-          history.go(-1)
-        }
-      }, response => {
+      if (This.isEdit) {
+        This.$postAPI({
+          functionId: 'addresspdj/updateAddress',
+          body: {
+            'name': This.$refs.username.value,
+            'mobile': This.$refs.usertel.value,
+            'addressDetail': This.address.address,
+            'cityName': This.address.city,
+            'countyName': This.address.district,
+            'poi': This.address.title,
+            'cityId': This.address.areaCode,
+            'countyId': This.address.districtCode,
+            'coordType': 2,
+            'longitude': This.address.longitude,
+            'latitude': This.address.latitude,
+            'id': This.id
+          }
+        }).then(response => {
+          if (response.body.result) {
+            alert('成功')
+            history.go(-1)
+          }
+        }, response => {
 
-      })
+        })
+      } else {
+        This.$postAPI({
+          functionId: 'addresspdj/addAddress',
+          body: {
+            'name': This.$refs.username.value,
+            'mobile': This.$refs.usertel.value,
+            'addressDetail': This.address.address,
+            'cityName': This.address.city,
+            'countyName': This.address.district,
+            'poi': This.address.title,
+            'cityId': This.address.areaCode,
+            'countyId': This.address.districtCode,
+            'coordType': 2,
+            'longitude': This.address.longitude,
+            'latitude': This.address.latitude
+          }
+        }).then(response => {
+          if (response.body.result) {
+            alert('成功')
+            history.go(-1)
+          }
+        }, response => {
+
+        })
+      }
     }
   },
   created: function () {
@@ -91,6 +126,14 @@ export default {
 
       })
     })
+  },
+  mounted: function () {
+    if (this.isEdit) {
+      this.$refs.username.value = this.name
+      this.$refs.usertel.value = this.mobile
+      this.$refs.userpoi && (this.$refs.userpoi.innerText = this.poi)
+      this.$refs.useraddress.value = this.fullAddress
+    }
   },
   components: {
     locateView
