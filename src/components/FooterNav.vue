@@ -3,11 +3,11 @@
     <navigation-item label="首页" path="/">
       <icon name="home" size="lg" />
     </navigation-item>
-    <navigation-item label="分类" path="list">
-      <icon name="list" size="lg" />
-    </navigation-item>
-    <navigation-item label="福利" path="discover">
+    <navigation-item v-if="hasDiscover" label="福利" path="discover">
       <icon name="discover" size="lg" />
+    </navigation-item>
+    <navigation-item v-else label="分类" path="list">
+      <icon name="list" size="lg" />
     </navigation-item>
     <navigation-item label="购物车" path="cart">
       <icon name="cart" size="lg" />
@@ -25,6 +25,11 @@
   export default {
     props: {
       activeKey: Number
+    },
+    data () {
+      return {
+        hasDiscover: true
+      }
     },
     methods: {
 

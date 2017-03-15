@@ -1,13 +1,17 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import SearchView from '@/views/SearchView'
-// 示例代码 START
+// 一级导航
 import IndexView from '@/views/IndexView'
-import ListView from '@/views/ListView'
+import ListView from '@/views/tabBar/ListView'
+import DiscoverView from '@/views/tabBar/DiscoverView'
+import CartView from '@/views/tabBar/CartView'
+import OrderView from '@/views/tabBar/OrderView'
+import MyView from '@/views/tabBar/MyView'
+// 示例代码 START
+import SearchView from '@/views/SearchView'
 import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
-import HomeView from '@/views/HomeView'
 // 示例代码 END
 import AddressView from '@/views/AddressView'
 import CashierView from '@/views/CashierView'
@@ -34,33 +38,28 @@ export default new Router({
     },
     {
       path: '/discover',
-      name: 'IndexView',
-      component: IndexView
+      name: 'DiscoverView',
+      component: DiscoverView
     },
     {
       path: '/cart',
-      name: 'IndexView',
-      component: IndexView
+      name: 'CartView',
+      component: CartView
     },
     {
       path: '/order',
-      name: 'IndexView',
-      component: IndexView
+      name: 'OrderView',
+      component: OrderView
     },
     {
       path: '/my',
-      name: 'IndexView',
-      component: IndexView
+      name: 'MyView',
+      component: MyView
     },
     {
       path: '/counter',
       name: 'CounterView',
       component: CounterView
-    },
-    {
-      path: '/home',
-      name: 'HomeView',
-      component: HomeView
     },
     {
       path: '/search',
@@ -104,7 +103,7 @@ export default new Router({
     },
     {
       path: '*',
-      redirect: 'Index'
+      redirect: 'IndexView'
     }
   ]
 })
