@@ -3,14 +3,15 @@
   <div>
     <p class='addresslist-title'>我的收货地址</p>
     <ul class='addresslist-item'>
-      <li v-for='address in addressList' v-on:click='editAddress'>
+      <li v-for='address in addressList'>
           <p class='user_info'>{{address.name}} <span>{{address.mobile}}</span></p>
           <p class='address_info'>{{address.fullAddress}}</p>
-          <router-link to="/editAddress"><span class='address-edit'>编辑</span></router-link>
+          <!-- <p :class='address.name'>123</p> -->
+          <router-link :to='"editAddress"+"/"+address.name+"/"+address.mobile+"/"+address.id+"/"+address.fullAddress+"/"+address.poi'><span class='address-edit'>编辑</span></router-link>
       </li>
     </ul>
     <p class='detail-btn'>
-        <router-link to="/newAddress">新建收货地址</router-link>
+        <router-link to='/newAddress'>新建收货地址</router-link>
     </p>
   </div>
 </template>
