@@ -5,8 +5,8 @@ import createLogger from 'vuex/dist/logger'
 import mutations from './mutations'
 import * as actions from './actions'
 import * as getters from './getters'
-import interceptors from './interceptors'
-import './api'
+import interceptors from './interceptors' // 请求拦截器
+import './api' // 请求增强函数
 
 Vue.use(Vuex)
 
