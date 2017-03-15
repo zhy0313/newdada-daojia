@@ -11,6 +11,7 @@
                 <cell to="search">search</cell>
             </group>
         </flex-item>
+        <router-link to="/address"><p style="height:40px;line-height:40px;">进行地址选择</p></router-link>
         <FooterNav></FooterNav>
     </flex>
 </template>

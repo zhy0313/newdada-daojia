@@ -1,15 +1,21 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import SearchView from '@/views/SearchView'
+// 一级导航
+import IndexView from '@/views/IndexView'
+import ListView from '@/views/tabBar/ListView'
+import DiscoverView from '@/views/tabBar/DiscoverView'
+import CartView from '@/views/tabBar/CartView'
+import OrderView from '@/views/tabBar/OrderView'
+import MyView from '@/views/tabBar/MyView'
 // 示例代码 START
+import SearchView from '@/views/SearchView'
 import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
-import IndexView from '@/views/IndexView'
-import HomeView from '@/views/HomeView'
 // 示例代码 END
 import AddressView from '@/views/AddressView'
 import CashierView from '@/views/CashierView'
+import StoreHome from '@/views/StoreHome/StoreHome.vue'
 import AddressListView from '@/views/AddressListView'
 import NewAddressView from '@/views/NewAddressView'
 import EditAddressView from '@/views/EditAddressView'
@@ -22,18 +28,38 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Index',
+      name: 'IndexView',
       component: IndexView
+    },
+    {
+      path: '/list',
+      name: 'ListView',
+      component: ListView
+    },
+    {
+      path: '/discover',
+      name: 'DiscoverView',
+      component: DiscoverView
+    },
+    {
+      path: '/cart',
+      name: 'CartView',
+      component: CartView
+    },
+    {
+      path: '/order',
+      name: 'OrderView',
+      component: OrderView
+    },
+    {
+      path: '/my',
+      name: 'MyView',
+      component: MyView
     },
     {
       path: '/counter',
       name: 'CounterView',
       component: CounterView
-    },
-    {
-      path: '/home',
-      name: 'HomeView',
-      component: HomeView
     },
     {
       path: '/search',
@@ -56,6 +82,11 @@ export default new Router({
       component: CashierView
     },
     {
+      path: '/storeHome',
+      name: 'storeHome',
+      component: StoreHome
+    },
+    {
       path: '/addressList',
       name: 'addressList',
       component: AddressListView
@@ -69,6 +100,10 @@ export default new Router({
       path: '/editAddress/:name/:tel/:id/:poi/:title',
       name: 'editAddress',
       component: EditAddressView
+    },
+    {
+      path: '*',
+      redirect: 'IndexView'
     }
   ]
 })
