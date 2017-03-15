@@ -1,21 +1,21 @@
 <template>
-  <navigation class="footer-nav" @change="changeHandle">
-    <navigation-item label="首页">
+  <navigation class="footer-nav" :activeKey="activeKey">
+    <navigation-item label="首页" path="/">
       <icon name="home" size="lg" />
     </navigation-item>
-    <navigation-item label="分类">
+    <navigation-item label="分类" path="list">
       <icon name="list" size="lg" />
     </navigation-item>
-    <navigation-item label="福利">
+    <navigation-item label="福利" path="discover">
       <icon name="discover" size="lg" />
     </navigation-item>
-    <navigation-item label="购物车">
+    <navigation-item label="购物车" path="cart">
       <icon name="cart" size="lg" />
     </navigation-item>
-    <navigation-item label="订单">
+    <navigation-item label="订单" path="order">
       <icon name="order" size="lg" />
     </navigation-item>
-    <navigation-item label="我的">
+    <navigation-item label="我的" path="my">
       <icon name="my" size="lg" />
     </navigation-item>
   </navigation>
@@ -23,15 +23,16 @@
 
 <script>
   export default {
+    props: {
+      activeKey: Number
+    },
     methods: {
-      changeHandle (val) {
-        this.$toast(`选择了第 ${val + 1} 个`)
-      }
+
     }
   }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 
   .footer-nav{
     position: fixed;

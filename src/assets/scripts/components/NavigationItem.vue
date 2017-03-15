@@ -1,13 +1,12 @@
 <template>
-  <div
-    class="navigation-item"
-    :class="{'active': $parent.currentActiveKey === currentEventKey}"
-    @click="$parent.$emit('itemClick', currentEventKey)">
+  <router-link
+    class="navigation-item" :to="path"
+    :class="{'active': $parent.currentActiveKey === currentEventKey}">
     <slot></slot>
     <div class="navigation-item-label">
       {{label}}
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -17,7 +16,8 @@
     name: 'navigation-item',
     mixins: [TabItem],
     props: {
-      label: String
+      label: String,
+      path: String
     }
   }
 </script>
