@@ -13,14 +13,17 @@
         </flex-item>
         <router-link to="/address"><p style="height:40px;line-height:40px;">进行地址选择</p></router-link>
         <FooterNav></FooterNav>
+        <Loader></Loader>
     </flex>
 </template>
 <script>
 import FooterNav from '@/components/FooterNav'
+import Loader from '@/components/Loader'
 
 export default {
   components: {
-    FooterNav
+    FooterNav,
+    Loader
   },
   created () {
     // 实例外部使用 Vue.postAPI

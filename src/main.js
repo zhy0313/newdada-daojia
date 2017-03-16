@@ -16,7 +16,6 @@ import './assets/styles/index' // Vue组件库自定义样式 取代上面的库
 Vue.config.productionTip = false
 
 Vue.use(impression)
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
