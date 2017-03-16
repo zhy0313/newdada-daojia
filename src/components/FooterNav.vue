@@ -44,16 +44,13 @@
     bottom: 0;
     left: 0;
     right: 0;
+    font-size: 12px;
 
     .icon {
       width: 24px;
       height: 24px;
       background: url(//static-o2o.360buyimg.com/daojia/new/images/nav4.png) no-repeat;
       background-size: 24px 600px;
-    }
-
-    .icon-lg {
-      font-size: 12px;
     }
 
     .icon-home {
