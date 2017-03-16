@@ -1,16 +1,16 @@
-/* 新收银台页面css start*/
+// 新收银台页面css start
 .pay-wrapper {
-  width: 100%;
-  height: 100%;
   background: #f4f4f4;
-  position: absolute;
+  height: 100%;
   min-height: 460px;
+  position: absolute;
+  width: 100%;
 }
 
 .new-pay-header {
+  background: #ffffff;
   height: 45px;
   line-height: 45px;
-  background: #ffffff;
 }
 
 .new-pay-header.border-b:before {
@@ -18,16 +18,16 @@
 }
 
 .new-pay-header .store-name {
-  margin-left: 14px;
-  font-size: 14px;
   color: #333;
+  font-size: 14px;
+  margin-left: 14px;
 }
 
 .new-pay-header .store-account {
-  float: right;
-  margin-right: 15px;
   color: #fd5554;
+  float: right;
   font-size: 12px;
+  margin-right: 15px;
 }
 
 .new-pay-header .store-account i {
@@ -35,12 +35,12 @@
 }
 
 .pay-last-time-wrapper {
-  width: 95%;
+  background: #fff;
   height: 110px;
-  background: #ffffff;
+  width: 95%;
   margin: 0 auto;
-  text-align: center;
   overflow: hidden;
+  text-align: center;
 }
 
 .pay-last-time-wrapper .last-time-title {
@@ -54,7 +54,7 @@
 .pay-last-time-wrapper .pay-last-time {
   font-size: 30px;
   display: block;
-  color: #000000;
+  color: #000;
   line-height: 35px;
   font-family: Arial,Helvetica,sans-serif;
 }
@@ -382,4 +382,13 @@
   background: url("http://teststatic.jd.com/daojia/new/images/icon/icon_checked_dada.png") no-repeat center center;
   background-size: 20px;
 }
-/* 新收银台页面css end*/
+
+.pay-wrapper .jd {
+    height: 86px;
+}
+.pay-wrapper .jd .actvity-desc {
+    padding-bottom: 10px;
+    color: #ff5757;
+    line-height: 16px;
+}
+//新收银台页面css end
