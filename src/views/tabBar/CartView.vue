@@ -1,15 +1,19 @@
 <template>
-
-  <FooterNav :activeKey="2"></FooterNav>
+  <div class="">
+    <Loader></Loader>
+    <FooterNav :activeKey="2"></FooterNav>
+  </div>
 
 </template>
 
 <script>
   import FooterNav from '@/components/FooterNav'
+  import Loader from '@/components/Loader'
 
   export default {
     components: {
-      FooterNav
+      FooterNav,
+      Loader
     }
   }
 </script>
