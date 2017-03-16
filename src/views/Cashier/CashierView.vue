@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import countDown from '../components/countDown'
+import countDown from '../../components/countDown'
 // let pay = {'code': '0','msg':'成功','result':{'orderId':705835766000014,'amount':24.20,'notifyUrl':'http://testpdjm.jd.com/html/index.html#orderopresult/result:success/payType:pay/orderId:705835766000014','payWays':[{'payWay':'10','payName':'微信支付','status':'0','defaultCopy':'推荐安装微信5.0及以上版本使用','iconUrl':'http://storage.jd.com/daojia/wxpay-icon.png'},{'payWay':'20','payName':'京东支付','status':'0','defaultCopy':'京东旗下 快捷支付','extCopy':'本订单支持使用白条','iconUrl':'http://storage.jd.com/daojia/icon-jdpay.png','activityCopy':'京东支付首单满29最高减10（限实物类银行卡支付）'}],'countDownTime':'1798475','stationName':'华冠-亦庄店','prescriptionTag':false},'success':true};
 export default {
   data () {
@@ -112,4 +112,4 @@ export default {
 }
 </script>
 
-<style lang="scss">@import '../css/cashier.scss';</style>
+<style lang="scss">@import "./style.scss";</style>
