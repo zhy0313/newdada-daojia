@@ -1,6 +1,7 @@
 // Colors 背景 字体颜色
 $daojia-background: #f4f4f4 !default;
 $daojia-green: #47b34f !default;
+$daojia-green-light: #d1e7d3 !default;
 $daojia-red: #ff5757 !default;
 $daojia-border: #e8e8e8 !default;
 $daojia-pure: #fff !default;
@@ -9,32 +10,20 @@ $daojia-black: #333 !default;
 $daojia-dark: #555 !default;
 $daojia-gray: #666 !default;
 $daojia-light: #999 !default;
+$daojia-lighter: #e2e2e2 !default;
+
 
 // Base Sytle
 $daojia-font-family: 'Avenir', 'Helvetica-Neue', 'Helvetica', Arial, sans-serif !default;
 $daojia-default-font: 14px !default;
 $daojia-line-height: 1.4 !default;
 
-// $daojia-green: #2196f3 !default;
-// $daojia-red: #f86c2e !default;
-// $daojia-green: #4cb452 !default;
-// $daojia-green: #2b71b5 !default;
-// $daojia-green: #fab83a !default;
-// $daojia-red: #f97964 !default;
-// $daojia-pure: #fff !default;
-
-
-// $gray-lighter: #eceeef !default;
-// $gray-lightest: #f4f4f4 !default;
 
 // Border radius
 $border-radius: 2px !default;
 $border-radius-lg: 4px !default;
 $border-radius-sm: 1px !default;
 $border-radius-circle: 10rem !default;
-
-// Cursor
-// $cursor-pointer: pointer !default;
 
 // Opacity
 $opacity-disabled: .65 !default;

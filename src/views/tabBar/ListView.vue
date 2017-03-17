@@ -1,5 +1,6 @@
 <template>
   <div class="">
+
     <Loader></Loader>
     <FooterNav :activeKey="1"></FooterNav>
   </div>
