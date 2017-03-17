@@ -1,17 +1,31 @@
-// Colors
-$brand-primary: #2196f3 !default;
-$brand-secondary: #f86c2e !default;
-$brand-success: #4cb452 !default;
-$brand-info: #2b71b5 !default;
-$brand-warning: #fab83a !default;
-$brand-danger: #f97964 !default;
-$brand-pure: #fff !default;
+// Colors 背景 字体颜色
+$daojia-background: #f4f4f4 !default;
+$daojia-green: #47b34f !default;
+$daojia-red: #ff5757 !default;
+$daojia-border: #e8e8e8 !default;
+$daojia-pure: #fff !default;
 
-$gray-dark: #373a3c !default;
-$gray: #55595c !default;
-$gray-light: #999 !default;
-$gray-lighter: #eceeef !default;
-$gray-lightest: #f4f4f4 !default;
+$daojia-black: #333 !default;
+$daojia-dark: #555 !default;
+$daojia-gray: #666 !default;
+$daojia-light: #999 !default;
+
+// Base Sytle
+$daojia-font-family: 'Avenir', 'Helvetica-Neue', 'Helvetica', Arial, sans-serif !default;
+$daojia-default-font: 14px !default;
+$daojia-line-height: 1.4 !default;
+
+// $daojia-green: #2196f3 !default;
+// $daojia-red: #f86c2e !default;
+// $daojia-green: #4cb452 !default;
+// $daojia-green: #2b71b5 !default;
+// $daojia-green: #fab83a !default;
+// $daojia-red: #f97964 !default;
+// $daojia-pure: #fff !default;
+
+
+// $gray-lighter: #eceeef !default;
+// $gray-lightest: #f4f4f4 !default;
 
 // Border radius
 $border-radius: 2px !default;
@@ -20,7 +34,7 @@ $border-radius-sm: 1px !default;
 $border-radius-circle: 10rem !default;
 
 // Cursor
-$cursor-pointer: pointer !default;
+// $cursor-pointer: pointer !default;
 
 // Opacity
 $opacity-disabled: .65 !default;
@@ -34,39 +48,39 @@ $z-index-toast: 1030 !default;
 $z-index-alert: 1030 !default;
 
 // Base
-$font-family-base: -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "WenQuanYi Micro Hei", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif !default;
+// $font-family-base: -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "WenQuanYi Micro Hei", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif !default;
 $line-height-base: 1.43 !default;
 $body-color: #333 !default;
 $body-bg: #f0eff5 !default;
-$text-muted: $gray-light !default;
+$text-muted: $daojia-light !default;
 
-$font-size-root: 12px !default;
+$font-size-root: 14px !default;
 $font-size-base: 1rem !default;
 $font-size-lg: 1.4rem !default;
 $font-size-sm: .875rem !default;
 
-$spacer:   1rem !default;
+$spacer:   10px !default;
 $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
 $spacer-gap: $spacer / 2 !default;
 
 // Border
-$border-color: #d9d9d9 !default;
-$border-image-top: linear-gradient(to bottom, $border-color, $border-color 50%, transparent 0) !default;
-$border-image-bottom: linear-gradient(to top, $border-color, $border-color 50%, transparent 0) !default;
-$border-image-left: linear-gradient(to right, $border-color, $border-color 50%, transparent 0) !default;
+// $daojia-border: #d9d9d9 !default;
+$border-image-top: linear-gradient(to bottom, $daojia-border, $daojia-border 50%, transparent 0) !default;
+$border-image-bottom: linear-gradient(to top, $daojia-border, $daojia-border 50%, transparent 0) !default;
+$border-image-left: linear-gradient(to right, $daojia-border, $daojia-border 50%, transparent 0) !default;
 
 // Hr
-$hr-color: $border-color !default;
+$hr-color: $daojia-border !default;
 $hr-margin: 1rem 0 !default;
 
 // Links
-$link-color: $brand-primary !default;
+// $link-color: $daojia-green !default;
 $link-decoration: none !default;
-$link-active-color: darken($link-color, 15%) !default;
+// $link-active-color: darken($link-color, 15%) !default;
 
 // Tables
-$table-bg: $brand-pure !default;
+// $table-bg: $daojia-pure !default;
 $table-cell-padding: .75rem !default;
 $table-sm-cell-padding: .3rem !default;
 
@@ -89,34 +103,34 @@ $btn-padding-x-lg: 2rem !default;
 $btn-padding-y-lg: 1rem !default;
 $btn-border-radius-lg: $border-radius-lg !default;
 
-$btn-primary-color: $brand-pure;
-$btn-primary-bg: $brand-primary !default;
-$btn-primary-border: $brand-primary !default;
+$btn-primary-color: $daojia-pure;
+$btn-primary-bg: $daojia-green !default;
+$btn-primary-border: $daojia-green !default;
 
-$btn-secondary-color: $brand-pure;
-$btn-secondary-bg: $brand-secondary !default;
-$btn-secondary-border: $brand-secondary !default;
+$btn-secondary-color: $daojia-pure;
+$btn-secondary-bg: $daojia-red !default;
+$btn-secondary-border: $daojia-red !default;
 
-$btn-default-color: $gray;
-$btn-default-bg: #fff !default;
-$btn-default-border: $border-color !default;
+$btn-default-color: $daojia-gray;
+$btn-default-bg: $daojia-pure !default;
+$btn-default-border: $daojia-border !default;
 
 $btn-loading-gap: 3px !default;
 
 // Group/Cell
-$group-bg-color: $brand-pure !default;
-$group-margin: 1rem 0 0 0 !default;
+$group-bg-color: $daojia-pure !default;
+$group-margin: 10px 0 0 0 !default;
 
 $group-title-padding: .5rem 1rem !default;
 
 $cell-color: $body-color !default;
-$cell-bg-color: $brand-pure !default;
+$cell-bg-color: $daojia-pure !default;
 $cell-padding: 1.2rem 1rem !default;
 $cell-gap-left: 1rem !default;
 $cell-children-gap: 1rem !default;
 
-$cell-bg-color-active: $gray-lightest !default;
-$cell-bg-color-disabled: $border-color !default;
+$cell-bg-color-active: $daojia-background !default;
+$cell-bg-color-disabled: $daojia-border !default;
 
 $cell-arrow-color: #818a91 !default;
 $cell-arrow-margin: 0 0 0 $spacer-gap !default;
@@ -133,14 +147,14 @@ $navbar-body-padding: 0 1rem !default;
 $navbar-footer-flex: .5 !default;
 $navbar-footer-padding: 0 1rem !default;
 
-$navbar-primary-color: $brand-pure !default;
-$navbar-primary-bg-color: $brand-primary !default;
+$navbar-primary-color: $daojia-pure !default;
+$navbar-primary-bg-color: $daojia-green !default;
 
 $navbar-default-color: #666 !default;
-$navbar-default-bg-color: $brand-pure !default;
+$navbar-default-bg-color: $daojia-pure !default;
 
 // Tabbar
-$tabbar-bg-color: $brand-pure !default;
+$tabbar-bg-color: $daojia-pure !default;
 $tabbar-margin-bottom: 1rem !default;
 $tabbar-height: $navbar-height !default;
 $tabbar-line-height: $tabbar-height !default;
@@ -148,12 +162,12 @@ $tabbar-transition: all .3s cubic-bezier(.86, 0, .07, 1) !default;
 $tabbar-opacity-disabled: $opacity-disabled !default;
 
 $tabbar-item-border-width: 2px !default;
-$tabbar-item-color-active: $brand-primary !default;
-$tabbar-item-border-color-active: $brand-primary !default;
+$tabbar-item-color-active: $daojia-green !default;
+$tabbar-item-border-color-active: $daojia-green !default;
 
 // Toast
 $toast-bg: rgba(0, 0, 0, .6) !default;
-$toast-color: $brand-pure !default;
+$toast-color: $daojia-pure !default;
 $toast-font-size: 1.1rem !default;
 $toast-border-radius: 4px !default;
 $toast-border-radius-lg: 6px !default;
@@ -175,7 +189,7 @@ $toast-loading-margin: 1rem 0 !default;
 $alert-width: 20rem !default;
 $alert-max-width: 27rem !default;
 $alert-padding: 1.5rem 0 0 0 !default;
-$alert-bg-color: $brand-pure !default;
+$alert-bg-color: $daojia-pure !default;
 $alert-border-radius: $border-radius-lg !default;
 $alert-animation-duration: .2s !default;
 $alert-animation-enter-function: cubic-bezier(.08, .82, .17, 1) !default;
@@ -184,25 +198,25 @@ $alert-animation-leave-function: cubic-bezier(.6, .04, .98, .34) !default;
 $alert-title-font-size: 16px !default;
 $alert-title-font-weight: bold !default;
 
-$alert-message-color: $gray-light !default;
+$alert-message-color: $daojia-light !default;
 $alert-message-font-size: 14px !default;
 $alert-message-padding: 1rem 1.5rem 1.5rem !default;
 $alert-message-line-height: 2 !default;
 $alert-message-text-align: center !default;
 
-$alert-btn-color: $brand-primary !default;
+$alert-btn-color: $daojia-green !default;
 $alert-btn-font-size: 14px !default;
 $alert-btn-padding: 1rem 0 !default;
 
 // Checkbox
 $checkbox-padding: 3px !default;
-$checkbox-color: $brand-pure !default;
-$checkbox-bg-color: $brand-pure !default;
+$checkbox-color: $daojia-pure !default;
+$checkbox-bg-color: $daojia-pure !default;
 $checkbox-border-color: #ddd !default;
 $checkbox-transition: all .2s ease-in !default;
 
-$checkbox-bg-color-checked: $brand-primary !default;
-$checkbox-border-color-checked: $brand-primary !default;
+$checkbox-bg-color-checked: $daojia-green !default;
+$checkbox-border-color-checked: $daojia-green !default;
 $checkbox-bg-color-disabled: #dfdfdf !default;
 $checkbox-border-color-disabled: $checkbox-border-color !default;
 
@@ -221,8 +235,8 @@ $checkbox-gap: 1rem !default;
 
 // Toggle
 $toggle-addon-size: round(1.34 * $font-size-root) !default;
-$toggle-addon-bg-color: $brand-pure !default;
-$toggle-addon-bg-color-checked: $brand-primary !default;
+$toggle-addon-bg-color: $daojia-pure !default;
+$toggle-addon-bg-color-checked: $daojia-green !default;
 $toggle-addon-opacity-disabled: $opacity-disabled !default;
 
 $toggle-bg-color: #e7eaec !default;
@@ -232,22 +246,22 @@ $toggle-border-radius: $toggle-addon-size !default;
 $toggle-transition: all .2s ease !default;
 
 // Number
-$number-border-color: $brand-primary !default;
+$number-border-color: $daojia-green !default;
 
 $number-btn-size: round(1.84 * $font-size-root) !default;
 $number-btn-line-height: $number-btn-size - 2 !default;
 
-$number-plus-color: $brand-pure !default;
-$number-plus-bg-color: $brand-primary !default;
+$number-plus-color: $daojia-pure !default;
+$number-plus-bg-color: $daojia-green !default;
 $number-plus-bg-color-active: darken($number-plus-bg-color, 6%) !default;
 
-$number-minus-color: $brand-primary !default;
-$number-minus-bg-color: $brand-pure !default;
-$number-minus-color-active: $brand-pure !default;
-$number-minus-bg-color-active: $brand-primary !default;
+$number-minus-color: $daojia-green !default;
+$number-minus-bg-color: $daojia-pure !default;
+$number-minus-color-active: $daojia-pure !default;
+$number-minus-bg-color-active: $daojia-green !default;
 
 $number-input-width: 3rem !default;
-$number-input-bg-color: $brand-pure !default;
+$number-input-bg-color: $daojia-pure !default;
 $number-input-border-color: #d9d9d9 !default;
 $number-input-padding: .6rem .3rem !default;
 $number-input-margin: 0 2px !default;
@@ -265,8 +279,8 @@ $textarea-counter-color: $text-muted !default;
 $textarea-counter-padding: 0 $textarea-padding / $textarea-counter-scale .2rem 0 !default;
 
 // Selector
-$selector-color-active: $brand-primary !default;
-$selector-icon-color: $brand-primary !default;
+$selector-color-active: $daojia-green !default;
+$selector-icon-color: $daojia-green !default;
 $selector-color-transition: all .2s ease-in-out !default;
 
 // InlineSelector
@@ -277,16 +291,16 @@ $inline-selector-option-padding: .6rem .2rem !default;
 
 // Tag
 $tag-padding: .4em .6em !default;
-$tag-color: $brand-pure !default;
+$tag-color: $daojia-pure !default;
 $tag-border-radius: $border-radius !default;
 
 $tag-padding-sm: .2em .4em !default;
 $tag-scale-sm: .85 !default;
 
-$tag-primary-bg: $brand-primary !default;
-$tag-success-bg: $brand-success !default;
-$tag-warning-bg: $brand-warning !default;
-$tag-danger-bg: $brand-danger !default;
+$tag-primary-bg: $daojia-green !default;
+$tag-success-bg: $daojia-green !default;
+$tag-warning-bg: $daojia-green !default;
+$tag-danger-bg: $daojia-red !default;
 $tag-default-bg: #ccc !default;
 $tag-default-color: #666 !default;
 
@@ -297,7 +311,7 @@ $navigation-color: #555 !default;
 $navigation-color-active: #39ac69 !default;
 $navigation-bg-color: $tabbar-bg-color !default;
 
-// $navigation-label-scale: .8 !default;
+$navigation-label-scale: .8 !default;
 $navigation-margin: 2px !default;
 
 // Tip
@@ -311,7 +325,7 @@ $tip-label-color: #888 !default;
 // BackToTop
 $top-right: 30px !default;
 $top-bottom: 30px !default;
-$top-color: $brand-pure !default;
+$top-color: $daojia-pure !default;
 $top-width: 40px !default;
 $top-height: 40px !default;
 $top-line-height: 40px !default;
@@ -320,22 +334,22 @@ $top-bg-color: rgba(0, 0, 0, .3) !default;
 $top-transition: all .6s ease-in-out !default;
 
 // Badge
-$badge-color: $brand-pure !default;
+$badge-color: $daojia-pure !default;
 $badge-padding: 3px !default;
 $badge-min-width: 6px !default;
 $badge-min-width-not-empty: $font-size-root + $badge-padding * 2 !default;
 $badge-min-height: 6px !default;
 $badge-margin-right: $badge-min-width-not-empty / 2 !default;
 $badge-scale: .8 !default;
-$badge-box-shadow: 0 0 0 1px $brand-pure !default;
+$badge-box-shadow: 0 0 0 1px $daojia-pure !default;
 
 // Drawer
 $drawer-color: #666 !default;
-$drawer-bg-color: $tabbar-bg-color !default;
+$drawer-bg-color: $daojia-background !default;
 $drawer-padding: ($navbar-height - $line-height-base * $font-size-root) / 2 0 !default;
 $drawer-transition: all .2s ease-in-out !default;
 
-$drawer-color-active: $brand-primary !default;
+$drawer-color-active: $daojia-green !default;
 $drawer-opacity-disabled: $opacity-disabled !default;
 
 $drawer-icon-color: #999 !default;
@@ -350,7 +364,7 @@ $mask-animation-leave-function: ease !default;
 
 
 // Slide
-$slide-bg-color: $brand-pure !default;
+$slide-bg-color: $daojia-pure !default;
 $slide-min-height: 5rem !default;
 $slide-max-height: 300px !default;
 $slide-animation-enter-duration: .3s !default;
@@ -364,39 +378,39 @@ $slide-body-padding: 1rem !default;
 
 // Sidelip
 $sidelip-width: 65% !default;
-$sidelip-bg-color: $brand-pure !default;
+$sidelip-bg-color: $daojia-pure !default;
 $sidelip-animation-enter-duration: .3s !default;
 $sidelip-animation-enter-function: ease !default;
 $sidelip-animation-leave-duration: .2s !default;
 $sidelip-animation-leave-function: ease-in-out !default;
 
 // SegmentedControl
-$segmented-control-color: $brand-primary !default;
-$segmented-control-bg-color: $brand-pure !default;
-$segmented-control-border-color: $brand-primary !default;
+$segmented-control-color: $daojia-green !default;
+$segmented-control-bg-color: $daojia-pure !default;
+$segmented-control-border-color: $daojia-green !default;
 $segmented-control-border-radius: $border-radius-lg !default;
 $segmented-control-transition: all .3s ease-in-out !default;
 
 $segmented-control-opacity-disabled: $opacity-disabled !default;
 
-$segmented-control-color-active: $brand-pure !default;
-$segmented-control-bg-color-active: $brand-primary !default;
+$segmented-control-color-active: $daojia-pure !default;
+$segmented-control-bg-color-active: $daojia-green !default;
 
 $segmented-control-item-padding: .4rem .6rem !default;
 $segmented-control-item-font-size: $font-size-base !default;
 
 
 // Meida
-$media-bg-color: $brand-pure !default;
+$media-bg-color: $daojia-pure !default;
 $media-object-gap: 1rem !default;
 
 // Card
-$card-bg-color: $brand-pure !default;
+$card-bg-color: $daojia-pure !default;
 $card-body-padding: .6rem 1rem !default;
 
 //  Searchbar
 $searchbar-padding: .5rem !default;
-$searchbar-border-color: $border-color !default;
+$searchbar-border-color: $daojia-border !default;
 $searchbar-border-radius: $border-radius !default;
 $searchbar-transition: all .3s ease !default;
 
@@ -418,17 +432,17 @@ $loadmore-hint-margin: -50px !default;
 $loading-width: 4rem !default;
 $loading-animation-duration: 2s !default;
 
-$loading-path-stroke: $border-color !default;
+$loading-path-stroke: $daojia-border !default;
 $loading-path-stroke-width: 3 !default;
 $loading-path-animation-duration: 1.5s !default;
 
-$loading-path-stroke-primary: $brand-primary !default;
-$loading-path-stroke-secondary: $brand-secondary !default;
+$loading-path-stroke-primary: $daojia-green !default;
+$loading-path-stroke-secondary: $daojia-red !default;
 
 $loading-width-sm: 1rem !default;
 
 // Picker
-$picker-bg-color: $brand-pure !default;
+$picker-bg-color: $daojia-pure !default;
 $picker-items-count: 5 !default;
 $picker-items-count-sm: 3 !default;
 $picker-items-count-lg: 7 !default;
@@ -460,23 +474,23 @@ $swipe-indicators-bottom: .5rem !default;
 $swipe-indicator-size: 8px !default;
 $swipe-indicator-margin: 0 1px !default;
 $swipe-indicator-opacity: 1 !default;
-$swipe-indicator-border-color: $brand-pure !default;
-$swipe-indicator-bg-color-active: $brand-pure !default;
+$swipe-indicator-border-color: $daojia-border !default;
+$swipe-indicator-bg-color-active: $daojia-pure !default;
 $swipe-indicator-transition-duration: .3s !default;
 $swipe-indicator-transition-function: ease-in-out !default;
 
 // Progressbar
 $progressbar-height: 20px !default;
 $progressbar-border-radius: $border-radius-lg !default;
-$progressbar-bg-color: $gray-lightest !default;
+$progressbar-bg-color: $daojia-background !default;
 $progressbar-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1) !default;
 
-$progressbar-primary-bg: $brand-primary !default;
-$progressbar-success-bg: $brand-success !default;
-$progressbar-warning-bg: $brand-warning !default;
-$progressbar-danger-bg: $brand-danger !default;
+$progressbar-primary-bg: $daojia-green !default;
+$progressbar-success-bg: $daojia-green !default;
+$progressbar-warning-bg: $daojia-red !default;
+$progressbar-danger-bg: daojia-green !default;
 
-$progressbar-indicator-color: $brand-pure !default;
+$progressbar-indicator-color: $daojia-pure !default;
 $progressbar-indicator-font-size: $font-size-sm !default;
 $progressbar-indicator-transition: width .6s ease !default;
 $progressbar-indicator-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15) !default;
@@ -492,17 +506,17 @@ $stepbar-gap: 2px !default;
 $stepbar-item-addon-size: 1.5rem !default;
 $stepbar-item-addon-color: $text-muted !default;
 
-$stepbar-item-addon-color-active: $brand-pure !default;
-$stepbar-item-addon-bg-active: $brand-primary !default;
-$stepbar-item-addon-border-color-active: $brand-primary !default;
+$stepbar-item-addon-color-active: $daojia-pure !default;
+$stepbar-item-addon-bg-active: $daojia-green !default;
+$stepbar-item-addon-border-color-active: $daojia-green !default;
 $stepbar-item-addon-border-width: 1px !default;
-$stepbar-item-addon-border-color: $border-color !default;
+$stepbar-item-addon-border-color: $daojia-border !default;
 $stepbar-item-addon-icon-font-size: 1rem !default;
 $stepbar-item-addon-transition: all .2s ease-in !default;
 
 
-$stepbar-item-addon-color-finished: $brand-primary !default;
-$stepbar-item-addon-border-color-finished: $brand-primary !default;
+$stepbar-item-addon-color-finished: $daojia-green !default;
+$stepbar-item-addon-border-color-finished: $daojia-green !default;
 
 
 $stepbar-item-addon-title-color: $text-muted !default;
@@ -511,25 +525,25 @@ $stepbar-item-addon-title-font-weight-active: bold !default;
 
 
 $stepbar-line-height: 1px !default;
-$stepbar-line-color: $border-color !default;
-$stepbar-line-border-color: $stepbar-line-color !default;
-$stepbar-line-border-color-active: $brand-primary !default;
+$stepbar-line-color: $daojia-border !default;
+$stepbar-line-border-color: $daojia-border !default;
+$stepbar-line-border-color-active: $daojia-green !default;
 $stepbar-line-transition: all .2s ease-in !default;
 
 // Timeline
 $timeline-item-padding-bottom: 2rem !default;
 
-$timeline-item-addon-bg: $brand-pure !default;
+$timeline-item-addon-bg: $daojia-pure !default;
 $timeline-item-addon-size: round(.8 * $font-size-root) !default;
 $timeline-item-addon-border-width: 2px !default;
 
 $timeline-item-addon-size-active: round(1.8 * $font-size-root) !default;
-$timeline-item-addon-border-color: $brand-primary !default;
+$timeline-item-addon-border-color: $daojia-green !default;
 
 $timeline-item-addon-dot-size: round(.8 * $font-size-root) !default;
 $timeline-item-addon-dot-size-active: round(.7 * $font-size-root) !default;
 $timeline-item-addon-dot-bg: #cbcccd !default;
-$timeline-item-addon-dot-bg-active: $brand-primary !default;
+$timeline-item-addon-dot-bg-active: $daojia-green !default;
 
 $timeline-item-line-width: 1px !default;
 $timeline-item-line-color: $timeline-item-addon-dot-bg !default;

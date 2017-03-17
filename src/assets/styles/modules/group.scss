@@ -1,21 +1,20 @@
 .group {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    margin: $group-margin;
-    @include border-vertical();
-    background-color: $cell-bg-color;
+  @include border-vertical();
+  background-color: $cell-bg-color;
+  margin: $group-margin;
+  padding-bottom: 1px;
+  padding-top: 1px;
 
-
-    > .cell:last-child {
-        background-size: 0;
-    }
+  > .cell:last-child {
+      background-size: 0;
+  }
 }
 
 // title
 .group-title {
-    padding: $group-title-padding;
+  padding: $group-title-padding;
 
-    + .group {
-        margin: 0;
-    }
+  .group {
+      margin: 0;
+  }
 }
