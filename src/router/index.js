@@ -14,7 +14,7 @@ import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
 // 示例代码 END
 import AddressView from '@/views/AddressView'
-import CashierView from '@/views/CashierView'
+import CashierView from '@/views/Cashier/CashierView'
 import StoreHome from '@/views/StoreHome/StoreHome.vue'
 import AddressListView from '@/views/AddressListView'
 import NewAddressView from '@/views/NewAddressView'
