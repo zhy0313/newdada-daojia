@@ -18,7 +18,7 @@
             <p class="pay-name">{{item.payName}}<span v-show="item.extCopy">({{item.extCopy}})</span></p>
             <p class="pay-default-desc">{{item.defaultCopy}}</p>
             <!-- <p class="pay-desc" :class="item.activityCopy ? 'actvity-desc' : ''">{{item.activityCopy}}</p> -->
-            <i :class="payCheckedClass" @click="changePayType"></i>
+            <i :class="index == 0 ? 'checked' : payCheckedClass" @click="changePayType"></i>
           </li>
       </template>
       </ul>

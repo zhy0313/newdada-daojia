@@ -15,6 +15,7 @@ import SquareView from '@/views/SquareView'
 // 示例代码 END
 import AddressView from '@/views/AddressView'
 import CashierView from '@/views/Cashier/CashierView'
+import SettlementView from '@/views/Settlement/SettlementView'
 import StoreHome from '@/views/StoreHome/StoreHome.vue'
 import AddressListView from '@/views/AddressListView'
 import NewAddressView from '@/views/NewAddressView'
@@ -75,6 +76,11 @@ export default new Router({
       path: '/address',
       name: 'address',
       component: AddressView
+    },
+    {
+      path: '/settlement',
+      name: 'settlement',
+      component: SettlementView
     },
     {
       path: '/cashier',
