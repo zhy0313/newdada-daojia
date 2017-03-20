@@ -38,7 +38,7 @@
     <div class="cell-footer" v-if="$slots.footer">
       <slot name="footer"></slot>
     </div>
-    <i v-if="clickable && hasArrow" class="fa fa-angle-right cell-arrow" />
+    <i v-if="clickable && hasArrow" class="iconfont icon-FowordArrow" />
   </a>
 </template>
 

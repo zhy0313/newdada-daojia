@@ -3,7 +3,7 @@
   <div style="text-align: center;">
     <p :class="{'cart-location': true, current: isCurrent}">
       {{location}}
-      <span class="current-tip" v-if="isCurrent">(当前位置)</span>
+      <span v-if="isCurrent" class="current-tip">(当前位置)</span>
     </p>
   </div>
 </template>
