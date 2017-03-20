@@ -33,6 +33,8 @@
       CartLocation,
       CartStore
     },
+    /* eslint-disable */
+
     data () {
       return {
         location: '八达岭站',
@@ -42,13 +44,33 @@
           },
           otherLocationStores: {
             cartResults: [
-              {name: 1},
-              {name: 2}
+              {
+                openJPIndustry: "3",
+                orgCode : "296893",
+                payMoneyName : "合计:",
+                payMoneyPriceValue : "293.3",
+                storeId : "11655711",
+                storeImgUrl : "https://img30.360buyimg.com/vendersettle/jfs/t3193/17/3028299864/123769/e5241ec/57ea30ceNaf5b7719.jpg",
+                storeName : "爱鲜蜂(南河沿大街店)",
+                totalNum : 9
+              },
+              {
+                openJPIndustry : "2",
+                orgCode : "74077",
+                payMoneyName : "合计:",
+                payMoneyPriceValue : "781",
+                storeId : "10051565",
+                storeImgUrl : "https://img30.360buyimg.com/vendersettle/jfs/t1930/170/2253606144/122463/33ae8e75/56c5a64bN81d7b388.png",
+                storeName : "1919北京崇文门新世界店",
+                totalNum : 5
+              }
             ]
           }
         }
       }
     }
+    /*  eslint-enable */
+
   }
 </script>
 
