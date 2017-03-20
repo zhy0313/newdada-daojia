@@ -326,10 +326,10 @@ $top-transition: all .6s ease-in-out !default;
 $badge-color: $daojia-pure !default;
 $badge-padding: 3px !default;
 $badge-min-width: 6px !default;
-$badge-min-width-not-empty: $font-size-root + $badge-padding * 2 !default;
+$badge-min-width-not-empty: 18px !default;
 $badge-min-height: 6px !default;
 $badge-margin-right: $badge-min-width-not-empty / 2 !default;
-$badge-scale: .8 !default;
+// $badge-scale: .8 !default;
 $badge-box-shadow: 0 0 0 1px $daojia-pure !default;
 
 // Drawer
