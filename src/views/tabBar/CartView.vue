@@ -55,6 +55,7 @@
                     price : "198",
                     skuId : "2006444024",
                     skuState : 1,
+                    skuStateName: "已下架",
                     updateTime : 1488881058245
                   },
                   {
