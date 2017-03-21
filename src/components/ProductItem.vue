@@ -32,12 +32,10 @@ export default {
     text-align: center;
     background-color: $daojia-pure;
 
-    .icon-6 {
-      font-size: 30px;
-      position: absolute;
-      top: 20px;
-      right: -41px;
-      color: $daojia-light;
+    img {
+      width: 53px;
+      height: 53px;
+      border-radius: 5px;
     }
 
     .product-mask {
@@ -50,6 +48,14 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
+    }
+
+    .icon-6 {
+      font-size: 30px;
+      position: absolute;
+      top: 20px;
+      right: -41px;
+      color: $daojia-light;
     }
   }
 </style>

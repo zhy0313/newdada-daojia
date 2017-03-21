@@ -68,25 +68,9 @@ export default {
         height: 100px;
         padding: 15px 0;
       }
-      .badge {
-        height: 90px;
-        width: 53px;
-        line-height: 1;
-        text-align: center;
-        background-color: $daojia-pure;
-      }
-
-      .icon-6 {
-        font-size: 30px;
-        position: absolute;
-        top: 20px;
-        right: -41px;
-        color: $daojia-light;
-      }
 
       .more-product {
         white-space: nowrap;
-        text-align: right;
         padding-right: 10px;
       }
     }
@@ -94,13 +78,5 @@ export default {
     .icon-FowordArrow {
       color: #cacaca;
     }
-
-    img {
-      width: 53px;
-      height: 53px;
-      border-radius: 5px;
-    }
-
-
   }
 </style>
