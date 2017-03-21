@@ -1,41 +1,16 @@
 <template>
   <div class="cart-store-container">
-    <cell class="cell-store-name" href="#">{{item.storeName}}</cell>
+    <cell class="cell-store-name" href="#">{{storeItem.storeName}}</cell>
     <flex  class="cell-product-info">
     <cell>
-      <badge content="5" theme="primary">
-        <img src="https://img10.360buyimg.com/n7//jfs/t2539/356/550301995/344973/794e460d/56557aa2N479cb808.jpg">
-        <span>¥88.88</span>
-        <i class="iconfont icon-6"></i>
-      </badge>
-      <badge content="5" theme="primary">
-        <img src="https://img10.360buyimg.com/n7//jfs/t2539/356/550301995/344973/794e460d/56557aa2N479cb808.jpg">
-        <span>¥88.88</span>
-        <i class="iconfont icon-6"></i>
-      </badge>
-      <badge content="5" theme="primary">
-        <img src="https://img10.360buyimg.com/n7//jfs/t2539/356/550301995/344973/794e460d/56557aa2N479cb808.jpg">
-        <span>¥88.88</span>
-        <i class="iconfont icon-6"></i>
-      </badge>
-      <badge content="5" theme="primary">
-        <img src="https://img10.360buyimg.com/n7//jfs/t2539/356/550301995/344973/794e460d/56557aa2N479cb808.jpg">
-        <span>¥88.88</span>
-        <i class="iconfont icon-6"></i>
-      </badge>
-      <badge content="5" theme="primary">
-        <img src="https://img10.360buyimg.com/n7//jfs/t2539/356/550301995/344973/794e460d/56557aa2N479cb808.jpg">
-        <span>¥88.88</span>
-        <i class="iconfont icon-6"></i>
-      </badge>
-      <badge content="5" theme="primary">
-        <img src="https://img10.360buyimg.com/n7//jfs/t2539/356/550301995/344973/794e460d/56557aa2N479cb808.jpg">
-        <span>¥88.88</span>
-        <i class="iconfont icon-6"></i>
-      </badge>
+      <ProductItem v-for="item in storeItem.itemList"
+        :productItem="item"
+        :showMore="hasMoreProduct"
+        :key="item.skuId">
+      </ProductItem>
     </cell>
-    <div class="more-product">
-      <span>共21件</span>
+    <div class="more-product" v-if="hasMoreProduct">
+      共{{storeItem.totalNum}}件
     </div>
 
     </flex>
@@ -43,14 +18,28 @@
 </template>
 
 <script>
+import ProductItem from './ProductItem'
+
 export default {
+  components: {
+    ProductItem
+  },
   props: {
-    item: Object
+    storeItem: Object
+  },
+  computed: {
+    hasMoreProduct () {
+      let listWidth = this.storeItem.itemList.length * 63 + 60
+      let globalWidth = window.innerWidth
+      return listWidth > globalWidth
+    }
   }
 }
 </script>
 
 <style lang="scss">
+  @import "../assets/styles/variables";
+
   .cart-store-container {
 
     .cell-store-name {
@@ -62,41 +51,45 @@ export default {
     }
 
     .cell-product-info {
-      background: #fff;
+      background: $daojia-pure;
       border: 1px solid #e7e9e4;
       border-top: none;
       border-radius: 0 0 3px 3px;
       box-shadow: 0px 1px 3px 0 rgba(231, 233, 228, 1);
       margin-bottom: 15px;
+      align-items: center;
+      justify-content: space-between;
 
       .cell {
-        padding: 0 10px;
+        padding: 0 30px 0 10px;
       }
 
       .cell-body {
-        max-height: 100px;
+        height: 100px;
         padding: 15px 0;
       }
       .badge {
-        height: 130px;
+        height: 90px;
         width: 53px;
         line-height: 1;
         text-align: center;
-        background-color: #fff;
+        background-color: $daojia-pure;
       }
 
       .icon-6 {
         font-size: 30px;
         position: absolute;
-        top: 25px;
-        right: -30px;
+        top: 20px;
+        right: -41px;
+        color: $daojia-light;
       }
 
       .more-product {
-        width: 50px;
+        white-space: nowrap;
+        text-align: right;
+        padding-right: 10px;
       }
     }
-
 
     .icon-FowordArrow {
       color: #cacaca;

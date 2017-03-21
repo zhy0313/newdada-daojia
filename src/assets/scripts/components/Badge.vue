@@ -3,7 +3,7 @@
     @click="$emit('click')"
     class="badge"
     :class="{'badge-gap': $slots.default}">
-    <div class="badge-addon" :class="'bg-' + theme">{{content}}</div>
+    <div v-if="show" class="badge-addon" :class="'bg-' + theme">{{content}}</div>
     <slot></slot>
   </div>
 </template>
@@ -14,6 +14,10 @@
     props: {
       // 内容
       content: {},
+      show: {
+        type: Boolean,
+        default: true
+      },
       // 主题
       theme: {
         type: String,
