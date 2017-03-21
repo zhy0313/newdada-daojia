@@ -29,7 +29,7 @@
 
     &:not(:empty) {
         min-width: $badge-min-width-not-empty;
-        transform: translateX(25%) translateY(-50%);
+        transform: translateX(25%) translateY(-25%);
     }
 
     &:last-child {
