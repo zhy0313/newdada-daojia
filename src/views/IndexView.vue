@@ -11,6 +11,101 @@
                 <cell to="search">search</cell>
             </group>
         </flex-item>
+        <sticky>
+          <span class="demo-affix">固定在最顶部</span>
+        </sticky>
+        <flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item><flex-item>
+            <group-title>Hello, impression!</group-title>
+            <group>
+                <cell to="counter">Counter</cell>
+                <cell to="square">Square</cell>
+                <cell to="search">search</cell>
+            </group>
+        </flex-item>
         <router-link to="/address"><p style="height:40px;line-height:40px;">进行地址选择</p></router-link>
         <FooterNav></FooterNav>
         <Loader></Loader>
@@ -55,3 +150,12 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  .demo-affix {
+    display: inline-block;
+    color: #fff;
+    padding: 10px 30px;
+    text-align: center;
+    background: rgba(0,153,229,.9);
+  }
+</style>
