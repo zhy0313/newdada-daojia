@@ -36,6 +36,9 @@
       CartLocation,
       CartStore
     },
+    created () {
+
+    },
     /* eslint-disable */
 
     data () {

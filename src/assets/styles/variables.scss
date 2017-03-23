@@ -44,9 +44,9 @@ $body-bg: #f0eff5 !default;
 $text-muted: $daojia-light !default;
 
 $font-size-root: 14px !default;
-$font-size-base: 1rem !default;
-$font-size-lg: 1.4rem !default;
-$font-size-sm: .875rem !default;
+$font-size-base: 15px !default;
+$font-size-lg: 17px !default;
+$font-size-sm: 10px !default;
 
 $spacer:   10px !default;
 $spacer-x: $spacer !default;
@@ -77,20 +77,19 @@ $table-sm-cell-padding: .3rem !default;
 $btn-opacity-disabled: $opacity-disabled !default;
 $btn-loading-opacity-disabled: .9 !default;
 
-$btn-font-size: $font-size-base !default;
-$btn-padding-x: 1.6rem !default;
-$btn-padding-y: .7rem !default;
-$btn-border-radius: $border-radius !default;
+$btn-font-size: $font-size-root !default;
+$btn-padding-x: 18px !default;
+$btn-padding-y: 10px !default;
 
-$btn-font-size-sm: $font-size-sm !default;
-$btn-padding-x-sm: .6rem !default;
-$btn-padding-y-sm: .2rem !default;
-$btn-border-radius-sm: $border-radius-sm !default;
+// $btn-font-size-sm: $font-size-sm !default;
+// $btn-padding-x-sm: .6rem !default;
+// $btn-padding-y-sm: .2rem !default;
+// $btn-border-radius-sm: $border-radius-sm !default;
 
-$btn-font-size-lg: $font-size-lg !default;
-$btn-padding-x-lg: 2rem !default;
-$btn-padding-y-lg: 1rem !default;
-$btn-border-radius-lg: $border-radius-lg !default;
+// $btn-font-size-lg: $font-size-lg !default;
+// $btn-padding-x-lg: 2rem !default;
+// $btn-padding-y-lg: 1rem !default;
+// $btn-border-radius-lg: $border-radius-lg !default;
 
 $btn-primary-color: $daojia-pure;
 $btn-primary-bg: $daojia-green !default;

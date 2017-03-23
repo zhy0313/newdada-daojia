@@ -8,25 +8,28 @@
     vertical-align: middle;
     user-select: none;
     border: 1px solid transparent;
+    padding: 0;
+    font-size: $btn-font-size;
+    height: 100%;
+    // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size);
 
-    @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
-
-    &,
-    &:active {
-        &:focus {
-            outline: 0;
-            background-image: none;
-        }
-    }
-
-    &:hover,
-    &:focus {
-        text-decoration: none;
-    }
+    // &,
+    // &:active {
+    //     &:focus {
+    //         outline: 0;
+    //         background-image: none;
+    //     }
+    // }
+    //
+    // &:hover,
+    // &:focus {
+    //     text-decoration: none;
+    // }
 
     &:disabled {
         opacity: $btn-loading-opacity-disabled;
-
+        background: #bebebe;
+        border: none;
         &:not(.btn-loading) {
             opacity: $btn-opacity-disabled;
         }
@@ -45,25 +48,25 @@
 }
 
 // Size
-.btn-sm {
-    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
-}
-
-.btn-lg {
-    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
-}
+// .btn-sm {
+//     @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm);
+// }
+//
+// .btn-lg {
+//     @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg);
+// }
 
 // Theme
 .btn-primary {
-    // @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }
 
 .btn-secondary {
-    // @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+    @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
 }
 
 .btn-default {
-    // @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+    @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
 }
 
 // Outline

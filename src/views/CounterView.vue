@@ -15,15 +15,19 @@
                 :decrement="decrement"
                 :reset="reset" />
         </flex-item>
+
+      <MiniCart></MiniCart>
     </flex>
 </template>
 
 <script>
   import { mapState, mapActions, mapGetters } from 'vuex'
   import Counter from '../components/Counter'
+  import MiniCart from '../components/MiniCart'
   export default {
     components: {
-      Counter
+      Counter,
+      MiniCart
     },
     computed: {
       ...mapState({ // 获取store状态

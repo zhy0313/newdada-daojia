@@ -5,7 +5,6 @@
     class='btn'
     :class='{
       [`btn-${theme}`]: theme,
-      [`btn-${size}`]: size,
       [`btn-${theme}-outline`]: hollow,
       ["btn-block"]: block,
       ["btn-loading"]: loading,
@@ -44,13 +43,6 @@
         default: 'primary',
         validator (value) {
           return ['primary', 'secondary', 'default'].indexOf(value) > -1
-        }
-      },
-      // 尺寸
-      size: {
-        type: String,
-        validator (value) {
-          return ['sm', 'lg'].indexOf(value) > -1
         }
       },
       // 形状

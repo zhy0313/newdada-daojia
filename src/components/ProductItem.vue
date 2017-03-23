@@ -1,5 +1,5 @@
 <template>
-  <badge class="product-item-container" :content="productItem.cartNum" :show="isShowTip" theme="primary">
+  <badge class="product-item-container" :content="productItem.cartNum" :show="isShowTip">
     <img :src="productItem.imageUrl">
     <span v-if="productItem.skuStateName" class="product-mask">{{productItem.skuStateName}}</span>
     <span>¥{{productItem.price}}</span>
@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     isShowTip () {
-      return this.productItem.cartNum > 1
+      return this.productItem.cartNum > 1 && !this.productItem.skuStateName
     }
   }
 }
