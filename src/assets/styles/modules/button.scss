@@ -11,28 +11,11 @@
     padding: 0;
     font-size: $btn-font-size;
     height: 100%;
-    // @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size);
 
-    // &,
-    // &:active {
-    //     &:focus {
-    //         outline: 0;
-    //         background-image: none;
-    //     }
-    // }
-    //
-    // &:hover,
-    // &:focus {
-    //     text-decoration: none;
-    // }
-
-    &:disabled {
-        opacity: $btn-loading-opacity-disabled;
+    &:disabled,
+    &.disabled {
         background: #bebebe;
         border: none;
-        &:not(.btn-loading) {
-            opacity: $btn-opacity-disabled;
-        }
     }
 
     .loading {
@@ -71,13 +54,13 @@
 
 // Outline
 .btn-primary-outline {
-    // @include button-outline-variant($btn-primary-border);
+    @include button-outline-variant($btn-primary-border);
 }
 
 .btn-secondary-outline {
-    // @include button-outline-variant($btn-secondary-border);
+    @include button-outline-variant($btn-secondary-border);
 }
 
 .btn-default-outline {
-    // @include button-outline-variant($btn-default-border);
+    @include button-outline-variant($btn-default-border);
 }
