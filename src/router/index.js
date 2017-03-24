@@ -20,6 +20,7 @@ import StoreHome from '@/views/StoreHome/StoreHome.vue'
 import AddressListView from '@/views/AddressListView'
 import NewAddressView from '@/views/NewAddressView'
 import EditAddressView from '@/views/EditAddressView'
+import ActivityView from '@/views/Activity/ActivityView'
 
 Vue.use(Router)
 
@@ -106,6 +107,11 @@ export default new Router({
       path: '/editAddress/:name/:tel/:id/:poi/:title',
       name: 'editAddress',
       component: EditAddressView
+    },
+    {
+      path: '/activity',
+      name: 'activity',
+      component: ActivityView
     },
     {
       path: '*',
