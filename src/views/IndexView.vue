@@ -6,7 +6,7 @@
         <flex-item>
             <group-title>Hello, impression!</group-title>
             <group>
-                <cell to="counter">Counter</cell>
+                <cell to="counter">迷你购物车</cell>
                 <cell to="square">Square</cell>
                 <cell to="search">search</cell>
             </group>

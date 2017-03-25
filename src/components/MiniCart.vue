@@ -1,50 +1,82 @@
 <template>
-  <div class="mini-cart-container">
-    <div class="cart-detail-info open">
-      <badge v-if="!isEmpty" :content="miniCartInfo.totalNum">
+  <div class="mini-cart-container" >
+    <div :class="{'cart-detail-info': true, close: isClose}">
+      <!-- <badge v-if="!isEmpty"
+        :content="miniCartInfo.totalNum"
+        @click.native="switchCartDetailHandle">
         <i class="mini-cart-icon has-content"></i>
-      </badge>
+      </badge> -->
+      <MiniCartIcon
+        :isEmpty="false" v-if="!isEmpty"
+        :totalNum="miniCartInfo.totalNum"
+        @click.native="switchCartDetailHandle"
+      ></MiniCartIcon>
+      <div class="cart-product-list">
+      <div>内容内容</div>
+      <div>内容内容</div>
+      <div>内容内容</div>
+      <div>内容内容</div>
+      <div>内容内容</div>
+      </div>
     </div>
-    <flex class="bottom-footer" justify="between">
-      <div v-if="isEmpty" class="cart-empty"><i class="mini-cart-icon"></i>购物车是空的</div>
-      <div v-else="!isEmpty" class="cart-info-close">
+      <div v-if="isEmpty" class="cart-empty"><MiniCartIcon :isEmpty="true"></MiniCartIcon>购物车是空的</div>
+      <div v-else
+        :class="{'cart-info-close': true, open: !isClose}"
+        @click="switchCartDetailHandle">
         <span class="cart-total-price">¥{{miniCartInfo.payMoneyPriceValue}}</span>
         <span v-if="miniCartInfo.discountName" class="discount-info">{{miniCartInfo.discountName}}</span>
       </div>
-      <btn theme="primary" :disabled="miniCartInfo.buttonState == 1">{{miniCartInfo.buttonName}}</btn>
-    </flex>
+      <btn theme="primary"
+        :disabled="miniCartInfo.buttonState == 1"
+        @click.stop="goSettlementHandle"
+      >{{miniCartInfo.buttonName}}</btn>
   </div>
 </template>
 
 <script>
-export default {
-  /* eslint-disable */
-  data () {
-    return {
-      miniCartInfo: {
-        authorize : false,
-        buttonName : "去结算",
-        buttonState : 0,
-        discountName : "已减20元",
-        itemList : [{}],
-        numWeightDesc : "(已选1件)",
-        openJPIndustry : "6",
-        orgCode : "73655",
-        payMoneyPriceValue : "118",
-        storeId : "10048047",
-        storeName : "花里花外鲜花—北京店",
-        totalNum : 1,
-        wholeStore : false
+  import MiniCartIcon from './MiniCartIcon'
+
+  export default {
+    components: {
+      MiniCartIcon
+    },
+    /* eslint-disable */
+    data () {
+      return {
+        isClose: true,
+        miniCartInfo: {
+          authorize : false,
+          buttonName : "去结算",
+          buttonState : 0,
+          discountName : "已减20元",
+          itemList : [{}],
+          numWeightDesc : "(已选1件)",
+          openJPIndustry : "6",
+          orgCode : "73655",
+          payMoneyPriceValue : "118",
+          storeId : "10048047",
+          storeName : "花里花外鲜花—北京店",
+          totalNum : 1,
+          wholeStore : false
+        }
+      }
+    },
+    /*  eslint-enable */
+    computed: {
+      isEmpty () {
+        return !(this.miniCartInfo.itemList && this.miniCartInfo.itemList.length)
+      }
+    },
+    methods: {
+      goSettlementHandle () {
+        console.log('去结算')
+      },
+      switchCartDetailHandle () {
+        console.log('切换购物车详情', !this.isClose ? '收起' : '展开')
+        this.isClose = !this.isClose
       }
     }
-  },
-  /*  eslint-enable */
-  computed: {
-    isEmpty () {
-      return !(this.miniCartInfo.itemList && this.miniCartInfo.itemList.length)
-    }
   }
-}
 </script>
 
 <style lang="scss">
@@ -57,52 +89,75 @@ export default {
     right: 0;
     left: 0;
     font-size: 15px;
+    background: #fff;
 
-    .bottom-footer {
-      @include border-top();
-      background-color: #fff;
-      height: 50px;
-      line-height: 50px;
-      color: $daojia-light;
-      white-space: nowrap;
+    .cart-detail-info {
+      position: absolute;
+      bottom: 2px;
+      right: 0;
+      left: 0;
+      padding-bottom: 50px;
+      transform: translateY(0);
+      // animation: minicart-open .5s ease-out forwards;
+      transition: transform .5s ease-out 0s;
+      &.close {
+        // animation: minicart-close .5s ease-out forwards;
+        // top: -12px;
+        transform: translateY(100%);
+        // 购物车图标
+        .badge {
+          position: absolute;
+          top: -62px;
+        }
+
+        .cart-product-list {
+          // visibility: hidden;
+          // opacity: 0;
+          animation: minicart-close .5s ease-out forwards;
+        }
+
+      }
     }
 
     .badge {
-      position: absolute;
-      top: -12px;
+      position: relative;
     }
 
     .badge-addon {
       top: 6px;
     }
 
-    .mini-cart-icon {
-      display: inline-block;
-      width: 60px;
-      height: 50px;
-      vertical-align: middle;
-      background: url(//static-o2o.360buyimg.com/daojia/new/images/minicart/cart.png) 10px 5px no-repeat;
-      background-size: 50px 120px;
-      transition: transform .5s ease-out 0s;
 
-      &.has-content {
-        background-position: 10px -70px;
-        height: 58px;
-      }
+    .cart-product-list {
+      background: #fff;
+      animation: minicart-open .5s ease-out forwards;
     }
 
+    // 迷你购物车低栏
+    // .bottom-footer {
+    //
+    // }
+
     .cart-info-close {
-      transform: translateX(60px);
+
+      @include border-top();
+      background-color: #fff;
+      height: 50px;
+      line-height: 50px;
+      color: $daojia-light;
+      white-space: nowrap;
+      z-index: 999;
+      transform: translateX(70px);
       transition: transform .4s ease-out 0s;
       &.open {
-        transform: translateX(0);
+        transform: translateX(10px);
       }
     }
 
     .cart-total-price {
       display: inline-block;
       color: #ff3434;
-      padding: 0 5px 0 10px;
+      padding: 0 5px 0 0;
     }
 
     .discount-info {
@@ -115,7 +170,38 @@ export default {
     }
 
     .btn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 50px;
       width: 115px;
+      z-index: 999;
+    }
+
+  }
+
+  @keyframes minicart-close {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes minicart-open {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
     }
   }
 </style>

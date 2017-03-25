@@ -1,4 +1,5 @@
 <template>
+  <div>
     <flex direction="column">
         <navbar>
             <router-link :to="{path: '/'}">
@@ -16,8 +17,9 @@
                 :reset="reset" />
         </flex-item>
 
-      <MiniCart></MiniCart>
     </flex>
+    <MiniCart></MiniCart>
+  </div>
 </template>
 
 <script>
