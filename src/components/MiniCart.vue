@@ -1,35 +1,43 @@
 <template>
-  <div class="mini-cart-container" >
-    <div :class="{'cart-detail-info': true, close: isClose}">
-      <!-- <badge v-if="!isEmpty"
-        :content="miniCartInfo.totalNum"
-        @click.native="switchCartDetailHandle">
-        <i class="mini-cart-icon has-content"></i>
-      </badge> -->
+  <div>
+    <div v-if="!isEmpty" :class="{'cart-detail-info': true, close: isClose}">
       <MiniCartIcon
-        :isEmpty="false" v-if="!isEmpty"
-        :totalNum="miniCartInfo.totalNum"
-        @click.native="switchCartDetailHandle"
+      :totalNum="miniCartInfo.totalNum"
+      @click.native="switchCartDetailHandle"
       ></MiniCartIcon>
       <div class="cart-product-list">
-      <div>内容内容</div>
-      <div>内容内容</div>
-      <div>内容内容</div>
-      <div>内容内容</div>
-      <div>内容内容</div>
+        <div>内容内容</div>
+        <div>内容内容</div>
+        <div>内容内容</div>
+        <div>内容内容</div>
+        <div>内容内容</div>
+        <div>内容内容</div>
+        <div>内容内容</div>
+        <div>内容内容</div>
+        <div>内容内容</div>
+        <div>内容内容</div>
       </div>
     </div>
-      <div v-if="isEmpty" class="cart-empty"><MiniCartIcon :isEmpty="true"></MiniCartIcon>购物车是空的</div>
-      <div v-else
-        :class="{'cart-info-close': true, open: !isClose}"
-        @click="switchCartDetailHandle">
-        <span class="cart-total-price">¥{{miniCartInfo.payMoneyPriceValue}}</span>
-        <span v-if="miniCartInfo.discountName" class="discount-info">{{miniCartInfo.discountName}}</span>
-      </div>
-      <btn theme="primary"
-        :disabled="miniCartInfo.buttonState == 1"
-        @click.stop="goSettlementHandle"
-      >{{miniCartInfo.buttonName}}</btn>
+    <div class="mini-cart-bottom" >
+
+        <div v-if="isEmpty" class="cart-empty"><MiniCartIcon :isEmpty="true"></MiniCartIcon>购物车是空的</div>
+        <div v-else
+          :class="{'cart-info-close': true, open: !isClose}"
+          @click="switchCartDetailHandle">
+          <span class="cart-total-price">¥{{miniCartInfo.payMoneyPriceValue}}</span>
+          <span v-if="miniCartInfo.discountName" class="discount-info">{{miniCartInfo.discountName}}</span>
+        </div>
+        <MiniCartIcon
+        v-if="!isEmpty"
+        :show="isClose"
+        :totalNum="miniCartInfo.totalNum"
+        @click.native="switchCartDetailHandle"
+        ></MiniCartIcon>
+        <btn theme="primary"
+          :disabled="miniCartInfo.buttonState == 1"
+          @click.stop="goSettlementHandle"
+        >{{miniCartInfo.buttonName}}</btn>
+    </div>
   </div>
 </template>
 
@@ -83,49 +91,37 @@
   @import "../assets/styles/variables";
   @import "../assets/styles/mixins";
 
-  .mini-cart-container {
+  .cart-detail-info {
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 50px;
     left: 0;
-    font-size: 15px;
-    background: #fff;
+    right: 0;
+    transform: translateY(0);
+    // animation: minicart-open .5s ease-out forwards;
+    transition: transform .5s ease-out 0s;
+    &.close {
+      // animation: minicart-close .5s ease-out forwards;
+      // top: -12px;
+      transform: translateY(100%);
+      // 购物车图标
+      // .badge {
+      //   position: fixed;
+      //   bottom: -12px;
+      // }
 
-    .cart-detail-info {
-      position: absolute;
-      bottom: 2px;
-      right: 0;
-      left: 0;
-      padding-bottom: 50px;
-      transform: translateY(0);
-      // animation: minicart-open .5s ease-out forwards;
-      transition: transform .5s ease-out 0s;
-      &.close {
+      .cart-product-list {
+        // visibility: hidden;
+        // opacity: 0;
         // animation: minicart-close .5s ease-out forwards;
-        // top: -12px;
-        transform: translateY(100%);
-        // 购物车图标
-        .badge {
-          position: absolute;
-          top: -62px;
-        }
-
-        .cart-product-list {
-          // visibility: hidden;
-          // opacity: 0;
-          animation: minicart-close .5s ease-out forwards;
-        }
-
       }
+
     }
 
-    .badge {
-      position: relative;
-    }
+    // .badge {
+    //   position: relative;
+    // }
 
-    .badge-addon {
-      top: 6px;
-    }
+
 
 
     .cart-product-list {
@@ -133,24 +129,49 @@
       animation: minicart-open .5s ease-out forwards;
     }
 
+  }
+
+
+
+
+  .mini-cart-bottom {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: 15px;
+    background: #fff;
+    @include border-top();
+
+    .mini-cart-icon-container {
+      position: fixed;
+      bottom: 2px;
+      // opacity: 0;
+      // transition: opacify .4s ease-out 0s;
+      // &.show {
+      //   opacity: 1;
+      // }
+    }
+
+
     // 迷你购物车低栏
     // .bottom-footer {
     //
     // }
 
     .cart-info-close {
-
-      @include border-top();
       background-color: #fff;
       height: 50px;
       line-height: 50px;
       color: $daojia-light;
       white-space: nowrap;
-      z-index: 999;
+      // z-index: 999;
       transform: translateX(70px);
+      // padding-left: 70px;
       transition: transform .4s ease-out 0s;
       &.open {
         transform: translateX(10px);
+        // padding-left: 10px;
       }
     }
 

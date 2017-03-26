@@ -1,7 +1,9 @@
 <template>
   <i v-if="isEmpty" class="mini-cart-icon"></i>
   <badge v-else
-    :content="totalNum">
+    :content="totalNum"
+    :class="{'mini-cart-icon-container': true, show: show}"
+  >
     <i class="mini-cart-icon has-content"></i>
   </badge>
 </template>
@@ -9,13 +11,28 @@
 <script>
 export default {
   props: {
-    isEmpty: Boolean,
+    isEmpty:
+    {
+      type: Boolean,
+      default: false
+    },
+    show:
+    {
+      type: Boolean,
+      default: true
+    },
     totalNum: Number
+
   }
 }
 </script>
 
 <style lang="scss">
+.mini-cart-icon-container {
+  // position: fixed;
+  // bottom: 2px;
+  display: inline-block;
+
   .mini-cart-icon {
     display: inline-block;
     width: 60px;
@@ -30,4 +47,19 @@ export default {
       height: 58px;
     }
   }
+
+  .badge-addon {
+    top: 6px;
+  }
+
+  // .badge {
+    opacity: 0;
+    // display: none;
+    transition: opacity .4s ease-out 0s;
+    &.show {
+      display: inline-block;
+      opacity: 1;
+    }
+  // }
+}
 </style>
