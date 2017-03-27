@@ -26,8 +26,8 @@
 <script>
   import FooterNav from '@/components/FooterNav'
   import Loader from '@/components/Loader'
-  import CartLocation from '@/components/CartLocation'
-  import CartStore from '@/components/CartStore'
+  import CartLocation from '@/components/cart/CartLocation'
+  import CartStore from '@/components/cart/CartStore'
 
   export default {
     components: {

@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../assets/styles/variables";
+  @import "../../assets/styles/variables";
 
   .product-item-container {
     font-size: 12px;

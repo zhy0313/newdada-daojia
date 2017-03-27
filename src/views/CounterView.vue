@@ -25,7 +25,7 @@
 <script>
   import { mapState, mapActions, mapGetters } from 'vuex'
   import Counter from '../components/Counter'
-  import MiniCart from '../components/MiniCart'
+  import MiniCart from '../components/cart/MiniCart'
   export default {
     components: {
       Counter,

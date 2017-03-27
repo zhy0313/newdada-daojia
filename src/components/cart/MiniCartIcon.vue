@@ -1,23 +1,22 @@
 <template>
+  <!-- 空处理 -->
   <i v-if="isEmpty" class="mini-cart-icon"></i>
+  <!-- 非空处理 -->
   <badge v-else
     :content="totalNum"
-    :class="{'mini-cart-icon-container': true, show: show}"
+    :class="{'mini-cart-icon-container': true, 'show-icon': show}"
   >
     <i class="mini-cart-icon has-content"></i>
   </badge>
 </template>
-
 <script>
 export default {
   props: {
-    isEmpty:
-    {
+    isEmpty: {
       type: Boolean,
       default: false
     },
-    show:
-    {
+    show: {
       type: Boolean,
       default: true
     },
@@ -28,11 +27,6 @@ export default {
 </script>
 
 <style lang="scss">
-.mini-cart-icon-container {
-  // position: fixed;
-  // bottom: 2px;
-  display: inline-block;
-
   .mini-cart-icon {
     display: inline-block;
     width: 60px;
@@ -51,15 +45,32 @@ export default {
   .badge-addon {
     top: 6px;
   }
+// .mini-cart-icon-container {
+  // position: fixed;
+  // bottom: 2px;
+  // display: inline-block;
+
 
   // .badge {
-    opacity: 0;
+    // opacity: 0;
     // display: none;
-    transition: opacity .4s ease-out 0s;
-    &.show {
-      display: inline-block;
-      opacity: 1;
-    }
+    // transform: translateX();
+    // transition: transform .4s ease-out 0s;
+    // &.show {
+      // animation: show-delay .4s ease-out forwards;
+      // display: inline-block;
+      // opacity: 1;
+    // }
   // }
-}
+// }
+
+// @keyframes show-delay {
+//   0% {
+//     display: none;
+//   }
+//
+//   100% {
+//     display: inline-block;
+//   }
+// }
 </style>
