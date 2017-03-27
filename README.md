@@ -45,6 +45,7 @@ Atom 编辑器的 装一下这两个插件： 
 - VUE开发教程和指南：
   - [https://github.com/bhnddowinf/vuejs-learn](https://github.com/bhnddowinf/vuejs-learn)
   - [https://github.com/vuejs/awesome-vue](https://github.com/vuejs/awesome-vue)
+  - [https://github.com/opendigg/awesome-github-vue](https://github.com/opendigg/awesome-github-vue)
 - 示例项目：
   - [https://github.com/NewDadaFE/vue-impression](https://github.com/NewDadaFE/vue-impression)
   - [https://github.com/ElemeFE/mint-ui](https://github.com/ElemeFE/mint-ui)
