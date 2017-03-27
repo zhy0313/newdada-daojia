@@ -1,4 +1,5 @@
 <template>
+  <div>
     <flex direction="column">
         <navbar>
             <router-link :to="{path: '/'}">
@@ -15,15 +16,20 @@
                 :decrement="decrement"
                 :reset="reset" />
         </flex-item>
+
     </flex>
+    <MiniCart :isOpenCart="false"></MiniCart>
+  </div>
 </template>
 
 <script>
   import { mapState, mapActions, mapGetters } from 'vuex'
   import Counter from '../components/Counter'
+  import MiniCart from '../components/cart/MiniCart'
   export default {
     components: {
-      Counter
+      Counter,
+      MiniCart
     },
     computed: {
       ...mapState({ // 获取store状态

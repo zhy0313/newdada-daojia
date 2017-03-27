@@ -30,12 +30,8 @@ module.exports = {
     // 配置代理
     proxyTable: {
       '/client': {
-         target: 'http://testpdjm.jd.com/',
-         secure: false,
-         changeOrigin: true
-       },
-      '/v2/book/search': {
-         target: 'https://api.douban.com/',
+         target: 'https://testpdjm.jd.com/',
+        //  target: 'https://daojia.jd.com/',
          secure: true,
          changeOrigin: true
        }

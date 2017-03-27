@@ -26,7 +26,7 @@ export default{
       let data = {
         functionId: 'local/delSearchInfos'
       }
-      this.$http.get('/client', {params: data}).then(response => {
+      this.$getAPI(data).then(response => {
         this.historyData = {}
         this.$emit('clearHistory')
       }, reposonse => {

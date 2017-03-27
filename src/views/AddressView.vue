@@ -20,9 +20,6 @@ export default{
     this.getAddress()
     this.getCity()
   },
-  // mounted() {
-  //
-  // },
   components: {
     UserAddress
   },
@@ -32,7 +29,7 @@ export default{
         functionId: 'addresspdj/getAddressList',
         body: {}
       }
-      this.$http.get('/client', {params: data}).then(response => {
+      this.$getAPI(data).then(response => {
         address = response.body.result
         this.items = address
       }, response => {
@@ -44,7 +41,7 @@ export default{
         functionId: 'addresspdj/getCities',
         body: {}
       }
-      this.$http.get('/client', {params: data}).then(response => {
+      this.$postAPI(data).then(response => {
         this.city = response.body.result
       }, response => {
 

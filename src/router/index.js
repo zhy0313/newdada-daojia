@@ -1,14 +1,26 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello' // 等同于 '../components/Hello'
-import Button from '@/components/Button'
+// 一级导航
+import IndexView from '@/views/IndexView'
+import ListView from '@/views/tabBar/ListView'
+import DiscoverView from '@/views/tabBar/DiscoverView'
+import CartView from '@/views/tabBar/CartView'
+import OrderView from '@/views/tabBar/OrderView'
+import MyView from '@/views/tabBar/MyView'
+// 示例代码 START
 import SearchView from '@/views/SearchView'
 import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
-import IndexView from '@/views/IndexView'
+// 示例代码 END
 import AddressView from '@/views/AddressView'
-import CashierView from '@/views/CashierView'
+import CashierView from '@/views/Cashier/CashierView'
+import SettlementView from '@/views/Settlement/SettlementView'
+import StoreHome from '@/views/StoreHome/StoreHome.vue'
+import AddressListView from '@/views/AddressListView'
+import NewAddressView from '@/views/NewAddressView'
+import EditAddressView from '@/views/EditAddressView'
+import ActivityView from '@/views/Activity/ActivityView'
 import goodsDetailVue from '@/views/goodsDetailVue'
 Vue.use(Router)
 
@@ -18,8 +30,33 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Index',
+      name: 'IndexView',
       component: IndexView
+    },
+    {
+      path: '/list',
+      name: 'ListView',
+      component: ListView
+    },
+    {
+      path: '/discover',
+      name: 'DiscoverView',
+      component: DiscoverView
+    },
+    {
+      path: '/cart',
+      name: 'CartView',
+      component: CartView
+    },
+    {
+      path: '/order',
+      name: 'OrderView',
+      component: OrderView
+    },
+    {
+      path: '/my',
+      name: 'MyView',
+      component: MyView
     },
     {
       path: '/counter',
@@ -37,19 +74,14 @@ export default new Router({
       component: SquareView
     },
     {
-      path: '/hello',
-      name: 'Hello',
-      component: Hello
-    },
-    {
-      path: '/btn',
-      name: 'Button',
-      component: Button
-    },
-    {
       path: '/address',
       name: 'address',
       component: AddressView
+    },
+    {
+      path: '/settlement',
+      name: 'settlement',
+      component: SettlementView
     },
     {
       path: '/cashier',
@@ -57,9 +89,38 @@ export default new Router({
       component: CashierView
     },
     {
+      path: '/storeHome',
+      name: 'storeHome',
+      component: StoreHome
+    },
+    {
+      path: '/addressList',
+      name: 'addressList',
+      component: AddressListView
+    },
+    {
+      path: '/newAddress',
+      name: 'newAddress',
+      component: NewAddressView
+    },
+    {
+      path: '/editAddress/:name/:tel/:id/:poi/:title',
+      name: 'editAddress',
+      component: EditAddressView
+    },
+    {
+      path: '/activity',
+      name: 'activity',
+      component: ActivityView
+    },
+    {
       path: '/goodsDetail',
       name: 'goodsDetail',
       component: goodsDetailVue
+    },
+    {
+      path: '*',
+      redirect: 'IndexView'
     }
 
   ]

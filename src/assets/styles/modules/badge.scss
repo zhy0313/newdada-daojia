@@ -1,0 +1,40 @@
+.badge {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.badge-gap {
+    margin-right: $badge-margin-right;
+
+    .badge-addon {
+        // box-shadow: $badge-box-shadow;
+    }
+}
+
+.badge-addon {
+  background-color: $daojia-red;
+  border-radius: $border-radius-circle;
+  color: $badge-color;
+  font-size: 10px;
+  line-height: 1;
+  min-height: $badge-min-height;
+  min-width: $badge-min-width;
+  padding: $badge-padding;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  transform: translateX(100%) translateY(-50%);
+  z-index: 9;
+
+    &:not(:empty) {
+        min-width: $badge-min-width-not-empty;
+        transform: translateX(25%) translateY(-25%);
+    }
+
+    &:last-child {
+        position: static;
+        transform: none;
+    }
+}
