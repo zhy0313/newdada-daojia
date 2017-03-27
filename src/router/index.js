@@ -9,7 +9,7 @@ import SquareView from '@/views/SquareView'
 import IndexView from '@/views/IndexView'
 import AddressView from '@/views/AddressView'
 import CashierView from '@/views/CashierView'
-
+import goodsDetailVue from '@/views/goodsDetailVue'
 Vue.use(Router)
 
 export default new Router({
@@ -55,6 +55,12 @@ export default new Router({
       path: '/cashier',
       name: 'cashier',
       component: CashierView
+    },
+    {
+      path: '/goodsDetail',
+      name: 'goodsDetail',
+      component: goodsDetailVue
     }
+
   ]
 })
