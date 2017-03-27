@@ -4,7 +4,7 @@
   <!-- 非空处理 -->
   <badge v-else
     :content="totalNum"
-    :class="{'mini-cart-icon-container': true, 'show-icon': show}"
+    class="mini-cart-icon-container"
   >
     <i class="mini-cart-icon has-content"></i>
   </badge>
@@ -38,7 +38,7 @@ export default {
 
     &.has-content {
       background-position: 10px -70px;
-      height: 58px;
+      height: 60px;
     }
   }
 

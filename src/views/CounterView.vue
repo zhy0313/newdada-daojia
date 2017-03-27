@@ -18,7 +18,7 @@
         </flex-item>
 
     </flex>
-    <MiniCart></MiniCart>
+    <MiniCart :isOpenCart="false"></MiniCart>
   </div>
 </template>
 

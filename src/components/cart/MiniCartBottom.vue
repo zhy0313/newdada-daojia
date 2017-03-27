@@ -8,13 +8,13 @@
 
     <!-- 购物车非空处理 -->
     <div v-else
-      :class="{'cart-info-close': true, open: !isClose}">
+      :class="{'money-info-close': true, open: !isClose}">
       <span class="cart-total-price">¥{{miniCartInfo.payMoneyPriceValue}}</span>
       <span v-if="miniCartInfo.discountName" class="discount-info">{{miniCartInfo.discountName}}</span>
     </div>
     <MiniCartIcon
+      ref="miniCartIcon"
       v-if="!isEmpty"
-      :show="isClose"
       :totalNum="miniCartInfo.totalNum"
     ></MiniCartIcon>
     <btn theme="primary"
@@ -46,11 +46,33 @@ export default {
     isClose: {
       type: Boolean,
       default: true
+    },
+    position: {
+      type: Number,
+      default: 0
+    }
+  },
+  watch: {
+    isClose (val) {
+      this.setIconPosition()
+    },
+    position (val) {
+      this.setIconPosition()
     }
   },
   methods: {
     goSettlementHandle () {
       console.log('去结算')
+    },
+    setIconPosition () {
+      let miniCartIcon = this.$refs.miniCartIcon.$el
+      if (this.isClose) {
+        miniCartIcon.style.wekitTransform = 'translateY(0)'
+        miniCartIcon.style.transform = 'translateY(0)'
+      } else {
+        miniCartIcon.style.wekitTransform = `translateY(-${this.position}px)`
+        miniCartIcon.style.transform = `translateY(-${this.position}px)`
+      }
     }
   }
 }
@@ -77,25 +99,18 @@ export default {
 
     .mini-cart-icon-container {
       position: fixed;
-      bottom: 2px;
-      opacity: 0;
-      transition: opacify .4s ease-out 0s;
-      &.show-icon {
-        opacity: 1;
-      }
+      bottom: 0;
+      left: 0;
+      transition: transform .5s ease-out 0s;
     }
 
-    .cart-info-close {
-      // background-color: #fff;
+    .money-info-close {
       color: $daojia-light;
       white-space: nowrap;
-      // z-index: 999;
       transform: translateX(70px);
-      // padding-left: 70px;
-      transition: transform .4s ease-out 0s;
+      transition: transform .5s ease-out 0s;
       &.open {
         transform: translateX(10px);
-        // padding-left: 10px;
       }
     }
 
@@ -120,8 +135,31 @@ export default {
       bottom: 0;
       height: 50px;
       width: 115px;
-      z-index: 999;
     }
-
   }
+
+
+  // @keyframes minicart-icon-show {
+  //   0% {
+  //     opacity: 0;
+  //     transform: translateY(-100%);
+  //   }
+  //
+  //   100% {
+  //     opacity: 1;
+  //     transform: translateY(0);
+  //   }
+  // }
+  //
+  // @keyframes minicart-icon-hide {
+  //   0% {
+  //     opacity: 1;
+  //     transform: translateY(0);
+  //   }
+  //
+  //   100% {
+  //     opacity: 0;
+  //     transform: translateY(-100%);
+  //   }
+  // }
 </style>
