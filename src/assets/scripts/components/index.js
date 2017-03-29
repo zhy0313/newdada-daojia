@@ -1,5 +1,5 @@
 import Button from './Button'
-// import Icon from './Icon'
+import Icon from './Icon'
 import Group from './Group'
 import GroupTitle from './GroupTitle'
 import Cell from './Cell'
@@ -72,7 +72,7 @@ const impression = {
   Cell,
   Flex,
   FlexItem,
-  // Icon,
+  Icon,
   Tag,
   Tip,
   HRule,

@@ -43,6 +43,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    padding: 0 10px;
     padding-bottom: 50px;
     transform: translateY(0);
     transition: transform .5s ease-out 0s;
