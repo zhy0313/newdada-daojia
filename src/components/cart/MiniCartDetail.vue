@@ -1,8 +1,8 @@
 <template>
   <div :class="{'minicart-detail-info': true, close: isClose}">
-    <span><slot></slot></span>
+    <MiniCarControlBar>{{numWeightDesc}}</MiniCarControlBar>
     <div class="cart-product-list">
-      <div>内容内容</div>
+      <div><checkbox type="circle" disabled> </checkbox>内容内容</div>
       <div>内容内容</div>
       <div>内容内容</div>
       <div>内容内容</div>
@@ -17,15 +17,21 @@
 </template>
 
 <script>
-export default {
-  props: {
-    itemList: Array,
-    isClose: {
-      type: Boolean,
-      default: true
+  import MiniCarControlBar from './MiniCartControlBar'
+
+  export default {
+    components: {
+      MiniCarControlBar
+    },
+    props: {
+      itemList: Array,
+      numWeightDesc: String,
+      isClose: {
+        type: Boolean,
+        default: true
+      }
     }
   }
-}
 </script>
 
 <style lang="scss">
@@ -37,7 +43,6 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #fff;
     padding-bottom: 50px;
     transform: translateY(0);
     transition: transform .5s ease-out 0s;
@@ -45,8 +50,12 @@ export default {
       transform: translateY(100%);
     }
 
-    .cart-product-list {
 
+
+
+
+    .cart-product-list {
+      background: #fbfbfb;
     }
   }
 </style>

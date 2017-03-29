@@ -35,16 +35,20 @@
 
     &:disabled + .checkbox-addon,
     &:disabled + .radio-addon, {
-        border-color: $checkbox-border-color-disabled;
-        background-color: $checkbox-bg-color-disabled;
+      color: $checkbox-border-color-disabled;
+      padding: 0;
+      font-size: 15px;
+        // border-color: $checkbox-border-color-disabled;
+        // background-color: $checkbox-bg-color-disabled;
     }
 }
 
 // addon
 .checkbox-addon,
 .radio-addon {
-    font-size: 0;
-    vertical-align: middle;
+    // font-size: 0;
+    font-size: 10px;
+    vertical-align: text-top;
     display: inline-block;
     color: $checkbox-color;
     padding: $checkbox-padding;
@@ -57,15 +61,15 @@
     line-height: 1;
 
     i {
-        vertical-align: middle;
+        // vertical-align: middle;
         transform: scale(0);
-        transform-origin: 50% 50%;
+        // transform-origin: 50% 50%;
         transition: $checkbox-transition;
-        font-size: $checkbox-addon-font-size;
-        width: $checkbox-addon-font-size;
-        height: $checkbox-addon-font-size;
-        line-height: $checkbox-addon-font-size;
-        padding-top: $checkbox-addon-padding-top;
+        // font-size: $checkbox-addon-font-size;
+        // width: $checkbox-addon-font-size;
+        // height: $checkbox-addon-font-size;
+        // line-height: $checkbox-addon-font-size;
+        // padding-top: $checkbox-addon-padding-top;
     }
 }
 
@@ -91,6 +95,7 @@
 // text
 .checkbox-label,
 .radios-label {
+    color: $daojia-black;
     display: inline-block;
     margin-left: $checkbox-label-gap;
 }

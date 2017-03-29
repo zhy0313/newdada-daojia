@@ -5,7 +5,8 @@
       ref="miniCartDetail"
       :isClose="isClose"
       :itemList="miniCartInfo.itemList"
-    >{{miniCartInfo.numWeightDesc}}</MiniCartDetail>
+      :numWeightDesc="miniCartInfo.numWeightDesc"
+    ></MiniCartDetail>
 
     <MiniCartBottom
       @click.native="switchCartDetailHandle"
