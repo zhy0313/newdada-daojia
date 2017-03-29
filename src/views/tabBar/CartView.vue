@@ -1,17 +1,21 @@
 <template>
   <div class="cart-container">
+    <!-- 当前购物车信息 -->
     <CartLocation :location="location" :isCurrent="true"></CartLocation>
     <div v-if="allCarts.currentLocationStores.cartResults.length">
       <CartStore v-for="item in allCarts.currentLocationStores.cartResults"
         :storeItem="item" :key="item.storeId">
       </CartStore>
     </div>
+
+    <!-- 当前位置购物车为空 -->
     <div v-else="allCarts.currentLocationStores.cartResults.length"
       class="cart-empty">
       <i class="iconfont icon-tanhao"></i>
       当前位置购物车空空如也哦~
     </div>
 
+    <!-- 其它位置的购物车信息 -->
     <CartLocation v-if="allCarts.otherLocationStores.cartResults.length"
       location="其它位置" :isCurrent="false"></CartLocation>
     <CartStore v-for="item in allCarts.otherLocationStores.cartResults"
