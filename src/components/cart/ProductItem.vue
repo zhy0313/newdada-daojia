@@ -1,7 +1,7 @@
 <template>
   <badge class="product-item-container" :content="productItem.cartNum" :show="isShowTip">
     <img :src="productItem.imageUrl">
-    <span v-if="productItem.skuStateName" class="product-mask">{{productItem.skuStateName}}</span>
+    <span v-if="isInvalid" class="product-mask">{{productItem.skuStateName}}</span>
     <span>¥{{productItem.price}}</span>
     <i v-if="showMore" class="iconfont icon-6"></i>
   </badge>
@@ -15,7 +15,11 @@ export default {
   },
   computed: {
     isShowTip () {
-      return this.productItem.cartNum > 1 && !this.productItem.skuStateName
+      return this.productItem.cartNum > 1 && !this.isInvalid
+    },
+    isInvalid () { // 无效商品，无货，已下架等
+      let state = this.productItem.skuState
+      return state !== 1 && state !== 3
     }
   }
 }

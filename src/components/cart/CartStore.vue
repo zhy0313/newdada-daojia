@@ -3,7 +3,8 @@
     <cell class="cell-store-name" href="#">{{storeItem.storeName}}</cell>
     <flex  class="cell-product-info">
     <cell>
-      <ProductItem v-for="item in storeItem.itemList"
+      <ProductItem
+        v-for="item in storeItem.itemList"
         :productItem="item"
         :showMore="hasMoreProduct"
         :key="item.skuId">
