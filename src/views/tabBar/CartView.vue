@@ -25,7 +25,7 @@
     <CartStore v-for="item in allCarts.otherLocationStores.cartResults"
       :storeItem="item" :key="item.storeId">
     </CartStore>
-    <!-- <Loader></Loader> -->
+    <Loader v-if="loading"></Loader>
     <FooterNav :activeKey="2"></FooterNav>
   </div>
 
@@ -44,7 +44,22 @@
       CartLocation,
       CartStore
     },
+    data () {
+      return {
+        location: '朝林广场A座',
+        loading: true,
+        allCarts: {
+          currentLocationStores: {
+            cartResults: []
+          },
+          otherLocationStores: {
+            cartResults: []
+          }
+        }
+      }
+    },
     created () {
+      // this.$loading.toggle()
       this.$getAPI({
         // functionId: 'login/testLogin'
         functionId: 'cartV3_3_0/queryallcarts',
@@ -61,23 +76,12 @@
         } else {
           console.log('接口失败', response.body)
         }
+        this.loading = false
+        // this.$loading.toggle()
         this.$toast({message: response.body.msg, position: 'center'})
       }, (err) => {
         console.log('err', err)
       })
-    },
-    data () {
-      return {
-        location: '朝林广场A座',
-        allCarts: {
-          currentLocationStores: {
-            cartResults: []
-          },
-          otherLocationStores: {
-            cartResults: []
-          }
-        }
-      }
     }
     /* eslint-disable */
     /*  eslint-enable */
