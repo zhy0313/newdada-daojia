@@ -1,15 +1,23 @@
 <template>
   <flex class="minicart-control-bar">
-    <div>
-      <checkbox type="circle">全选</checkbox>
+    <span v-if="isInvalid">失效商品</span>
+    <div v-else>
+      <checkbox>全选</checkbox>
       <span class="number-desc"> <slot></slot></span>
     </div>
-      <span class="iconfont icon-shanchu"> 清空购物车</span>
+
+    <span class="iconfont icon-shanchu"> {{isInvalid ? '清空失效商品' : '清空购物车'}}</span>
   </flex>
 </template>
 
 <script>
 export default {
+  props: {
+    isInvalid: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
@@ -24,15 +32,6 @@ export default {
     justify-content: space-between;
     padding: 0 10px;
     color: $daojia-gray;
-
-    &::before {
-      position: absolute;
-      content: "";
-      top: -16px;
-      left: 26px;
-      border: 9px solid transparent;
-      border-bottom-color: $daojia-pure;
-    }
   }
 
   .number-desc {

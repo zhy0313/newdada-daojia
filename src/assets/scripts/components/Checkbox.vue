@@ -29,7 +29,7 @@
     props: {
       type: {
         type: String,
-        default: 'square',
+        default: 'circle',
         validator (value) {
           return ['square', 'circle'].indexOf(value) > -1
         }
