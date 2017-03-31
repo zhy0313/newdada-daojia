@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss">
   @import "../../assets/styles/variables";
+  @import "../../assets/styles/mixins";
 
   .minicart-control-bar {
     background: $daojia-pure;
@@ -32,6 +33,7 @@ export default {
     justify-content: space-between;
     padding: 0 10px;
     color: $daojia-gray;
+    @include border-bottom();
   }
 
   .number-desc {

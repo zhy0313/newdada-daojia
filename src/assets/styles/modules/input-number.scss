@@ -6,9 +6,9 @@
 .input-number-disabled {
     opacity: .6;
 
-    .input-number-input {
-        background-color: $number-input-bg-color-disabled;
-    }
+    // .input-number-input {
+    //     // background-color: $number-input-bg-color-disabled;
+    // }
 }
 
 .input-number-minus,
@@ -23,6 +23,7 @@
     vertical-align: middle;
     user-select: none;
     font-weight: bold;
+    font-size: 20px;
     height: $number-btn-size;
     width: $number-btn-size;
     line-height: $number-btn-line-height;
@@ -65,12 +66,12 @@
     &,
     &:focus,
     &:hover {
-        color: $number-minus-color;
+        // color: $number-minus-color;
         background-color: $number-minus-bg-color;
     }
 
     &:active:not(.disabled) {
-        color: $number-minus-color-active;
+        // color: $number-minus-color-active;
         background-color: $number-minus-bg-color-active;
     }
 }
@@ -78,14 +79,15 @@
 .input-number-input {
     text-align: center;
     vertical-align: middle;
+    font-size: 16px;
     width: $number-input-width;
-    padding: $number-input-padding;
-    margin: $number-input-margin;
+    // padding: $number-input-padding;
+    // margin: $number-input-margin;
     background: $number-input-bg-color;
     -webkit-appearance: none;
     -webkit-box-shadow: none;
     outline: none;
     line-height: 1;
     background-image: none;
-    border: 1px solid $number-input-border-color;
+    border: none;
 }

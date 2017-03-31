@@ -4,25 +4,21 @@
     <li
       v-for="item in skuList"
       :key="item.skuId"
-      class="minicart-sku-item">
+      class="minicart-product-item">
       <checkbox :disabled="item.skuState == 0"> </checkbox>
-      <ProductItem :productItem="item"></ProductItem>
-      <flex class="product-info">
-        <div>{{item.skuName}}</div>
-        <div v-if="item.tags.length">tag</div>
-        <div>{{item.price}}</div>
-      </flex>
-      <input-number :min="1" :value="item.cartNum"></input-number>
+      <ProductSingleItem :item="item"></ProductSingleItem>
+
+      <input-number class="minicart-product-operation" :min="1" :value="item.cartNum"></input-number>
     </li>
   </ul>
 </template>
 
 <script>
-import ProductItem from './ProductItem'
+import ProductSingleItem from './ProductSingleItem'
 
 export default {
   components: {
-    ProductItem
+    ProductSingleItem
   },
   props: {
     skuList: Array
@@ -31,19 +27,25 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "../../assets/styles/mixins";
+  @import "../../assets/styles/variables";
+
   .minicart-product-list {
     background: #fbfbfb;
 
-    .minicart-sku-item {
+    .minicart-product-item {
       padding: 0 10px;
       display: flex;
       align-items: center;
+      position: relative;
+      @include border-bottom();
     }
 
-    .product-info {
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-around;
+
+    .minicart-product-operation {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
     }
   }
 </style>

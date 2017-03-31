@@ -1,5 +1,6 @@
 <template>
-  <badge class="product-item-container" :content="productItem.cartNum" :show="isShowTip">
+  <badge class="product-item-container"
+    :content="productItem.cartNum" :show="isShowTip">
     <img :src="productItem.imageUrl">
     <span v-if="isInvalid" class="product-mask">{{productItem.skuStateName}}</span>
     <span>¥{{productItem.price}}</span>
@@ -37,7 +38,7 @@ export default {
     width: 53px;
     line-height: 1;
     text-align: center;
-    background-color: $daojia-pure;
+    // background-color: $daojia-pure;
 
     img {
       width: 53px;
