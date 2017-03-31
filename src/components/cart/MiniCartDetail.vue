@@ -8,7 +8,8 @@
       <!-- 迷你购车车商品列表 -->
       <MinicartProductList
         v-for="item in itemList"
-        :key="item.suitType">
+        :key="item.suitType"
+        :skuList="item.skuList">
 
         <!-- 失效商品组控制栏 -->
         <li>

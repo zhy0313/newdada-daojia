@@ -11,7 +11,10 @@
 export default {
   props: {
     productItem: Object,
-    showMore: Boolean
+    showMore: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     isShowTip () {
