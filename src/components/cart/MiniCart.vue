@@ -92,7 +92,7 @@
                 {
                   basePrice : "14.9",
                   cartNum : 1,
-                  checkType : 0,
+                  checkType : 1,
                   imageUrl : "https://img10.360buyimg.com/n7//jfs/t3061/255/5849730628/26027/9de53c5c/58804da5N05fbe78b.jpg",
                   price : "14.9",
                   skuId : "2006227040",

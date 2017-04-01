@@ -5,7 +5,7 @@
       v-for="item in skuList"
       :key="item.skuId"
       class="minicart-product-item">
-      <checkbox :disabled="item.skuState == 0"> </checkbox>
+      <checkbox :disabled="item.skuState == 0" :value="item.checkType == 1"> </checkbox>
       <ProductSingleItem :item="item"></ProductSingleItem>
 
       <input-number class="minicart-product-operation" :min="1" :value="item.cartNum"></input-number>
