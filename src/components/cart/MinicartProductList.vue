@@ -49,6 +49,7 @@ export default {
       position: absolute;
       right: 10px;
       bottom: 10px;
+      word-spacing: -4px;
     }
   }
 </style>
