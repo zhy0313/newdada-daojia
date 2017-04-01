@@ -20,11 +20,11 @@ export default {
   computed: {
     isShowTip () {
       return this.productItem.cartNum > 1 && !this.isInvalid
-    },
-    isInvalid () { // 无效商品，无货，已下架等
-      let state = this.productItem.skuState
-      return state !== 1 && state !== 3
     }
+    // isInvalid () { // 无效商品，无货，已下架等
+    //   let state = this.productItem.skuState
+    //   return state !== 1 && state !== 3
+    // }
   }
 }
 </script>
@@ -46,17 +46,6 @@ export default {
       border-radius: 5px;
     }
 
-    .product-mask {
-      color: $daojia-pure;
-      background: rgba(0, 0, 0, .5);
-      width: 53px;
-      height: 53px;
-      line-height: 53px;
-      border-radius: 5px;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
 
     .icon-6 {
       font-size: 30px;

@@ -6,7 +6,7 @@
       :key="item.skuId"
       class="minicart-product-item">
       <checkbox :disabled="item.skuState == 0" :value="item.checkType == 1"> </checkbox>
-      <ProductSingleItem :item="item"></ProductSingleItem>
+      <ProductSingleItem :productItem="item"></ProductSingleItem>
 
       <input-number class="minicart-product-operation" :min="1" :value="item.cartNum"></input-number>
     </li>
@@ -34,13 +34,16 @@ export default {
     background: #fbfbfb;
 
     .minicart-product-item {
-      padding: 0 10px;
+      padding: 5px 10px;
       display: flex;
       align-items: center;
       position: relative;
       @include border-bottom();
     }
 
+    .checkbox {
+      height: 18px;
+    }
 
     .minicart-product-operation {
       position: absolute;

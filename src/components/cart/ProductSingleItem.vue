@@ -1,57 +1,56 @@
 <template>
-  <flex class="minicart-single-product">
-    <div class="image-wrap">
-      <img :src="item.imageUrl"></img>
-      <span class="promotion-tip">仅剩5件</span>
-    </div>
+  <flex class="minicart-single-product" align="top">
+    <!-- <div class="image-wrap">
+      <img :src="productItem.imageUrl"></img>
+
+    </div> -->
+    <ProductImage :productItem="productItem">
+      {{productItem.promotionTip || productItem.skuStateName}}
+    </ProductImage>
     <flex direction="column" class="minicart-product-info">
-      <div class="minicart-product-name">{{item.skuName}}</div>
-      <div v-if="item.tags.length">
+      <div class="minicart-product-name">{{productItem.skuName}}</div>
+      <div v-if="productItem.tags.length">
         <span class="product-tag"
-          v-for="tag in item.tags"
+          v-for="tag in productItem.tags"
           :style="{background: `#${tag.colorCode}`}">
           {{tag.iconText}}
         </span>
       </div>
-      <span class="product-price">¥{{item.price}}</span>
+      <span class="product-price">¥{{productItem.price}}</span>
     </flex>
   </flex>
 </template>
 
 <script>
+import ProductImage from './ProductImage'
+
 export default {
+  components: {
+    ProductImage
+  },
   props: {
-    item: Object
+    productItem: Object
   }
+  // computed: {
+  //   isInvalid () { // 无效商品，无货，已下架等
+  //     let state = this.productItem.skuState
+  //     return state !== 1 && state !== 3
+  //   }
+  // }
 }
 </script>
 
 <style lang="scss">
 
   .minicart-single-product {
-
-    .image-wrap {
-      width: 53px;
-      margin-top: 10px;
-    }
-
-    img {
-      width: 100%;
-      height: 53px;
-    }
-
-    .promotion-tip {
-      font-size: 12px;
-      line-height: 26px;
-      color: #ff5757;
-      white-space: nowrap;
-    }
+    padding: 5px 0;
 
     .minicart-product-info {
       flex-direction: column;
-      align-items: flex-start;
+      align-productItems: flex-start;
       justify-content: space-between;
       height: 60px;
+      margin-left: 10px;
     }
 
     .minicart-product-name {
