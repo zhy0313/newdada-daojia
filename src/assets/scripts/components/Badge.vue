@@ -3,8 +3,8 @@
     @click="$emit('click')"
     class="badge"
     :class="{'badge-gap': $slots.default}">
-    <div v-if="show" class="badge-addon" :class="'bg-' + theme">{{content}}</div>
     <slot></slot>
+    <div v-if="show" class="badge-addon" :class="'bg-' + theme">{{content}}</div>
   </div>
 </template>
 
