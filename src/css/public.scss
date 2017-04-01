@@ -24,7 +24,9 @@ input::-webkit-search-decoration,input::-webkit-search-cancel-button {	display: 
 
 
 
-
+var{
+  font-style: normal;
+}
 .curr , .show { display:block; }
 /*设备ID 登录验证*/
 .hide , .none { display:none;  }
