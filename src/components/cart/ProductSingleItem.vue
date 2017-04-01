@@ -9,6 +9,7 @@
     </ProductImage>
     <flex direction="column" class="minicart-product-info">
       <div class="minicart-product-name">{{productItem.skuName}}</div>
+
       <div v-if="productItem.tags.length">
         <span class="product-tag"
           v-for="tag in productItem.tags"
@@ -16,7 +17,11 @@
           {{tag.iconText}}
         </span>
       </div>
-      <span class="product-price">¥{{productItem.price}}</span>
+
+      <span v-if="productItem.promotePrice" class="product-price">
+        {{`¥${productItem.promotePrice.basicPrice} X ${productItem.promotePrice.basicNum}`}}
+      </span>
+      <span v-else class="product-price">¥{{productItem.price}}</span>
     </flex>
   </flex>
 </template>
