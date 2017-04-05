@@ -9,18 +9,8 @@
       <MinicartProductList
         v-for="item in itemList"
         :key="item.suitType"
-        :skuList="item.skuList">
-
-        <!-- 失效商品组控制栏 -->
-        <li v-if="!justInvalid && item.suitType == 'invalidate'">
-          <MiniCarControlBar :isInvalid="true">
-          </MiniCarControlBar>
-        </li>
-        <!-- 满减组标题栏 -->
-        <li v-else-if="item.suitType == 'suit'">
-          {{item.suitName}}
-        </li>
-
+        :productSuit="item"
+        :justInvalid="justInvalid">
       </MinicartProductList>
     </div>
   </div>
@@ -81,5 +71,6 @@
       max-height: 60vh;
       overflow-y: auto;
     }
+
   }
 </style>

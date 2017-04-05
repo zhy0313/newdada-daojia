@@ -63,13 +63,13 @@
                     basicPrice : "118",
                     basicTag : {iconText: "原价", type: "7", colorCode: "cacaca"}
                   },
-                  promotionTip : "直降价格限购2件",
+                  // promotionTip : "直降价格限购2件",
                   skuId : "2001709336",
                   skuName : "冈本003白金超薄10只进口避孕套/盒",
                   skuState : 1,
                   tags : [{iconText: "直降", type: "1", colorCode: "fecc32"}]
               }],
-              suitDescrip : ["已满129已减18"],
+              suitDescrip : ["已满129已减18", "已满129已减18"],
               suitName : "满减",
               suitType : "suit"
             },
