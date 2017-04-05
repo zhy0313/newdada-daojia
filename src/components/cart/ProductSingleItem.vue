@@ -10,8 +10,17 @@
     <flex direction="column" class="minicart-product-info">
       <div class="minicart-product-name">{{productItem.skuName}}</div>
 
-
-      <div v-if="productItem.tags.length">
+      <!-- 促销价格 -->
+      <div v-if="productItem.promotePrice" class="product-price">
+        <span class="product-tag"
+          :style="{background: `#${productItem.promotePrice.promoteTag.colorCode}`}">
+          {{productItem.promotePrice.promoteTag.iconText}}
+        </span>
+        <span class="promote-price">{{`¥${productItem.promotePrice.promotePrice}`}}</span>
+        <span class="promote-num">{{` x ${productItem.promotePrice.promoteNum}`}}</span>
+      </div>
+      <!-- 促销打标 -->
+      <div v-else-if="productItem.tags.length">
         <span class="product-tag"
           v-for="tag in productItem.tags"
           :style="{background: `#${tag.colorCode}`}">
@@ -19,8 +28,14 @@
         </span>
       </div>
 
+      <!-- 基础价格 -->
       <div v-if="productItem.promotePrice" class="product-price">
-        {{`¥${productItem.promotePrice.basicPrice} X ${productItem.promotePrice.basicNum}`}}
+        <span class="product-tag"
+          :style="{background: `#${productItem.promotePrice.basicTag.colorCode}`}">
+          {{productItem.promotePrice.basicTag.iconText}}
+        </span>
+        <span class="promote-price">{{`¥${productItem.promotePrice.basicPrice}`}}</span>
+        <span class="promote-num">{{` x ${productItem.promotePrice.basicNum}`}}</span>
       </div>
       <span v-else class="product-price">¥{{productItem.price}}</span>
     </flex>
@@ -72,11 +87,26 @@ export default {
       line-height: 12px;
       padding: 1px 2px;
       border-radius: 2px;
+      display: inline-block;
     }
 
     .product-price {
       color: #ff3434;
       font-size: 16px;
+      line-height: 1;
     }
+
+    .promote-price {
+      display: inline-block;
+      &::first-letter {
+        font-size: 10px;
+      }
+    }
+
+    .promote-num {
+      color: #999;
+      font-size: 12px;
+    }
+
   }
 </style>
