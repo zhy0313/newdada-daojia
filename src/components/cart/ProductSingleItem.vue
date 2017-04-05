@@ -68,7 +68,7 @@ export default {
 
     .minicart-product-info {
       flex-direction: column;
-      align-productItems: flex-start;
+      align-items: flex-start;
       justify-content: space-between;
       height: 60px;
       margin-left: 10px;
@@ -85,9 +85,10 @@ export default {
       color: #fff;
       font-size: 10px;
       line-height: 12px;
+      display: inline-block;
       padding: 1px 2px;
       border-radius: 2px;
-      display: inline-block;
+      vertical-align: top;
     }
 
     .product-price {

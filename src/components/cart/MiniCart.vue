@@ -45,6 +45,35 @@
           discountName : "已减20元",
           itemList: [
             {
+              buttonFlag : true,
+              giftCanChooseNum : 0,
+              singleGiftMap : {},
+              skuList : [
+                {
+                  basePrice : "118",
+                  cartNum : 3,
+                  checkType : 1,
+                  imageUrl : "https://img10.360buyimg.com/n7//jfs/t1372/105/952599465/159113/1dfcc527/55b4527eN811882ad.jpg",
+                  price : "106",
+                  promotePrice : {
+                    promotePrice: "106",
+                    promoteNum: 2,
+                    promoteTag: {iconText: "直降", type: "1", colorCode: "fecc32"},
+                    basicNum : 1,
+                    basicPrice : "118",
+                    basicTag : {iconText: "原价", type: "7", colorCode: "cacaca"}
+                  },
+                  promotionTip : "直降价格限购2件",
+                  skuId : "2001709336",
+                  skuName : "冈本003白金超薄10只进口避孕套/盒",
+                  skuState : 1,
+                  tags : [{iconText: "直降", type: "1", colorCode: "fecc32"}]
+              }],
+              suitDescrip : ["已满129已减18"],
+              suitName : "满减",
+              suitType : "suit"
+            },
+            {
               buttonFlag : false,
               giftCanChooseNum : 0,
               suitDescrip : [],

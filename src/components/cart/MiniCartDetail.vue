@@ -12,11 +12,13 @@
         :skuList="item.skuList">
 
         <!-- 失效商品组控制栏 -->
-        <li>
-          <MiniCarControlBar
-            v-if="!justInvalid && item.suitType == 'invalidate'"
-            :isInvalid="true">
+        <li v-if="!justInvalid && item.suitType == 'invalidate'">
+          <MiniCarControlBar :isInvalid="true">
           </MiniCarControlBar>
+        </li>
+        <!-- 满减组标题栏 -->
+        <li v-else-if="item.suitType == 'suit'">
+          {{item.suitName}}
         </li>
 
       </MinicartProductList>
