@@ -2,6 +2,7 @@
   <div class="">
     <Loader v-if="loading"></Loader>
     <UserCover :userInfo="userInfo"></UserCover>
+    <UserWallet :userInfo="userInfo"></UserWallet>
     <FooterNav :activeKey="4"></FooterNav>
   </div>
 
@@ -11,12 +12,14 @@
   import FooterNav from '@/components/FooterNav'
   import Loader from '@/components/Loader'
   import UserCover from '@/components/user/UserCover'
+  import UserWallet from '@/components/user/UserWallet'
 
   export default {
     components: {
       FooterNav,
       Loader,
-      UserCover
+      UserCover,
+      UserWallet
     },
     data () {
       return {

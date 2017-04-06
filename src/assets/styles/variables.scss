@@ -58,6 +58,7 @@ $spacer-gap: $spacer / 2 !default;
 $border-image-top: linear-gradient(to bottom, $daojia-border, $daojia-border 50%, transparent 0) !default;
 $border-image-bottom: linear-gradient(to top, $daojia-border, $daojia-border 50%, transparent 0) !default;
 $border-image-left: linear-gradient(to right, $daojia-border, $daojia-border 50%, transparent 0) !default;
+$border-image-right: linear-gradient(to left, $daojia-border, $daojia-border 50%, transparent 0) !default;
 
 // Hr
 $hr-color: $daojia-border !default;
