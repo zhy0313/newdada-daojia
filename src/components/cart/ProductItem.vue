@@ -26,11 +26,11 @@
     computed: {
       isShowTip () {
         return this.productItem.cartNum > 1 && !this.isInvalid
+      },
+      isInvalid () { // 无效商品，无货，已下架等
+        let state = this.productItem.skuState
+        return state !== 1 && state !== 3
       }
-      // isInvalid () { // 无效商品，无货，已下架等
-      //   let state = this.productItem.skuState
-      //   return state !== 1 && state !== 3
-      // }
     }
   }
 </script>
