@@ -30,7 +30,7 @@ export default {
   text-align: center;
 
   img {
-    width: 100%;
+    width: 53px;
     height: 53px;
     border-radius: 5px;
   }
