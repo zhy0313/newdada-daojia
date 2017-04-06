@@ -17,7 +17,7 @@
       <checkbox :disabled="item.skuState == 0" :value="item.checkType == 1"> </checkbox>
       <ProductSingleItem :productItem="item"></ProductSingleItem>
 
-      <input-number class="minicart-product-operation" :min="1" :value="item.cartNum"></input-number>
+      <input-number :disabled="item.skuState == 0" class="minicart-product-operation" :min="1" :value="item.cartNum"></input-number>
     </li>
   </ul>
 </template>

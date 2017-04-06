@@ -11,7 +11,7 @@
       class="input-number-input">
     <a
       class="input-number-plus"
-      :class="{'disabled': currentValue >= max}"
+      :class="{'disabled': currentValue >= max || disabled}"
       @click="plusHandle">
       +
     </a>
