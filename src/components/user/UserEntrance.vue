@@ -1,7 +1,7 @@
 <template>
   <div class="user-entrance-container">
     <div v-for="entrance in entranceList" class="entrance-block">
-        <router-link v-for="item in entrance" :class="item.type" path="item.type">{{item.text}}</router-link>
+        <router-link v-for="item in entrance" :class="item.type" :to="`/`">{{item.text}}</router-link>
     </div>
   </div>
 </template>
@@ -38,17 +38,18 @@ export default {
   .user-entrance-container {
     /*功能区块*/
     .entrance-block {
-      padding-left: 30rpx;
-      margin-bottom: 20rpx;
+      padding-left: 15px;
+      margin-bottom: 10px;
       background: #fff;
     }
 
     a{
-      height: 90rpx;
-      line-height: 90rpx;
-      border-bottom: 1rpx solid #e8e8e8;
+      display: block;
+      height: 45px;
+      line-height: 45px;
+      border-bottom: 1px solid #e8e8e8;
       position: relative;
-      padding-left: 55rpx;
+      padding-left: 28px;
     }
 
     a:last-of-type{

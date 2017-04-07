@@ -69,6 +69,7 @@ export default {
   .user-wallet {
     text-align: center;
     padding: 10px;
+    margin-bottom: 10px;
     background: $daojia-pure;
 
     .flex-item:nth-child(2) {
