@@ -36,6 +36,8 @@ export default {
 
 <style lang="scss">
   .user-entrance-container {
+    padding-bottom: 60px;
+
     /*功能区块*/
     .entrance-block {
       padding-left: 15px;
@@ -66,7 +68,7 @@ export default {
       background: url(https://static-o2o.360buyimg.com/daojia/new/images/icon/pdj_2_sprites.png) no-repeat -80px -264px;
       background-size: 320px auto;
     }
-    view::before {
+    a::before {
       content: '';
       position: absolute;
       left: 4px;
@@ -83,15 +85,29 @@ export default {
       left: 3px;
     }
 
-    .address::before{
+    .comments::before {
+      background-position: -278px -389px;
+    }
+
+    .address::before {
       background-position: -191px -44px;
     }
-    .feedback::before{
-      background: url(http://storage.jd.com/wxapp/icon_feedback.png) no-repeat;
-      background-size: 17px auto;
-      left: 3px;
-      top: 14px;
+
+    .bind::before {
+      background-position: -191px -88px;
     }
+
+    .service::before {
+      background-position: -189px -132px;
+    }
+
+    // .feedback::before{
+    //   background: url(http://storage.jd.com/wxapp/icon_feedback.png) no-repeat;
+    //   background-size: 17px auto;
+    //   left: 3px;
+    //   top: 14px;
+    // }
+
     .store::before{
       background-position: -189px -132px;
     }
@@ -113,11 +129,11 @@ export default {
       background: url(https://static-o2o.360buyimg.com/daojia/new/images/user/research.png) 0 center no-repeat;
       background-size: 15px 17px;
     }
-    /*.feedback::before{
+    .help::before{
       background: url(https://static-o2o.360buyimg.com/daojia/new/images/user/icon_list_help.png) no-repeat;
       background-size: 17px;
-      top: 10px;
-    }*/
+      top: 12px;
+    }
     .about::before{
       background-position: -189px -220px;
     }
