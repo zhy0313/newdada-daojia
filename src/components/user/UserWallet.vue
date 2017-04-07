@@ -18,8 +18,30 @@
 
 <script>
 export default {
-  props: {
-    userInfo: Object
+  data () {
+    return {
+      accountInfo: {}
+    }
+  },
+  created () {
+    this.$getAPI({
+      // functionId: 'login/testLogin'
+      functionId: 'account/qry/accountinfo',
+      body: { type: 2 }
+    }).then((response) => {
+      if (response.body.code === '0') {
+        console.log('接口成功')
+        console.log('response', response.result)
+        this.accountInfo = response.result
+      } else {
+        console.log('接口失败', response.body)
+      }
+      this.loading = false
+      // this.$loading.toggle()
+      this.$toast({message: response.body.msg, position: 'center'})
+    }, (err) => {
+      console.log('err', err)
+    })
   }
 }
 </script>

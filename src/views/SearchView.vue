@@ -8,7 +8,7 @@
             图书：<input type="text" class="form-control" ref="query" value="肖申克的救赎">
             <button class="btn" @click="searchBookHandle">搜索</button>
             <p v-if="!books || books.length < 1">加载中...</p>
-            <book-card v-for="book in books" :book="book" />
+            <book-card v-for="book in books" :book="book" :key="book.id" />
         </flex-item>
     </flex>
 </template>
