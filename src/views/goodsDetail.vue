@@ -22,56 +22,38 @@
 	            <template v-else>
 					         <p class="promotionprice"><span>￥</span>{{skuPriceVO.realTimePrice||暂无报价}}</p>
 		          </template>
-
-
-  	        {{if productType == 1 || productType == 4}}
-            <!--{{if buttonEnable}}{{if miaoshaInfo && miaoshaInfo.miaoShaSate != 2}}sure{{else}}sure{{/if}}{{/if}} {{if inCartCount > 0 && buttonEnable}}hideAddCart{{/if}}"-->
-  					<span class="add-cart-btn" _skuId="{{skuPriceVO.skuId}}" _orgCode="{{orgCode}}" _storeId="{{storeInfo.storeId}}" onclick='lg("user_action","1.0",{"clickid":"add_cart","sku_id":"{{skuPriceVO.skuId}}"})'>{{showStateName}}</span>
-  					<div class="Box">
-		              <span class="reduce" _skuId="{{skuPriceVO.skuId}}" _storeId="{{storeInfo.storeId}}" _orgCode="{{orgCode}}" onclick='lg("user_action","1.0",{"clickid":"reduce_cart","sku_id":"{{skuPriceVO.skuId}}"})'>减</span>
-		              <label class="show">{{inCartCount}}</label>
-		              <span class="add" _skuId="{{skuPriceVO.skuId}}" _storeId="{{storeInfo.storeId}}" _orgCode="{{orgCode}}" onclick='lg("user_action","1.0",{"clickid":"add_cart","sku_id":"{{skuPriceVO.skuId}}"})'>加</span>
-  			     </div>
-  	        </div>
-  	    </div>
-      {{/if}}
-
-  	<!--{{if tags && tags.length>0}}
+    	        <!--{{if productType == 1 || productType == 4}}-->
+              <!--{{if buttonEnable}}{{if miaoshaInfo && miaoshaInfo.miaoShaSate != 2}}sure{{else}}sure{{/if}}{{/if}} {{if inCartCount > 0 && buttonEnable}}hideAddCart{{/if}}"-->
+    					<span class="add-cart-btn" _skuId="{{skuPriceVO.skuId}}" _orgCode="{{orgCode}}" _storeId="{{storeInfo.storeId}}" onclick='lg("user_action","1.0",{"clickid":"add_cart","sku_id":"{{skuPriceVO.skuId}}"})'>{{showStateName}}</span>
+    					<div class="Box">
+  		              <span class="reduce" _skuId="{{skuPriceVO.skuId}}" _storeId="{{storeInfo.storeId}}" _orgCode="{{orgCode}}" onclick='lg("user_action","1.0",{"clickid":"reduce_cart","sku_id":"{{skuPriceVO.skuId}}"})'>减</span>
+  		              <label class="show">{{inCartCount}}</label>
+  		              <span class="add" _skuId="{{skuPriceVO.skuId}}" _storeId="{{storeInfo.storeId}}" _orgCode="{{orgCode}}" onclick='lg("user_action","1.0",{"clickid":"add_cart","sku_id":"{{skuPriceVO.skuId}}"})'>加</span>
+    			     </div>
+  	      </div>
+  	 </div>
+  	<template v:if="tags && tags.length>0">
   	    <div class="detail-promotion-box">
   	    	<div class="detail-promotion-content {{if hasSaleAttr}}add-detail-border{{/if}}">
   	    		<span class="promotion-left">促销</span>
   	            <div class="promotion-right">
-  	            {{if tags.length>2}}
-  	            	<p class="promotion-title">可享受以下促销<i class="good-detail-icon arrow arrow-down"></i></p>
-  	            {{/if}}
+  	            	<p  v:if="tags.length>2" class="promotion-title">可享受以下促销<i class="good-detail-icon arrow arrow-down"></i></p>
   	                 <ul class="promotion-list {{if tags.length>2}}promotion-list-2{{else}}promotion-list-1{{/if}}">
-  		                	{{each tags}}
-  			                	<li class="promotion-item {{if $index == 0}}first-promotion-item{{/if}} {{if $index != 0 && $index == tags.length-1}}last-promotion-item{{/if}}">
-  			                	    {{if $value.colorCode && $value.iconText}}
-  			                    	 <a class="clearfix" {{if $value.activityRange==2}} href="#storeHome/storeId:{{storeInfo.storeId}}/orgCode:{{storeInfo.venderId}}/activityId:{{$value.activityId}}/promotionType:{{$value.type}}/fromAnchor:true" {{/if}}>
-  			                            <span class="active-type active-type-{{$value.type}}" style="background: #{{$value.colorCode}}">{{$value.iconText}}</span>
-  			                            <span class="active-detail">{{$value.words}}</span>
-  			                            {{if $value.activityRange==2 && $value.activityId}}<i class="good-detail-icon arrow arrow-right"></i>{{/if}}
-  			                         </a>
-  			                         {{/if}}
-  			                     </li>
-  		                     {{/each}}
+  			                	<li v:for="item in tags" class="promotion-item {{if $index == 0}}first-promotion-item{{/if}} {{if $index != 0 && $index == tags.length-1}}last-promotion-item{{/if}}">
+  			                    	 <a v:if="item.colorCode && item.iconText" class="clearfix" v:if="item.activityRange==2" href="#storeHome/storeId:{{storeInfo.storeId}}/orgCode:{{storeInfo.venderId}}/activityId:{{item.activityId}}/promotionType:{{item.type}}/fromAnchor:true" >
+  			                            <span class="active-type active-type-{{item.type}}" style="background: #{{item.colorCode}}">{{item.iconText}}</span>
+  			                            <span class="active-detail">{{item.words}}</span>
+  			                            <i v:if="item.activityRange==2 && item.activityId" class="good-detail-icon arrow arrow-right"></i>
+  			                       </a>
+			                     </li>
   	                 </ul>
-  	              {{if tags.length>2}}
-                  	  <p class="promotion-other">
-  	               		 {{each tags}}
-  	                		<span class="active-type active-type-{{$value.type}}  {{if $index == 0}}first-active-type{{/if}}">{{$value.iconText}}</span>
-  	                	 {{/each}}
-  	                 </p>
-  	              {{/if}}
-
   	            </div>
   	    	</div>
   	     </div>
-        {{/if}}
+      </template>
 
 
-
+<!--
       {{if hasSaleAttr}}
        <div class="detail-property-box">
       	<div class="detail-property-content">
