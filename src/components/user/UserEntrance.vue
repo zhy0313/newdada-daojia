@@ -45,39 +45,43 @@ export default {
       background: #fff;
     }
 
-    a{
+    a {
       display: block;
       height: 45px;
       line-height: 45px;
       border-bottom: 1px solid #e8e8e8;
       position: relative;
       padding-left: 28px;
+
+      &:last-of-type{
+        border-bottom: none;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 44px;
+        margin-left: 4px;
+        height: 40px;
+        background: url(https://static-o2o.360buyimg.com/daojia/new/images/icon/pdj_2_sprites.png) no-repeat -80px -264px;
+        background-size: 320px auto;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 4px;
+        top: -2px;
+        width: 26px;
+        height: 40px;
+        background: url(https://static-o2o.360buyimg.com/daojia/new/images/icon/pdj_2_sprites.png) no-repeat;
+        background-size: 320px auto;
+      }
     }
 
-    a:last-of-type{
-      border-bottom: none;
-    }
 
-    a::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      width: 44px;
-      margin-left: 4px;
-      height: 40px;
-      background: url(https://static-o2o.360buyimg.com/daojia/new/images/icon/pdj_2_sprites.png) no-repeat -80px -264px;
-      background-size: 320px auto;
-    }
-    a::before {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: -2px;
-      width: 26px;
-      height: 40px;
-      background: url(https://static-o2o.360buyimg.com/daojia/new/images/icon/pdj_2_sprites.png) no-repeat;
-      background-size: 320px auto;
-    }
+
 
     .focus::before{
       background: url(https://static-o2o.360buyimg.com/daojia/new/images/store/focus.png) -40px 14px no-repeat;
@@ -108,9 +112,9 @@ export default {
     //   top: 14px;
     // }
 
-    .store::before{
-      background-position: -189px -132px;
-    }
+    // .store::before{
+    //   background-position: -189px -132px;
+    // }
     .counpon::before{
       background-position: -145px -42px;
     }
