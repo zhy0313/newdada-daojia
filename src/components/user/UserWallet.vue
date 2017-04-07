@@ -46,21 +46,22 @@ export default {
 
     }
 
-    .my-coupon{
+    .my-coupon {
       position: relative;
-    &::after {
-      position: absolute;
-      content: "";
-      width: 10px;
-      height: 10px;
-      left: -5px;
-      top: 50%;
-      background: $daojia-pure;
-      border-right: 1px solid $daojia-border;
-      border-bottom: 1px solid $daojia-border;
-      transform: rotate(-45deg) scale(.5);
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 10px;
+        left: -5px;
+        top: 50%;
+        background: $daojia-pure;
+        border-right: 1px solid $daojia-border;
+        border-bottom: 1px solid $daojia-border;
+        transform: rotate(-45deg) scale(.5);
+      }
     }
-  }
 
     .item {
       height: 35px;
