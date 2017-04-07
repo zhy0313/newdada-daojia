@@ -18,6 +18,7 @@ const state = {
   books: [],
   currentShoppingCart: [],
   isLoading: false
+  // sid:
 }
 
 const debug = process.env.NODE_ENV !== 'production'

@@ -58,6 +58,7 @@ $spacer-gap: $spacer / 2 !default;
 $border-image-top: linear-gradient(to bottom, $daojia-border, $daojia-border 50%, transparent 0) !default;
 $border-image-bottom: linear-gradient(to top, $daojia-border, $daojia-border 50%, transparent 0) !default;
 $border-image-left: linear-gradient(to right, $daojia-border, $daojia-border 50%, transparent 0) !default;
+$border-image-right: linear-gradient(to left, $daojia-border, $daojia-border 50%, transparent 0) !default;
 
 // Hr
 $hr-color: $daojia-border !default;
@@ -195,7 +196,7 @@ $alert-btn-font-size: 14px !default;
 $alert-btn-padding: 1rem 0 !default;
 
 // Checkbox
-$checkbox-padding: 3px !default;
+$checkbox-padding: 2px !default;
 $checkbox-color: $daojia-pure !default;
 $checkbox-bg-color: $daojia-pure !default;
 $checkbox-border-color: #ddd !default;
@@ -232,26 +233,26 @@ $toggle-border-radius: $toggle-addon-size !default;
 $toggle-transition: all .2s ease !default;
 
 // Number
-$number-border-color: $daojia-green !default;
+$number-border-color: $daojia-lighter !default;
 
 $number-btn-size: round(1.84 * $font-size-root) !default;
 $number-btn-line-height: $number-btn-size - 2 !default;
 
-$number-plus-color: $daojia-pure !default;
-$number-plus-bg-color: $daojia-green !default;
+$number-plus-color: $daojia-green !default;
+$number-plus-bg-color: $daojia-pure !default;
 $number-plus-bg-color-active: darken($number-plus-bg-color, 6%) !default;
 
-$number-minus-color: $daojia-green !default;
+$number-minus-color: $daojia-light !default;
 $number-minus-bg-color: $daojia-pure !default;
-$number-minus-color-active: $daojia-pure !default;
-$number-minus-bg-color-active: $daojia-green !default;
+// $number-minus-color-active: $daojia-pure !default;
+$number-minus-bg-color-active: darken($number-minus-bg-color, 6%) !default;
 
-$number-input-width: 3rem !default;
-$number-input-bg-color: $daojia-pure !default;
-$number-input-border-color: #d9d9d9 !default;
-$number-input-padding: .6rem .3rem !default;
-$number-input-margin: 0 2px !default;
-$number-input-bg-color-disabled: #eee !default;
+$number-input-width: 29px !default;
+$number-input-bg-color: transparent !default;
+// $number-input-border-color: #d9d9d9 !default;
+// $number-input-padding: 0 !default;
+// $number-input-margin: 0 !default;
+// $number-input-bg-color-disabled: #eee !default;
 
 // InputText
 $input-font-size: 1rem !default;

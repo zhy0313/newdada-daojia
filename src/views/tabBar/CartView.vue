@@ -1,23 +1,31 @@
 <template>
   <div class="cart-container">
+    <!-- 当前位置购车车信息 -->
     <CartLocation :location="location" :isCurrent="true"></CartLocation>
+
+    <!-- 当前位置门店列表 -->
     <div v-if="allCarts.currentLocationStores.cartResults.length">
       <CartStore v-for="item in allCarts.currentLocationStores.cartResults"
         :storeItem="item" :key="item.storeId">
       </CartStore>
     </div>
+
+    <!-- 当前位置购物车为空 -->
     <div v-else="allCarts.currentLocationStores.cartResults.length"
       class="cart-empty">
       <i class="iconfont icon-tanhao"></i>
       当前位置购物车空空如也哦~
     </div>
 
+    <!-- 其它位置的购物车信息 -->
     <CartLocation v-if="allCarts.otherLocationStores.cartResults.length"
       location="其它位置" :isCurrent="false"></CartLocation>
+
+    <!-- 其它位置门店列表 -->
     <CartStore v-for="item in allCarts.otherLocationStores.cartResults"
       :storeItem="item" :key="item.storeId">
     </CartStore>
-    <!-- <Loader></Loader> -->
+    <Loader v-if="loading"></Loader>
     <FooterNav :activeKey="2"></FooterNav>
   </div>
 
@@ -36,160 +44,47 @@
       CartLocation,
       CartStore
     },
-    created () {
-
-    },
-    /* eslint-disable */
-
     data () {
       return {
-        location: '八达岭站',
+        location: '朝林广场A座',
+        loading: true,
         allCarts: {
           currentLocationStores: {
             cartResults: []
           },
           otherLocationStores: {
-            cartResults: [
-              {
-                itemList: [
-                  {
-                    cartNum : 2,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    skuStateName: "已下架",
-                    updateTime : 1488881058245
-                  },
-                  {
-                    cartNum : 1,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                  {
-                    cartNum : 1,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                  {
-                    cartNum : 1,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                  {
-                    cartNum : 1,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                ],
-                openJPIndustry: "3",
-                orgCode : "296893",
-                payMoneyName : "合计:",
-                payMoneyPriceValue : "293.3",
-                storeId : "11655711",
-                storeImgUrl : "https://img30.360buyimg.com/vendersettle/jfs/t3193/17/3028299864/123769/e5241ec/57ea30ceNaf5b7719.jpg",
-                storeName : "爱鲜蜂(南河沿大街店)",
-                totalNum : 9
-              },
-              {
-                itemList: [
-                  {
-                    cartNum : 3,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                  {
-                    cartNum : 1,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                  {
-                    cartNum : 1,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                  {
-                    cartNum : 1,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                  {
-                    cartNum : 99,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                  {
-                    cartNum : 1,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  }
-                ],
-                openJPIndustry: "3",
-                orgCode : "296893",
-                payMoneyName : "合计:",
-                payMoneyPriceValue : "293.3",
-                storeId : "11655711",
-                storeImgUrl : "https://img30.360buyimg.com/vendersettle/jfs/t3193/17/3028299864/123769/e5241ec/57ea30ceNaf5b7719.jpg",
-                storeName : "爱鲜蜂(南河沿大街店)",
-                totalNum : 9
-              },
-              {
-                itemList: [
-                  {
-                    cartNum : 99,
-                    imageUrl : "https://img10.360buyimg.com/n7//jfs/t3133/233/6229194461/467097/bb055c8e/58a3d7eaN926f5737.jpg",
-                    price : "198",
-                    skuId : "2006444024",
-                    skuState : 1,
-                    updateTime : 1488881058245
-                  },
-                ],
-                openJPIndustry : "2",
-                orgCode : "74077",
-                payMoneyName : "合计:",
-                payMoneyPriceValue : "781",
-                storeId : "10051565",
-                storeImgUrl : "https://img30.360buyimg.com/vendersettle/jfs/t1930/170/2253606144/122463/33ae8e75/56c5a64bN81d7b388.png",
-                storeName : "1919北京崇文门新世界店",
-                totalNum : 5
-              }
-            ]
+            cartResults: []
           }
         }
       }
+    },
+    created () {
+      // this.$loading.toggle()
+      this.$getAPI({
+        // functionId: 'login/testLogin'
+        functionId: 'cartV3_3_0/queryallcarts',
+        body: {
+          lng: 116.50628,
+          lat: 39.79311,
+          positionType: 2
+        }
+      }).then((response) => {
+        if (response.body.code === '0') {
+          console.log('接口成功')
+          console.log('response', response.result)
+          this.allCarts = response.result
+        } else {
+          console.log('接口失败', response.body)
+        }
+        this.loading = false
+        // this.$loading.toggle()
+        this.$toast({message: response.body.msg, position: 'center'})
+      }, (err) => {
+        console.log('err', err)
+      })
     }
+    /* eslint-disable */
     /*  eslint-enable */
-
   }
 </script>
 

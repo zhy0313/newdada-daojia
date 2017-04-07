@@ -1,14 +1,23 @@
 <template>
   <div class="cart-store-container">
-    <cell class="cell-store-name" href="#">{{storeItem.storeName}}</cell>
-    <flex  class="cell-product-info">
-    <cell>
-      <ProductItem v-for="item in storeItem.itemList"
+
+    <!-- 购车车门店标题 -->
+    <cell class="cart-store-name" href="#">{{storeItem.storeName}}</cell>
+
+    <!-- 购车车商品信息 -->
+    <flex  class="cart-product-info">
+
+    <!-- 商品列表 -->
+    <div class="cart-product-list">
+      <ProductItem
+        v-for="item in storeItem.itemList"
         :productItem="item"
         :showMore="hasMoreProduct"
         :key="item.skuId">
       </ProductItem>
-    </cell>
+    </div>
+
+    <!-- 更多商品使用 3 个点替代，并显示出总数量 -->
     <div class="more-product" v-if="hasMoreProduct">
       共{{storeItem.totalNum}}件
     </div>
@@ -42,7 +51,7 @@ export default {
 
   .cart-store-container {
 
-    .cell-store-name {
+    .cart-store-name {
       background: #fcfcfc;
       border: 1px solid #e7e9e4;
       border-bottom: none;
@@ -50,7 +59,7 @@ export default {
       box-shadow: 0px -1px 2px 1px rgba(244, 244, 244, .6) inset;
     }
 
-    .cell-product-info {
+    .cart-product-info {
       background: $daojia-pure;
       border: 1px solid #e7e9e4;
       border-top: none;
@@ -60,19 +69,17 @@ export default {
       align-items: center;
       justify-content: space-between;
 
-      .cell {
-        padding: 0 30px 0 10px;
-      }
+    }
 
-      .cell-body {
-        height: 100px;
-        padding: 15px 0;
-      }
+    .cart-product-list {
+      height: 100px;
+      padding: 15px 30px 15px 10px;
+      overflow: hidden;
+    }
 
-      .more-product {
-        white-space: nowrap;
-        padding-right: 10px;
-      }
+    .more-product {
+      white-space: nowrap;
+      padding-right: 10px;
     }
 
     .icon-FowordArrow {

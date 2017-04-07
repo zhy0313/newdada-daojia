@@ -26,15 +26,15 @@
   text-align: center;
   top: 0;
   transform: translateX(100%) translateY(-50%);
-  z-index: 9;
+  // z-index: 9;
 
-    &:not(:empty) {
-        min-width: $badge-min-width-not-empty;
-        transform: translateX(25%) translateY(-25%);
-    }
+  &:not(:empty) {
+    min-width: $badge-min-width-not-empty;
+    transform: translateX(25%) translateY(-25%);
+  }
 
-    &:last-child {
-        position: static;
-        transform: none;
-    }
+  // &:last-child {
+  //   position: static;
+  //   transform: none;
+  // }
 }

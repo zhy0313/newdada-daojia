@@ -28,6 +28,12 @@
     background-repeat: no-repeat;
     background-position: left top;
 }
+@mixin border-right {
+    background-image: $border-image-right;
+    background-size: 1px 100%;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
 
 @mixin no-border {
     background-size: 0;

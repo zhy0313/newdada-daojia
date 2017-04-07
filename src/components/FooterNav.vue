@@ -38,6 +38,7 @@
 </script>
 
 <style lang='scss'>
+  // @import "../assets/styles/variables";
 
   .footer-nav{
     position: fixed;
@@ -45,6 +46,7 @@
     left: 0;
     right: 0;
     font-size: 12px;
+    // z-index: $z-index-top;
 
     .icon {
       width: 24px;

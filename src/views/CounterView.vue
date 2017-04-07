@@ -3,7 +3,6 @@
     <flex direction="column">
         <navbar>
             <router-link :to="{path: '/'}">
-                <icon name="chevron-left" size="lg" left />
                 返回
             </router-link>
             <h5 slot="body">Counter</h5>

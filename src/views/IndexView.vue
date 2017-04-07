@@ -125,7 +125,7 @@ export default {
     this.$getAPI({
       // functionId: 'login/testLogin'
       functionId: 'login/testLogin',
-      body: {jdPin: 'jd_57593b3c2bc17'}
+      body: {jdPin: 'jd_619e43145281a'}
     }).then((response) => {
       if (response.body.code === '0') {
         console.log('接口成功')

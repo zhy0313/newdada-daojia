@@ -6,19 +6,19 @@
 
 // Button variant
 @mixin button-variant($color, $bg-color, $border-color) {
-    // $active-background: darken($bg-color, 6%);
-    // $active-border: darken($border-color, 6%);
+    $active-background: darken($bg-color, 6%);
+    $active-border: darken($border-color, 6%);
 
     color: $color;
     background-color: $bg-color;
     border-color: $border-color;
 
-    // &:active,
-    // &.active {
-    //     color: $color;
-    //     background-color: $active-background;
-    //     border-color: $active-border;
-    // }
+    &:active,
+    &.active {
+        // color: $color;
+        background-color: $active-background;
+        border-color: $active-border;
+    }
     //
     // &.disabled,
     // &:disabled {
