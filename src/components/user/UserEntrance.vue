@@ -8,6 +8,9 @@
 
 <script>
 export default {
+  props: {
+    mobile: String
+  },
   data () {
     return {
       entranceList: [
