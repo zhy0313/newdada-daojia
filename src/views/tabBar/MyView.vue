@@ -3,7 +3,7 @@
     <Loader v-if="loading"></Loader>
     <UserCover :userInfo="userInfo"></UserCover>
     <UserWallet :userInfo="userInfo"></UserWallet>
-    <UserEntrance></UserEntrance>
+    <UserEntrance :binMobile="userInfo.mobile"></UserEntrance>
     <FooterNav :activeKey="4"></FooterNav>
   </div>
 

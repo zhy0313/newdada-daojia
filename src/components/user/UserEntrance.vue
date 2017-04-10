@@ -1,10 +1,10 @@
 <template>
   <div class="user-entrance-container">
     <div v-for="entrance in entranceList" class="entrance-block">
-        <router-link v-for="item in entrance" :class="item.type" :to="`/`">
+        <a v-for="item in entrance" :class="item.type" :href="item.href || `#${item.type}`">
           {{item.text}}
-          <span v-if="item.mobile">{{item.mobile}}</span>
-        </router-link>
+          <span v-if="item.mobile">{{binMobile || item.mobile}}</span>
+        </a>
     </div>
   </div>
 </template>
@@ -12,16 +12,17 @@
 <script>
 export default {
   props: {
-    mobile: String
+    binMobile: String
   },
   data () {
+
     return {
       entranceList: [
         [
           {text: '我的关注', type: 'focus'},
           {text: '我的评价', type: 'comments'},
-          {text: '管理地址', type: 'address'},
-          {text: '绑定手机号', type: 'bind', mobile: '您还未绑定手机号'}
+          {text: '管理地址', type: 'addresslist'},
+          {text: '绑定手机号', type: 'bind', mobile: '您还未绑定手机号', href: 'https://msc.jd.com/phone/loginpage/wcoo/index?IsH5=true&source=7&sid={{data.sid}}&deviceId={{data.deviceId}}&returnUrl={{data.returnUrl}}'}
         ],
         [
           {text: '客服与反馈', type: 'service'},
@@ -99,7 +100,7 @@ export default {
       background-position: -278px -389px;
     }
 
-    .address::before {
+    .addresslist::before {
       background-position: -191px -44px;
     }
 
