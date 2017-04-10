@@ -1,7 +1,10 @@
 <template>
   <div class="user-entrance-container">
     <div v-for="entrance in entranceList" class="entrance-block">
-        <router-link v-for="item in entrance" :class="item.type" :to="`/`">{{item.text}}</router-link>
+        <router-link v-for="item in entrance" :class="item.type" :to="`/`">
+          {{item.text}}
+          <span v-if="item.mobile">{{item.mobile}}</span>
+        </router-link>
     </div>
   </div>
 </template>
@@ -18,7 +21,7 @@ export default {
           {text: '我的关注', type: 'focus'},
           {text: '我的评价', type: 'comments'},
           {text: '管理地址', type: 'address'},
-          {text: '绑定手机号', type: 'bind'}
+          {text: '绑定手机号', type: 'bind', mobile: '您还未绑定手机号'}
         ],
         [
           {text: '客服与反馈', type: 'service'},
@@ -98,6 +101,12 @@ export default {
 
     .address::before {
       background-position: -191px -44px;
+    }
+
+    .bind {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 30px;
     }
 
     .bind::before {
