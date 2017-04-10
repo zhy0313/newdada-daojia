@@ -15,7 +15,6 @@ export default {
     binMobile: String
   },
   data () {
-
     return {
       entranceList: [
         [
