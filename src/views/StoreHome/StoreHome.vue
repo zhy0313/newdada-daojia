@@ -1,13 +1,14 @@
 <template>
-  <div>
-
-  <div class="store-home-wrap store-industry-1" v-bind:style="{ minHeight: winH + 'px'  }">
+<div>
+  <div class="store-home-wrap store-industry-1" :style="{ minHeight: winH + 'px'  }">
     <div class="store-title-wrap">
         <img src="https://img30.360buyimg.com/vendersettle/jfs/t3631/342/385184367/8543/b27a561a/58089137Nf2f1944d.png" class="store-logo">
         <div class="info-wrap">
           <h2 class="info-title">永辉超市-三环新城会员店永辉超市-三环新城会员店</h2>
           <div class="delivery-tip">
-            达达专送<var class="line_split"></var><span class="delivery-time">42分钟</span>
+            达达专送<var class="line_split"></var>
+            <!--  不在配送时间 添加class delivery-time-close-->
+            <span class="delivery-time delivery-time-close">42分钟</span>
           </div>
           <div class="delivery-tip">
             <div class="store-icon-txt">
@@ -17,6 +18,9 @@
         </div>
         <div class="store-collection-wrap collection-active">
           <i class="collection-btn"></i>
+        </div>
+        <div class="coupon-top-right-bag">
+
         </div>
         <div class="list-tag-wrap">
           <ul class="list-tag-ul">
@@ -159,7 +163,7 @@
         <ul class="store-disc-address">
           <li class="title-mark-wrap">
             <div class="mark-wrap border-b">
-              <a href="" class="public-mark-a" style="background-image:url('https://img30.360buyimg.com/mobilecms/jfs/t3289/113/4719052331/3944/a60eda23/58535991N127211a5.png');">
+              <a href="" class="public-mark-a" :style="{backgroundImage:`url('https://img30.360buyimg.com/mobilecms/jfs/t3289/113/4719052331/3944/a60eda23/58535991N127211a5.png')`}">
                 <span class="public-links-font">超时赔付</span>
               </a>
             </div>
@@ -198,76 +202,299 @@
         </ul>
       </div>
     </div>
-  </div>
-<!--门店列表-->
-  <div class="store-article-wrap">
-    <!--门店公告-->
-    <div class="notice-tips">
-      <i>公告</i>
-      <div>
-        <div class="tips-font">7天无条件包退，品质放心，购物无忧。</div>
-      </div>
-      <u class="left-mark"></u>
-    </div>
-    <!--门店店内搜索框-->
-    <div class="store-search-wrap">
-      <div class="store-search-input">
-        <span class="search-icon">搜索店内商品</span>
-      </div>
-    </div>
 
-    <div class="store-menu-view menu-no-tip">
-      <main class="store-main">
-        <!--左边分类-->
-        <ul class="menu-aside">
-          <!--active-parent控制左边栏list父级选中,active-parent-show子级选中 -->
-          <li class="menu-category active-parent-show">
-            <div class="category-title">
-            春游烧烤
-            </div>
-            <dl class="second-cateList">
-              <dd class="cateList-title">烧烤肉类</dd>
-              <dd class="cateList-title">水果/蔬菜</dd>
-              <dd class="cateList-title">酒水饮料</dd>
-            </dl>
-          </li>
-        </ul>
-        <!--分类信息-->
-        <section class="container">
-          <div class="fix-title">一次性用品(6)</div>
-          <ul class="product-list-wrap">
-            <li>
-              <a href="#" class="links-Goods border-b">
-                <img src="https://img30.360buyimg.com/n6//jfs/t2293/38/1264901140/305467/34a6fbf2/568b3e6bN3764f36b.jpg" class="pic" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_sudoku_default_2.0.png'">
-                <dl>
-                  <dt>【满10减5】香菜1把约100g/份</dt>
-                  <dd>
-                    <span style="background:#FF5959">秒杀</span>
-                  </dd>
-                  <dd class="price-wrap">
-                    <label class="real-price">
-                      <em>￥</em>0.55
-                    </label>
-                    <strong class="basic-price">
-                      <em>￥</em>2.7
-                    </strong>
-                  </dd>
+    <!--门店列表-->
+      <div class="store-article-wrap">
+        <!--门店公告-->
+        <div class="notice-tips">
+          <i>公告</i>
+          <div>
+            <div class="tips-font" v-for="(item, index) of tipsArr" :style="item" :index="index" @click="tipsClick">{{item.value}}</div>
+          </div>
+          <u class="left-mark"></u>
+        </div>
+        <!--门店店内搜索框-->
+        <div class="store-search-wrap">
+          <div class="store-search-input">
+            <span class="search-icon">搜索店内商品</span>
+          </div>
+        </div>
+
+        <div class="store-menu-view menu-no-tip">
+          <main class="store-main">
+            <!--左边分类-->
+            <ul class="menu-aside">
+              <!--active-parent控制左边栏list父级选中,active-parent-show子级选中 -->
+              <li class="menu-category active-parent-show">
+                <div class="category-title">
+                春游烧烤
+                </div>
+                <dl class="second-cateList">
+                  <dd class="cateList-title">烧烤肉类</dd>
+                  <dd class="cateList-title">水果/蔬菜</dd>
+                  <dd class="cateList-title">酒水饮料</dd>
                 </dl>
-              </a>
-              <div class="add-cart-wrap">
-                <span class="cart-btn reduce-cart"></span>
-                <label class="num">2</label>
-                <span class="cart-btn add-cart"></span>
+              </li>
+            </ul>
+            <!--分类信息-->
+            <section class="container article-coupon-wrap">
+              <!--列表内优惠券-->
+              <ul class="coupon-wrap-list">
+                <li class="coupon-none">
+                  <!--券的面值-->
+                  <div class="coupon-left">
+                    <var class="coupon-num">8.3</var>
+                    <span class="conpon-unit">折</span>
+                  </div>
+                  <!--券的标题，信息-->
+                  <div class="coupon-title-wrap">
+                    <div class="coupon-title">
+                      <div class="coupon-h2-wrap">
+                        <h2>
+                          <var class="discount-txt">折扣券</var>
+                          <var class="discount-txt">满5-100元享折扣</var>
+                        </h2>
+                        <div class="discount-date">2017.03.21-2017.04.08</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--领券的按钮-->
+                  <div class="coupon-right">
+                    <div class="coupon-right-box">
+                      <div class="coupon-get-btn">已抢光</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <!--券的面值-->
+                  <div class="coupon-left">
+                    <var class="coupon-num">8.3</var>
+                    <span class="conpon-unit">折</span>
+                  </div>
+                  <!--券的标题，信息-->
+                  <div class="coupon-title-wrap">
+                    <div class="coupon-title">
+                      <div class="coupon-h2-wrap">
+                        <h2>
+                          <var class="discount-txt">折扣券</var>
+                          <var class="discount-txt">满5-100元享折扣</var>
+                        </h2>
+                        <div class="discount-date">2017.03.21-2017.04.08</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--领券的按钮-->
+                  <div class="coupon-right">
+                    <div class="coupon-right-box">
+                      <div class="coupon-get-btn">已抢光</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <!--列表内banner图-->
+              <div class="banner-list-wrap">
+                <a class="banner-box" href=""><img class="a1x" src="https://img30.360buyimg.com/mobilecms/jfs/t4891/21/327258056/207114/8f7ad00e/58df23caN49ddcb7b.jpg" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_banner_default_2.0.png'"></a>
               </div>
-            </li>
-          </ul>
-        </section>
-      </main>
+              <div class="fix-title">一次性用品(6)</div>
+              <ul class="product-list-wrap">
+                <li>
+                  <a href="#" class="links-Goods border-b">
+                    <img src="https://img30.360buyimg.com/n6//jfs/t2293/38/1264901140/305467/34a6fbf2/568b3e6bN3764f36b.jpg" class="pic" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_sudoku_default_2.0.png'">
+                    <dl>
+                      <dt>【满10减5】香菜1把约100g/份</dt>
+                      <dd>
+                        <span :style="{background:'#FF5959'}">秒杀</span>
+                      </dd>
+                      <dd class="price-wrap">
+                        <label class="real-price">
+                          <em>￥</em>0.55
+                        </label>
+                        <strong class="basic-price">
+                          <em>￥</em>2.7
+                        </strong>
+                      </dd>
+                    </dl>
+                  </a>
+                  <div class="add-cart-wrap">
+                    <span class="cart-btn reduce-cart"></span>
+                    <label class="num">2</label>
+                    <span class="cart-btn add-cart"></span>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" class="links-Goods border-b">
+                    <img src="https://img30.360buyimg.com/n6//jfs/t2293/38/1264901140/305467/34a6fbf2/568b3e6bN3764f36b.jpg" class="pic" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_sudoku_default_2.0.png'">
+                    <dl>
+                      <dt>【满10减5】香菜1把约100g/份</dt>
+                      <dd>
+                        <span :style="{background:'#FF5959'}">秒杀</span>
+                      </dd>
+                      <dd class="price-wrap">
+                        <label class="real-price">
+                          <em>￥</em>0.55
+                        </label>
+                        <strong class="basic-price">
+                          <em>￥</em>2.7
+                        </strong>
+                      </dd>
+                    </dl>
+                  </a>
+                  <div class="add-cart-wrap">
+                    <span class="cart-btn reduce-cart"></span>
+                    <label class="num">2</label>
+                    <span class="cart-btn add-cart"></span>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" class="links-Goods border-b">
+                    <img src="https://img30.360buyimg.com/n6//jfs/t2293/38/1264901140/305467/34a6fbf2/568b3e6bN3764f36b.jpg" class="pic" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_sudoku_default_2.0.png'">
+                    <dl>
+                      <dt>【满10减5】香菜1把约100g/份</dt>
+                      <dd>
+                        <span :style="{background:'#FF5959'}">秒杀</span>
+                      </dd>
+                      <dd class="price-wrap">
+                        <label class="real-price">
+                          <em>￥</em>0.55
+                        </label>
+                        <strong class="basic-price">
+                          <em>￥</em>2.7
+                        </strong>
+                      </dd>
+                    </dl>
+                  </a>
+                  <div class="add-cart-wrap">
+                    <span class="cart-btn reduce-cart"></span>
+                    <label class="num">2</label>
+                    <span class="cart-btn add-cart"></span>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" class="links-Goods border-b">
+                    <img src="https://img30.360buyimg.com/n6//jfs/t2293/38/1264901140/305467/34a6fbf2/568b3e6bN3764f36b.jpg" class="pic" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_sudoku_default_2.0.png'">
+                    <dl>
+                      <dt>【满10减5】香菜1把约100g/份</dt>
+                      <dd>
+                        <span :style="{background:'#FF5959'}">秒杀</span>
+                      </dd>
+                      <dd class="price-wrap">
+                        <label class="real-price">
+                          <em>￥</em>0.55
+                        </label>
+                        <strong class="basic-price">
+                          <em>￥</em>2.7
+                        </strong>
+                      </dd>
+                    </dl>
+                  </a>
+                  <div class="add-cart-wrap">
+                    <span class="cart-btn reduce-cart"></span>
+                    <label class="num">2</label>
+                    <span class="cart-btn add-cart"></span>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" class="links-Goods border-b">
+                    <img src="https://img30.360buyimg.com/n6//jfs/t2293/38/1264901140/305467/34a6fbf2/568b3e6bN3764f36b.jpg" class="pic" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_sudoku_default_2.0.png'">
+                    <dl>
+                      <dt>【满10减5】香菜1把约100g/份</dt>
+                      <dd>
+                        <span :style="{background:'#FF5959'}">秒杀</span>
+                      </dd>
+                      <dd class="price-wrap">
+                        <label class="real-price">
+                          <em>￥</em>0.55
+                        </label>
+                        <strong class="basic-price">
+                          <em>￥</em>2.7
+                        </strong>
+                      </dd>
+                    </dl>
+                  </a>
+                  <div class="add-cart-wrap">
+                    <span class="cart-btn reduce-cart"></span>
+                    <label class="num">2</label>
+                    <span class="cart-btn add-cart"></span>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" class="links-Goods border-b">
+                    <img src="https://img30.360buyimg.com/n6//jfs/t2293/38/1264901140/305467/34a6fbf2/568b3e6bN3764f36b.jpg" class="pic" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_sudoku_default_2.0.png'">
+                    <dl>
+                      <dt>【满10减5】香菜1把约100g/份</dt>
+                      <dd>
+                        <span :style="{background:'#FF5959'}">秒杀</span>
+                      </dd>
+                      <dd class="price-wrap">
+                        <label class="real-price">
+                          <em>￥</em>0.55
+                        </label>
+                        <strong class="basic-price">
+                          <em>￥</em>2.7
+                        </strong>
+                      </dd>
+                    </dl>
+                  </a>
+                  <div class="add-cart-wrap">
+                    <span class="cart-btn reduce-cart"></span>
+                    <label class="num">2</label>
+                    <span class="cart-btn add-cart"></span>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" class="links-Goods border-b">
+                    <img src="https://img30.360buyimg.com/n6//jfs/t2293/38/1264901140/305467/34a6fbf2/568b3e6bN3764f36b.jpg" class="pic" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_sudoku_default_2.0.png'">
+                    <dl>
+                      <dt>【满10减5】香菜1把约100g/份</dt>
+                      <dd>
+                        <span :style="{background:'#FF5959'}">秒杀</span>
+                      </dd>
+                      <dd class="price-wrap">
+                        <label class="real-price">
+                          <em>￥</em>0.55
+                        </label>
+                        <strong class="basic-price">
+                          <em>￥</em>2.7
+                        </strong>
+                      </dd>
+                    </dl>
+                  </a>
+                  <div class="add-cart-wrap">
+                    <span class="cart-btn reduce-cart"></span>
+                    <label class="num">2</label>
+                    <span class="cart-btn add-cart"></span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </main>
 
+        </div>
+      </div>
+  </div>
+<!--公告栏全屏状态-->
+<div class="tips-poup-open" v-show="tipsPoup">
+  <div class="poup-store-box">
+    <div class="store-title">幸福e站鲜花-北京店</div>
+    <div class="store-star-box"></div>
+    <div class="sale-time-wrap">
+      月售单量：<span>9单</span><span class="time-title">营业时间：</span>
+      <span>08:30 - 23:59</span>
     </div>
+    <dl class="tips-detail border-t">
+      <dt>商家公告</dt>
+      <dd>
+        <u class="mark3"></u>
+        <span class="font-txt">民生超市，百姓永辉.</span>
+      </dd>
+    </dl>
   </div>
-
+  <div class="close-btn" @click="tipsPoupClose">
+    <span class="part1"></span>
+    <span class="part2"></span>
   </div>
+</div>
+</div>
 </template>
 
 <script>
@@ -278,14 +505,68 @@
     data () {
       return {
         title: 'yanchengqu',
-        winH: 0
+        winH: 0,
+        tipsPoup: false,
+        tipsArr: [{
+          transform: 'translateY(0)',
+          top: 0,
+          value: ''
+        }]
       }
+    },
+    created () {
+      let tipsArr = [
+        '7天无条件包退，品质放心，购物无忧。',
+        '民生超市，百姓永辉.',
+        '我们拼的是价格！'
+      ]
+      this.tipsArr.length = 0
+      tipsArr.forEach((value, idx) => {
+        let num = idx * 24
+        this.tipsArr.push({
+          transform: 'translateY(' + num + 'px)',
+          top: num + 'px',
+          value: value
+        })
+      })
     },
     mounted () {
       this.winH = window.innerHeight
-      console.log('dom形成')
+      if (this.tipsArr.length > 1) {
+        // 公告执行动画
+        let Timer = null
+        setInterval(() => {
+          clearTimeout(Timer)
+          this.tipsArr.forEach((obj, index) => {
+            let top = parseInt(obj.top) - 24
+            obj.top = top + 'px'
+            obj.transform = 'translateY(' + top + 'px)'
+            obj.transition = 'all 400ms ease-in-out'
+            if (top <= -24) {
+              Timer = setTimeout(() => {
+                let newTop = 24 * (this.tipsArr.length - 1)
+                obj.top = newTop + 'px'
+                obj.transform = 'translateY(' + newTop + 'px)'
+                obj.transition = 'none 100ms ease-in-out'
+                console.log('小于了')
+              }, 500)
+            }
+          })
+        }, 3000)
+      }
+      // console.log('dom形成')
+    },
+    methods: {
+      tipsClick () {
+        // 公告点击
+        this.tipsPoup = true
+        console.log('点击')
+      },
+      tipsPoupClose () {
+        // 公告关闭
+        this.tipsPoup = false
+      }
     }
-
   }
 </script>
 <style lang="scss">
