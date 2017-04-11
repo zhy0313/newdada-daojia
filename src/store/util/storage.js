@@ -10,11 +10,19 @@ const store = (type) => {
 
   return {
     getItem (key) {
+      let value = ''
+
       if (storeEnabled) {
-        return JSON.parse(type.getItem(key))
+        try {
+          value = JSON.parse(type.getItem(key))
+        } catch (e) {
+          value = type.getItem(key)
+        }
       } else {
-        return data[key]
+        value = data[key]
       }
+
+      return value || ''
     },
     setItem (key, value) {
       if (storeEnabled) {
