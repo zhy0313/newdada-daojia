@@ -8,8 +8,10 @@ console.log('sid', cookie.getCookie('sid'))
 console.log('o2o_m_h5_sid', cookie.getCookie('o2o_m_h5_sid'))
 console.log('deviceid_pdj_jd', cookie.getCookie('deviceid_pdj_jd'))
 
-console.log('a', storage.sessionStorage.getItem('a'))
-console.log('b', storage.sessionStorage.getItem('b'))
+console.log('sessionStorage: a', storage.sessionStorage.getItem('a'))
+console.log('sessionStorage: b', storage.sessionStorage.getItem('b'))
+console.log('localStorage: a', storage.localStorage.getItem('a'))
+console.log('localStorage: b', storage.localStorage.getItem('b'))
 export default {
   ...cookie,
   ...storage
