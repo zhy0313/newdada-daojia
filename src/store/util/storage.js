@@ -1,5 +1,5 @@
 
-const store = (type) => {
+const storage = (type) => {
   let data = {}
   let storeEnabled = false
 
@@ -41,5 +41,5 @@ const store = (type) => {
   }
 }
 
-export const sessionStorage = store(window.sessionStorage)
-export const localStorage = store(window.localStorage)
+export const sessionStorage = storage(window.sessionStorage)
+export const localStorage = storage(window.localStorage)
