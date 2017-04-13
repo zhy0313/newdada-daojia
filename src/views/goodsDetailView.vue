@@ -1,6 +1,6 @@
-<template>
+<!-- <template> -->
   <!--商品详情-->
-  <div class="good-detail-warp">
+  <!-- <div class="good-detail-warp">
       <div class="detail-banner-box">
           <div class="detail-banner-content swipe7"></div>
           <span v-if="logoTag" class="promotion-tag promotion-tag-{{logoTag.type}}"><i>{{logoTag.iconText}}</i></span>
@@ -12,28 +12,28 @@
 		  </div>
   		<div v-if="miaoshaInfo && miaoshaInfo.miaoShaSate == 1" class="detail-miaosha-box">秒杀<em node-type="seckill-time-show"><i>{{hour}}</i>:<i>{{minute}}</i>:<i>{{second}}</i></em>结束</div>
       <!--条件渲染的类名通过classObj 在data中去判断，不在模板中判断 v-if='inCartCount > 0 && buttonEnable' class="switchHide"-->
-      <div class="detail-price-box" >
+      <!-- <div class="detail-price-box" > -->
          <!--{{if hasSaleAttr || (tags && tags.length)}}add-detail-border{{/if}}-->
-  	    	<div class="detail-price-content ">
-	            <template v-if="skuPriceVO.promotion==0">
+  	    	<!-- <div class="detail-price-content "> -->
+	            <!-- <template v-if="skuPriceVO.promotion==0">
 		              <p class="promotionprice"><span>￥</span>{{skuPriceVO.realTimePrice}}</p>
 	                <p class="marketprice"><span>￥</span>{{skuPriceVO.basicPrice}}</p>
               </template>
 	            <template v-else>
 					         <p class="promotionprice"><span>￥</span>{{skuPriceVO.realTimePrice||暂无报价}}</p>
-		          </template>
+		          </template> -->
     	        <!--{{if productType == 1 || productType == 4}}-->
               <!--{{if buttonEnable}}{{if miaoshaInfo && miaoshaInfo.miaoShaSate != 2}}sure{{else}}sure{{/if}}{{/if}} {{if inCartCount > 0 && buttonEnable}}hideAddCart{{/if}}"-->
-    					<span class="add-cart-btn" _skuId="{{skuPriceVO.skuId}}" _orgCode="{{orgCode}}" _storeId="{{storeInfo.storeId}}" onclick='lg("user_action","1.0",{"clickid":"add_cart","sku_id":"{{skuPriceVO.skuId}}"})'>{{showStateName}}</span>
+    					<!-- <span class="add-cart-btn" _skuId="{{skuPriceVO.skuId}}" _orgCode="{{orgCode}}" _storeId="{{storeInfo.storeId}}" onclick='lg("user_action","1.0",{"clickid":"add_cart","sku_id":"{{skuPriceVO.skuId}}"})'>{{showStateName}}</span>
     					<div class="Box">
   		              <span class="reduce" _skuId="{{skuPriceVO.skuId}}" _storeId="{{storeInfo.storeId}}" _orgCode="{{orgCode}}" onclick='lg("user_action","1.0",{"clickid":"reduce_cart","sku_id":"{{skuPriceVO.skuId}}"})'>减</span>
   		              <label class="show">{{inCartCount}}</label>
   		              <span class="add" _skuId="{{skuPriceVO.skuId}}" _storeId="{{storeInfo.storeId}}" _orgCode="{{orgCode}}" onclick='lg("user_action","1.0",{"clickid":"add_cart","sku_id":"{{skuPriceVO.skuId}}"})'>加</span>
-    			     </div>
-  	      </div>
-  	 </div>
-  	<template v:if="tags && tags.length>0">
-  	    <div class="detail-promotion-box">
+    			     </div> -->
+  	      <!-- </div> -->
+  	 <!-- </div> -->
+  	<!-- <template v:if="tags && tags.length>0"> -->
+  	    <!-- <div class="detail-promotion-box">
   	    	<div class="detail-promotion-content {{if hasSaleAttr}}add-detail-border{{/if}}">
   	    		<span class="promotion-left">促销</span>
   	            <div class="promotion-right">
@@ -50,7 +50,7 @@
   	            </div>
   	    	</div>
   	     </div>
-      </template>
+      </template>  -->
 
 
 <!--
@@ -312,12 +312,54 @@
   		{{/if}}
   	</li>
   {{/each}}-->
+<!-- </template> -->
+<template>
+  <!--单品信息-->
+   <div>
+     <ul>
+        <li v-for="image in goodsInfo.image">
+            <img :src="image.big"/>
+        </li>
+     </ul>
 
+     <strong v-if="goodsInfo.adword">{{goodsInfo.adword}}</strong>
+     <strong v-if="goodsInfo.name">{{goodsInfo.name}}</strong>
+   </div>
 
 </template>
 <style>
 
 </style>
 <script>
-
+import Loader from '@/components/Loader'
+export default {
+  components: {
+    Loader
+  },
+  created () {
+    // 路由需要skuId, orgCode,longitude,latitude //  type: 2
+    let skuId = this.$router.query.skuId || '2005249305'
+    let storeId = this.$router.query.storeId || '11654584'
+    let orgCode = this.$router.query.orgCode || '298470'
+    this.$getAPI({
+      functionId: 'product/detailV2_2',
+      body: {
+        skuId: skuId,
+        storeId: storeId,
+        orgCode: orgCode,
+        buyNum: 1
+      }
+    }).then((response) => {
+      window.console.log(response, this)
+      if (response.body.code === 0) {
+        this.goodsInfo = response.body.result
+      }
+    })
+  },
+  data: function () {
+    return {
+      goodsInfo: { }
+    }
+  }
+}
 </script>
