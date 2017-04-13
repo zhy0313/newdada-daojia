@@ -5,14 +5,20 @@
       </div>
       我的钱包
     </flex-item>
-    <flex-item>
-      <div class="item my-coupon">{{'--'}}</div>
+    <flex-item v-for="item in accountInfo[0]" :key="item.acctype">
+      <div :class="`item${item.acctype == 1 ? ' my-coupon' : ''}`">
+        {{item.value || '--'}}
+      </div>
+      {{item.accName}}
+    </flex-item>
+    <!-- <flex-item>
+      <div class="item my-coupon">{{ || '--'}}</div>
       优惠券
     </flex-item>
     <flex-item>
       <div class="item">{{'--'}}</div>
       白条
-    </flex-item>
+    </flex-item> -->
   </flex>
 </template>
 
@@ -20,7 +26,17 @@
 export default {
   data () {
     return {
-      accountInfo: {}
+      accountInfo: [
+        {
+          accName: '优惠券',
+          value: '--',
+          acctype: '1'
+        },
+        {
+          accName: '白条',
+          acctype: '3'
+        }
+      ]
     }
   },
   created () {
@@ -53,14 +69,12 @@ export default {
   .user-wallet {
     text-align: center;
     padding: 10px;
+    margin-bottom: 10px;
     background: $daojia-pure;
 
     .flex-item:nth-child(2) {
       @include border-left();
     }
-
-
-
 
     .my-wallet {
       background: url(//static-o2o.360buyimg.com/daojia/new/images/user/my_wallet.png) center no-repeat;

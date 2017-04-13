@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import * as MutationTypes from './mutation-types'
+// import * as MutationTypes from './mutation-types'
 
 Vue.use(VueResource)
 
@@ -18,9 +18,9 @@ export default (store) => {
     // request.params.body = JSON.stringify(request.params.body)
     // request.params = {...request.params, platCode: 'H5', appName: 'paidaojia', appVersion: '3.8.0'}
 
-    store.commit(MutationTypes.LOADING, true) // loading true
+    // store.commit(MutationTypes.LOADING, true) // loading true
     next((response) => {
-      store.commit(MutationTypes.LOADING, false) // loading false
+      // store.commit(MutationTypes.LOADING, false) // loading false
       let responseData = { ...response }
       // if (response.data.success) {
       //   console.log('接口成功')
