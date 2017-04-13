@@ -10,18 +10,24 @@
 </template>
 
 <script>
+import { getCookie } from '../../store/util/cookie'
+
 export default {
   props: {
     binMobile: String
   },
   data () {
+    let sid = getCookie('o2o_m_h5_sid')
+    let deviceId = getCookie('deviceid_pdj_jd')
+    let returnUrl = encodeURIComponent(window.location.href)
+    let bindHref = `https://msc.jd.com/phone/loginpage/wcoo/index?IsH5=true&source=7&sid=${sid}&deviceId=${deviceId}&returnUrl=${returnUrl}`
     return {
       entranceList: [
         [
           {text: '我的关注', type: 'focus'},
           {text: '我的评价', type: 'comments'},
           {text: '管理地址', type: 'addresslist'},
-          {text: '绑定手机号', type: 'bind', mobile: '您还未绑定手机号', href: 'https://msc.jd.com/phone/loginpage/wcoo/index?IsH5=true&source=7&sid={{data.sid}}&deviceId={{data.deviceId}}&returnUrl={{data.returnUrl}}'}
+          {text: '绑定手机号', type: 'bind', mobile: '您还未绑定手机号', href: bindHref}
         ],
         [
           {text: '客服与反馈', type: 'service'},
