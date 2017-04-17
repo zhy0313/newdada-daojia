@@ -13,18 +13,18 @@ export default {
 </script>
 
 <style lang="scss">
-.loader {
-  left: 50%;
-  top: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
+  .loader {
+    left: 50%;
+    top: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
 
-  .spinner {
-    box-sizing: border-box;
-    stroke: #673AB7;
-    stroke-width: 3px;
-    transform-origin: 50%;
-    animation: line .2s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate .2s linear infinite;
+    .spinner {
+      box-sizing: border-box;
+      stroke: #673AB7;
+      stroke-width: 3px;
+      transform-origin: 50%;
+      animation: line 1s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1s linear infinite;
     }
 
     @keyframes rotate {
