@@ -21,7 +21,7 @@ import AddressListView from '@/views/AddressListView'
 import NewAddressView from '@/views/NewAddressView'
 import EditAddressView from '@/views/EditAddressView'
 import ActivityView from '@/views/Activity/ActivityView'
-import goodsDetailView from '@/views/goodsDetailView' // 报错先注释掉
+import GoodsDetailView from '@/views/goodsDetailView' // 报错先注释掉
 
 Vue.use(Router)
 
@@ -115,9 +115,9 @@ export default new Router({
       component: ActivityView
     },
     {
-      path: '/goodsDetail/:skuId/:storeId/:orgCode',
+      path: '/goodsDetail/:skuid/:storeid/:orgcode',
       name: 'goodsDetail',
-      component: goodsDetailView
+      component: GoodsDetailView
     },
     {
       path: '*',

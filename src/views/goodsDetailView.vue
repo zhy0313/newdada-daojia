@@ -315,32 +315,174 @@
 <!-- </template> -->
 <template>
   <!--单品信息-->
-   <div>
-     <ul>
-        <li v-for="image in goodsInfo.image">
-            <img :src="image.big"/>
-        </li>
-     </ul>
-
-     <strong v-if="goodsInfo.adword">{{goodsInfo.adword}}</strong>
-     <strong v-if="goodsInfo.name">{{goodsInfo.name}}</strong>
+   <div class='sku-wrap'>
+     <!--单品图片轮播-->
+     <Swipe :speed="1000">
+      <SwipeItem v-for="image in goodsInfo.image" >
+           <img :src="image.big" class='sku-img'/>
+      </SwipeItem>
+     </Swipe>
+     <!--商品信息-->
+     <div>
+       <!--广告语-->
+       <div v-if="goodsInfo.adword" class="sku-adword">{{goodsInfo.adword}}</div>
+       <!--单品名称-->
+       <div v-if="goodsInfo.name" class="sku-name">{{goodsInfo.name}}</div>
+       <!--秒杀商品展示秒杀倒计时-->
+       <!--价格信息-->
+       <div class="sku-price-wrap">
+         <span v-if='skuPriceVO.promotion === 0' class="sku-price">
+           <span class="sku-basic-price">￥{{skuPriceVO.realTimePrice}}</span>
+           <span class="sku-real-price">￥{{skuPriceVO.basicPrice}}</span>
+         </span>
+         <span v-else class="sku-basic-price">￥{{skuPriceVO.basicPrice}}</span>
+         <addButton theme='default' v-on:click="addGoods" class='addbtn'>加入购物车</addButton>
+       </div>
+       <!--促销标信息-->
+       <div class="detail-promotion-box" v-if="tags.length">
+         <span>促销</span>
+         <ul class="tags-list-wrap">
+           <li v-for="(tag,index) in tags" class="tags-list-item">
+             <span class="store-fujia-icon" v-bind:style="{backgroundColor: bgcolor[index]}">{{tag.iconText}}</span>
+             <span class="store-fujia-desc">{{tag.words}}</span>
+           </li>
+         </ul>
+       </div>
+     </div>
+     <!--店铺信息-->
+     <div v-if="storeInfo.storeId" class="sku-store-wrap">
+       <router-link to="/storeHome">{{storeInfo.storeName}}</router-link>
+       <a :href="telphone">联系商家</a>
+     </div>
    </div>
 
 </template>
 <style>
+.sku-wrap {
+  background-color: #FFF;
+}
+.sku-img {
+  width:100%;
+}
+.swipe {
+  position: relative;
+  width: 100%;
+  height: 320px;/*图片不下发尺寸会变形*/
+}
+.sku-adword {
+  text-align: center;
+  font-size: 16px;
+  padding: 0 20px;
+  margin: 10px 0 2px;
+  color: #333;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 44px;
+  -webkit-line-clamp: 2;
+  -ms-line-clamp: 2;
+  -moz-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  display: -webkit-box;
+  display: -ms-box;
+  display: -moz-box;
+  display: box;
+}
+.sku-name {
+  text-align: center;
+  padding: 0 20px 5px;
+  background: #fff;
+  color: #999999;
+  font-size: 13px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 44px;
+  -webkit-line-clamp: 2;
+  -ms-line-clamp: 2;
+  -moz-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  display: -webkit-box;
+  display: -ms-box;
+  display: -moz-box;
+  display: box;
+}
+.sku-price-wrap {
+  height: 49px;
+  line-height: 49px;
+  position: relative;
+}
+.sku-basic-price {
+  display: inline-block;
+  font-size: 30px;
+  color: #ff3434;
+  margin-right: 5px;
+}
+.sku-real-price {
+  display: inline-block;
+  font-size: 14px;
+  color: #acacac;
+  margin-right: 10px;
+  text-decoration: line-through;
+}
+.sku-price {
+  display: inline-block;
+}
+.addbtn {
+  float: right;
+  background-color: #47b34f;
+  height: 35px;
+  color: #FFFFFF;
+}
+.detail-promotion-box {
+  background: #fff;
+  padding: 0 0 0 10px;
+  font-size: 12px;
+  color: #333333;
+}
+.store-fujia-icon {
+  display: inline-block;
+  padding: 0 2px;
+  margin-right: 4px;
+  border-radius: 2px;
+  color: #ffffff;
+  height: 16px;
+  line-height: 16px;
+}
+.tags-list-wrap {
+  padding-left: 30px;
+}
+.tags-list-item {
+  margin-bottom: 6px;
+}
 
 </style>
 <script>
 import Loader from '@/components/Loader'
+import Swipe from '@/assets/scripts/components/Swipe'
+import SwipeItem from '@/assets/scripts/components/SwipeItem'
+import addButton from '@/assets/scripts/components/Button'
 export default {
   components: {
-    Loader
+    Loader,
+    Swipe,
+    SwipeItem,
+    addButton
   },
   created () {
     // 路由需要skuId, orgCode,longitude,latitude //  type: 2
-    let skuId = this.$router.query.skuId || '2005249305'
-    let storeId = this.$router.query.storeId || '11654584'
-    let orgCode = this.$router.query.orgCode || '298470'
+    let skuId = this.$route.params.skuid
+    let storeId = this.$route.params.storeid
+    let orgCode = this.$route.params.orgcode
+    let vm = this
     this.$getAPI({
       functionId: 'product/detailV2_2',
       body: {
@@ -350,15 +492,51 @@ export default {
         buyNum: 1
       }
     }).then((response) => {
-      window.console.log(response, this)
-      if (response.body.code === 0) {
-        this.goodsInfo = response.body.result
+      if (response.body.code === '0') {
+        vm.goodsInfo = response.body.result
+        vm.skuPriceVO = vm.goodsInfo.skuPriceVO
+        vm.tags = vm.goodsInfo.tags
+        vm.storeInfo = vm.goodsInfo.storeInfo
+        let length = vm.tags.length
+        console.log(1)
+        // 促销标标语替换###
+        if (length) {
+          for (var i = 0; i < length; i++) {
+            vm.tags[i].words = vm.tags[i].words.replace(/###/gi, '，')
+          }
+        }
       }
+    }, (error) => {
+      vm.$toast({message: error.msg || '网络繁忙啦', position: 'center', type: 'error'})
     })
   },
-  data: function () {
+  data () {
     return {
-      goodsInfo: { }
+      goodsInfo: { },
+      skuPriceVO: { },
+      tags: [ ],
+      storeInfo: { }
+    }
+  },
+  methods: {
+    addGoods: function () {
+      this.$toast({message: '加购物车'})
+    }
+  },
+  computed: {
+    telphone () {
+      if (this.storeInfo.venderPhone) {
+        return 'tel:' + this.storeInfo.venderPhone
+      }
+    },
+    bgcolor () {
+      let length = this.tags.length
+      let tagArray = []
+      for (let j = 0; j < length; j++) {
+        let temp = '#' + this.tags[j].colorCode
+        tagArray.push(temp)
+      }
+      return tagArray
     }
   }
 }
