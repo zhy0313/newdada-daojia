@@ -1,7 +1,68 @@
 <template>
+  <div>
+    <div v-for='value in activityData'>
+      <div v-if='value.floorStyle==="floorBanner"'>
+        <div v-for='$value in value.data'>
+          <img :src='$value.imgUrl' />
+        </div>
+      </div>
+      <div v-else-if='value.floorStyle==="act1"||value.floorStyle==="act2"||value.floorStyle==="act3"||value.floorStyle==="act4"||value.floorStyle==="act5"'>
+        <div v-for='$value in value.data'>
+          <img :src='$value.imgUrl'/>
+        </div>
+      </div>
+      <div v-else-if='value.floorStyle==="product5" && value.styleTpl==="tpl2"'>
+        <div class='store-goods-wrap' v-if='value.data[0]&&value.data[0].name'>
+          <ul class="index-store-list-style">
+            <tStoreList :result='v.data[0]'></tStoreList>
+          </ul>
+          <a class='showMore'>查看更多商品 ></a>
+          <div class='activity-border-1'><i class='left'></i><i class='center'></i><i class='right'></i></div>
+        </div>
+        <div v-else class='store-goods-wrap'>
+          <ul class='three-column-product' v-if='value.data[0] && value.data[0].name'>
+            <li v-for='valueV in value.data' class='store-goods-list'>
+              <activityTpl2 :valueV='valueV' :v='value' :skuToType='value.busyAttrMaps' :actStoreGoods='activityData.hideStoreTitle' ></activityTpl2>
+            </li>
+          </ul>
+          <ul class='three-column-product' v-else>
+            <li v-for='valueV in value.data' class='store-goods-list'>
+              <activityTpl2 :valueV='valueV' :v='value' :skuToType='value.busyAttrMaps' :actStoreGoods='activityData.hideStoreTitle' ></activityTpl2>
+            </li>
+          </ul>
+        </div>
+        </div>
+        <div v-else-if='value.floorStyle==="product5" && value.styleTpl==="tpl3"'>
+          <div class='store-goods-wrap' v-if='value.data[0]&&value.data[0].name'>
+            <ul class="index-store-list-style">
+              <tStoreList :result='v.data[0]'></tStoreList>
+            </ul>
+            <a class='showMore'>查看更多商品 ></a>
+            <div class='activity-border-1'><i class='left'></i><i class='center'></i><i class='right'></i></div>
+          </div>
+          <div v-else class='store-goods-wrap'>
+            <ul class='horizontal-product' v-if='value.data[0] && value.data[0].name'>
+              <li v-for='valueV in value.data' class='store-goods-list'>
+                <activityTpl2 :valueV='valueV' :v='value' :skuToType='value.busyAttrMaps' :actStoreGoods='activityData.hideStoreTitle' ></activityTpl2>
+              </li>
+            </ul>
+            <ul class='horizontal-product' v-else>
+              <li v-for='valueV in value.data' class='store-goods-list'>
+                <activityTpl3 :valueV='valueV' :v='value' :skuToType='value.busyAttrMaps' :actStoreGoods='activityData.hideStoreTitle' ></activityTpl3>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+  import tStoreList from '../../components/activity/tstoreList'
+  import activityTpl2 from '../../components/activity/activityTpl2'
+  import activityTpl3 from '../../components/activity/activityTpl3'
+
   let activityData
   export default {
     created: function () {
@@ -12,8 +73,14 @@
         activityData: activityData
       }
     },
+    components: {
+      tStoreList,
+      activityTpl2,
+      activityTpl3
+    },
     methods: {
       getActivity: function () {
+        let This = this
         let data = {
           functionId: 'act/getActivityFirst',
           body: {
@@ -26,9 +93,9 @@
             'currentPage': 1
           }
         }
-        this.$getAPI(data).then(response => {
+        This.$getAPI(data).then(response => {
           activityData = response.body.result
-          this.activityData = activityData
+          This.activityData = activityData.data
         }, response => {
           // return response
         })
