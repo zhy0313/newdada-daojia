@@ -1,16 +1,23 @@
 import * as storage from './storage'
 
+/* eslint-disable */
 var Address = {
+  key_: '_current_address_',
+	current_: null,
   // 获取当前地址
   getCurrentUse: function (options) {
-    var needLocate = options.needLocate
-    if (needLocate) {
-      // 需要重新定位
-      var geolocation = new qq.maps.Geolocation('TVABZ-XEVAX-M6E4K-ZAUPQ-L5U7O-OPB6P', 'jddjapp')
-      geolocation.getLocation(function (address) {
-
-      }, function () {})
-    }
+    return new Promise((resolve, reject) => {
+      var needLocate = options.needLocate
+      if (needLocate) {
+        // 需要重新定位
+        var geolocation = new qq.maps.Geolocation('TVABZ-XEVAX-M6E4K-ZAUPQ-L5U7O-OPB6P', 'jddjapp')
+        geolocation.getLocation(function (address) {
+          resolve(address)
+        }, function (error) {
+          reject(error)
+        })
+      }
+    })
   },
   // 获取地址
   getLocalCurrent: function () {
@@ -19,6 +26,7 @@ var Address = {
   },
   // 缓存地址
   saveLocalCurrent: function (address) {
+    console.log(JSON.stringify(address))
     Address.currnt_ = Address.formateAddressDate(address)
     storage.sessionStorage.setItem(Address.key_, address)
   },
@@ -29,7 +37,7 @@ var Address = {
   },
   // 格式化地址对象
   formateAddressDate: function (address) {
-    address = Object.extend(address, {
+    address = Object.assign(address, {
       cityId: address.cityId || address.cityCode || address.areaCode || 0,
       city: address.city || address.cityName,
       district: address.district || address.countyName,
@@ -39,5 +47,9 @@ var Address = {
     })
     return address
   }
-
 }
+export const getCurrentUse = Address.getCurrentUse
+export const getLocalCurrent = Address.getLocalCurrent
+export const saveLocalCurrent = Address.saveLocalCurrent
+export const clearCurrentAddress = Address.clearCurrentAddress
+export const formateAddressDate = Address.formateAddressDate

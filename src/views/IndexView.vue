@@ -114,6 +114,7 @@
 <script>
 import FooterNav from '@/components/FooterNav'
 import Loader from '@/components/Loader'
+import * as address from '../store/util/AddressUtil'
 
 export default {
   components: {
@@ -146,6 +147,11 @@ export default {
       console.log('response', response.result)
     }, (err) => {
       console.log('err', err)
+    })
+    address.getCurrentUse({needLocate: true}).then(function (addr) {
+      address.saveLocalCurrent(addr)
+    }, function () {
+      alert('定位失败')
     })
   }
 }
