@@ -2,14 +2,31 @@
   <div>
     <div v-for='value in activityData'>
       <div v-if='value.floorStyle==="floorBanner"'>
-        <div v-for='$value in value.data'>
+        <swipe
+            :onDragStart='onDragStart'
+            :onDrag='onDrag'
+            :onDragEnd='onDragEnd'
+            :autoplay='false'>
+            <swipe-item v-for='$value in value.data'>
+                <img :src='$value.imgUrl' />
+            </swipe-item>
+        </swipe>
+        <!-- <div v-for='$value in value.data'>
           <img :src='$value.imgUrl' />
-        </div>
+        </div> -->
       </div>
       <div v-else-if='value.floorStyle==="act1"||value.floorStyle==="act2"||value.floorStyle==="act3"||value.floorStyle==="act4"||value.floorStyle==="act5"'>
-        <div v-for='$value in value.data'>
+        <swipe
+            :onDragStart='onDragStart'
+            :onDrag='onDrag'
+            :onDragEnd='onDragEnd'>
+            <swipe-item v-for='$value in value.data'>
+                <img :src='$value.imgUrl' />
+            </swipe-item>
+        </swipe>
+        <!-- <div v-for='$value in value.data'>
           <img :src='$value.imgUrl'/>
-        </div>
+        </div> -->
       </div>
       <div v-else-if='value.floorStyle==="product5" && value.styleTpl==="tpl2"'>
         <div class='store-goods-wrap' v-if='value.data[0]&&value.data[0].name'>
@@ -130,3 +147,13 @@
     }
   }
 </script>
+<style lang='scss'>
+  @import '../../css/public.scss';
+  @import '../../css/activity.scss';
+  img{
+    width: 100%
+  }
+  .swipe{
+    height: 200px;
+  }
+</style>
