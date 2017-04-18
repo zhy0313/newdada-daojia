@@ -1,15 +1,14 @@
 <template>
-  <div class="">
+  <div>
     <Loader v-if="loading"></Loader>
-    <div></div>
+    <DefaultPageTip v-else-if="orderlist.length == 0"></DefaultPageTip>
     <FooterNav :activeKey="3"></FooterNav>
   </div>
-
 </template>
-
 <script>
   import FooterNav from '@/components/FooterNav'
   import Loader from '@/components/Loader'
+  import DefaultPageTip from '@/components/DefaultPageTip'
 
   export default {
     data () {
@@ -21,7 +20,8 @@
     },
     components: {
       FooterNav,
-      Loader
+      Loader,
+      DefaultPageTip
     },
     methods: {
       fetchOrderList () {
@@ -35,7 +35,7 @@
           if (response.body.code === '0') {
             console.log('接口成功')
             console.log('response', response.result)
-            this.orderlist.push(response.result)
+            // this.orderlist.push(response.result)
           } else {
             console.log('接口失败', response.body)
           }
@@ -54,4 +54,5 @@
 </script>
 
 <style lang="scss">
+
 </style>
