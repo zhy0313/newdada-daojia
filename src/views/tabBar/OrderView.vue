@@ -1,7 +1,11 @@
 <template>
   <div>
     <Loader v-if="loading"></Loader>
-    <DefaultPageTip v-else-if="orderlist.length == 0"></DefaultPageTip>
+    <DefaultPageTip
+      v-else-if="orderlist.length == 0"
+      :msg="msg"
+      btnName="去逛逛"
+    ></DefaultPageTip>
     <FooterNav :activeKey="3"></FooterNav>
   </div>
 </template>
@@ -15,7 +19,8 @@
       return {
         startIndex: 0,
         orderlist: [],
-        loading: true
+        loading: true,
+        msg: '没有未评价的订单哦，赶紧去购物吧'
       }
     },
     components: {

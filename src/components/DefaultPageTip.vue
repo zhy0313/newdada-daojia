@@ -1,14 +1,17 @@
 <template>
   <div class="default-page-tip">
     <img src="https://static-o2o.360buyimg.com/daojia/new/images/icon/search_fail.png"></img>
-    <div>没有未评价的订单哦，赶紧去购物吧</div>
-    <btn>去逛逛</btn>
+    <div>{{msg}}</div>
+    <btn v-if="btnName">{{btnName}}</btn>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: {
+    msg: String,
+    btnName: String
+  }
 }
 </script>
 
