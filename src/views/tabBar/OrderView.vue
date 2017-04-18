@@ -6,6 +6,13 @@
       :msg="msg"
       btnName="去逛逛"
     ></DefaultPageTip>
+    <loadmore v-else class="loadmore-wrapper">
+      <ul class="orderlist-wrapper">
+        <li class="orderlist-item" v-for="item in orderlist">
+          {{item.orderId}}
+        </li>
+      </ul>
+    </loadmore>
     <FooterNav :activeKey="3"></FooterNav>
   </div>
 </template>
@@ -20,7 +27,8 @@
         startIndex: 0,
         orderlist: [],
         loading: true,
-        msg: '没有未评价的订单哦，赶紧去购物吧'
+        msg: '没有未评价的订单哦，赶紧去购物吧',
+        hasComment: false
       }
     },
     components: {
@@ -37,23 +45,31 @@
             dataSize: 10
           }
         }).then((response) => {
-          if (response.body.code === '0') {
-            console.log('接口成功')
-            console.log('response', response.result)
-            // this.orderlist.push(response.result)
-          } else {
-            console.log('接口失败', response.body)
-          }
           this.loading = false
-          // this.$loading.toggle()
-          this.$toast({message: response.body.msg, position: 'center'})
+          if (response.body.code === '0') {
+            console.log(response.result)
+            this.orderlist = this.orderlist.concat(response.result)
+          } else {
+            this.$toast({message: response.body.msg, position: 'center'})
+          }
         }, (err) => {
           console.log('err', err)
+        })
+      },
+      isExistsComment () {
+        this.$getAPI({
+          functionId: 'order/isExistsComment',
+          body: { }
+        }).then((response) => {
+          if (response.body.code === '0') {
+            this.hasComment = response.result
+          }
         })
       }
     },
     created () {
       this.fetchOrderList()
+      this.isExistsComment()
     }
   }
 </script>
