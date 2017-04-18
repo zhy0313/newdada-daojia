@@ -1,6 +1,7 @@
 .store-home-wrap {
   box-sizing: border-box;
   padding: 5px 10px;
+  width: 100%;
 }
 //*行业标签背景图 生鲜 1 外卖 2 医药3 服务类（鲜花 5）*/
 .store-industry-1 {
@@ -124,7 +125,7 @@
   right: 2px;
   text-align: right;
   top: 6px;
-  width: 22px;
+  width: 40px;
 }
 
 .store-collection-wrap .collection-btn{
@@ -132,7 +133,7 @@
   background-position: 0px -2px;
   background-repeat: no-repeat;
   background-size: 60px auto;
-  float: left;
+  float: right;
   height: 18px;
   width: 22px;
 }
@@ -1309,4 +1310,33 @@
 
 .tips-poup-open .close-btn .part2 {
     transform: rotate(-45deg);
+}
+
+.goods-floor-fixed-bottom{
+  transform: translate3d(0,140%,0);
+}
+
+.goback-store-btn{
+  background: #f2f8f3;
+  bottom: 0;
+  box-shadow: 0 0 9px rgba(0,0,0,0.2);
+  box-sizing: content-box;
+  color: #666;
+  height: 36px;
+  left: 0;
+  padding-top: 10px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.goback-store-btn i{
+  background: url("//static-o2o.360buyimg.com/daojia/new/images/icon/store_sprites_3.3.png") no-repeat;
+  background-position: -15px -18px;
+  background-size: 220px auto;
+  display: block;
+  height: 8px;
+  margin: 0 auto 5px;
+  width: 15px;
 }
