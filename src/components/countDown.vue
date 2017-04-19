@@ -7,28 +7,39 @@ export default {
   data () {
     return {
       time: '',
-      now: 0
+      flag: false,
+      startTime: new Date().getTime()
     }
   },
-  props: ['countDownTime'],
+  props: {
+    endTime: String
+  },
   methods: {
+    timeDown () {
+      let nowTime = new Date().getTime()
+      let times = nowTime - this.startTime
+      let lastTime = new Date(parseInt(this.endTime) - times)
+      let min = this.formate(lastTime.getMinutes())
+      let sec = this.formate(lastTime.getSeconds())
+      if (lastTime <= 0) {
+        this.flag = true
+      }
+      this.time = `${min}:${sec}`
+    },
     formate (time) {
-      let hour = parseInt(time / 1000 / 3600)
-      let min = parseInt((time / 1000 - hour * 3600) / 60)
-      let sec = parseInt(time / 1000 - hour * 3600 - min * 60)
-      return hour + '小时' + min + '分钟' + sec + '秒'
+      if (time >= 10) {
+        return time
+      } else {
+        return `0${time}`
+      }
     }
   },
-  computed: {
-    'time': function () {
-      console.log('ddd' + this.countDownTime)
-      return this.formate(new Date(this.countDownTime).getTime() - this.now)
-    }
-  },
-  ready () {
-    let self = this
-    setInterval(function () {
-      self.now = new Date().getTime()
+  mounted () {
+    let time = setInterval(() => {
+      if (this.flag === true) {
+        clearInterval(time)
+      }
+      this.timeDown()
     }, 1000)
   }
 }
