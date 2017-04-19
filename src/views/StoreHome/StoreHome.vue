@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="store-home-wrap store-industry-1" :style="{ minHeight: winH + 'px'  }">
+  <div class="store-home-wrap store-industry-1" :style="{ minHeight: winH + 'px', 'position': storeIsFixed ? 'fixed' : 'relative' }" @click="storeHomeClick">
     <div class="store-title-wrap">
         <img src="https://img30.360buyimg.com/vendersettle/jfs/t3631/342/385184367/8543/b27a561a/58089137Nf2f1944d.png" class="store-logo">
         <div class="info-wrap">
@@ -16,7 +16,7 @@
             </div>
           </div>
         </div>
-        <div class="store-collection-wrap collection-active">
+        <div class="store-collection-wrap " :class="{'collection-active' : storeFollow}">
           <i class="collection-btn"></i>
         </div>
         <div class="coupon-top-right-bag">
@@ -204,7 +204,7 @@
     </div>
 
     <!--门店列表-->
-      <div class="store-article-wrap">
+      <div class="store-article-wrap " :class="storeIsFixed ? '' : 'goods-floor-fixed-bottom'" @click="storeStopProp">
         <!--门店公告-->
         <div class="notice-tips">
           <i>公告</i>
@@ -494,6 +494,11 @@
     <span class="part2"></span>
   </div>
 </div>
+<!--点击继续购物按钮-->
+<div class="goback-store-btn" @click="storeHomeShow" v-show="!storeIsFixed">
+  <i></i>
+  <span>点击继续购物</span>
+</div>
 </div>
 </template>
 
@@ -506,7 +511,9 @@
       return {
         title: 'yanchengqu',
         winH: 0,
-        tipsPoup: false,
+        tipsPoup: false, // 公告
+        storeFollow: false, // 门店关注
+        storeIsFixed: true, // 门店定位是否fixed防止滑动
         tipsArr: [{
           transform: 'translateY(0)',
           top: 0,
@@ -557,14 +564,33 @@
       // console.log('dom形成')
     },
     methods: {
-      tipsClick () {
+      storeStopProp (e) {
+        // 门店点击阻止冒泡
+        e.stopPropagation()
+      },
+      tipsClick (e) {
         // 公告点击
+        e.stopPropagation()
         this.tipsPoup = true
         console.log('点击')
       },
       tipsPoupClose () {
         // 公告关闭
         this.tipsPoup = false
+      },
+      storeHomeClick (e) {
+        // 门店背景点击
+        if (e.srcElement.className.indexOf('store-collection-wrap') > -1 || e.srcElement.className.indexOf('collection-btn') > -1) {
+          this.storeFollow = this.storeFollow ? '' : true
+          console.log('关注')
+        } else {
+          this.storeIsFixed = ''
+          console.log('门店点击')
+        }
+      },
+      storeHomeShow (e) {
+        // 继续购物按钮点击
+        this.storeIsFixed = true
       }
     }
   }

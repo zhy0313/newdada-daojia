@@ -3,9 +3,9 @@
     class="navigation-item" :to="path"
     :class="{'active': $parent.currentActiveKey === currentEventKey}">
     <slot></slot>
-    <div class="navigation-item-label">
+    <span class="navigation-item-label">
       {{label}}
-    </div>
+    </span>
   </router-link>
 </template>
 

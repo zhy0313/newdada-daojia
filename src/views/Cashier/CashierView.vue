@@ -3,7 +3,7 @@
     <div class="pay-header">
       <div class="pay-time">
         <p>支付剩余时间</p>
-        <h1>14:48</h1>
+        <h1><countDown :endTime='countDownTime'></countDown></h1>
       </div>
       <div class="pay-store-amount">
         <span class="pay-station">{{stationName}}</span><span class="pay-amount">¥{{amount}}</span>
@@ -14,17 +14,16 @@
       <p class="pay-title">请选择支付方式</p>
       <ul>
         <template v-for="(item, index) in payWays">
-          <li :class="item.payWay == 10 ? 'wx' : item.payWay == 20 ? 'jd' : item.payWay == 30 ? 'bt' : item.payWay == 31 ? 'nbt' : item.payWay == 40 ? 'zfb' : item.payWay == 70 ? 'dai' :''">
+          <li :class="item.payWay == 10 ? 'wx' : item.payWay == 20 ? 'jd' : item.payWay == 70 ? 'dai' :''">
             <p class="pay-name">{{item.payName}}<span v-show="item.extCopy">({{item.extCopy}})</span></p>
             <p class="pay-default-desc">{{item.defaultCopy}}</p>
-            <!-- <p class="pay-desc" :class="item.activityCopy ? 'actvity-desc' : ''">{{item.activityCopy}}</p> -->
-            <i :class="index == 0 ? 'checked' : payCheckedClass" @click="changePayType"></i>
+            <i :class="index == checkedIndex ? 'checked' : ''" @click="changePayType" :data-index="index" :data-payType="item.payWay == 10 ? 'wx' : item.payWay == 20 ? 'jd' : item.payWay == 70 ? 'dai' :''"></i>
           </li>
       </template>
       </ul>
     </div>
     <p class="pay-hb">马上支付 ，可领取分享红包</p>
-    <a href="javascript:;" class="btn-pay">确认支付<em>¥</em><span>{{amount}}</span></a>
+    <a href="javascript:;" class="btn-pay" @click="toPay">确认支付<em>¥</em><span>{{amount}}</span></a>
   </div>
 </template>
 
@@ -37,10 +36,10 @@ export default {
       token: '',
       payWays: [],
       stationName: '',
-      payType: '',
+      payType: 'wx',
       amount: '0.0',
       countDownTime: '1798475',
-      payCheckedClass: ''
+      checkedIndex: 0
     }
   },
   created () {
@@ -52,8 +51,9 @@ export default {
     countDown
   },
   methods: {
-    changePayType: function () {
-      this.payCheckedClass = 'checked'
+    changePayType: function (e) {
+      this.checkedIndex = e.target.dataset.index
+      this.payType = e.target.dataset.paytype
     },
     userLogin: function () {
       this.$getAPI({
@@ -95,6 +95,13 @@ export default {
       }, (err) => {
         console.log('err', err)
       })
+    },
+    toPay: function () {
+      if (this.payType === 'wx') {
+        alert('微信支付')
+      } else if (this.payType === 'jd') {
+        alert('京东支付')
+      }
     }
   }
 }

@@ -1,8 +1,9 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-// 一级导航
 import IndexView from '@/views/IndexView'
+import AddressView from '@/views/AddressView'
+// 一级导航
 import ListView from '@/views/tabBar/ListView'
 import DiscoverView from '@/views/tabBar/DiscoverView'
 import CartView from '@/views/tabBar/CartView'
@@ -13,7 +14,6 @@ import SearchView from '@/views/SearchView'
 import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
 // 示例代码 END
-import AddressView from '@/views/AddressView'
 import CashierView from '@/views/Cashier/CashierView'
 import SettlementView from '@/views/Settlement/SettlementView'
 import StoreHome from '@/views/StoreHome/StoreHome.vue'
@@ -33,6 +33,11 @@ export default new Router({
       path: '/',
       name: 'IndexView',
       component: IndexView
+    },
+    {
+      path: '/address',
+      name: 'address',
+      component: AddressView
     },
     {
       path: '/list',
@@ -60,7 +65,7 @@ export default new Router({
       component: MyView
     },
     {
-      path: '/counter',
+      path: '/minicart',
       name: 'CounterView',
       component: CounterView
     },
@@ -73,11 +78,6 @@ export default new Router({
       path: '/square',
       name: 'SquareView',
       component: SquareView
-    },
-    {
-      path: '/address',
-      name: 'address',
-      component: AddressView
     },
     {
       path: '/settlement',
@@ -123,6 +123,5 @@ export default new Router({
       path: '*',
       redirect: 'IndexView'
     }
-
   ]
 })
