@@ -323,12 +323,15 @@
       </SwipeItem>
      </Swipe>
      <!--商品信息-->
-     <div>
-       <!--广告语-->
-       <div v-if="goodsInfo.adword" class="sku-adword">{{goodsInfo.adword}}</div>
+     <div class="sku-info-wrap">
        <!--单品名称-->
        <div v-if="goodsInfo.name" class="sku-name">{{goodsInfo.name}}</div>
+       <!--广告语-->
+       <div v-if="goodsInfo.adword" class="sku-adword">{{goodsInfo.adword}}</div>
        <!--秒杀商品展示秒杀倒计时-->
+       <div v-if="goodsInfo.miaoshaInfo && goodsInfo.miaoshaInfo.miaoShaSate == 1" class="detail-miaosha-box">
+         秒杀<em><i>{{remainTime.hh}}</i>:<i>{{remainTime.mm}}</i>:<i>{{remainTime.ss}}</i></em>结束
+       </div>
        <!--价格信息-->
        <div class="sku-price-wrap">
          <span v-if='skuPriceVO.promotion === 0' class="sku-price">
@@ -340,26 +343,36 @@
        </div>
        <!--促销标信息-->
        <div class="detail-promotion-box" v-if="tags.length">
-         <span>促销</span>
-         <ul class="tags-list-wrap">
-           <li v-for="(tag,index) in tags" class="tags-list-item">
-             <span class="store-fujia-icon" v-bind:style="{backgroundColor: bgcolor[index]}">{{tag.iconText}}</span>
-             <span class="store-fujia-desc">{{tag.words}}</span>
-           </li>
-         </ul>
+         <div class="detail-promotion-content">
+           <ul class="tags-list-wrap">
+             <li v-for="(tag,index) in tags" class="tags-list-item">
+               <span v-if="index == 0" class="promotion-txt">促销</span>
+               <span class="store-fujia-icon" v-bind:style="{backgroundColor: bgcolor[index]}">{{tag.iconText}}</span>
+               <span class="store-fujia-desc">{{tag.words}}</span>
+             </li>
+           </ul>
+         </div>
        </div>
      </div>
      <!--店铺信息-->
      <div v-if="storeInfo.storeId" class="sku-store-wrap">
-       <router-link to="/storeHome">{{storeInfo.storeName}}</router-link>
-       <a :href="telphone">联系商家</a>
+       <div class="sku-store-content">
+         <router-link to="/storeHome">{{storeInfo.storeName}}</router-link>
+         <a :href="telphone">联系商家</a>
+       </div>
      </div>
+     <!--商品评价-->
+     <div v-if="goodsInfo.productComment" class="detail-comment-box">
+       <span class="fl">商品评价</span>
+       <span class="fr">暂无评价</span>
+     </div>
+     <!--推荐商品-->
    </div>
 
 </template>
 <style>
 .sku-wrap {
-  background-color: #FFF;
+  background-color: #f4f4f4;
 }
 .sku-img {
   width:100%;
@@ -369,11 +382,21 @@
   width: 100%;
   height: 320px;/*图片不下发尺寸会变形*/
 }
-.sku-adword {
+.sku-info-wrap {
+  margin-top: 10px;
+  background-color: #FFF;
+  /*background: linear-gradient(left , #ffffff 0%, #d4d3d3 49%,#d4d3d3 50%,#ffffff 100%);*/
+  /*background: -webkit-gradient(linear, left, color-stop(0%,#ffffff), color-stop(49%,#d4d3d3), color-stop(50%,#d4d3d3), color-stop(100%,#ffffff));*/
+  /*background: -webkit-linear-gradient(left, #ffffff 0%,#d4d3d3 49%,#d4d3d3 50%,#ffffff 100%);*/
+  /*background: -moz-linear-gradient(left , #ffffff 0%,#d4d3d3 49%,#d4d3d3 50%,#ffffff 100%);*/
+  /*background: -ms-linear-gradient(left, #ffffff 0%,#d4d3d3 49%,#d4d3d3 50%,#ffffff 100%);*/
+  box-shadow: inset 0px 8px 5px rgba(255, 255, 255, 0.8);
+}
+.sku-name {
   text-align: center;
   font-size: 16px;
-  padding: 0 20px;
-  margin: 10px 0 2px;
+  padding: 10px 20px 0;
+  margin-bottom: 2px;
   color: #333;
   line-height: 22px;
   text-overflow: ellipsis;
@@ -392,7 +415,7 @@
   display: -moz-box;
   display: box;
 }
-.sku-name {
+.sku-adword {
   text-align: center;
   padding: 0 20px 5px;
   background: #fff;
@@ -419,6 +442,7 @@
   height: 49px;
   line-height: 49px;
   position: relative;
+  overflow: hidden;
 }
 .sku-basic-price {
   display: inline-block;
@@ -438,6 +462,7 @@
 }
 .addbtn {
   float: right;
+  margin-top: 6px;
   background-color: #47b34f;
   height: 35px;
   color: #FFFFFF;
@@ -447,6 +472,9 @@
   padding: 0 0 0 10px;
   font-size: 12px;
   color: #333333;
+}
+.detail-promotion-content {
+  border-top: 1px solid #e8e8e8;
 }
 .store-fujia-icon {
   display: inline-block;
@@ -458,12 +486,47 @@
   line-height: 16px;
 }
 .tags-list-wrap {
+  padding-top: 6px;
   padding-left: 30px;
+  overflow: hidden;
+}
+.promotion-txt {
+  position: absolute;
+  left: -30px;
+  color: #999999;
 }
 .tags-list-item {
-  margin-bottom: 6px;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-top: -1px;
 }
-
+.sku-store-wrap {
+  margin-top: 10px;
+  background-color: #FFFFFF;
+  color: #333;
+  padding: 0 10px;
+  line-height: 50px;
+  overflow: hidden;
+}
+.sku-store-content {
+  border-bottom: 1px solid #e8e8e8;
+}
+.detail-comment-box {
+  color: #333;
+  padding: 0 10px;
+  line-height: 50px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
 </style>
 <script>
 import Loader from '@/components/Loader'
@@ -497,8 +560,8 @@ export default {
         vm.skuPriceVO = vm.goodsInfo.skuPriceVO
         vm.tags = vm.goodsInfo.tags
         vm.storeInfo = vm.goodsInfo.storeInfo
+        vm.miaoShatime = vm.goodsInfo.miaoshaInfo.miaoShaSate === 1 && vm.goodsInfo.miaoshaInfo.miaoshaRemainTime
         let length = vm.tags.length
-        console.log(1)
         // 促销标标语替换###
         if (length) {
           for (var i = 0; i < length; i++) {
@@ -515,7 +578,8 @@ export default {
       goodsInfo: { },
       skuPriceVO: { },
       tags: [ ],
-      storeInfo: { }
+      storeInfo: { },
+      miaoShatime: ' '
     }
   },
   methods: {
@@ -537,6 +601,73 @@ export default {
         tagArray.push(temp)
       }
       return tagArray
+    },
+    remainTime () {
+      function parseInt10 (a) {
+        return parseInt(a, 10)
+      }
+      function checkTime (i) {
+        i = parseInt(i)
+        if (i < 10) {
+          i = '0' + i
+        }
+        return i
+      }
+      function houMinSec (timeLeft) {
+        var ss = parseInt(timeLeft % (60))
+        var hh = parseInt(timeLeft / (60 * 60))
+        var mm = parseInt((timeLeft - hh * 60 * 60) / 60)
+        var time = {
+          hh: checkTime(hh),
+          mm: checkTime(mm),
+          ss: checkTime(ss)
+        }
+        return time
+      }
+      let vm = this
+      function countdown (leftTime, result) {
+        debugger
+        leftTime = parseInt(leftTime)
+        // let startTime = (new Date()).getTime() / 1000
+        vm.countTimeInterval = setInterval(function () {
+          // var nowTime = (new Date()).getTime() / 1000
+          if (leftTime === 0) { // 这里就是时间到了之后应该执行的动作了
+            clearInterval(vm.countTimeInterval)
+            // window.location.reload(); // 走到零刷新
+            return
+          }
+          let timeChange = parseInt(1)
+          console.log('change:' + timeChange)
+          leftTime = leftTime - timeChange
+          console.log(leftTime)
+          if (leftTime < 0) {
+            clearInterval(vm.countTimeInterval)
+            leftTime = 0
+          }
+          result = houMinSec(leftTime)
+          // return result
+        }, 1000)
+      }
+
+      if (this.miaoShatime) {
+        let result = { }
+        let leftTime = parseInt10(this.miaoShatime / 1000)
+        // 开始倒计时
+        let ss = parseInt(leftTime % (60))
+        let hh = parseInt(leftTime / (60 * 60))
+        let mm = parseInt((leftTime - hh * 60 * 60) / 60)
+        result = {
+          hh: checkTime(hh),
+          mm: checkTime(mm),
+          ss: checkTime(ss)
+        }
+        countdown(leftTime, result)
+        return result
+        /* 定时更新详情页 */
+        // let duration = this.goodsInfo.miaoshaInfo.syntime
+        // this.listInterval = setTimeout(function(){
+        // },duration);
+      }
     }
   }
 }
