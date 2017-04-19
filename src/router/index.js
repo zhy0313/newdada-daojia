@@ -35,6 +35,11 @@ export default new Router({
       component: IndexView
     },
     {
+      path: '/address',
+      name: 'address',
+      component: AddressView
+    },
+    {
       path: '/list',
       name: 'ListView',
       component: ListView
@@ -60,7 +65,7 @@ export default new Router({
       component: MyView
     },
     {
-      path: '/counter',
+      path: '/minicart',
       name: 'CounterView',
       component: CounterView
     },
@@ -73,11 +78,6 @@ export default new Router({
       path: '/square',
       name: 'SquareView',
       component: SquareView
-    },
-    {
-      path: '/address',
-      name: 'address',
-      component: AddressView
     },
     {
       path: '/settlement',

@@ -8,15 +8,19 @@
     <flex  class="cart-product-info">
 
     <!-- 商品列表 -->
-    <div class="cart-product-list">
+    <!-- <div class="cart-product-list">
       <ProductItem
         v-for="item in storeItem.itemList"
         :productItem="item"
         :showMore="hasMoreProduct"
         :key="item.skuId">
       </ProductItem>
-    </div>
-
+    </div> -->
+    <ProductList
+      :itemList="storeItem.itemList"
+      :showMore="hasMoreProduct"
+      >
+    </ProductList>
     <!-- 更多商品使用 3 个点替代，并显示出总数量 -->
     <div class="more-product" v-if="hasMoreProduct">
       共{{storeItem.totalNum}}件
@@ -27,11 +31,11 @@
 </template>
 
 <script>
-import ProductItem from './ProductItem'
+import ProductList from './ProductList'
 
 export default {
   components: {
-    ProductItem
+    ProductList
   },
   props: {
     storeItem: Object

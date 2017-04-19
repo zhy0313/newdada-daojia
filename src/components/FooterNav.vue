@@ -24,7 +24,10 @@
 <script>
   export default {
     props: {
-      activeKey: Number
+      activeKey: {
+        type: Number,
+        default: 0
+      }
     },
     data () {
       return {

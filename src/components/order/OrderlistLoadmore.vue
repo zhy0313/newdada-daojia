@@ -12,21 +12,12 @@
     class="orderlist-loadmore-wrapper"
     :bottomMethod="loadBottom"
     >
-    <ul class="orderlist-wrapper">
-      <li class="orderlist-item" v-for="item in orderlist">
-        <router-link to="/" class="store-name">
-          <span>
-            {{item.storeName}}
-            <i class="iconfont icon-FowordArrow"></i>
-          </span>
-          <span
-            v-if="item.mainOrderStateMap"
-            :style="{color: item.mainOrderStateMap.orderColor}">
-            {{item.mainOrderStateMap.orderStateName}}
-          </span>
-        </router-link>
-        {{item.orderId}}
-      </li>
+    <ul>
+      <OrderItem
+        v-for="item in orderlist"
+        :orderItem="item"
+        >
+      </OrderItem>
     </ul>
   </loadmore>
 </template>
@@ -34,6 +25,7 @@
 <script>
   import Loader from '@/components/Loader'
   import DefaultPageTip from '@/components/DefaultPageTip'
+  import OrderItem from './OrderItem'
 
   export default {
     data () {
@@ -47,11 +39,14 @@
     },
     components: {
       Loader,
-      DefaultPageTip
+      DefaultPageTip,
+      OrderItem
     },
     methods: {
       loadBottom () {
-        console.log('加载更多')
+        ++this.startIndex
+        console.log('加载更多', this.startIndex)
+        this.fetchOrderList()
       },
       fetchOrderList () {
         this.$getAPI({
@@ -91,21 +86,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../assets/styles/variables";
-
-  .orderlist-loadmore-wrapper {
-
-    .orderlist-item {
-      height: 200px;
-      background: #fff;
-    }
-
-    .store-name {
-      height: 40px;
-      font-size: 15px;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
+  // .orderlist-loadmore-wrapper {
+  //
+  // }
 </style>
