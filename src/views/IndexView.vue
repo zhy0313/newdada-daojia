@@ -125,17 +125,25 @@
   </ul>
 </div>
 <!-- end 推荐 -->
+<FooterNav></FooterNav>
+
 </div>
 </template>
 <script>
+import FooterNav from '@/components/FooterNav'
+
 export default {
   name: 'hello',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  components: {
+    FooterNav
   }
 }
+
 </script>
 <style lang="scss" scoped>
 @import '../css/public.scss';
