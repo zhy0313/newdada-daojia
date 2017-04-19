@@ -1,5 +1,6 @@
 <template>
 <!-- head -->
+<div>
 <div class="search-bar-wrap index-search-bar-wrap">
     <div class="location">
         <p>朝林广场A座</p>
@@ -124,6 +125,7 @@
   </ul>
 </div>
 <!-- end 推荐 -->
+</div>
 </template>
 <script>
 export default {
