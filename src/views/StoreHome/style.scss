@@ -1,0 +1,1342 @@
+.store-home-wrap {
+  box-sizing: border-box;
+  padding: 5px 10px;
+  width: 100%;
+}
+//*行业标签背景图 生鲜 1 外卖 2 医药3 服务类（鲜花 5）*/
+.store-industry-1 {
+  background: url('https://static-o2o.360buyimg.com/daojia/new/images/store_industry_1.jpg') 0 0 no-repeat #7bb364;
+  background-size: cover;
+}
+
+//* 外卖 2 背景红色*/
+.store-industry-2 {
+    background: #c87354 url('https://static-o2o.360buyimg.com/daojia/new/images/store_industry_4.jpg') 0 0 no-repeat;
+    background-size: cover;
+
+}
+//* 医药3 背景蓝色*/
+.store-industry-3 {
+    background: #83abce url('https://static-o2o.360buyimg.com/daojia/new/images/store_industry_5.jpg') 0 0 no-repeat;
+    background-size: cover;
+
+}
+//* 鲜花类*/
+.store-industry-4 {
+     background: #d6aa9f url('https://static-o2o.360buyimg.com/daojia/new/images/store_industry_flower.jpg') 0 0 no-repeat;
+    background-size: cover;
+}
+//* 服务类 5*/
+.store-industry-5 {
+     background: #d6aa9f url('https://static-o2o.360buyimg.com/daojia/new/images/store_industry_service.jpg') 0 0 no-repeat;
+    background-size: cover;
+}
+
+.store-title-wrap {
+  color: #fff;
+  min-height: 62px;
+  position: relative;
+ }
+
+.store-title-wrap .store-logo{
+  background-color: #fff;
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 4px;
+  float: left;
+  height: 53px;
+  margin: 6px 0 0 2px;
+  width: 52px;
+}
+
+.store-title-wrap .info-wrap{
+  font-weight: bold;
+  line-height: 20px;
+  min-height: 64px;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 58px;
+  text-overflow: ellipsis;
+    .info-title {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 28px;
+      overflow: hidden;
+      padding-top: 5px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .delivery-tip{
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+    }
+}
+
+.store-title-wrap .line_split{
+  background: url('//static-o2o.360buyimg.com/daojia/new/images/index/icon_line_split.jpg') no-repeat center 2px;
+  display: inline-block;
+  height: 10px;
+  padding: 0 2px;
+  width: 8px;
+
+}
+
+.store-title-wrap .delivery-time{
+  font-weight: bold;
+}
+
+.store-title-wrap .delivery-time-close{
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 3px;
+  display: inline-block;
+  line-height: 15px;
+  padding: 0 4px;
+}
+
+.store-title-wrap .store-icon-txt{
+  font-weight: bold;
+}
+
+.store-title-wrap .coupon-top-right-bag{
+  background: url('//static-o2o.360buyimg.com/daojia/new/images/icon/store_sprites_3.3.png') no-repeat;
+  background-position: -128px -5px;
+  background-size: 220px auto;
+  color: #4a9f37;
+  font-size: 11px;
+  height: 32px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 28px;
+  width: 60px;
+
+}
+
+.store-title-wrap .store-collection-wrap{
+  color: #fff;
+  font-size: 12px;
+  height: 26px;
+  position: absolute;
+  right: 2px;
+  text-align: right;
+  top: 6px;
+  width: 40px;
+}
+
+.store-collection-wrap .collection-btn{
+  background-image: url('//static-o2o.360buyimg.com/daojia/new/images/store/focus.png');
+  background-position: 0px -2px;
+  background-repeat: no-repeat;
+  background-size: 60px auto;
+  float: right;
+  height: 18px;
+  width: 22px;
+}
+
+.collection-active .collection-btn{
+      background-position: 0 -41px;
+}
+
+.list-tag-wrap{
+  border-top: none;
+  margin-top: 0;
+  padding-top: 8px;
+  position: relative;
+}
+
+.list-tag-wrap .list-tag-ul{
+  color: #fff;
+  display: inline-block;
+  font-size: 11px;
+  width: 75%;
+
+}
+
+.list-tag-wrap .list-tag-li{
+  position: relative;
+  padding-left: 32px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #FFF;
+  font-size: 10px;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  display: -webkit-box;
+  display: box;
+  line-height: 16px;
+  white-space: normal;
+}
+
+.list-tag-wrap .list-tag-li .tag-icon{
+  background-color: #fdc44c;
+  border-radius: 2px;
+  color: #ffffff;
+  display: inline-block;
+  font-style: normal;
+  height: 16px;
+  line-height: 16px;
+  margin-left: -29px;
+  padding: 0 2px;
+}
+
+.list-tag-wrap .list-tag-li .tag-des{
+  font-weight: bold;
+}
+
+.store-info-floor{
+  padding-bottom: 35px;
+}
+
+.store-comment-wrap{
+  color: #FFF;
+  padding-top: 25px;
+}
+
+.store-public-title{
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.store-public-title .public-store-title{
+  position: relative;
+  width: 32%;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 18px;
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+}
+
+.store-public-title::before{
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  right: 64%;
+  border-top: 1px solid rgba(255,255,255,0.4);
+}
+
+.store-public-title::after{
+  content: '';
+  position: absolute;
+  left: 64%;
+  top: 9px;
+  right: 0;
+  border-top: 1px solid rgba(255,255,255,0.4);
+}
+
+.store-disc-address{
+  padding: 0 10px;
+  margin-bottom: 10px;
+  margin-top: -1px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.store-disc-address::before {
+  border-bottom: 1px dashed rgba(236,236,236,0.5);
+  z-index: 2;
+}
+
+
+.store-info-floor .border-b::before{
+  content: '';
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px dashed rgba(236,236,236,0.5);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: scaleY(0.5);
+  z-index: 1;
+}
+
+.store-comment-wrap{
+  color: #fff;
+  overflow: hidden;
+  padding: 15px 0;
+}
+
+.store-comment-wrap .store-comment-dl{
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.store-comment-wrap .store-comment-dl dt{
+  font-size: 27px;
+  font-weight: bold;
+  height: 36px;
+  line-height: 36px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.store-comment-wrap .store-comment-dl dd{
+  font-size: 12px;
+  height: 18px;
+  line-height: 18px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.store-comment-wrap::before{
+  bottom: 0;
+}
+
+.store-comment-users-list{
+  color: #FFF;
+  padding: 20px 0 10px;
+}
+
+.store-comment-users-ul{
+  overflow: hidden;
+}
+
+.store-comment-users-ul .user-li{
+  overflow: hidden;
+  position: relative;
+}
+
+.store-comment-users-ul .user-li .header-pic{
+  float: left;
+}
+
+.store-comment-users-ul .user-li .pic-img{
+  border-radius: 18px;
+  display: inline-block;
+  float: left;
+  height: 35px;
+  width: 35px;
+}
+
+.store-comment-users-ul .user-dl{
+  color: #fff;
+  margin-left: 40px;
+}
+
+.store-comment-users-ul .user-dl dt {
+  line-height: 16px;
+  position: relative;
+}
+
+.store-comment-users-ul .user-dl .comment-user-name{
+  font-weight: bold;
+  margin-right: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.store-comment-users-ul .user-dl .comment-date-time {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.store-comment-users-ul .user-dl dd {
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+.starWrap-common{
+  display: inline-block;
+  font-size: 0;
+}
+
+.starWrap-common i{
+  background-image: url('//static-o2o.360buyimg.com/daojia/new/images/icon/newStar.png');
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: auto 10px;
+  display: inline-block;
+  height: 10px;
+  margin-right: 1px;
+  width: 10px;
+}
+
+.starWrap-common .grey-Star{
+    background-position: -40px 0;
+}
+
+.starWrap-common .one-of-four-A-Star{
+    background-position: -30px 0;
+}
+
+.starWrap-common .half_A_Star{
+    background-position: -20px 0;
+}
+
+.starWrap-common .three-of-four-A-Star{
+    background-position: -10px 0;
+}
+
+
+.store-comment-users-ul .user-dl .user-comment{
+  font-size: 13px;
+  padding: 11px 10px 0 0;
+}
+
+.store-comment-users-ul .user-dl .product-wrap{
+  margin-top: 19px;
+}
+
+.store-comment-users-ul .user-dl .product-wrap i{
+  background-image: url('//static-o2o.360buyimg.com/daojia/new/images/store/spriteZan.png');
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.store-comment-users-ul .user-dl .finger-mark {
+  background-position: -18px 0;
+  height: 18px;
+  float: left;
+  background-size: 300% 100%;
+  margin-top: 3px;
+  width: 18px;
+}
+
+.store-comment-users-ul .user-dl .single-proWrap {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  line-height: 22px;
+  margin-left: 16px;
+  max-height: 60px;
+  overflow: hidden;
+}
+
+.store-comment-users-ul .single-proWrap .single-pro {
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 3px;
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  margin: 0 0 10px 10px;
+  max-width: 82px;
+  padding: 2px 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+  line-height: initial;
+}
+
+.store-comment-users-ul .user-dl .evaluate-wrap{
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.store-comment-users-ul .user-dl .evaluate-wrap .peisongMark {
+  background-image: url('//static-o2o.360buyimg.com/daojia/new/images/store/serviceMark.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  float: left;
+  height: 18px;
+  margin-top: 1px;
+  width: 13px;
+}
+
+.store-comment-users-ul .evaluate-wrap .serviceWrap {
+  line-height: 22px;
+  margin-left: 21px;
+  overflow: hidden;
+}
+
+.store-comment-users-ul .evaluate-wrap .serviceWrap .pieceFont {
+  color: rgba(255,255,255,0.6);
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  margin: 0 8px 0 0;
+}
+
+.store-disc-address .goto-evaluate{
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+}
+
+.store-disc-address .border-t::after {
+  border-top: 1px dashed #ececec;
+  content: '';
+  height: 1px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scaleY(0.5);
+  width: 100%;
+  z-index: 5;
+}
+
+.store-info-floor .store-coupon-wrap{
+  overflow: hidden;
+}
+
+.store-home-wrap .coupon-wrap-list{
+  margin: 0 0 6px 0;
+  white-space: nowrap;
+}
+
+.store-home-wrap .coupon-wrap-list li{
+  border-left: 3px solid #ff5757;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 70px;
+  margin: 14px auto 0;
+  overflow: hidden;
+  position: relative;
+  width: 99%;
+}
+
+.store-home-wrap .coupon-wrap-list li.coupon-none{
+  border-color: #cccccc;
+}
+.store-home-wrap .coupon-wrap-list .coupon-left{
+  background-color: #FFF;
+  border-bottom: 1px solid #eaeaea;
+  border-top: 1px solid #eaeaea;
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+  line-height: 70px;
+  text-align: center;
+  width: 56px;
+}
+
+.store-home-wrap .coupon-wrap-list .coupon-num{
+  color: #ff4f64;
+  font-family: Helvetica,sans-serif;
+  font-size: 20px;
+}
+
+.store-home-wrap .coupon-wrap-list .conpon-unit{
+  color: #ff4f64;
+  font-size: 15px;
+  margin-left: -4px;
+}
+
+.store-home-wrap .coupon-wrap-list .coupon-title-wrap{
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.store-home-wrap .coupon-wrap-list .coupon-title{
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+  border-top: 1px solid #eaeaea;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0 71px 0 56px;
+  position: relative;
+}
+
+.store-home-wrap .coupon-wrap-list .coupon-h2-wrap{
+  left: 6px;
+  padding-right: 11px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  width: 100%;
+}
+
+.store-home-wrap .coupon-h2-wrap h2{
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.store-home-wrap .coupon-h2-wrap h2 .discount-txt{
+  margin-right: 4px;
+}
+
+.store-home-wrap .coupon-h2-wrap .discount-date{
+  color: #999999;
+  font-size: 11px;
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.store-home-wrap .coupon-wrap-list .coupon-right{
+  background: url('images/store_new_conpon.png') 0 0 no-repeat;
+  background-size: 10px 100%;
+  float: right;
+  height: 100%;
+  padding-left: 10px;
+  width: 71px;
+}
+
+.store-home-wrap .coupon-wrap-list .coupon-right-box{
+  background-color: #FFF;
+  border: 1px solid #eaeaea;
+  border-left: none;
+  border-radius: 1px 5px 5px 1px;
+  box-sizing: border-box;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.store-home-wrap .coupon-wrap-list .coupon-get-btn{
+  background-color: #ff5757;
+  border-radius: 18px;
+  color: #fefffe;
+  display: inline-block;
+  font-size: 11px;
+  height: 18px;
+  line-height: 18px;
+  margin: 24px auto 0;
+  text-align: center;
+  width: 50px;
+}
+
+.store-home-wrap .coupon-none .coupon-num,.store-home-wrap .coupon-none .conpon-unit,.store-home-wrap .coupon-none .discount-txt,.store-home-wrap .coupon-none .discount-date{
+  color: #cccccc;
+}
+
+.store-home-wrap .coupon-none .coupon-right-box::before{
+  background-image: url('images/store_conpon_status.png');
+  background-position: 0 -74px;
+  content: " ";
+  position: absolute;
+  width: 57px;
+  height: 38px;
+  top: -2px;
+  right: 4px;
+  background-repeat: no-repeat;
+  background-size: 57px auto;
+}
+
+.store-home-wrap .coupon-none .coupon-get-btn{
+  background-color: #cdcdcd;
+  color: #fff;
+}
+
+.store-detail-wrap{
+  margin: 25px 0 35px 0;
+  color: #fff;
+}
+
+.store-detail-wrap .detail-list-wrap{
+  padding-top: 20px;
+  padding-bottom: 5px;
+  line-height: 24px;
+  overflow: hidden;
+}
+
+.store-detail-wrap .detail-list{
+  margin-bottom: 5px;
+}
+
+.store-detail-wrap .detail-list .detail-name{
+  display: inline-block;
+  float: left;
+}
+
+.store-detail-wrap .detail-list .detail-content{
+  display: -webkit-box;
+  float: left;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  width: 70%;
+}
+
+.store-detail-wrap .business-links{
+  color: #fff;
+  line-height: 24px;
+  padding: 12px 0;
+}
+
+.store-detail-wrap .business-links a{
+  color: #fff;
+}
+
+.store-detail-wrap .business-links .arrow-links{
+  background-image: url('//static-o2o.360buyimg.com/daojia/new/images/icon/store_sprites_3.3.png');
+  background-position: -100px -146px;
+  background-repeat: no-repeat;
+  background-size: 220px auto;
+  display: inline-block;
+  float: right;
+  height: 15px;
+  margin-top: 6px;
+  width: 15px;
+}
+
+.store-detail-wrap .business-links .award-money{
+  float: right;
+}
+
+.store-detail-wrap .title-mark-wrap{
+  overflow: hidden;
+  padding: 12px 0 10px 0;
+}
+
+.store-detail-wrap .title-mark-wrap .mark-wrap{
+  width: 100%;
+}
+
+.store-detail-wrap .title-mark-wrap .border-b:before {
+    bottom: -10px;
+}
+
+.store-detail-wrap .title-mark-wrap .public-mark-a{
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 28px auto;
+  box-sizing: border-box;
+  color: #FFF;
+  display: block;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.store-detail-wrap .title-mark-wrap .public-links-font{
+  background: url('//static-o2o.360buyimg.com/daojia/new/images/store/right_arrow.png') right 5px no-repeat;
+  background-size: 5px auto;
+  font-size: 12px;
+  padding-right: 12px;
+}
+
+.store-article-wrap{
+  bottom: 0;
+  box-shadow: 0 0 9px rgba(0,0,0,0.4);
+  left: 0;
+  padding-bottom: 45px;
+  position: fixed;
+  top: 72px;
+  transform: translate3d(0,0,0);
+  transition: transform 400ms ease-in-out;
+  width: 100%;
+  z-index: 10;
+}
+
+.store-article-wrap .notice-tips{
+  position: relative;
+  height: 24px;
+  background-color: rgba(70,70,70,0.8);
+  padding: 0 12px;
+  overflow: hidden;
+}
+
+.store-article-wrap .notice-tips i {
+  background-color: #d4d4d4;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 10px;
+  height: 15px;
+  color: #464646;
+  margin-top: 5px;
+  text-align: center;
+  line-height: 14px;
+  width: 30px;
+}
+
+.store-article-wrap .notice-tips .tips-font{
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #c5c1b2;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 26px 0 52px;
+  line-height: 24px;
+  height: 24px;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  display: box;
+  box-sizing: border-box;
+}
+
+.store-article-wrap .notice-tips .left-mark{
+  position: absolute;
+  top: 7px;
+  right: 16px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+  transform: rotate(-45deg);
+}
+
+.store-search-wrap{
+  background: #eaeaea;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  padding: 5px 10px 0;
+  position: relative;
+}
+
+.store-search-wrap .store-search-input{
+  background-color: #fff;
+  border-radius: 2px;
+  height: 28px;
+  line-height: 28px;
+  text-align: left;
+}
+
+.store-search-wrap .store-search-input .search-icon{
+  font-size: 13px;
+  color: #999;
+  text-align: center;
+  background: url('//static-o2o.360buyimg.com/daojia/new/images/icon/search_bar_sprites.png') no-repeat;
+  background-size: 44px auto;
+  background-position: -6px -13px;
+  padding-left: 28px;
+}
+
+.store-menu-view{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #FFF;
+}
+
+.store-menu-view .store-main{
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding-bottom: 64px;
+}
+
+.store-article-wrap .menu-no-tip {
+    top: 64px;
+}
+
+.store-article-wrap .menu-aside{
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  background-color: #f4f4f4;
+  padding-bottom: 62px;
+  width: 84px;
+}
+
+.store-article-wrap .menu-aside::after{
+  border-right: 1px solid #CFCFCF;
+  content: '';
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scaleX(0.5);
+  width: 1px;
+  z-index: 10;
+}
+
+.store-article-wrap .menu-category{
+  color: #666666;
+  font-size: 13px;
+}
+
+.store-article-wrap .menu-aside .category-title{
+  display: -webkit-box;
+  display: box;
+  height: 46px;
+  padding-left: 10px;
+  padding-right: 4px;
+  line-height: 20px;
+  font-size: 13px;
+  background-color: #EEE;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  box-pack: center;
+  box-sizing: border-box;
+}
+
+.store-article-wrap .menu-aside .category-title::before{
+  content: '';
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid #CFCFCF;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: scaleY(0.5);
+  z-index: 12;
+}
+// active-parent控制左边栏list父级选中,active-parent-show子级选中
+.store-article-wrap .active-parent .category-title{
+  background-color: #fff;
+  border-left: 2px solid #47b34f;
+  color: #47b34f;
+  position: relative;
+}
+
+.store-article-wrap .active-parent .category-title::after{
+  border-right: 2px solid #fff;
+  content: '';
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2px;
+  z-index: 11;
+}
+
+.store-article-wrap .active-parent-show .category-title{
+  color: #47b34f;
+}
+
+.store-article-wrap .second-cateList{
+  overflow: hidden;
+}
+
+.store-article-wrap .active-parent .second-cateList{
+  display: none;
+}
+
+.store-article-wrap .active-parent-show .second-cateList{
+  display: block;
+}
+
+.store-article-wrap .second-cateList .cateList-title{
+  position: relative;
+  height: 46px;
+  background-color: #fff;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 4px;
+  line-height: 23px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  // display: flex;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  // justify-content:left;
+  // align-items: center;
+}
+
+.store-article-wrap .second-cateList .cateList-title::before{
+  border-bottom: 1px dashed #e8e8e8;
+  bottom: 0;
+  content: '';
+  height: 1px;
+  position: absolute;
+  right: 0;
+  transform: scaleY(0.5);
+  width: 100%;
+  z-index: 10;
+}
+
+.store-article-wrap .second-cateList .cateList-title:last-child::before{
+  border: 0 none;
+}
+
+.store-article-wrap .active-parent-show .cateList-title:first-child{
+  color: #47b34f;
+  background-color: #fff;
+  border-left: 2px solid #47b34f;
+  position: relative;
+}
+
+.store-article-wrap .active-parent-show .cateList-title:first-child::after{
+  border-right: 2px solid #fff;
+  content: '';
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2px;
+  z-index: 11;
+}
+
+
+.store-article-wrap .container{
+  display: block;
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+  position: relative;
+  width: 0;
+
+}
+
+.store-article-wrap .container .fix-title{
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+  color: #666666;
+  font-size: 12px;
+  height: 30px;
+  left: 0;
+  line-height: 30px;
+  overflow: hidden;
+  padding-left: 11px;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 11;
+}
+
+.store-article-wrap .container .product-list-wrap{
+  overflow: hidden;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.store-article-wrap .product-list-wrap li{
+  padding-left: 10px;
+  position: relative;
+}
+
+.store-article-wrap .product-list-wrap .links-Goods {
+    display: block;
+    overflow: hidden;
+    padding: 10px 10px 10px 0;
+}
+
+.store-article-wrap .product-list-wrap  li .border-b::before{
+  bottom: 0;
+}
+
+.store-article-wrap .product-list-wrap li .pic {
+    border-radius: 2px;
+    display: inline-block;
+    float: left;
+    height: 60px;
+    width: 60px;
+}
+
+.store-article-wrap .product-list-wrap dl{
+  margin-left: 70px;
+}
+
+.store-article-wrap .product-list-wrap dl dt {
+    font-size: 14px;
+    color: #666666;
+    padding-left: 5px;
+    max-height: 42px;
+    line-height: 21px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.store-article-wrap .product-list-wrap dd:nth-of-type(1) {
+    min-height: 20px;
+    overflow: hidden;
+    padding: 4px 0 8px 5px;
+}
+
+.store-article-wrap .product-list-wrap dd span {
+    border-radius: 2px;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    line-height: 15px;
+    padding: 1px 2px;
+}
+
+.store-article-wrap .product-list-wrap .price-wrap{
+  padding-right: 88px;
+}
+
+.store-article-wrap .product-list-wrap .real-price {
+  color: #ff3434;
+  display: inline-block;
+  font-size: 16px;
+  padding-left: 4px;
+  white-space: nowrap;
+}
+
+.store-article-wrap .product-list-wrap em{
+  font-size: 12px;
+  font-style: normal;
+}
+
+.store-article-wrap .product-list-wrap .basic-price {
+  color: #999;
+  display: inline-block;
+  font-size: 13px;
+  padding-left: 5px;
+  text-decoration: line-through;
+}
+
+.store-article-wrap .product-list-wrap .basic-price em{
+  font-size: 10px;
+  text-decoration: line-through;
+}
+
+.store-article-wrap .product-list-wrap .add-cart-wrap{
+  bottom: -2px;
+  position: absolute;
+  right: 0;
+}
+
+.store-article-wrap .add-cart-wrap .cart-btn {
+    background-image: url('//static-o2o.360buyimg.com/daojia/new/images/icon/addNumSprite.png');
+    background-repeat: no-repeat;
+    background-size: 400% 100%;
+    border: 0 none;
+    display: inline-block;
+    float: left;
+    height: 28px;
+    margin-bottom: 7px;
+    margin-top: 6px;
+    text-indent: -99999px;
+    vertical-align: top;
+    width: 28px;
+}
+
+.store-article-wrap .add-cart-wrap .reduce-cart{
+  background-position: -42px 0;
+}
+
+.store-article-wrap .add-cart-wrap .add-cart{
+  background-position: 0 0;
+  margin-right: 10px;
+}
+
+.store-article-wrap .add-cart-wrap .num {
+  color: #333333;
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  height: 28px;
+  line-height: 28px;
+  margin-top: 6px;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+  vertical-align: top;
+  width: 24px;
+}
+
+.store-article-wrap .article-coupon-wrap .coupon-wrap-list{
+  background-color: #eaeaea;
+  overflow: hidden;
+  padding: 10px 10px 0 10px;
+  margin: 0;
+}
+
+.store-article-wrap .article-coupon-wrap .fix-title{
+  position: static;
+}
+
+.store-article-wrap .article-coupon-wrap .coupon-wrap-list li{
+  margin: 0 0 10px 0;
+}
+
+.store-article-wrap .article-coupon-wrap .banner-list-wrap{
+  background-color: #eaeaea;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.store-article-wrap .banner-list-wrap .banner-box{
+  display: block;
+  padding: 10px 10px 0;
+}
+
+.store-article-wrap .banner-list-wrap .banner-box img{
+  display: block;
+  width: 100%;
+}
+
+.store-article-wrap .article-coupon-wrap .product-list-wrap{
+  padding-top: 0;
+}
+
+.tips-poup-open{
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1002;
+}
+
+.tips-poup-open .poup-store-box{
+  border: 0 solid transparent;
+  border-bottom-width: 130px;
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tips-poup-open .poup-store-box .store-title{
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 8%;
+  text-align: center;
+}
+
+.tips-poup-open .poup-store-box .store-star-box {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.tips-poup-open .poup-store-box .sale-time-wrap{
+  overflow: hidden;
+  padding: 0 0 20px 0;
+  text-align: center;
+}
+
+.tips-poup-open .poup-store-box .sale-time-wrap .time-title{
+  padding-left: 9px;
+}
+
+.tips-poup-open .poup-store-box .tips-detail{
+  clear: both;
+  font-size: 15px;
+  margin: 0 auto;
+  width: 86%;
+}
+
+.tips-poup-open .tips-detail dt{
+  display: block;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.tips-poup-open .tips-detail dd{
+    display: block;
+    padding: 0 0 20px;
+}
+
+.tips-poup-open .tips-detail dd u{
+    background: url('//static-o2o.360buyimg.com/daojia/new/images/icon/tipPoupMark.png') no-repeat;
+    background-size: 14px;
+    display: inline-block;
+    float: left;
+    height: 16px;
+    margin-right: 10px;
+    margin-top: 3px;
+    vertical-align: top;
+    width: 16px;
+}
+
+.tips-poup-open .tips-detail dd u.mark1 {
+    background-position: 0 0;
+}
+
+.tips-poup-open .tips-detail dd u.mark2 {
+    background-position: 0 -37px;
+}
+
+.tips-poup-open .tips-detail dd u.mark3{
+    background-position: 0 -74px;
+}
+
+.tips-poup-open .tips-detail dd .font-txt{
+    display: table-cell;
+    margin-left: 26px;
+    vertical-align: top;
+}
+
+.tips-poup-open .close-btn{
+    bottom: 100px;
+    display: inline-block;
+    height: 28px;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%,0);
+    width: 34px;
+}
+
+.tips-poup-open .close-btn span{
+    background-color: #fff;
+    border-radius: 1px;
+    bottom: 10px;
+    display: inline-block;
+    height: 3px;
+    left: 7%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    width: 30px;
+}
+
+.tips-poup-open .close-btn .part1 {
+    transform: rotate(45deg);
+}
+
+.tips-poup-open .close-btn .part2 {
+    transform: rotate(-45deg);
+}
+
+.goods-floor-fixed-bottom{
+  transform: translate3d(0,140%,0);
+}
+
+.goback-store-btn{
+  background: #f2f8f3;
+  bottom: 0;
+  box-shadow: 0 0 9px rgba(0,0,0,0.2);
+  box-sizing: content-box;
+  color: #666;
+  height: 36px;
+  left: 0;
+  padding-top: 10px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.goback-store-btn i{
+  background: url("//static-o2o.360buyimg.com/daojia/new/images/icon/store_sprites_3.3.png") no-repeat;
+  background-position: -15px -18px;
+  background-size: 220px auto;
+  display: block;
+  height: 8px;
+  margin: 0 auto 5px;
+  width: 15px;
+}

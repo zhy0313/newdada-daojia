@@ -1,3 +1,4 @@
+<!-- 示例代码 -->
 <template>
     <div>
         <group-title>Counter</group-title>
@@ -9,8 +10,8 @@
                 doubleTimes: {{ doubleCount }}
             </cell>
             <cell>
-                <btn theme="primary" size="sm" @click="increment"><icon name="plus" size="lg"/></btn>
-                <btn theme="secondary" size="sm" @click="decrement"><icon name="minus" size="lg" /></btn>
+                <btn theme="primary" size="sm" @click="increment"></btn>
+                <btn theme="secondary" size="sm" @click="decrement"></btn>
                 <btn theme="default" size="sm" slot="footer" @click="reset">RESET</btn>
             </cell>
         </group>

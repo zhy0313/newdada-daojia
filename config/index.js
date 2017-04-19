@@ -8,6 +8,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // assetsPublicPath: '//static-o2o.360buyimg.com/daojia/new/images/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -23,19 +24,16 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080, // 代理端口
+    port: 8099, // 代理端口
     autoOpenBrowser: true, // 自动打开浏览器
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // assetsPublicPath: '//static-o2o.360buyimg.com/daojia/new/images/',
     // 配置代理
     proxyTable: {
       '/client': {
-         target: 'http://testpdjm.jd.com/',
-         secure: false,
-         changeOrigin: true
-       },
-      '/v2/book/search': {
-         target: 'https://api.douban.com/',
+         target: 'https://testpdjm.jd.com/',
+        //  target: 'https://daojia.jd.com/',
          secure: true,
          changeOrigin: true
        }

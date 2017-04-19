@@ -10,7 +10,7 @@
           </p>
       </li>
     </ul>
-    <p class='clear-history'>
+    <p class='clear-history' v-on:click='clearHistory'>
         <button>清除搜索历史</button>
     </p>
   </div>
@@ -20,6 +20,19 @@
 export default{
   props: {
     historyData: Array
+  },
+  methods: {
+    clearHistory: function () {
+      let data = {
+        functionId: 'local/delSearchInfos'
+      }
+      this.$getAPI(data).then(response => {
+        this.historyData = {}
+        this.$emit('clearHistory')
+      }, reposonse => {
+
+      })
+    }
   }
 }
 </script>
