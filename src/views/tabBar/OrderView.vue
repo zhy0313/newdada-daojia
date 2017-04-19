@@ -1,14 +1,29 @@
 <template>
-  <div>
+  <div class="order-page-container">
     <Loader v-if="loading"></Loader>
     <DefaultPageTip
       v-else-if="orderlist.length == 0"
       :msg="msg"
       btnName="去逛逛"
     ></DefaultPageTip>
-    <loadmore v-else class="loadmore-wrapper">
+    <loadmore
+      v-else
+      class="loadmore-wrapper"
+      :bottomMethod="loadBottom"
+      >
       <ul class="orderlist-wrapper">
         <li class="orderlist-item" v-for="item in orderlist">
+          <router-link to="/" class="store-name">
+            <span>
+              {{item.storeName}}
+              <i class="iconfont icon-FowordArrow"></i>
+            </span>
+            <span
+              v-if="item.mainOrderStateMap"
+              :style="{color: item.mainOrderStateMap.orderColor}">
+              {{item.mainOrderStateMap.orderStateName}}
+            </span>
+          </router-link>
           {{item.orderId}}
         </li>
       </ul>
@@ -37,6 +52,9 @@
       DefaultPageTip
     },
     methods: {
+      loadBottom () {
+        console.log('加载更多')
+      },
       fetchOrderList () {
         this.$getAPI({
           functionId: 'order/list',
@@ -75,5 +93,16 @@
 </script>
 
 <style lang="scss">
+  .order-page-container {
+    padding-bottom: 50px;
 
+    .orderlist-item {
+      height: 200px;
+    }
+
+    .store-name {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 </style>
