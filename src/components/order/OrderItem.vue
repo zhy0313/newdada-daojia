@@ -5,16 +5,19 @@
       >
       {{orderItem.storeName}}
     </OrderItemHeader>
-    {{orderItem.orderId}}
+    <OrderItemContent :orderItem="orderItem" >
+    </OrderItemContent>
   </li>
 </template>
 
 <script>
 import OrderItemHeader from './OrderItemHeader'
+import OrderItemContent from './OrderItemContent'
 
 export default {
   components: {
-    OrderItemHeader
+    OrderItemHeader,
+    OrderItemContent
   },
   props: {
     orderItem: Object
@@ -30,4 +33,5 @@ export default {
     background: $daojia-pure;
     margin-bottom: 10px;
   }
+
 </style>
