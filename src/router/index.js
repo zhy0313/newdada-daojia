@@ -1,10 +1,7 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
-import IndexView from '@/views/IndexView'
 import AddressView from '@/views/AddressView'
-=======
 // 一级导航
 import IndexView from '@/views/IndexView'
 import ListView from '@/views/tabBar/ListView'
@@ -17,7 +14,6 @@ import SearchView from '@/views/SearchView'
 import CounterView from '@/views/CounterView'
 import SquareView from '@/views/SquareView'
 // 示例代码 END
-import AddressView from '@/views/AddressView'
 import CashierView from '@/views/Cashier/CashierView'
 import SettlementView from '@/views/Settlement/SettlementView'
 import StoreHome from '@/views/StoreHome/StoreHome.vue'
@@ -26,7 +22,6 @@ import NewAddressView from '@/views/NewAddressView'
 import EditAddressView from '@/views/EditAddressView'
 import ActivityView from '@/views/Activity/ActivityView'
 import GoodsDetailView from '@/views/goodsDetailView' // 报错先注释掉
->>>>>>> f5f7a5e95001b05ca6df53ef5b31fceeea854436
 
 Vue.use(Router)
 
@@ -40,11 +35,11 @@ export default new Router({
       component: IndexView
     },
     {
-<<<<<<< HEAD
       path: '/address',
       name: 'address',
       component: AddressView
-=======
+    },
+    {
       path: '/list',
       name: 'ListView',
       component: ListView
@@ -83,11 +78,6 @@ export default new Router({
       path: '/square',
       name: 'SquareView',
       component: SquareView
-    },
-    {
-      path: '/address',
-      name: 'address',
-      component: AddressView
     },
     {
       path: '/settlement',
@@ -132,8 +122,6 @@ export default new Router({
     {
       path: '*',
       redirect: 'IndexView'
->>>>>>> f5f7a5e95001b05ca6df53ef5b31fceeea854436
     }
-
   ]
 })
