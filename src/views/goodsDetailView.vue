@@ -367,12 +367,14 @@
        <span class="fr">暂无评价</span>
      </div>
      <!--推荐商品-->
+     <MiniCart :isOpenCart="isOpenCart"></MiniCart>
    </div>
 
 </template>
 <style>
 .sku-wrap {
   background-color: #f4f4f4;
+  padding-bottom: 60px;
 }
 .sku-img {
   width:100%;
@@ -530,15 +532,18 @@
 </style>
 <script>
 import Loader from '@/components/Loader'
-import Swipe from '@/assets/scripts/components/Swipe'
-import SwipeItem from '@/assets/scripts/components/SwipeItem'
-import addButton from '@/assets/scripts/components/Button'
+import MiniCart from '@/components/cart/MiniCart'
+
+// import Swipe from '@/assets/scripts/components/Swipe'
+// import SwipeItem from '@/assets/scripts/components/SwipeItem'
+// import addButton from '@/assets/scripts/components/Button'
 export default {
   components: {
     Loader,
-    Swipe,
-    SwipeItem,
-    addButton
+    MiniCart
+    // Swipe,
+    // SwipeItem,
+    // addButton
   },
   created () {
     // 路由需要skuId, orgCode,longitude,latitude //  type: 2
@@ -579,7 +584,8 @@ export default {
       skuPriceVO: { },
       tags: [ ],
       storeInfo: { },
-      miaoShatime: ' '
+      miaoShatime: ' ',
+      isOpenCart: false
     }
   },
   methods: {
