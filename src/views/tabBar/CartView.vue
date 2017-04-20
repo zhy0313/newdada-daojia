@@ -61,6 +61,14 @@
     created () {
       // this.$loading.toggle()
       this.$getAPI({
+        functionId: 'login/testLogin',
+        body: {
+          jdPin: 'jd_57593b3c2bc17'
+        },
+        platCode: 'H5',
+        appName: 'paidaojia'
+      })
+      this.$getAPI({
         // functionId: 'login/testLogin'
         functionId: 'cartV3_3_0/queryallcarts',
         body: {
