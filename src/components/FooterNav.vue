@@ -1,22 +1,22 @@
 <template>
   <navigation class="footer-nav" :activeKey="activeKey">
     <navigation-item label="首页" path="/">
-      <icon name="home" size="lg" />
+      <icon name="home" />
     </navigation-item>
     <navigation-item v-if="hasDiscover" label="福利" path="discover">
-      <icon name="discover" size="lg" />
+      <icon name="discover" />
     </navigation-item>
     <navigation-item v-else label="分类" path="list">
-      <icon name="list" size="lg" />
+      <icon name="list" />
     </navigation-item>
     <navigation-item label="购物车" path="cart">
-      <icon name="cart" size="lg" />
+      <icon name="cart" />
     </navigation-item>
     <navigation-item label="订单" path="order">
-      <icon name="order" size="lg" />
+      <icon name="order" />
     </navigation-item>
     <navigation-item label="我的" path="my">
-      <icon name="my" size="lg" />
+      <icon name="my" />
     </navigation-item>
   </navigation>
 </template>

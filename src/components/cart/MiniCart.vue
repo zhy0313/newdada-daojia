@@ -1,5 +1,7 @@
 <template>
   <div :class="{'mask': !isClose}" @click="maskClickHandle">
+
+    <!-- 迷你购物车详细信息，可展开可收起 -->
     <MiniCartDetail
       v-if="!isEmpty"
       ref="miniCartDetail"
@@ -8,6 +10,7 @@
       :numWeightDesc="miniCartInfo.numWeightDesc"
     ></MiniCartDetail>
 
+    <!-- 迷你购物车底部 -->
     <MiniCartBottom
       @click.native="switchCartDetailHandle"
       :miniCartInfo="miniCartInfo"
@@ -36,7 +39,6 @@
       },
       orgCode: String,
       storeId: String
-
     },
     data () {
       return {
@@ -45,8 +47,8 @@
       }
     },
     computed: {
-      ...mapGetters(['miniCartInfo']),
-      isEmpty () {
+      ...mapGetters(['miniCartInfo']), // 当前迷你购物车数据
+      isEmpty () { // 当前购物车是否为空
         return !(this.miniCartInfo.itemList && this.miniCartInfo.itemList.length)
       }
     },
@@ -66,11 +68,11 @@
           this.position = this.$refs.miniCartDetail.$el.clientHeight
         }
       },
-      switchCartDetailHandle () {
+      switchCartDetailHandle () { // 点击底部，展开或收起购物车详情
         if (this.isEmpty) return
         this.isClose = !this.isClose
       },
-      maskClickHandle (e) {
+      maskClickHandle (e) { // 点击 蒙版 收起购物车详情
         if (e.target.className === 'mask') {
           this.isClose = !this.isClose
           e.stopImmediatePropagation()
