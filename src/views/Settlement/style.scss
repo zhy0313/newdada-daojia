@@ -6,7 +6,6 @@
   background: #fff;
   height: 50px;
   line-height: 50px;
-  border-top: 1px solid #b4b3b2;
   font-size: 12px;
   color: #333;
 
@@ -38,4 +37,168 @@
   font-size: 17px;
   color: #fff;
   text-align: center;
+}
+
+.settlement-container {
+  margin: 10px 0 50px;
+  font-size: 14px;
+  color: #666;
+  background: #fff;
+}
+
+.settlement-line {
+  padding-top: 10px;
+  background: #f4f4f4;
+}
+
+.settlement-address {
+  background: url("//teststatic.jd.com/daojia/new/images/icon/jiesuanye_line_dizhi@2x.png") left top repeat-x;
+  background-size: 100% 3px;
+  padding: 18px 15px;
+  color: #333;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: bold;
+}
+
+.account-name {
+  font-weight: bold;
+  line-height: 15px;
+}
+
+.account-address {
+  padding-top: 13px;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.settlement-item {
+  position: relative;
+  padding: 15px 15px 15px 0;
+  margin-left: 15px;
+  font-size: 15px;
+  line-height: 20px;
+  background: #fff;
+  color: #333;
+  white-space: nowrap;
+
+  span {
+    position: absolute;
+    right: 15px;
+    color: #333;
+    font-size: 14px;
+  }
+}
+
+.deliverTime {
+  border-top: 1px solid #e8e8e8;
+
+  span {
+    color: #2486ff;
+  }
+}
+
+.coupon {
+  border-top: 1px solid #e8e8e8;
+
+  span {
+    color: #999;
+  }
+}
+
+.store {
+  border-top: 1px solid #e8e8e8;
+}
+
+.remarks {
+  textarea {
+    width: 88%;
+    font-size: 13px;
+    color: #999;
+    font-family: "微软雅黑","Arial";
+    text-indent: 8px;
+    resize: none;
+    height: 20px;
+    line-height: 20px;
+    max-height: 40px;
+    vertical-align: top;
+    margin-top: -2px;
+    border: none;
+  }
+}
+
+.goods {
+  border-top: 1px solid #e8e8e8;
+  overflow: hidden;
+
+  ul {
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  li {
+    min-width: 50px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  img {
+    width: 52px;
+    height: 52px;
+    display: inline-block;
+    padding-right: 10px;
+  }
+
+  div {
+    position: absolute;
+    right: 15px;
+    top: 40px;
+    line-height: 55px;
+    font-size: 14px;
+
+    span {
+      position: absolute;
+      right: 20px;
+      line-height: 19px;
+      white-space: nowrap;
+      color: #333;
+      font-size: 13px;
+    }
+  }
+}
+
+.goods-count {
+  top: 5px;
+}
+
+.goods-weight {
+  bottom: 5px;
+}
+
+.price {
+  border-top: 1px solid #e8e8e8;
+
+  p {
+    display: -webkit-box;
+    display: box;
+    width: 100%;
+    padding-bottom: 12px;
+    white-space: nowrap;
+
+    em {
+      display: block;
+      -webkit-box-flex: 1;
+      font-style: normal;
+    }
+  }
+}
+
+.price p:last-child {
+  padding-bottom: 0;
+}
+
+.price em:last-child {
+  text-align: right;
 }
