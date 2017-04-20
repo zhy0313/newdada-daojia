@@ -13,7 +13,6 @@
     <!-- 迷你购物车底部 -->
     <MiniCartBottom
       @click.native="switchCartDetailHandle"
-      :miniCartInfo="miniCartInfo"
       :isEmpty="isEmpty"
       :position="position"
       :isClose="isClose">
@@ -22,10 +21,9 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
   import MiniCartDetail from './MiniCartDetail'
   import MiniCartBottom from './MiniCartBottom'
-  import * as minicartModule from '@/store/api/minicart'
 
   export default {
     components: {
@@ -54,7 +52,8 @@
     },
     created () {
       this.isClose = !this.isOpenCart
-      minicartModule.querySingleCart(this.storeId, this.orgCode)
+      debugger
+      this.querySingleCart({storeId: this.storeId, orgCode: this.orgCode})
     },
     mounted () {
       this.setPosition()
@@ -63,6 +62,7 @@
       this.setPosition()
     },
     methods: {
+      ...mapActions(['querySingleCart']),
       setPosition () { // 迷你购物车高度，图标位置
         if (this.$refs.miniCartDetail) {
           this.position = this.$refs.miniCartDetail.$el.clientHeight

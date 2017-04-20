@@ -1,26 +1,22 @@
 import Vue from 'vue'
-import store from '@/store'
 import * as MutationTypes from '@/store/mutation-types'
 
 // store.commit(MutationTypes.LOADING, false) // loading false
 
-export const removeCart = () => {}
-export const addCart = () => {
-  console.log('addCart()')
-}
-export const querySingleCart = (storeId, orgCode) => {
-  console.log('querySingleCart()')
+// 查询购物车接口
+// 要求传入参数 {storeId: this.storeId, orgCode: this.orgCode}
+export const querySingleCart = ({ commit }, options) => {
+  // 测试用假数据
+  // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
   Vue.getAPI({
-    functionId: 'cartV3_3_0/querySingleCart',
+    functionId: MutationTypes.QUERY_SINGLE_CART,
     body: {
-      storeId: storeId,
-      orgCode: orgCode,
+      ...options,
       positionType: 2
     }
   }).then((response) => {
     if (response.body.code === '0') {
-      store.commit(MutationTypes.QUERY_SINGLE_CART, response.result)
-      // this.miniCartInfo = response.result
+      commit(MutationTypes.QUERY_SINGLE_CART, response.result)
     } else {
       Vue.$toast({message: response.body.msg})
     }
@@ -30,7 +26,7 @@ export const querySingleCart = (storeId, orgCode) => {
 /* eslint-disable */
 // 测试数据，假数据
 //
-let miniCartInfo = {
+var miniCartInfo = {
   authorize : false,
   buttonName : "去结算",
   buttonState : 0,
