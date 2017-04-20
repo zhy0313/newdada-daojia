@@ -23,6 +23,8 @@ export default {
       let sec = this.formate(lastTime.getSeconds())
       if (lastTime <= 0) {
         this.flag = true
+        this.time = `00:00`
+        return
       }
       this.time = `${min}:${sec}`
     },
