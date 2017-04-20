@@ -27,3 +27,6 @@ export const searchBook = ({ commit }, query) => {
 // square
 export const plus = ({ commit }) => commit(MutationTypes.PLUS)
 export const minus = ({ commit }) => commit(MutationTypes.MINUS)
+
+// 接口数据操作
+// export const querySingleCart = ({ commit }) => commit(MutationTypes.QUERY_SINGLE_CART)

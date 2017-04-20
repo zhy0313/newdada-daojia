@@ -19,7 +19,7 @@ const state = {
   count: 0,
   number: 0,
   books: [],
-  currentShoppingCart: [],
+  miniCartInfo: {},
   isLoading: false
 }
 

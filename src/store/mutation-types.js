@@ -14,3 +14,5 @@ export const MINUS = 'SQUARE_MINUS'
 export const SEARCH_BOOK_QUERY = 'SEARCH_BOOK_QUERY'
 
 export const SEARCHURL = '/v2/book/search'
+
+export const QUERY_SINGLE_CART = 'querySingleCart'

@@ -21,5 +21,8 @@ export default {
   },
   [MutationTypes.MINUS] (state) {
     state.number--
+  },
+  [MutationTypes.QUERY_SINGLE_CART] (state, miniCartInfo) {
+    state.miniCartInfo = miniCartInfo
   }
 }
