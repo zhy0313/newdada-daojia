@@ -1,22 +1,39 @@
 import Vue from 'vue'
 import * as MutationTypes from '@/store/mutation-types'
 
-// store.commit(MutationTypes.LOADING, false) // loading false
-
 // 查询购物车接口
 // 要求传入参数 {storeId: this.storeId, orgCode: this.orgCode}
 export const querySingleCart = ({ commit }, options) => {
   // 测试用假数据
   // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
   Vue.getAPI({
-    functionId: MutationTypes.QUERY_SINGLE_CART,
+    functionId: MutationTypes.CART_QUERY_SINGLE_CART,
     body: {
       ...options,
       positionType: 2
     }
   }).then((response) => {
     if (response.body.code === '0') {
-      commit(MutationTypes.QUERY_SINGLE_CART, response.result)
+      commit(MutationTypes.CART_QUERY_SINGLE_CART, response.result)
+    } else {
+      Vue.$toast({message: response.body.msg})
+    }
+  })
+}
+
+export const cartAddItem = ({ commit }, options) => {
+  // 测试用假数据
+  // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
+  Vue.getAPI({
+    functionId: MutationTypes.CART_ADD_ITEM,
+    body: {
+      ...options,
+      positionType: 2
+    }
+  }).then((response) => {
+    querySingleCart({commit: commit}, {storeId: options.storeId, orgCode: options.orgCode})
+    if (response.body.code === '0') {
+      // querySingleCart({storeId: options.storeId, orgCode: options.orgCode})
     } else {
       Vue.$toast({message: response.body.msg})
     }

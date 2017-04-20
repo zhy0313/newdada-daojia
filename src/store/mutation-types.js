@@ -1,9 +1,13 @@
 // common
-export const RESET = 'COMMON_RESET'
 export const LOADING = 'LOADING'
 
- // count
-export const INCREMENT = 'COUNT_INCREMENT'
-export const DECREMENT = 'COUNT_DECREMENT'
-
-export const QUERY_SINGLE_CART = 'cartV3_3_0/querySingleCart'
+// minicart
+export const CART_QUERY_SINGLE_CART = 'cartV3_3_0/querySingleCart'
+export const CART_ADD_ITEM = 'cartV3_3_0/addItem'
+export const CART_REMOVE_ITEM = 'cartV3_3_0/removeItem'
+export const CART_CHANGE_ITEM_NUM = 'cartV3_3_0/changeItemNum'
+export const CART_CHECK_ALL_ITEMS = 'cartV3_3_0/checkAllItems'
+export const CART_UNCHECK_ALL_ITEMS = 'cartV3_3_0/uncheckAllItems'
+export const CART_CHECK_ITEM = 'cartV3_3_0/checkItem'
+export const CART_UNCHECK_ITEM = 'cartV3_3_0/uncheckItem'
+export const CART_REMOVE_ALL_ITEMS = 'cartV3_3_0/removeAllItems'

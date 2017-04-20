@@ -52,8 +52,8 @@
     },
     created () {
       this.isClose = !this.isOpenCart
-      debugger
       this.querySingleCart({storeId: this.storeId, orgCode: this.orgCode})
+      // this.cartAddItem({storeId: this.storeId, orgCode: this.orgCode})
     },
     mounted () {
       this.setPosition()
@@ -62,7 +62,10 @@
       this.setPosition()
     },
     methods: {
-      ...mapActions(['querySingleCart']),
+      ...mapActions([
+        // 'cartAddItem',
+        'querySingleCart'
+      ]),
       setPosition () { // 迷你购物车高度，图标位置
         if (this.$refs.miniCartDetail) {
           this.position = this.$refs.miniCartDetail.$el.clientHeight
