@@ -87,9 +87,9 @@ export default {
     },
     toPay: function () {
       if (this.payType === 'wx') {
-        alert('微信支付')
+        this.$toast({message: '微信支付'})
       } else if (this.payType === 'jd') {
-        alert('京东支付')
+        this.$toast({message: '京东支付'})
       }
     }
   }

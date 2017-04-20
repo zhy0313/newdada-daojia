@@ -59,6 +59,14 @@
   font-size: 15px;
   line-height: 15px;
   font-weight: bold;
+
+  .iconfont {
+    position: absolute;
+    right: 15px;
+    top: 44px;
+    color: #c4c4c4;
+    font-weight: normal;
+  }
 }
 
 .account-name {
@@ -97,6 +105,11 @@
   span {
     color: #2486ff;
   }
+
+  .iconfont {
+    margin-left: 5px;
+    color: #c4c4c4;
+  }
 }
 
 .coupon {
@@ -104,6 +117,10 @@
 
   span {
     color: #999;
+  }
+
+  .iconfont {
+    margin-left: 5px;
   }
 }
 
@@ -166,6 +183,13 @@
       color: #333;
       font-size: 13px;
     }
+  }
+
+  .iconfont {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    color: #c4c4c4;
   }
 }
 

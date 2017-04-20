@@ -3,16 +3,17 @@
     <div class="settlement-address">
       <p class="account-name">测试    158****3483</p>
       <p class="account-address">拉萨市堆龙德庆县堆龙德庆区中学101</p>
+      <i class="iconfont icon-FowordArrow"></i>
     </div>
     <div class="settlement-item deliverTime">
-       送达时间<span>立即送达(预计10:45)</span>
+       送达时间<span>立即送达(预计10:45)<i class="iconfont icon-FowordArrow"></i></span>
     </div>
     <p class="settlement-line"></p>
     <div class="settlement-item payment">
       在线支付<span>微信/京东支付</span>
     </div>
     <div class="settlement-item coupon">
-      优惠券<span>暂无可用优惠券</span>
+      优惠券<span>暂无可用优惠券<i class="iconfont icon-FowordArrow"></i></span>
     </div>
     <p class="settlement-line"></p>
     <div class="settlement-item remarks">
@@ -29,6 +30,7 @@
         <div>
           <span class="goods-count">共2件</span>
           <span class="goods-weight">0.13kg</span>
+          <i class="iconfont icon-FowordArrow"></i>
         </div>
     </div>
     <div class="settlement-item price">
