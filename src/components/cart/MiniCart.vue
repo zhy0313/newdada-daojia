@@ -31,7 +31,10 @@
       isOpenCart: {
         type: Boolean,
         default: false
-      }
+      },
+      orgCode: String,
+      storeId: String
+
     },
     /* eslint-disable */
     data () {
@@ -185,8 +188,25 @@
         return !(this.miniCartInfo.itemList && this.miniCartInfo.itemList.length)
       }
     },
-    mounted () {
+    created () {
       this.isClose = !this.isOpenCart
+      debugger
+      this.$getAPI({
+        functionId: 'cartV3_3_0/querySingleCart',
+        body: {
+          storeId: this.storeId,
+          orgCode: this.orgCode,
+          positionType: 2
+        }
+      }).then((response) => {
+        if (response.body.code === '0') {
+          this.miniCartInfo = response.result
+        } else {
+          this.$toast({message: response.body.msg})
+        }
+      })
+    },
+    mounted () {
       this.setPosition()
     },
     updated () {
@@ -198,9 +218,9 @@
         console.log('切换购物车详情', !this.isClose ? '收起' : '展开')
         this.isClose = !this.isClose
       },
-      setPosition () {
+      setPosition () { // 迷你购物车高度，图标位置
         if (this.$refs.miniCartDetail) {
-          console.log(this.$refs.miniCartDetail.$el.clientHeight, 'position updated')
+          // console.log(this.$refs.miniCartDetail.$el.clientHeight, 'position updated')
           this.position = this.$refs.miniCartDetail.$el.clientHeight
         }
       }

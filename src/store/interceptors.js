@@ -28,6 +28,9 @@ export default (store) => {
       //   console.log('接口失败')
       //   responseData.status = 404
       // }
+      if (!responseData.ok) {
+        Vue.$toast({message: '网络开小差，请稍后再试哦~[0001]'})
+      }
       responseData.result = response.data.result
       // console.log(responseData)
       // debugger

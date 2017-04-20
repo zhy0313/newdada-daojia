@@ -313,6 +313,7 @@
   	</li>
   {{/each}}-->
 <!-- </template> -->
+<!-- 测试商品 http://localhost:8099/#/goodsDetail/1487931319/10003450/71472 -->
 <template>
   <!--单品信息-->
    <div class='sku-wrap'>

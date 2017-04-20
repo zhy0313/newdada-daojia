@@ -41,7 +41,7 @@ const toastUtil = (options = {}) => {
 
   instance.message = typeof options === 'string' ? options : options.message
   instance.type = options.type || ''
-  instance.position = options.position || 'bottom'
+  instance.position = options.position || 'center'
 
   document.body.appendChild(instance.$el)
 
