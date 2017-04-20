@@ -367,7 +367,11 @@
        <span class="fr">暂无评价</span>
      </div>
      <!--推荐商品-->
-     <MiniCart :isOpenCart="isOpenCart"></MiniCart>
+     <MiniCart
+        :isOpenCart="isOpenCart"
+        :storeId="storeId"
+        :orgCode="orgCode"
+     ></MiniCart>
    </div>
 
 </template>
@@ -550,6 +554,9 @@ export default {
     let skuId = this.$route.params.skuid
     let storeId = this.$route.params.storeid
     let orgCode = this.$route.params.orgcode
+
+    this.storeId = storeId
+    this.orgCode = orgCode
     let vm = this
     this.$getAPI({
       functionId: 'product/detailV2_2',
@@ -585,6 +592,8 @@ export default {
       tags: [ ],
       storeInfo: { },
       miaoShatime: ' ',
+      storeId: undefined,
+      orgCode: undefined,
       isOpenCart: false
     }
   },
