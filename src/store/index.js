@@ -3,23 +3,22 @@ import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
 
 import mutations from './mutations'
-import * as actions from './actions'
+import actions from './actions'
 import * as getters from './getters'
 import interceptors from './interceptors' // 请求拦截器
 import './api' // 请求增强函数
 import util from './util'
-
+console.log(mutations)
 console.log(util)
 
 Vue.use(Vuex)
 
 // 状态树
 const state = {
-  msg: 'Welcome to your Vue.js app!',
-  count: 0,
-  number: 0,
-  books: [],
-  miniCartInfo: {},
+  miniCartInfo: {
+    buttonName: '去结算',
+    buttonState: 1
+  },
   isLoading: false
 }
 

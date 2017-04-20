@@ -26,19 +26,13 @@
 
 <script>
 import MiniCartIcon from './MiniCartIcon'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     MiniCartIcon
   },
   props: {
-    miniCartInfo: {
-      type: Object,
-      default: () => ({
-        buttonName: '去结算',
-        buttonState: 1
-      })
-    },
     isEmpty: {
       type: Boolean,
       default: true
@@ -59,6 +53,9 @@ export default {
     position (val) {
       this.setIconPosition()
     }
+  },
+  computed: {
+    ...mapGetters(['miniCartInfo'])
   },
   methods: {
     goSettlementHandle () {
