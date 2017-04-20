@@ -317,11 +317,11 @@
   <!--单品信息-->
    <div class='sku-wrap'>
      <!--单品图片轮播-->
-     <Swipe :speed="1000">
-      <SwipeItem v-for="image in goodsInfo.image" >
+     <swipe :speed="1000">
+      <swipe-item v-for="image in goodsInfo.image" >
            <img :src="image.big" class='sku-img'/>
-      </SwipeItem>
-     </Swipe>
+      </swipe-item>
+    </swipe>
      <!--商品信息-->
      <div class="sku-info-wrap">
        <!--单品名称-->
@@ -339,7 +339,7 @@
            <span class="sku-real-price">￥{{skuPriceVO.basicPrice}}</span>
          </span>
          <span v-else class="sku-basic-price">￥{{skuPriceVO.basicPrice}}</span>
-         <addButton theme='default' v-on:click="addGoods" class='addbtn'>加入购物车</addButton>
+         <btn theme='default' v-on:click="addGoods" class='addbtn'>加入购物车</btn>
        </div>
        <!--促销标信息-->
        <div class="detail-promotion-box" v-if="tags.length">
