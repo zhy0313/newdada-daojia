@@ -28,7 +28,35 @@
               <i class="tag-icon">首单</i>
               <span class="tag-des">商家首单立减1</span>
             </li>
+            <li class="list-tag-li">
+              <i class="tag-icon">首单</i>
+              <span class="tag-des">商家首单立减1</span>
+            </li>
+            <li class="list-tag-li">
+              <i class="tag-icon">首单</i>
+              <span class="tag-des">商家首单立减1</span>
+            </li>
+            <li class="list-tag-li">
+              <i class="tag-icon">首单</i>
+              <span class="tag-des">商家首单立减1</span>
+            </li>
+            <li class="list-tag-li">
+              <i class="tag-icon">首单</i>
+              <span class="tag-des">商家首单立减1</span>
+            </li>
+            <li class="list-tag-li" v-show="!tagsMoreHide">
+              <i class="tag-icon">首单</i>
+              <span class="tag-des">商家首单立减1</span>
+            </li>
+            <li class="list-tag-li" v-show="!tagsMoreHide">
+              <i class="tag-icon">首单</i>
+              <span class="tag-des">商家首单立减1</span>
+            </li>
           </ul>
+          <div class="show-tag-more-wrap">
+            <span class="show-tag-more"  :class="tagsMoreHide ? '' : 'show-tag-more-show'" @click="showMoreTags">{{tagsText}}</span>
+          </div>
+          <span class="list-tagTotal-title" v-show="storeIsFixed"><strong>10个活动</strong></span>
         </div>
     </div>
     <div class="store-info-floor">
@@ -204,7 +232,7 @@
     </div>
 
     <!--门店列表-->
-      <div class="store-article-wrap " :class="storeIsFixed ? '' : 'goods-floor-fixed-bottom'" @click="storeStopProp">
+      <div class="store-article-wrap has-tags-wrap" :class="storeIsFixed ? '' : 'goods-floor-fixed-bottom'" @click="storeStopProp">
         <!--门店公告-->
         <div class="notice-tips">
           <i>公告</i>
@@ -514,6 +542,8 @@
         tipsPoup: false, // 公告
         storeFollow: false, // 门店关注
         storeIsFixed: true, // 门店定位是否fixed防止滑动
+        tagsMoreHide: true, // 直降，满减默认隐藏
+        tagsText: '查看更多',
         tipsArr: [{
           transform: 'translateY(0)',
           top: 0,
@@ -591,6 +621,13 @@
       storeHomeShow (e) {
         // 继续购物按钮点击
         this.storeIsFixed = true
+      },
+      showMoreTags (e) {
+        // 直降，满减 查看更多
+        e.stopPropagation()
+        this.tagsMoreHide = !this.tagsMoreHide
+        this.tagsMoreHide ? this.tagsText = '查看更多' : this.tagsText = '点击收起'
+        console.log(this.tagsMoreHide)
       }
     }
   }
