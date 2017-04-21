@@ -104,10 +104,12 @@ export default {
     .money-info-close {
       color: $daojia-light;
       white-space: nowrap;
-      transform: translateX(70px);
+      // transform: translateX(70px);
+      padding-left: 70px;
       transition: transform .5s ease-out 0s;
       &.open {
-        transform: translateX(10px);
+        // transform: translateX(10px);
+        transform: translateX(-60px);
       }
     }
 
