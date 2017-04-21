@@ -19,9 +19,7 @@
         <div class="store-collection-wrap " :class="{'collection-active' : storeFollow}">
           <i class="collection-btn"></i>
         </div>
-        <div class="coupon-top-right-bag">
-
-        </div>
+        <div class="coupon-top-right-bag" v-show="storeIsFixed"></div>
         <div class="list-tag-wrap">
           <ul class="list-tag-ul">
             <li class="list-tag-li">
@@ -65,58 +63,7 @@
         <div class="store-public-title">
           <h2 class="public-store-title">店铺优惠券</h2>
         </div>
-        <ul class="coupon-wrap-list">
-          <li class="coupon-none">
-            <!--券的面值-->
-            <div class="coupon-left">
-              <var class="coupon-num">8.3</var>
-              <span class="conpon-unit">折</span>
-            </div>
-            <!--券的标题，信息-->
-            <div class="coupon-title-wrap">
-              <div class="coupon-title">
-                <div class="coupon-h2-wrap">
-                  <h2>
-                    <var class="discount-txt">折扣券</var>
-                    <var class="discount-txt">满5-100元享折扣</var>
-                  </h2>
-                  <div class="discount-date">2017.03.21-2017.04.08</div>
-                </div>
-              </div>
-            </div>
-            <!--领券的按钮-->
-            <div class="coupon-right">
-              <div class="coupon-right-box">
-                <div class="coupon-get-btn">已抢光</div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <!--券的面值-->
-            <div class="coupon-left">
-              <var class="coupon-num">8.3</var>
-              <span class="conpon-unit">折</span>
-            </div>
-            <!--券的标题，信息-->
-            <div class="coupon-title-wrap">
-              <div class="coupon-title">
-                <div class="coupon-h2-wrap">
-                  <h2>
-                    <var class="discount-txt">折扣券</var>
-                    <var class="discount-txt">满5-100元享折扣</var>
-                  </h2>
-                  <div class="discount-date">2017.03.21-2017.04.08</div>
-                </div>
-              </div>
-            </div>
-            <!--领券的按钮-->
-            <div class="coupon-right">
-              <div class="coupon-right-box">
-                <div class="coupon-get-btn">已抢光</div>
-              </div>
-            </div>
-          </li>
-        </ul>
+        <Coupon></Coupon>
       </div>
       <!--门店店铺评价-->
       <div class="store-comment-wrap">
@@ -267,58 +214,7 @@
             <!--分类信息-->
             <section class="container article-coupon-wrap">
               <!--列表内优惠券-->
-              <ul class="coupon-wrap-list">
-                <li class="coupon-none">
-                  <!--券的面值-->
-                  <div class="coupon-left">
-                    <var class="coupon-num">8.3</var>
-                    <span class="conpon-unit">折</span>
-                  </div>
-                  <!--券的标题，信息-->
-                  <div class="coupon-title-wrap">
-                    <div class="coupon-title">
-                      <div class="coupon-h2-wrap">
-                        <h2>
-                          <var class="discount-txt">折扣券</var>
-                          <var class="discount-txt">满5-100元享折扣</var>
-                        </h2>
-                        <div class="discount-date">2017.03.21-2017.04.08</div>
-                      </div>
-                    </div>
-                  </div>
-                  <!--领券的按钮-->
-                  <div class="coupon-right">
-                    <div class="coupon-right-box">
-                      <div class="coupon-get-btn">已抢光</div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <!--券的面值-->
-                  <div class="coupon-left">
-                    <var class="coupon-num">8.3</var>
-                    <span class="conpon-unit">折</span>
-                  </div>
-                  <!--券的标题，信息-->
-                  <div class="coupon-title-wrap">
-                    <div class="coupon-title">
-                      <div class="coupon-h2-wrap">
-                        <h2>
-                          <var class="discount-txt">折扣券</var>
-                          <var class="discount-txt">满5-100元享折扣</var>
-                        </h2>
-                        <div class="discount-date">2017.03.21-2017.04.08</div>
-                      </div>
-                    </div>
-                  </div>
-                  <!--领券的按钮-->
-                  <div class="coupon-right">
-                    <div class="coupon-right-box">
-                      <div class="coupon-get-btn">已抢光</div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+              <Coupon></Coupon>
               <!--列表内banner图-->
               <div class="banner-list-wrap">
                 <a class="banner-box" href=""><img class="a1x" src="https://img30.360buyimg.com/mobilecms/jfs/t4891/21/327258056/207114/8f7ad00e/58df23caN49ddcb7b.jpg" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_banner_default_2.0.png'"></a>
@@ -533,7 +429,7 @@
 <script>
   // import { mapState, mapActions } from 'vuex'
   // import BookCard from '../components/BookCard'
-
+  import Coupon from '../../components/couponStore/Coupon'
   export default {
     data () {
       return {
@@ -543,6 +439,7 @@
         storeFollow: false, // 门店关注
         storeIsFixed: true, // 门店定位是否fixed防止滑动
         tagsMoreHide: true, // 直降，满减默认隐藏
+        couponReceive: false, // 门店背景列表领券
         tagsText: '查看更多',
         tipsArr: [{
           transform: 'translateY(0)',
@@ -550,6 +447,9 @@
           value: ''
         }]
       }
+    },
+    components: {
+      Coupon
     },
     created () {
       let tipsArr = [
