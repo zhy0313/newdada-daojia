@@ -43,7 +43,7 @@
     <p class="settlement-line"></p>
     <div class="settlement-bar">
       <span class="total-amount">应付<em>¥142.2</em></span>
-      <a href="javascript:;" class="toSubmit">提交订单</a>
+      <a href="javascript:;" class="toSubmit" @click="toSubmit">提交订单</a>
     </div>
   </div>
 </template>
@@ -63,6 +63,9 @@ export default {
       }, (err) => {
         console.log('err', err)
       })
+    },
+    toSubmit: function () {
+      this.$router.push({path: 'cashier', query: {token: 's6MPyAYZ192mQWqRVsp0JVvwRBWKH+By4o2IRxR/aQZTT7D4BYQjFfV31jetkb0I2eM8T+c0JP3bSN+r9EgqWM2faJ12OD59CQsisktd5YffZR4s/IjnryOiftH+YIYXo+F7P4Rd61OwFWhTgKt51VOJBP0Wrj8KaITFtaU/3Ww='}})
     }
   }
 }
