@@ -21,14 +21,13 @@ export const querySingleCart = ({ commit }, options) => {
   })
 }
 
+// 添加购物车
 export const cartAddItem = ({ commit }, options) => {
   // 测试用假数据
   // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
   Vue.getAPI({
     functionId: MutationTypes.CART_ADD_ITEM,
-    body: {
-      ...options
-    }
+    body: options
   }).then((response) => {
     if (response.body.code === '0') {
       // querySingleCart({storeId: options.storeId, orgCode: options.orgCode})
@@ -39,14 +38,73 @@ export const cartAddItem = ({ commit }, options) => {
   })
 }
 
+// 改变商品数量
 export const changeItemNum = ({ commit }, options) => {
   // 测试用假数据
   // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
   Vue.getAPI({
     functionId: MutationTypes.CART_CHANGE_ITEM_NUM,
-    body: {
-      ...options
+    body: options
+  }).then((response) => {
+    commit(MutationTypes.CART_QUERY_SINGLE_CART, response.result)
+    if (response.body.code !== '0') {
+      Vue.$toast({message: response.body.msg})
     }
+  })
+}
+
+// 取消选中商品
+export const cartUncheckItem = ({ commit }, options) => {
+  // 测试用假数据
+  // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
+  Vue.getAPI({
+    functionId: MutationTypes.CART_UNCHECK_ITEM,
+    body: options
+  }).then((response) => {
+    commit(MutationTypes.CART_QUERY_SINGLE_CART, response.result)
+    if (response.body.code !== '0') {
+      Vue.$toast({message: response.body.msg})
+    }
+  })
+}
+
+// 选中 商品
+export const cartCheckItem = ({ commit }, options) => {
+  // 测试用假数据
+  // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
+  Vue.getAPI({
+    functionId: MutationTypes.CART_CHECK_ITEM,
+    body: options
+  }).then((response) => {
+    commit(MutationTypes.CART_QUERY_SINGLE_CART, response.result)
+    if (response.body.code !== '0') {
+      Vue.$toast({message: response.body.msg})
+    }
+  })
+}
+
+// 选中 全部商品
+export const cartCheckAllItem = ({ commit }, options) => {
+  // 测试用假数据
+  // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
+  Vue.getAPI({
+    functionId: MutationTypes.CART_CHECK_ALL_ITEMS,
+    body: options
+  }).then((response) => {
+    commit(MutationTypes.CART_QUERY_SINGLE_CART, response.result)
+    if (response.body.code !== '0') {
+      Vue.$toast({message: response.body.msg})
+    }
+  })
+}
+
+// 取消选中全部商品
+export const cartUncheckAllItem = ({ commit }, options) => {
+  // 测试用假数据
+  // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
+  Vue.getAPI({
+    functionId: MutationTypes.CART_UNCHECK_ALL_ITEMS,
+    body: options
   }).then((response) => {
     commit(MutationTypes.CART_QUERY_SINGLE_CART, response.result)
     if (response.body.code !== '0') {
