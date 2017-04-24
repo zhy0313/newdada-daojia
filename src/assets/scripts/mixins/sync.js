@@ -7,12 +7,13 @@ export default {
   },
   data () {
     return {
-      currentValue: this.value
+      currentValue: this.value,
+      isAdd: false
     }
   },
   watch: {
     // value (val) {
-    //   console.log(val)
+    //   console.log('set value', val)
     //   this.currentValue = val
     // },
     currentValue (val) {
@@ -23,9 +24,15 @@ export default {
 
         return
       }
-      console.log('setCurrentValue', val)
+
+      console.log('setCurrentValue', val, this.value, this.isAdd)
       // this.$emit('input', val)
-      this.$emit('change', val)
+      //
+      if ((this.isAdd && val > this.value) ||
+          !this.isAdd && val < this.value) {
+        console.log('change value sync')
+        this.$emit('change', val)
+      }
     }
   }
 }

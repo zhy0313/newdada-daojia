@@ -38,8 +38,7 @@ export default {
       }]
       cartParams.chgNumReturnType = 0
       cartParams.isAdd = value > this.productItem.cartNum
-      console.log(value, cartParams)
-      // this.changeItemNum(cartParams)
+      this.changeItemNum(cartParams)
     }
   }
 }
