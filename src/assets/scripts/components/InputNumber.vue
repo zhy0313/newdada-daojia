@@ -47,16 +47,20 @@
       // 减
       minusHandle () {
         if (this.disabled || this.currentValue <= this.min) return
-
-        this.isAdd = false
-        this.currentValue -= this.step
+        console.log('减')
+        let newVal = this.currentValue - this.step
+        if (newVal < this.value) {
+          this.currentValue = newVal
+        }
       },
       // 加
       plusHandle () {
         if (this.disabled || this.currentValue >= this.max) return
-
-        this.isAdd = true
-        this.currentValue += this.step
+        console.log('加')
+        let newVal = this.currentValue + this.step
+        if (newVal > this.value) {
+          this.currentValue = newVal
+        }
       }
     }
   }
