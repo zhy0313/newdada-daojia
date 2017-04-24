@@ -6,9 +6,10 @@
       @click="minusHandle">-</a>
     <input
       type="number"
-      v-model="currentValue"
+      v-model="value"
       :disabled="disabled"
-      class="input-number-input">
+      class="input-number-input"
+      readonly="readonly">
     <a
       class="input-number-plus"
       :class="{'disabled': currentValue >= max || disabled}"

@@ -1,5 +1,6 @@
 // common
 export const LOADING = 'LOADING'
+export const CURRENT_STORE_INFO = 'current_store_info'
 
 // minicart
 export const CART_QUERY_SINGLE_CART = 'cartV3_3_0/querySingleCart'

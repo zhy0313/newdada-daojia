@@ -370,11 +370,8 @@
      <!--推荐商品-->
      <MiniCart
         :isOpenCart="isOpenCart"
-        :storeId="storeId"
-        :orgCode="orgCode"
      ></MiniCart>
    </div>
-
 </template>
 <style>
 .sku-wrap {
@@ -538,7 +535,7 @@
 <script>
 import Loader from '@/components/Loader'
 import MiniCart from '@/components/cart/MiniCart'
-
+import { mapActions } from 'vuex'
 // import Swipe from '@/assets/scripts/components/Swipe'
 // import SwipeItem from '@/assets/scripts/components/SwipeItem'
 // import addButton from '@/assets/scripts/components/Button'
@@ -555,9 +552,7 @@ export default {
     let skuId = this.$route.params.skuid
     let storeId = this.$route.params.storeid
     let orgCode = this.$route.params.orgcode
-
-    this.storeId = storeId
-    this.orgCode = orgCode
+    this.setCurrentStore({storeId: storeId, orgCode: orgCode})
     let vm = this
     this.$getAPI({
       functionId: 'product/detailV2_2',
@@ -593,12 +588,13 @@ export default {
       tags: [ ],
       storeInfo: { },
       miaoShatime: ' ',
-      storeId: undefined,
-      orgCode: undefined,
       isOpenCart: false
     }
   },
   methods: {
+    ...mapActions([
+      'setCurrentStore'
+    ]),
     addGoods: function () {
       this.$toast({message: '加购物车'})
     }

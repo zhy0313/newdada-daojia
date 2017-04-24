@@ -27,14 +27,29 @@ export const cartAddItem = ({ commit }, options) => {
   Vue.getAPI({
     functionId: MutationTypes.CART_ADD_ITEM,
     body: {
-      ...options,
-      positionType: 2
+      ...options
     }
   }).then((response) => {
-    querySingleCart({commit: commit}, {storeId: options.storeId, orgCode: options.orgCode})
     if (response.body.code === '0') {
       // querySingleCart({storeId: options.storeId, orgCode: options.orgCode})
+      querySingleCart({commit: commit}, {storeId: options.storeId, orgCode: options.orgCode})
     } else {
+      Vue.$toast({message: response.body.msg})
+    }
+  })
+}
+
+export const changeItemNum = ({ commit }, options) => {
+  // 测试用假数据
+  // commit(MutationTypes.QUERY_SINGLE_CART, miniCartInfo)
+  Vue.getAPI({
+    functionId: MutationTypes.CART_CHANGE_ITEM_NUM,
+    body: {
+      ...options
+    }
+  }).then((response) => {
+    commit(MutationTypes.CART_QUERY_SINGLE_CART, response.result)
+    if (response.body.code !== '0') {
       Vue.$toast({message: response.body.msg})
     }
   })

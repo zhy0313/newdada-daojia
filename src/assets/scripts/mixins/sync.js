@@ -11,9 +11,10 @@ export default {
     }
   },
   watch: {
-    value (val) {
-      this.currentValue = val
-    },
+    // value (val) {
+    //   console.log(val)
+    //   this.currentValue = val
+    // },
     currentValue (val) {
       if (this.disabled) return
 
@@ -22,9 +23,9 @@ export default {
 
         return
       }
-
-      this.$emit('input', val)
-      this.$emit('change', val, this.currentText)
+      console.log('setCurrentValue', val)
+      // this.$emit('input', val)
+      this.$emit('change', val)
     }
   }
 }

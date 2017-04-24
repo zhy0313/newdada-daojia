@@ -34,9 +34,7 @@
       isOpenCart: {
         type: Boolean,
         default: false
-      },
-      orgCode: String,
-      storeId: String
+      }
     },
     data () {
       return {
@@ -45,14 +43,17 @@
       }
     },
     computed: {
-      ...mapGetters(['miniCartInfo']), // 当前迷你购物车数据
+      ...mapGetters([
+        'miniCartInfo',
+        'currentStore'
+      ]), // 当前迷你购物车数据
       isEmpty () { // 当前购物车是否为空
         return !(this.miniCartInfo.itemList && this.miniCartInfo.itemList.length)
       }
     },
     created () {
       this.isClose = !this.isOpenCart
-      this.querySingleCart({storeId: this.storeId, orgCode: this.orgCode})
+      this.querySingleCart(this.currentStore)
       // this.cartAddItem({storeId: this.storeId, orgCode: this.orgCode})
     },
     mounted () {

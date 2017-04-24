@@ -19,6 +19,7 @@ const state = {
     buttonName: '去结算',
     buttonState: 1
   },
+  currentStore: {},
   isLoading: false
 }
 
