@@ -18,7 +18,7 @@
       </div>
       <!-- <p class="settlement-line"></p> -->
       <div class="settlement-item remarks" v-if="item.moduleKey == 'orderMark'">
-        {{item.title}}<textarea type="text" name="blessing" placeholder=" 订单备注（30字以内）" maxlength="150"></textarea>
+        备注<textarea type="text" name="blessing" placeholder=" 订单备注（30字以内）" maxlength="150"></textarea>
       </div>
       <div class="settlement-item store" v-if="item.moduleKey == 'productInfo'">
         味多美-回龙观东大街面包店
