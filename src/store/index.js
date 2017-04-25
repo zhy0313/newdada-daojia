@@ -17,7 +17,8 @@ Vue.use(Vuex)
 const state = {
   miniCartInfo: {
     buttonName: '去结算',
-    buttonState: 1
+    buttonState: 1,
+    itemList: []
   },
   currentStore: {},
   isLoading: false

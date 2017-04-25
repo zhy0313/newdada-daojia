@@ -2,7 +2,7 @@
   <flex class="minicart-control-bar">
     <span v-if="isInvalid">失效商品</span>
     <div v-else>
-      <checkbox>全选</checkbox>
+      <checkbox :value="isCheckAll">全选</checkbox>
       <span class="number-desc"> <slot></slot></span>
     </div>
 
@@ -11,12 +11,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   props: {
     isInvalid: {
       type: Boolean,
       default: false
     }
+  },
+  computed: {
+    ...mapGetters(['isCheckAll'])
   }
 }
 </script>
