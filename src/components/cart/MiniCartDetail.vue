@@ -6,24 +6,24 @@
 
     <div class="minicart-scroll-view">
       <!-- 迷你购车车商品列表 -->
-      <MinicartProductList
+      <MiniCartProductList
         v-for="item in itemList"
         :key="item.suitType"
         :productSuit="item"
         :justInvalid="justInvalid">
-      </MinicartProductList>
+      </MiniCartProductList>
     </div>
   </div>
 </template>
 
 <script>
   import MiniCarControlBar from './MiniCartControlBar'
-  import MinicartProductList from './MinicartProductList'
+  import MiniCartProductList from './MiniCartProductList'
 
   export default {
     components: {
       MiniCarControlBar,
-      MinicartProductList
+      MiniCartProductList
     },
     props: {
       itemList: Array,

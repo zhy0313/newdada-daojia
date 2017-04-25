@@ -10,9 +10,7 @@ import CartView from '@/views/tabBar/CartView'
 import OrderView from '@/views/tabBar/OrderView'
 import MyView from '@/views/tabBar/MyView'
 // 示例代码 START
-import SearchView from '@/views/SearchView'
 import CounterView from '@/views/CounterView'
-import SquareView from '@/views/SquareView'
 // 示例代码 END
 import CashierView from '@/views/Cashier/CashierView'
 import SettlementView from '@/views/Settlement/SettlementView'
@@ -68,16 +66,6 @@ export default new Router({
       path: '/minicart',
       name: 'CounterView',
       component: CounterView
-    },
-    {
-      path: '/search',
-      name: 'SearchView',
-      component: SearchView
-    },
-    {
-      path: '/square',
-      name: 'SquareView',
-      component: SquareView
     },
     {
       path: '/settlement',

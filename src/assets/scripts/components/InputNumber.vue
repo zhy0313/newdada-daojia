@@ -6,9 +6,10 @@
       @click="minusHandle">-</a>
     <input
       type="number"
-      v-model="currentValue"
+      v-model="value"
       :disabled="disabled"
-      class="input-number-input">
+      class="input-number-input"
+      readonly="readonly">
     <a
       class="input-number-plus"
       :class="{'disabled': currentValue >= max || disabled}"
@@ -46,14 +47,14 @@
       // 减
       minusHandle () {
         if (this.disabled || this.currentValue <= this.min) return
-
-        this.currentValue -= this.step
+        console.log('减')
+        this.currentValue = this.value - this.step
       },
       // 加
       plusHandle () {
         if (this.disabled || this.currentValue >= this.max) return
-
-        this.currentValue += this.step
+        console.log('加')
+        this.currentValue = this.value + this.step
       }
     }
   }

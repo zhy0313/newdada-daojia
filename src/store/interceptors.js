@@ -13,21 +13,15 @@ export default (store) => {
 
   Vue.http.interceptors.push((request, next) => {
     // 请求前的处理逻辑
-    //
-    // 增加公共参数
-    // request.params.body = JSON.stringify(request.params.body)
-    // request.params = {...request.params, platCode: 'H5', appName: 'paidaojia', appVersion: '3.8.0'}
-
     // store.commit(MutationTypes.LOADING, true) // loading true
     next((response) => {
       // store.commit(MutationTypes.LOADING, false) // loading false
       let responseData = { ...response }
-      // if (response.data.success) {
-      //   console.log('接口成功')
-      // } else {
-      //   console.log('接口失败')
-      //   responseData.status = 404
-      // }
+
+      // 请求失败，网络异常，404 等
+      if (!responseData.ok) {
+        Vue.$toast({message: '网络开小差，请稍后再试哦~[0001]'})
+      }
       responseData.result = response.data.result
       // console.log(responseData)
       // debugger

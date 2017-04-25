@@ -2,15 +2,20 @@
   <ul :class="`minicart-product-list ${lineClass}`">
     <!-- 失效商品组控制栏 -->
     <li v-if="!justInvalid && productSuit.suitType == 'invalidate'">
-      <MiniCarControlBar :isInvalid="true">
-      </MiniCarControlBar>
+      <MiniCartControlBar :isInvalid="true">
+      </MiniCartControlBar>
     </li>
     <!-- 满减组标题栏 -->
     <li v-else-if="lineClass != ''" :class="`suit-tip ${productSuit.suitType}`">
       <!-- <div class="suit-name">{{productSuit.suitName}}</div> -->
       {{productSuit.suitDescrip.join('，')}}
     </li>
-    <li
+    <MiniCartProduct
+    v-for="item in productSuit.skuList"
+    :key="item.skuId"
+    :productItem="item">
+    </MiniCartProduct>
+    <!-- <li
       v-for="item in productSuit.skuList"
       :key="item.skuId"
       class="minicart-product-item">
@@ -18,18 +23,18 @@
       <ProductSingleItem :productItem="item"></ProductSingleItem>
 
       <input-number :disabled="item.skuState == 0" class="minicart-product-operation" :min="1" :value="item.cartNum"></input-number>
-    </li>
+    </li> -->
   </ul>
 </template>
 
 <script>
-import ProductSingleItem from './ProductSingleItem'
-import MiniCarControlBar from './MiniCartControlBar'
+import MiniCartControlBar from './MiniCartControlBar'
+import MiniCartProduct from './MiniCartProduct'
 
 export default {
   components: {
-    MiniCarControlBar,
-    ProductSingleItem
+    MiniCartControlBar,
+    MiniCartProduct
   },
   props: {
     productSuit: Object,
@@ -47,7 +52,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../assets/styles/mixins";
   @import "../../assets/styles/variables";
 
   .minicart-product-list {
@@ -64,14 +68,15 @@ export default {
     }
 
     .suit-tip {
-      position:relative;
-      padding:15px 90px 9px 39px;
-      min-height:40px;
-      line-height:14px;
-      font-size:12px; color:#666;
-      background-position:7px 14px;
-      background-size:25px 20px;
-      background-repeat:no-repeat;
+      position: relative;
+      padding: 15px 90px 9px 39px;
+      min-height: 40px;
+      line-height: 14px;
+      font-size: 12px;
+      color:#666;
+      background-position: 7px 14px;
+      background-size: 25px 20px;
+      background-repeat: no-repeat;
       border-bottom:1px solid #e8e8e8;
     }
 
@@ -88,28 +93,6 @@ export default {
     .suit-tip.gift {
       display:block;
       background-image: url(https://static-o2o.360buyimg.com/daojia/new/images/minicart/manzeng.png);
-    }
-
-    .minicart-product-item {
-      padding: 5px 10px 5px 40px;
-      position: relative;
-      @include border-bottom();
-    }
-
-    .checkbox {
-      position: absolute;
-      display: inline-block;
-      top: 50%;
-      left: 0;
-      padding: 11px;
-      transform: translateY(-50%);
-    }
-
-    .minicart-product-operation {
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-      word-spacing: -4px;
     }
   }
 </style>

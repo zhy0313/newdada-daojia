@@ -19,9 +19,7 @@
         <div class="store-collection-wrap " :class="{'collection-active' : storeFollow}">
           <i class="collection-btn"></i>
         </div>
-        <div class="coupon-top-right-bag">
-
-        </div>
+        <div class="coupon-top-right-bag" v-show="storeIsFixed"></div>
         <div class="list-tag-wrap">
           <ul class="list-tag-ul">
             <li class="list-tag-li">
@@ -65,58 +63,7 @@
         <div class="store-public-title">
           <h2 class="public-store-title">店铺优惠券</h2>
         </div>
-        <ul class="coupon-wrap-list">
-          <li class="coupon-none">
-            <!--券的面值-->
-            <div class="coupon-left">
-              <var class="coupon-num">8.3</var>
-              <span class="conpon-unit">折</span>
-            </div>
-            <!--券的标题，信息-->
-            <div class="coupon-title-wrap">
-              <div class="coupon-title">
-                <div class="coupon-h2-wrap">
-                  <h2>
-                    <var class="discount-txt">折扣券</var>
-                    <var class="discount-txt">满5-100元享折扣</var>
-                  </h2>
-                  <div class="discount-date">2017.03.21-2017.04.08</div>
-                </div>
-              </div>
-            </div>
-            <!--领券的按钮-->
-            <div class="coupon-right">
-              <div class="coupon-right-box">
-                <div class="coupon-get-btn">已抢光</div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <!--券的面值-->
-            <div class="coupon-left">
-              <var class="coupon-num">8.3</var>
-              <span class="conpon-unit">折</span>
-            </div>
-            <!--券的标题，信息-->
-            <div class="coupon-title-wrap">
-              <div class="coupon-title">
-                <div class="coupon-h2-wrap">
-                  <h2>
-                    <var class="discount-txt">折扣券</var>
-                    <var class="discount-txt">满5-100元享折扣</var>
-                  </h2>
-                  <div class="discount-date">2017.03.21-2017.04.08</div>
-                </div>
-              </div>
-            </div>
-            <!--领券的按钮-->
-            <div class="coupon-right">
-              <div class="coupon-right-box">
-                <div class="coupon-get-btn">已抢光</div>
-              </div>
-            </div>
-          </li>
-        </ul>
+        <Coupon ref="storeCoupon"></Coupon>
       </div>
       <!--门店店铺评价-->
       <div class="store-comment-wrap">
@@ -253,72 +200,17 @@
             <!--左边分类-->
             <ul class="menu-aside">
               <!--active-parent控制左边栏list父级选中,active-parent-show子级选中 -->
-              <li class="menu-category active-parent-show">
-                <div class="category-title">
-                春游烧烤
-                </div>
-                <dl class="second-cateList">
-                  <dd class="cateList-title">烧烤肉类</dd>
-                  <dd class="cateList-title">水果/蔬菜</dd>
-                  <dd class="cateList-title">酒水饮料</dd>
+              <li class="menu-category " :class="[item.openCatetory ? 'active-parent-show' : '',item.active ? 'category-active' : '']" @click="asideCategoryClick(index,$event)" v-for="(item,index) in cateList">
+                <div class="category-title">{{item.title}}</div>
+                <dl class="second-cateList" v-if="item.childCategoryList">
+                  <dd class="cateList-title" :class="[(childIndex < 1 && !childItem.nofirst) ? 'cateList-active' : '', childItem.active ? 'cateList-active' : '']" v-for="(childItem, childIndex) in item.childCategoryList" :data-type="childIndex">{{childItem.title}}</dd>
                 </dl>
               </li>
             </ul>
             <!--分类信息-->
             <section class="container article-coupon-wrap">
               <!--列表内优惠券-->
-              <ul class="coupon-wrap-list">
-                <li class="coupon-none">
-                  <!--券的面值-->
-                  <div class="coupon-left">
-                    <var class="coupon-num">8.3</var>
-                    <span class="conpon-unit">折</span>
-                  </div>
-                  <!--券的标题，信息-->
-                  <div class="coupon-title-wrap">
-                    <div class="coupon-title">
-                      <div class="coupon-h2-wrap">
-                        <h2>
-                          <var class="discount-txt">折扣券</var>
-                          <var class="discount-txt">满5-100元享折扣</var>
-                        </h2>
-                        <div class="discount-date">2017.03.21-2017.04.08</div>
-                      </div>
-                    </div>
-                  </div>
-                  <!--领券的按钮-->
-                  <div class="coupon-right">
-                    <div class="coupon-right-box">
-                      <div class="coupon-get-btn">已抢光</div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <!--券的面值-->
-                  <div class="coupon-left">
-                    <var class="coupon-num">8.3</var>
-                    <span class="conpon-unit">折</span>
-                  </div>
-                  <!--券的标题，信息-->
-                  <div class="coupon-title-wrap">
-                    <div class="coupon-title">
-                      <div class="coupon-h2-wrap">
-                        <h2>
-                          <var class="discount-txt">折扣券</var>
-                          <var class="discount-txt">满5-100元享折扣</var>
-                        </h2>
-                        <div class="discount-date">2017.03.21-2017.04.08</div>
-                      </div>
-                    </div>
-                  </div>
-                  <!--领券的按钮-->
-                  <div class="coupon-right">
-                    <div class="coupon-right-box">
-                      <div class="coupon-get-btn">已抢光</div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+              <Coupon ref="storeListCoupon" :isStoreList="true"></Coupon>
               <!--列表内banner图-->
               <div class="banner-list-wrap">
                 <a class="banner-box" href=""><img class="a1x" src="https://img30.360buyimg.com/mobilecms/jfs/t4891/21/327258056/207114/8f7ad00e/58df23caN49ddcb7b.jpg" onerror="this.src='//static-o2o.360buyimg.com/daojia/new/images/index_banner_default_2.0.png'"></a>
@@ -533,7 +425,7 @@
 <script>
   // import { mapState, mapActions } from 'vuex'
   // import BookCard from '../components/BookCard'
-
+  import Coupon from '../../components/couponStore/Coupon'
   export default {
     data () {
       return {
@@ -543,7 +435,9 @@
         storeFollow: false, // 门店关注
         storeIsFixed: true, // 门店定位是否fixed防止滑动
         tagsMoreHide: true, // 直降，满减默认隐藏
+        couponReceive: false, // 门店背景列表领券
         tagsText: '查看更多',
+        cateList: [], // 左边分类
         tipsArr: [{
           transform: 'translateY(0)',
           top: 0,
@@ -551,7 +445,11 @@
         }]
       }
     },
+    components: {
+      Coupon
+    },
     created () {
+      // 公告
       let tipsArr = [
         '7天无条件包退，品质放心，购物无忧。',
         '民生超市，百姓永辉.',
@@ -566,6 +464,59 @@
           value: value
         })
       })
+      // 左边分类
+      this.cateList = [{
+        'title': '促销专区',
+        'productCount': 4,
+        'childCategoryList': [{
+          'title': '秒杀',
+          'productCount': 4,
+          'childCategoryList': []
+        },
+        {
+          'title': '满减',
+          'productCount': 4,
+          'childCategoryList': []
+        },
+        {
+          'title': '水果',
+          'productCount': 4,
+          'childCategoryList': []
+        }],
+        'ispromotcat': true,
+        'openCatetory': true
+      },
+      {
+        'title': '蛋品杂粮',
+        'productCount': 14,
+        'childCategoryList': [{
+          'title': '鸡蛋类',
+          'productCount': 4,
+          'childCategoryList': [],
+          'ispromotcat': false,
+          'openCatetory': false
+        },
+        {
+          'title': '干果休闲类',
+          'productCount': 5,
+          'childCategoryList': [],
+          'ispromotcat': false,
+          'openCatetory': false
+        },
+        {
+          'title': '米面杂粮类',
+          'productCount': 5,
+          'childCategoryList': [],
+          'ispromotcat': false,
+          'openCatetory': false
+        }]
+      },
+      {
+        'title': '沃尔玛',
+        'productCount': 4,
+        'ispromotcat': true,
+        'openCatetory': false
+      }]
     },
     mounted () {
       this.winH = window.innerHeight
@@ -628,6 +579,82 @@
         this.tagsMoreHide = !this.tagsMoreHide
         this.tagsMoreHide ? this.tagsText = '查看更多' : this.tagsText = '点击收起'
         console.log(this.tagsMoreHide)
+      },
+      asideCategoryClick (index, e) {
+        // 左边分类点击
+        // console.log(e)
+        let cateListSelect = this.cateList[index]
+        let openCatetory = cateListSelect.openCatetory
+        const cancleOtherCate = (idx) => {
+          // 取消其他选中分类
+          if (this.cateList[idx].childCategoryList) {
+            this.cateList[idx].childCategoryList.forEach((otherItem, otherIdx) => {
+              otherIdx === 0 ? this.$set(otherItem, 'nofirst', false) : '' // 其他分类第一个选中
+              otherItem.active ? this.$set(otherItem, 'active', false) : '' // 其他分类除去第一个取消选中
+            })
+          }
+        }
+        if (e.srcElement.nextElementSibling && (e.srcElement.nextElementSibling.className.indexOf('second-cateList') > -1)) {
+          // 存在二级分类
+          // let title = e.srcElement.innerText
+          console.log('存在二级分类')
+          const cateHide = () => {
+            // 分类隐藏
+            this.$set(cateListSelect, 'openCatetory', false)
+            this.$set(cateListSelect, 'active', true)
+          }
+          const cateShow = () => {
+            // 分类显示
+            this.cateList.forEach((obj, idx) => {
+              if (index === idx) {
+                this.$set(cateListSelect, 'active', false)
+                obj.openCatetory = true
+              } else {
+                // true才执行，false不执行。提高执行效率
+                obj.active ? (obj.active = false) : ''
+                obj.openCatetory ? (obj.openCatetory = false) : ''
+                cancleOtherCate(idx)
+              }
+            })
+          }
+          openCatetory ? cateHide() : cateShow()
+        } else {
+          // 只有一级分类
+          if (e.srcElement.className.indexOf('cateList-title') > -1) {
+            // 二级分类
+            // this.cateList[index].childCategoryList
+            console.log('二级分类')
+            let secondStr = e.target.dataset.type
+            let secondIdx = parseInt(secondStr)
+            let secondArr = cateListSelect.childCategoryList || []
+            secondArr.forEach((secItem, secIdx) => {
+              if (secondIdx === secIdx) {
+                this.$set(secondArr[secondIdx], 'active', true)
+                this.$set(secondArr[secondIdx], 'nofirst', true)
+              } else {
+                // true才执行，false不执行。提高执行效率
+                secItem.active ? (secItem.active = false) : ''
+                secItem.nofirst ? '' : (secItem.nofirst = true)
+              }
+            })
+          } else if (e.srcElement.className.indexOf('category-title') > -1) {
+            console.log('一级分类，下面没有二级分类')
+            const cateActive = () => {
+              // 分类显示
+              this.cateList.forEach((obj, idx) => {
+                if (index === idx) {
+                  this.$set(cateListSelect, 'active', true)
+                } else {
+                  // true才执行，false不执行。提高执行效率
+                  obj.active ? (obj.active = false) : ''
+                  obj.openCatetory ? (obj.openCatetory = false) : ''
+                  cancleOtherCate(idx)
+                }
+              })
+            }
+            openCatetory ? '' : cateActive()
+          }
+        }
       }
     }
   }

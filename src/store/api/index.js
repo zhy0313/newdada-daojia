@@ -1,10 +1,3 @@
-// import './util'
-// import * as minicart from './minicart'
-
-// const api = {
-//   ...minicart
-// }
-// export default api
 import Vue from 'vue'
 
 // 公共参数

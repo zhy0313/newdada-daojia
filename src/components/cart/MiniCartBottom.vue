@@ -26,19 +26,13 @@
 
 <script>
 import MiniCartIcon from './MiniCartIcon'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     MiniCartIcon
   },
   props: {
-    miniCartInfo: {
-      type: Object,
-      default: () => ({
-        buttonName: '去结算',
-        buttonState: 1
-      })
-    },
     isEmpty: {
       type: Boolean,
       default: true
@@ -59,6 +53,9 @@ export default {
     position (val) {
       this.setIconPosition()
     }
+  },
+  computed: {
+    ...mapGetters(['miniCartInfo'])
   },
   methods: {
     goSettlementHandle () {
@@ -107,10 +104,12 @@ export default {
     .money-info-close {
       color: $daojia-light;
       white-space: nowrap;
-      transform: translateX(70px);
+      // transform: translateX(70px);
+      padding-left: 70px;
       transition: transform .5s ease-out 0s;
       &.open {
-        transform: translateX(10px);
+        // transform: translateX(10px);
+        transform: translateX(-60px);
       }
     }
 

@@ -553,153 +553,6 @@
   width: 100%;
 }
 
-.store-home-wrap .coupon-wrap-list{
-  margin: 0 0 6px 0;
-  white-space: nowrap;
-}
-
-.store-home-wrap .coupon-wrap-list li{
-  border-left: 3px solid #ff5757;
-  border-radius: 5px;
-  box-sizing: border-box;
-  height: 70px;
-  margin: 14px auto 0;
-  overflow: hidden;
-  position: relative;
-  width: 99%;
-}
-
-.store-home-wrap .coupon-wrap-list li.coupon-none{
-  border-color: #cccccc;
-}
-.store-home-wrap .coupon-wrap-list .coupon-left{
-  background-color: #FFF;
-  border-bottom: 1px solid #eaeaea;
-  border-top: 1px solid #eaeaea;
-  box-sizing: border-box;
-  float: left;
-  height: 100%;
-  line-height: 70px;
-  text-align: center;
-  width: 56px;
-}
-
-.store-home-wrap .coupon-wrap-list .coupon-num{
-  color: #ff4f64;
-  font-family: Helvetica,sans-serif;
-  font-size: 20px;
-}
-
-.store-home-wrap .coupon-wrap-list .conpon-unit{
-  color: #ff4f64;
-  font-size: 15px;
-  margin-left: -4px;
-}
-
-.store-home-wrap .coupon-wrap-list .coupon-title-wrap{
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.store-home-wrap .coupon-wrap-list .coupon-title{
-  background-color: #fff;
-  border-bottom: 1px solid #eaeaea;
-  border-top: 1px solid #eaeaea;
-  box-sizing: border-box;
-  height: 100%;
-  margin: 0 71px 0 56px;
-  position: relative;
-}
-
-.store-home-wrap .coupon-wrap-list .coupon-h2-wrap{
-  left: 6px;
-  padding-right: 11px;
-  position: absolute;
-  top: 50%;
-  transform: translate(0,-50%);
-  width: 100%;
-}
-
-.store-home-wrap .coupon-h2-wrap h2{
-  color: #333;
-  font-size: 14px;
-  margin-bottom: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.store-home-wrap .coupon-h2-wrap h2 .discount-txt{
-  margin-right: 4px;
-}
-
-.store-home-wrap .coupon-h2-wrap .discount-date{
-  color: #999999;
-  font-size: 11px;
-  margin-bottom: 3px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.store-home-wrap .coupon-wrap-list .coupon-right{
-  background: url('images/store_new_conpon.png') 0 0 no-repeat;
-  background-size: 10px 100%;
-  float: right;
-  height: 100%;
-  padding-left: 10px;
-  width: 71px;
-}
-
-.store-home-wrap .coupon-wrap-list .coupon-right-box{
-  background-color: #FFF;
-  border: 1px solid #eaeaea;
-  border-left: none;
-  border-radius: 1px 5px 5px 1px;
-  box-sizing: border-box;
-  height: 100%;
-  text-align: center;
-  width: 100%;
-}
-
-.store-home-wrap .coupon-wrap-list .coupon-get-btn{
-  background-color: #ff5757;
-  border-radius: 18px;
-  color: #fefffe;
-  display: inline-block;
-  font-size: 11px;
-  height: 18px;
-  line-height: 18px;
-  margin: 24px auto 0;
-  text-align: center;
-  width: 50px;
-}
-
-.store-home-wrap .coupon-none .coupon-num,.store-home-wrap .coupon-none .conpon-unit,.store-home-wrap .coupon-none .discount-txt,.store-home-wrap .coupon-none .discount-date{
-  color: #cccccc;
-}
-
-.store-home-wrap .coupon-none .coupon-right-box::before{
-  background-image: url('images/store_conpon_status.png');
-  background-position: 0 -74px;
-  content: " ";
-  position: absolute;
-  width: 57px;
-  height: 38px;
-  top: -2px;
-  right: 4px;
-  background-repeat: no-repeat;
-  background-size: 57px auto;
-}
-
-.store-home-wrap .coupon-none .coupon-get-btn{
-  background-color: #cdcdcd;
-  color: #fff;
-}
-
 .store-detail-wrap{
   margin: 25px 0 35px 0;
   color: #fff;
@@ -955,6 +808,16 @@
   box-sizing: border-box;
 }
 
+.store-article-wrap .category-active{
+  color: #47b34f;
+  background-color: #fff;
+  border-left: 2px solid #47b34f;
+  position: relative;
+}
+.store-article-wrap .category-active .category-title{
+  background-color: #fff;
+}
+
 .store-article-wrap .menu-aside .category-title::before{
   content: '';
   height: 1px;
@@ -991,6 +854,7 @@
 
 .store-article-wrap .second-cateList{
   overflow: hidden;
+  display: none;
 }
 
 .store-article-wrap .active-parent .second-cateList{
@@ -1021,8 +885,8 @@
 }
 
 .store-article-wrap .second-cateList .cateList-title::before{
-  border-bottom: 1px dashed #e8e8e8;
-  bottom: 0;
+  border-top: 1px dashed #e8e8e8;
+  bottom: -1px;
   content: '';
   height: 1px;
   position: absolute;
@@ -1036,7 +900,7 @@
   border: 0 none;
 }
 
-.store-article-wrap .active-parent-show .cateList-title:first-child{
+.store-article-wrap .active-parent-show .cateList-active{
   color: #47b34f;
   background-color: #fff;
   border-left: 2px solid #47b34f;
@@ -1044,7 +908,7 @@
 }
 
 .store-article-wrap .active-parent-show .cateList-title:first-child::after{
-  border-right: 2px solid #fff;
+  border-right: 1px solid #fff;
   content: '';
   height: 100%;
   position: absolute;
