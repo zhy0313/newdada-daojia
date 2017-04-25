@@ -9,14 +9,14 @@ export const currentStore = state => state.currentStore
 
 export const isCheckAll = state => {
   let hasUncheck = true
+
   state.miniCartInfo.itemList.filter((val) => {
     return val.suitType !== 'invalidate'
   }).forEach((item) => {
-    console.log(item)
     hasUncheck = item.skuList.some((sku) => {
-      console.log(sku)
       return sku.checkType === 0
     })
   })
+
   return !hasUncheck
 }
