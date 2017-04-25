@@ -48,19 +48,13 @@
       minusHandle () {
         if (this.disabled || this.currentValue <= this.min) return
         console.log('减')
-        let newVal = this.currentValue - this.step
-        if (newVal < this.value) {
-          this.currentValue = newVal
-        }
+        this.currentValue = this.value - this.step
       },
       // 加
       plusHandle () {
         if (this.disabled || this.currentValue >= this.max) return
         console.log('加')
-        let newVal = this.currentValue + this.step
-        if (newVal > this.value) {
-          this.currentValue = newVal
-        }
+        this.currentValue = this.value + this.step
       }
     }
   }

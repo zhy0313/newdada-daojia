@@ -11,20 +11,23 @@ export default {
     }
   },
   watch: {
-    // value (val) {
-    //   console.log('set value', val)
-    //   this.currentValue = val
-    // },
+    value (val) {
+      console.log('set value', val)
+      this.currentValue = val
+    },
     currentValue (val) {
       if (this.disabled) return
 
       if (isArray(val) && val.length === 0) {
         this.currentValue = undefined
-
         return
       }
 
-      console.log('setCurrentValue value sync', val, this.value, this.isAdd)
+      if (val === this.value) {
+        return
+      }
+
+      console.log('setCurrentValue value sync', val, this.value)
       this.$emit('change', val)
     }
   }

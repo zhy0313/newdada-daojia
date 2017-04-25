@@ -44,7 +44,6 @@
       } else {
         currentValue = this.value
       }
-
       return { currentValue }
     },
     watch: {
@@ -52,8 +51,8 @@
         if (this.isGroupChildComponent) {
           this.$parent.$emit('optionChecked', this.value)
         }
-
-        this.$emit('input', val)
+        console.log('currentValue change checkbox')
+        // this.$emit('input', val)
       }
     },
     beforeCreate () {

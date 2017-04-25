@@ -1,13 +1,13 @@
 <template>
   <li class="minicart-product-item">
-    <checkbox :disabled="productItem.skuState == 0" :value="productItem.checkType == 1"> </checkbox>
+    <checkbox :disabled="productItem.skuState == 0" :value="productItem.checkType == 1" @change="checkHandle"> </checkbox>
     <ProductSingleItem :productItem="productItem"></ProductSingleItem>
 
     <input-number
     :disabled="productItem.skuState == 0"
     class="minicart-product-operation"
     :min="1"
-    @change="changeHandle"
+    @change="changeNumberHandle"
     :value="productItem.cartNum"></input-number>
   </li>
 </template>
@@ -28,9 +28,11 @@ export default {
   },
   methods: {
     ...mapActions([
-      'changeItemNum'
+      'changeItemNum',
+      'cartUncheckItem',
+      'cartCheckItem'
     ]),
-    changeHandle (value) {
+    changeNumberHandle (value) {
       let cartParams = this.currentStore
       cartParams.skus = [{
         id: this.productItem.skuId,
@@ -39,6 +41,18 @@ export default {
       cartParams.chgNumReturnType = 0
       cartParams.isAdd = value > this.productItem.cartNum
       this.changeItemNum(cartParams)
+    },
+    checkHandle () {
+      let cartParams = this.currentStore
+      cartParams.skus = [{
+        id: this.productItem.skuId,
+        num: this.productItem.cartNum
+      }]
+      if (this.productItem.checkType === 1) {
+        this.cartUncheckItem(cartParams)
+      } else {
+        this.cartCheckItem(cartParams)
+      }
     }
   }
 }
