@@ -329,7 +329,7 @@
        <div v-if="goodsInfo.name" class="sku-name">{{goodsInfo.name}}</div>
        <!--广告语-->
        <div v-if="goodsInfo.adword" class="sku-adword">{{goodsInfo.adword}}</div>
-       <!--秒杀商品展示秒杀倒计时-->
+       <!--秒杀商品展示秒杀倒计时 todo -->
        <div v-if="goodsInfo.miaoshaInfo && goodsInfo.miaoshaInfo.miaoShaSate == 1" class="detail-miaosha-box">
          秒杀<em><i>{{remainTime.hh}}</i>:<i>{{remainTime.mm}}</i>:<i>{{remainTime.ss}}</i></em>结束
        </div>
@@ -340,6 +340,7 @@
            <span class="sku-real-price">￥{{skuPriceVO.basicPrice}}</span>
          </span>
          <span v-else class="sku-basic-price">￥{{skuPriceVO.basicPrice}}</span>
+         <!--todo 加成,在购物车数量-->
          <btn theme='default' v-on:click="addGoods" class='addbtn'>加入购物车</btn>
        </div>
        <!--促销标信息-->
@@ -368,20 +369,21 @@
        <span class="fr">暂无评价</span>
      </div>
      <!--推荐商品-->
-     <swipe :speed="1000">
-       <swipe-item v-for="item in recommendSkuVOList" >
-         <div v-for="skuitem in item.data">
-           <router-link to="goodsDetail/skuitem.skuId/skuitem.storeId/skuitem.orgCode">
-             <img :src="skuitem.imgUrl"/>
-             <span>{{skuitem.skuName}}</span>
-             <span>
-               <span>${{skuitem.realTimePrice}}</span>
-               <span>add</span>
-             </span>
-           </router-link>
-         </div>
-       </swipe-item>
-     </swipe>
+     <div v-if="recommendSkuVOList.length" class="recommendSkuVOList">
+       <p class="recomend-txt">{{recommendname}}</p>
+       <swipe :speed="1000">
+         <swipe-item v-for="item in recommendSkuVOList" >
+           <!--加一个router-link 导致溢出? todo-->
+           <div class="recomend-sku-wrap" v-for="skuitem in item.data">
+             <img class="recomend-sku-img" :src="skuitem.imgUrl"/>
+             <span class="recomend-sku-name">{{skuitem.skuName}}</span>
+             <span class="recomend-sku-price">${{skuitem.realTimePrice}}</span>
+             <!-- todo 加车在购物车数量-->
+             <span class="recomend-sku-btn">加车icon</span>
+           </div>
+         </swipe-item>
+       </swipe>
+     </div>
      <!-- 购物车-->
      <MiniCart
         :isOpenCart="isOpenCart"
@@ -577,6 +579,72 @@
   margin-top: 5px;
   color: #ff3434;
   font-size: 13px;
+}
+.recommendSkuVOList {
+  margin-top: 10px;
+  background-color: #FFF;
+}
+.recomend-sku-wrap {
+  position: relative;
+  display: inline-block;
+  width:33.3%;
+  text-align: center;
+  background-color: #FFF;
+  vertical-align: top;
+}
+.recomend-sku-img {
+  display: block;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+}
+.recomend-sku-name {
+  display: block;
+  margin: 5px 5px 0 5px;
+  font-size: 13px;
+  color: #333;
+  line-height: 16px;
+  height: 32px;
+  overflow: hidden;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.recomend-sku-price {
+  display: block;
+  text-align: left;
+  color: #ff3434;
+  font-size: 16px;
+  height: 26px;
+  line-height: 26px;
+  margin: 5px 5px 5px 5px;
+}
+.recomend-sku-btn {
+  position: absolute;
+  right: -5px;
+  bottom: 2px;
+  width: 40px;
+  height: 40px;
+  background-position: -150px -55px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAYAAADtt+XCAAAAGXRFW…QQCgghhBAKCCGEEAoIIYQQQgEhhBBCASGEEOJa/l+AAQDXTww0TkpVOQAAAABJRU5ErkJggg==) no-repeat;
+  background-size: 200px 150px;
+}
+.recomend-txt {
+  line-height: 15px;
+  padding: 7px 5px;
+  color: #3c3c3c;
+}
+.recommendSkuVOList .swipe-indicators {
+  top: 0;
+  bottom: auto;
+  left: auto;
+  right: 0;
+}
+.recommendSkuVOList .swipe-indicator.active {
+  background-color: #848484;
+  border: 1px solid #848484;
 }
 </style>
 <script>
