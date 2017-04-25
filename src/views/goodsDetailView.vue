@@ -357,8 +357,8 @@
      <!--店铺信息-->
      <div v-if="storeInfo.storeId" class="sku-store-wrap">
        <div class="sku-store-content">
-         <router-link to="/storeHome">{{storeInfo.storeName}}</router-link>
-         <a :href="telphone">联系商家</a>
+         <router-link to="/storeHome" class="fl store-wrap"> <icon name="store" size="lg" />{{storeInfo.storeName}}</router-link>
+         <a :href="telphone" class="fr tel-wrap"> <icon name="phone" size="lg" />联系商家</a>
        </div>
      </div>
      <!--商品评价-->
@@ -367,6 +367,21 @@
        <span class="fr">暂无评价</span>
      </div>
      <!--推荐商品-->
+     <swipe :speed="1000">
+       <swipe-item v-for="item in recommendSkuVOList" >
+         <div v-for="skuitem in item.data">
+           <router-link to="goodsDetail/skuitem.skuId/skuitem.storeId/skuitem.orgCode">
+             <img :src="skuitem.imgUrl"/>
+             <span>{{skuitem.skuName}}</span>
+             <span>
+               <span>${{skuitem.realTimePrice}}</span>
+               <span>add</span>
+             </span>
+           </router-link>
+         </div>
+       </swipe-item>
+     </swipe>
+     <!-- 购物车-->
      <MiniCart :isOpenCart="isOpenCart"></MiniCart>
    </div>
 
@@ -514,6 +529,7 @@
   overflow: hidden;
 }
 .sku-store-content {
+  overflow: hidden;
   border-bottom: 1px solid #e8e8e8;
 }
 .detail-comment-box {
@@ -528,6 +544,36 @@
 }
 .fr {
   float: right;
+}
+.tel-wrap {
+  width: 35%;
+}
+.store-wrap {
+  width: 65%;
+}
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.icon-store {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAYAAADtt+XCAAAAGXRFW…QQCgghhBAKCCGEEAoIIYQQQgEhhBBCASGEEOJa/l+AAQDXTww0TkpVOQAAAABJRU5ErkJggg==) no-repeat;
+  background-position: -44px 4px;
+  background-size: 200px 150px;
+}
+.icon-phone {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAYAAADtt+XCAAAAGXRFW…QQCgghhBAKCCGEEAoIIYQQQgEhhBBCASGEEOJa/l+AAQDXTww0TkpVOQAAAABJRU5ErkJggg==) no-repeat;
+  background-position: -22px 4px;
+  background-size: 200px 150px;
+}
+.detail-miaosha-box {
+  background-color: #ffeaea;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  margin-top: 5px;
+  color: #ff3434;
+  font-size: 13px;
 }
 </style>
 <script>
@@ -565,7 +611,7 @@ export default {
         vm.skuPriceVO = vm.goodsInfo.skuPriceVO
         vm.tags = vm.goodsInfo.tags
         vm.storeInfo = vm.goodsInfo.storeInfo
-        vm.miaoShatime = vm.goodsInfo.miaoshaInfo.miaoShaSate === 1 && vm.goodsInfo.miaoshaInfo.miaoshaRemainTime
+        vm.miaoShatime = vm.goodsInfo.miaoshaInfo && vm.goodsInfo.miaoshaInfo.miaoShaSate === 1 && vm.goodsInfo.miaoshaInfo.miaoshaRemainTime
         let length = vm.tags.length
         // 促销标标语替换###
         if (length) {
@@ -578,6 +624,39 @@ export default {
       vm.$toast({message: error.msg || '网络繁忙啦', position: 'center', type: 'error'})
     })
   },
+  mounted () {
+    let skuId = this.$route.params.skuid
+    let storeId = this.$route.params.storeid
+    let vm = this
+    this.$getAPI({
+      functionId: 'productsearch/getTwoDimensionsRecommendSkusNew',
+      body: {
+        storeId: storeId,
+        skuId: skuId
+      }
+    }).then((response) => {
+      if (response.body.code === '0') {
+        let result = response.body.result
+        let targerArray = result.dimensionsResultVOList[0].recommendSkuVOList
+        vm.recommendname = result.dimensionsResultVOList[0].dimensionName
+        var length = targerArray.length
+        var pageNumber = Math.ceil(length / 6)
+        var newResult = []
+        for (var i = 0; i < pageNumber; i++) {
+          var temp = {}
+          if (i === (pageNumber - 1)) {
+            temp['data'] = targerArray.slice(i * 6, length)
+          } else {
+            temp['data'] = targerArray.slice(6 * i, 6 * (i + 1))
+          }
+          newResult.push(temp)
+        }
+        vm.recommendSkuVOList = newResult
+      }
+    }, (error) => {
+      vm.$toast({message: error.msg || '网络繁忙啦', position: 'center', type: 'error'})
+    })
+  },
   data () {
     return {
       goodsInfo: { },
@@ -585,12 +664,52 @@ export default {
       tags: [ ],
       storeInfo: { },
       miaoShatime: ' ',
-      isOpenCart: false
+      isOpenCart: false,
+      recommendSkuVOList: [],
+      recommendname: ''
     }
   },
   methods: {
     addGoods: function () {
       this.$toast({message: '加购物车'})
+    },
+    parseInt10: function (a) {
+      return parseInt(a, 10)
+    },
+    checkTime: function (i) {
+      i = parseInt(i)
+      if (i < 10) {
+        i = '0' + i
+      }
+      return i
+    },
+    houMinSec: function (timeLeft) {
+      var ss = parseInt(timeLeft % (60))
+      var hh = parseInt(timeLeft / (60 * 60))
+      var mm = parseInt((timeLeft - hh * 60 * 60) / 60)
+      var time = {
+        hh: this.checkTime(hh),
+        mm: this.checkTime(mm),
+        ss: this.checkTime(ss)
+      }
+      return time
+    },
+    miaoshaCountDonw: function () {
+      let vm = this
+      let leftTime = parseInt(this.remainTime)
+      vm.countTimeInterval = setInterval(function () {
+        if (leftTime === 0) { // 这里就是时间到了之后应该执行的动作了
+          clearInterval(vm.countTimeInterval)
+          return
+        }
+        let timeChange = parseInt(1)
+        leftTime = leftTime - timeChange
+        if (leftTime < 0) {
+          clearInterval(vm.countTimeInterval)
+          leftTime = 0
+        }
+        vm.remainTime = this.houMinSec(leftTime)
+      }, 1000)
     }
   },
   computed: {
@@ -609,70 +728,20 @@ export default {
       return tagArray
     },
     remainTime () {
-      function parseInt10 (a) {
-        return parseInt(a, 10)
-      }
-      function checkTime (i) {
-        i = parseInt(i)
-        if (i < 10) {
-          i = '0' + i
-        }
-        return i
-      }
-      function houMinSec (timeLeft) {
-        var ss = parseInt(timeLeft % (60))
-        var hh = parseInt(timeLeft / (60 * 60))
-        var mm = parseInt((timeLeft - hh * 60 * 60) / 60)
-        var time = {
-          hh: checkTime(hh),
-          mm: checkTime(mm),
-          ss: checkTime(ss)
-        }
-        return time
-      }
-      let vm = this
-      function countdown (leftTime, result) {
-        debugger
-        leftTime = parseInt(leftTime)
-        // let startTime = (new Date()).getTime() / 1000
-        vm.countTimeInterval = setInterval(function () {
-          // var nowTime = (new Date()).getTime() / 1000
-          if (leftTime === 0) { // 这里就是时间到了之后应该执行的动作了
-            clearInterval(vm.countTimeInterval)
-            // window.location.reload(); // 走到零刷新
-            return
-          }
-          let timeChange = parseInt(1)
-          console.log('change:' + timeChange)
-          leftTime = leftTime - timeChange
-          console.log(leftTime)
-          if (leftTime < 0) {
-            clearInterval(vm.countTimeInterval)
-            leftTime = 0
-          }
-          result = houMinSec(leftTime)
-          // return result
-        }, 1000)
-      }
-
       if (this.miaoShatime) {
         let result = { }
-        let leftTime = parseInt10(this.miaoShatime / 1000)
+        let leftTime = this.parseInt10(this.miaoShatime / 1000)
         // 开始倒计时
         let ss = parseInt(leftTime % (60))
         let hh = parseInt(leftTime / (60 * 60))
         let mm = parseInt((leftTime - hh * 60 * 60) / 60)
         result = {
-          hh: checkTime(hh),
-          mm: checkTime(mm),
-          ss: checkTime(ss)
+          hh: this.checkTime(hh),
+          mm: this.checkTime(mm),
+          ss: this.checkTime(ss)
         }
-        countdown(leftTime, result)
+//        this.miaoshaCountDonw()
         return result
-        /* 定时更新详情页 */
-        // let duration = this.goodsInfo.miaoshaInfo.syntime
-        // this.listInterval = setTimeout(function(){
-        // },duration);
       }
     }
   }
