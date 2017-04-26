@@ -3,7 +3,7 @@
     <div v-if="orderItem.orderStateMap" class="order-state-track">
     </div>
     <div class="order-item-info">
-      <div v-if="orderItem.orderStateMap" class="order-state-info">
+      <!-- <div v-if="orderItem.orderStateMap" class="order-state-info">
         <div class="state-header">
           <span>{{orderItem.orderStateMap.stateTitle}}</span>
           <span>{{orderItem.orderStateMap.stateTime}}</span>
@@ -13,13 +13,17 @@
           {{orderItem.orderStateMap.stateDesc}}
           <router-link to="/" class="refund-detail">{{orderItem.orderStateMap.hrefContent || '查看退款详情'}}</router-link>
         </div>
-      </div>
+      </div> -->
+      <OrderStateInfo :orderStateMap="orderItem.orderStateMap"></OrderStateInfo>
     </div>
   </flex>
 </template>
 <script>
+import OrderStateInfo from './OrderStateInfo'
 export default {
-  components: { },
+  components: {
+    OrderStateInfo
+  },
   props: {
     orderItem: Object
   }
@@ -41,11 +45,5 @@ export default {
     .order-item-info {
       flex: 1;
     }
-
-    .state-header {
-      display: flex;
-      justify-content: space-between;
-    }
-
   }
 </style>
