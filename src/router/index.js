@@ -20,6 +20,7 @@ import NewAddressView from '@/views/NewAddressView'
 import EditAddressView from '@/views/EditAddressView'
 import ActivityView from '@/views/Activity/ActivityView'
 import GoodsDetailView from '@/views/goodsDetailView' // 报错先注释掉
+import IndexHome from '@/views/Index' // 报错先注释掉
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ export default new Router({
       path: '/',
       name: 'IndexView',
       component: IndexView
+    },
+    {
+      path: '/index',
+      name: 'Index',
+      component: IndexHome
     },
     {
       path: '/address',
