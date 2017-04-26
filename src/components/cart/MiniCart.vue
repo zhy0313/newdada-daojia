@@ -59,12 +59,8 @@
       this.isClose = !this.isOpenCart
       this.querySingleCart(this.currentStore)
     },
-    mounted () {
-      this.setPosition()
-    },
-    updated () {
-      this.setPosition()
-    },
+    mounted: this.setPosition,
+    updated: this.setPosition,
     methods: {
       ...mapActions([
         'querySingleCart'
@@ -90,13 +86,12 @@
       touchmoveHandle (e) {
         let isTopReached = this.$refs.miniCartDetail.isTopReached
         let isBottomReached = this.$refs.miniCartDetail.isBottomReached
-        // console.log('isTopReached', isTopReached, 'isBottomReached', isBottomReached, e.changedTouches[0])
         let node = e.target
         while (node.className !== 'minicart-scroll-view' && node.className !== 'mask') {
           node = node.parentNode
         }
         if (node.className !== 'minicart-scroll-view') {
-          console.log('阻止滑动')
+          console.log('非滚动区域，阻止滑动')
           e.preventDefault()
         } else if (isTopReached && e.changedTouches[0].clientY > this.touchStartPos) {
           console.log('到顶，阻止下拉滑动')

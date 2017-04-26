@@ -28,6 +28,7 @@ module.exports = {
     autoOpenBrowser: true, // 自动打开浏览器
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    host: '0.0.0.0',
     // assetsPublicPath: '//static-o2o.360buyimg.com/daojia/new/images/',
     // 配置代理
     proxyTable: {
