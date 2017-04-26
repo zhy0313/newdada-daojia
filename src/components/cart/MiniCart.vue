@@ -1,7 +1,8 @@
 <template>
   <div :class="{'mask': !isClose}"
     @click="maskClickHandle"
-    @touchmove="touchmoveHandle">
+    @touchmove="touchmoveHandle"
+    @touchstart="touchstartHandle">
 
     <!-- 迷你购物车详细信息，可展开可收起 -->
     <MiniCartDetail
@@ -41,7 +42,8 @@
     data () {
       return {
         isClose: true,
-        position: 0
+        position: 0,
+        touchStartPos: 0
       }
     },
     computed: {
@@ -56,8 +58,6 @@
     created () {
       this.isClose = !this.isOpenCart
       this.querySingleCart(this.currentStore)
-
-      // this.cartAddItem({storeId: this.storeId, orgCode: this.orgCode})
     },
     mounted () {
       this.setPosition()
@@ -84,21 +84,28 @@
           e.stopImmediatePropagation()
         }
       },
+      touchstartHandle (e) {
+        this.touchStartPos = e.changedTouches[0].clientY
+      },
       touchmoveHandle (e) {
-        // console.log('touchmoveHandle', e.target, e.target.parentNode)
-        // e.target.parentNode
+        let isTopReached = this.$refs.miniCartDetail.isTopReached
+        let isBottomReached = this.$refs.miniCartDetail.isBottomReached
+        // console.log('isTopReached', isTopReached, 'isBottomReached', isBottomReached, e.changedTouches[0])
         let node = e.target
         while (node.className !== 'minicart-scroll-view' && node.className !== 'mask') {
           node = node.parentNode
-          console.log(node.className, node.className)
         }
         if (node.className !== 'minicart-scroll-view') {
+          console.log('阻止滑动')
+          e.preventDefault()
+        } else if (isTopReached && e.changedTouches[0].clientY > this.touchStartPos) {
+          console.log('到顶，阻止下拉滑动')
+          e.preventDefault()
+        } else if (isBottomReached && e.changedTouches[0].clientY < this.touchStartPos) {
+          console.log('到底，阻止上拉滑动')
           e.preventDefault()
         }
       }
     }
   }
 </script>
-
-<style lang="scss">
-</style>

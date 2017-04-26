@@ -19,6 +19,7 @@
         <span class="promote-price">{{`¥${productItem.promotePrice.promotePrice}`}}</span>
         <span class="promote-num">{{` x ${productItem.promotePrice.promoteNum}`}}</span>
       </div>
+
       <!-- 促销打标 -->
       <div v-else-if="productItem.tags.length">
         <span class="product-tag"

@@ -28,7 +28,8 @@
     },
     data () {
       return {
-        scrollable: true
+        isTopReached: false,
+        isBottomReached: false
       }
     },
     props: {
@@ -48,15 +49,16 @@
       scrollHandle (e) {
         let el = e.target
         // console.log('scrollHandle', el.offsetHeight, el.scrollHeight, el.scrollTop)
-        if (el.scrollTop === 0 ||
-            (el.offsetHeight + el.scrollTop) >= el.scrollHeight
-        ) {
-          this.scrollable = false
+        if (el.scrollTop === 0) {
+          this.isTopReached = true
         } else {
-          this.scrollable = true
+          this.isTopReached = false
         }
-
-        console.log(this.scrollable)
+        if ((el.offsetHeight + el.scrollTop) >= el.scrollHeight) {
+          this.isBottomReached = true
+        } else {
+          this.isBottomReached = false
+        }
       }
     }
   }

@@ -1,10 +1,10 @@
 <template>
   <li class="minicart-product-item">
-    <checkbox :disabled="productItem.skuState == 0" :value="productItem.checkType == 1" @change="checkHandle"> </checkbox>
+    <checkbox :disabled="isInvalid" :value="productItem.checkType == 1" @change="checkHandle"> </checkbox>
     <ProductSingleItem :productItem="productItem"></ProductSingleItem>
 
     <input-number
-    :disabled="productItem.skuState == 0"
+    :disabled="isInvalid"
     class="minicart-product-operation"
     :min="1"
     @change="changeNumberHandle"
@@ -24,7 +24,11 @@ export default {
     productItem: Object
   },
   computed: {
-    ...mapGetters(['currentStore'])
+    ...mapGetters(['currentStore']),
+    isInvalid () { // 无效商品，无货，已下架等
+      let state = this.productItem.skuState
+      return state !== 1 && state !== 3
+    }
   },
   methods: {
     ...mapActions([
