@@ -4,7 +4,8 @@
     <!-- 迷你购物车总控制栏 -->
     <MiniCarControlBar :isInvalid="justInvalid">{{numWeightDesc}}</MiniCarControlBar>
 
-    <div class="minicart-scroll-view">
+    <div class="minicart-scroll-view"
+      @scroll="scrollHandle">
       <!-- 迷你购车车商品列表 -->
       <MiniCartProductList
         v-for="item in itemList"
@@ -25,6 +26,11 @@
       MiniCarControlBar,
       MiniCartProductList
     },
+    data () {
+      return {
+        scrollable: true
+      }
+    },
     props: {
       itemList: Array,
       numWeightDesc: String,
@@ -36,6 +42,21 @@
     computed: {
       justInvalid () {
         return this.itemList.length === 1 && this.itemList[0].suitType === 'invalidate'
+      }
+    },
+    methods: {
+      scrollHandle (e) {
+        let el = e.target
+        // console.log('scrollHandle', el.offsetHeight, el.scrollHeight, el.scrollTop)
+        if (el.scrollTop === 0 ||
+            (el.offsetHeight + el.scrollTop) >= el.scrollHeight
+        ) {
+          this.scrollable = false
+        } else {
+          this.scrollable = true
+        }
+
+        console.log(this.scrollable)
       }
     }
   }

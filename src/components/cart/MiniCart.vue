@@ -1,5 +1,7 @@
 <template>
-  <div :class="{'mask': !isClose}" @click="maskClickHandle">
+  <div :class="{'mask': !isClose}"
+    @click="maskClickHandle"
+    @touchmove="touchmoveHandle">
 
     <!-- 迷你购物车详细信息，可展开可收起 -->
     <MiniCartDetail
@@ -54,6 +56,7 @@
     created () {
       this.isClose = !this.isOpenCart
       this.querySingleCart(this.currentStore)
+
       // this.cartAddItem({storeId: this.storeId, orgCode: this.orgCode})
     },
     mounted () {
@@ -64,7 +67,6 @@
     },
     methods: {
       ...mapActions([
-        // 'cartAddItem',
         'querySingleCart'
       ]),
       setPosition () { // 迷你购物车高度，图标位置
@@ -80,6 +82,18 @@
         if (e.target.className === 'mask') {
           this.isClose = !this.isClose
           e.stopImmediatePropagation()
+        }
+      },
+      touchmoveHandle (e) {
+        // console.log('touchmoveHandle', e.target, e.target.parentNode)
+        // e.target.parentNode
+        let node = e.target
+        while (node.className !== 'minicart-scroll-view' && node.className !== 'mask') {
+          node = node.parentNode
+          console.log(node.className, node.className)
+        }
+        if (node.className !== 'minicart-scroll-view') {
+          e.preventDefault()
         }
       }
     }
