@@ -29,7 +29,7 @@ export default {
     align-items: stretch;
 
     .order-state-track {
-      margin: 0 12px;
+      margin: 73px 12px 20px 12px;
       width: 1px;
       @include border-left();
     }

@@ -29,7 +29,7 @@ export default {
   @import "../../assets/styles/variables";
 
   .orderlist-item {
-    height: 200px;
+    // height: 200px;
     background: $daojia-pure;
     margin-bottom: 10px;
   }

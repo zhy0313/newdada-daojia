@@ -1,5 +1,5 @@
 <template>
-  <div v-if="orderStateMap" class="order-state-info">
+  <div v-if="orderStateMap" class="order-list-state-info">
     <div class="state-header">
       <span class="state-title">{{orderStateMap.stateTitle}}</span>
       <span class="state-time">{{orderStateMap.stateTime}}</span>
@@ -8,21 +8,28 @@
       {{orderStateMap.stateDesc}}
       <router-link to="/" class="refund-detail">{{orderStateMap.hrefContent || '查看退款详情'}}</router-link>
     </div>
+
+    <OrderStateIcon :stateIcon="orderStateMap.stateIcon"></OrderStateIcon>
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    orderStateMap: Object
+  import OrderStateIcon from './OrderStateIcon'
+
+  export default {
+    components: {
+      OrderStateIcon
+    },
+    props: {
+      orderStateMap: Object
+    }
   }
-}
 </script>
 
 <style lang="scss">
   @import "../../assets/styles/variables";
 
-  .order-state-info {
+  .order-list-state-info {
     margin: 10px 0 10px 15px;
     border: 1px solid $daojia-border;
     border-radius: 3px;
@@ -57,6 +64,23 @@ export default {
     .state-title {
       font-size: 15px;
       color: #484848;
+    }
+
+    .state-desc {
+      padding-right: 40px;
+    }
+
+    .refund-detail {
+      font-size: 13px;
+      color: #2486ff;
+    }
+
+    .order-state-icon {
+      position: absolute;
+      background-color: #fff;
+      top: 50%;
+      left: -42px;
+      transform: translateY(-50%);
     }
   }
 
