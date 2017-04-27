@@ -11,6 +11,7 @@
     v-else
     class="orderlist-loadmore-wrapper"
     :bottomMethod="loadBottom"
+    :showLoading="loading"
     >
     <ul>
       <OrderItem
@@ -33,6 +34,7 @@
         startIndex: 0,
         orderlist: [],
         loading: true,
+        loadmore: true,
         msg: '没有未评价的订单哦，赶紧去购物吧',
         hasComment: false
       }
@@ -49,6 +51,7 @@
         this.fetchOrderList()
       },
       fetchOrderList () {
+        this.loadmore = true
         this.$getAPI({
           functionId: 'order/list',
           body: {
@@ -56,7 +59,7 @@
             dataSize: 10
           }
         }).then((response) => {
-          this.loading = false
+          this.loading = this.loadmore = false
           if (response.body.code === '0') {
             console.log(response.result)
             this.orderlist = this.orderlist.concat(response.result)

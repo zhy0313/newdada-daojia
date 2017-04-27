@@ -190,6 +190,7 @@
           this.getScrollTop(this.scrollElement) === 0 &&
           !this.topAllLoaded
         ) {
+          console.log('pull down')
           event.preventDefault()
           event.stopPropagation()
           this.translate = distance - this.startScrollTop
@@ -209,6 +210,7 @@
           this.bottomReached &&
           !this.bottomAllLoaded
         ) {
+          console.log('pull up')
           event.preventDefault()
           event.stopPropagation()
           this.translate = this.getScrollTop(this.scrollElement) -
@@ -220,20 +222,22 @@
         }
       },
       handleTouchEnd () {
+        console.log(this.bottomStatus, this.direction, this.getScrollTop(this.scrollElement), this.translate)
         // pull down
         if (this.direction === 'down' &&
           this.getScrollTop(this.scrollElement) === 0 &&
-          this.translate > 0
+          this.translate !== 0
         ) {
           this.topDropped = true
 
           if (this.topStatus === 'drop') {
             this.translate = 50
-            this.topStatus = 'loading'
             this.topMethod()
+            this.topStatus = 'drop'
           } else {
             this.translate = 0
             this.topStatus = 'pull'
+            this.bottomStatus = 'drop'
           }
         }
 
@@ -241,19 +245,21 @@
         if (
           this.direction === 'up' &&
           this.bottomReached &&
-          this.translate < 0
+          this.translate !== 0
         ) {
           this.bottomDropped = true
           // reset after pull up takes effect
           this.bottomReached = false
 
           if (this.bottomStatus === 'drop') {
+            console.log('pull up drop')
             this.translate = -50
-            this.bottomStatus = 'loading'
             this.bottomMethod()
+            this.bottomStatus = 'drop'
           } else {
             this.translate = 0
             this.bottomStatus = 'pull'
+            this.topStatus = 'drop'
           }
         }
 
