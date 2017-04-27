@@ -102,19 +102,22 @@ export default {
           storeId: '10050212',
           storeName: '商家中心1号测试门店',
           openJPIndustry: '21',
-          addressType: false,
-          cityCode: 1,
-          longitude: 116.50628,
-          latitude: 39.79311,
-          addressId: 8185
+          addressType: true
+          // cityCode: 1,
+          // longitude: 116.50628,
+          // latitude: 39.79311,
+          // addressId: 8185
         }
       }).then((response) => {
-        console.log(response)
-        let result = response.body.result
-        this.totalCost = result.totalCost
-        this.totalMoney = result.totalMoney
-        this.totalWeight = result.totalWeight
-        this.modules = result.modules
+        if (response.body.code === '0') {
+          let result = response.body.result
+          this.totalCost = result.totalCost
+          this.totalMoney = result.totalMoney
+          this.totalWeight = result.totalWeight
+          this.modules = result.modules
+        } else {
+          this.$toast({message: response.body.msg})
+        }
       }, (err) => {
         console.log('err', err)
       })
