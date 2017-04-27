@@ -1,6 +1,6 @@
 <template>
   <div class="product-image-wrap">
-    <img :src="productItem.imageUrl" />
+    <img :src="productItem.imageUrl || productItem.imgPath" />
     <span v-if="isInvalid" class="product-mask">{{productItem.skuStateName}}</span>
     <span v-else class="promotion-tip"><slot></slot></span>
   </div>
@@ -14,7 +14,7 @@ export default {
   computed: {
     isInvalid () { // 无效商品，无货，已下架等
       let state = this.productItem.skuState
-      return state !== 1 && state !== 3
+      return state !== 1 && state !== 3 && state !== undefined
     }
   }
 }

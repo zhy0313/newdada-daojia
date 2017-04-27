@@ -4,7 +4,7 @@
     <ProductImage :productItem="productItem"></ProductImage>
     <!-- <img :src="productItem.imageUrl">
     <span v-if="isInvalid" class="product-mask">{{productItem.skuStateName}}</span> -->
-    <span>¥{{productItem.price}}</span>
+    <span v-if="!isOrder">¥{{productItem.price}}</span>
     <i v-if="showMore" class="iconfont icon-6"></i>
   </badge>
 </template>
@@ -18,6 +18,10 @@
     },
     props: {
       productItem: Object,
+      isOrder: {
+        type: Boolean,
+        default: false
+      },
       showMore: {
         type: Boolean,
         default: false
@@ -29,7 +33,7 @@
       },
       isInvalid () { // 无效商品，无货，已下架等
         let state = this.productItem.skuState
-        return state !== 1 && state !== 3
+        return state !== 1 && state !== 3 && state !== undefined
       }
     }
   }

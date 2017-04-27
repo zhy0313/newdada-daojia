@@ -6,7 +6,8 @@
       v-for="item in itemList"
       :productItem="item"
       :showMore="showMore"
-      :key="item.skuId">
+      :isOrder="isOrder"
+      :key="item.skuId || item.sku">
     </ProductItem>
   </div>
 </template>
@@ -21,6 +22,10 @@ export default {
   props: {
     itemList: Array,
     showMore: {
+      type: Boolean,
+      default: false
+    },
+    isOrder: {
       type: Boolean,
       default: false
     }

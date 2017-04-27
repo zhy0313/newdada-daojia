@@ -30,7 +30,7 @@
   @import "../../assets/styles/variables";
 
   .order-list-state-info {
-    margin: 10px 0 10px 15px;
+    margin: 0 10px 10px 15px;
     border: 1px solid $daojia-border;
     border-radius: 3px;
     color: #999;
