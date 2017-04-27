@@ -1,10 +1,9 @@
 <template>
   <div v-if="orderStateMap" class="order-state-info">
     <div class="state-header">
-      <span>{{orderStateMap.stateTitle}}</span>
-      <span>{{orderStateMap.stateTime}}</span>
+      <span class="state-title">{{orderStateMap.stateTitle}}</span>
+      <span class="state-time">{{orderStateMap.stateTime}}</span>
     </div>
-
     <div class="state-desc">
       {{orderStateMap.stateDesc}}
       <router-link to="/" class="refund-detail">{{orderStateMap.hrefContent || '查看退款详情'}}</router-link>
@@ -21,10 +20,43 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "../../assets/styles/variables";
+
   .order-state-info {
+    margin: 10px 0 10px 15px;
+    border: 1px solid $daojia-border;
+    border-radius: 3px;
+    color: #999;
+    font-size: 13px;
+    background-color: #fafafa;
+    padding: 10px;
+    position: relative;
+
+    &::before, &::after {
+      border: 10px solid transparent;
+      border-left-width: 1px;
+      border-right-color: #fafafa;
+      position: absolute;
+      content: "";
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: -11px;
+      border-right-color: #e8e8e8;
+    }
+
     .state-header {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .state-title {
+      font-size: 15px;
+      color: #484848;
     }
   }
 
