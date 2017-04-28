@@ -25,7 +25,8 @@ export default {
 
     .btn {
       background-color: #fff;
-
+      color: #000;
+      border: 1px solid #d9d9d9;
     }
   }
 </style>

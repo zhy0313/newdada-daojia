@@ -59,8 +59,12 @@
       this.isClose = !this.isOpenCart
       this.querySingleCart(this.currentStore)
     },
-    mounted: this.setPosition,
-    updated: this.setPosition,
+    mounted () {
+      this.setPosition()
+    },
+    updated () {
+      this.setPosition()
+    },
     methods: {
       ...mapActions([
         'querySingleCart'
@@ -69,7 +73,9 @@
         if (this.$refs.miniCartDetail) {
           this.position = this.$refs.miniCartDetail.$el.clientHeight
         }
+        console.log(this.position)
       },
+      // 折叠收起购物车，触发动画效果
       switchCartDetailHandle () { // 点击底部，展开或收起购物车详情
         if (this.isEmpty) return
         this.isClose = !this.isClose
@@ -80,10 +86,10 @@
           e.stopImmediatePropagation()
         }
       },
-      touchstartHandle (e) {
+      touchstartHandle (e) { // touch 开始位置
         this.touchStartPos = e.changedTouches[0].clientY
       },
-      touchmoveHandle (e) {
+      touchmoveHandle (e) { // touch 手指滑动时 阻止 底部页面滚动
         let isTopReached = this.$refs.miniCartDetail.isTopReached
         let isBottomReached = this.$refs.miniCartDetail.isBottomReached
         let node = e.target
