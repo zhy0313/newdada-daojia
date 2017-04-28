@@ -1,7 +1,7 @@
 <template>
   <flex class="order-item-content">
-    <div v-if="orderItem.orderStateMap" class="order-state-track">
-    </div>
+    <OrderStateTrack v-if="orderItem.orderStateMap" :stateIcon="orderItem.orderStateMap.stateIcon">
+    </OrderStateTrack>
     <div class="order-item-info">
       <OrderStateInfo :orderStateMap="orderItem.orderStateMap"></OrderStateInfo>
 
@@ -18,14 +18,16 @@
 </template>
 <script>
 import ProductList from '@/components/cart/ProductList'
+import OrderStateTrack from './OrderStateTrack'
 import OrderStateInfo from './OrderStateInfo'
 import OrderTotalInfo from './OrderTotalInfo'
 import OrderItemFooter from './OrderItemFooter'
 export default {
   components: {
+    ProductList,
+    OrderStateTrack,
     OrderStateInfo,
     OrderTotalInfo,
-    ProductList,
     OrderItemFooter
   },
   props: {
@@ -47,17 +49,13 @@ export default {
 
   .order-item-content {
     padding: 10px 0 0 10px;
-    position: relative;
+    // position: relative;
     align-items: stretch;
 
-    .order-state-track {
-      margin: 73px 12px 20px 12px;
-      width: 1px;
-      @include border-left();
-    }
 
     .order-item-info {
       flex: 1;
+      position: relative;
     }
 
     .product-list-container {

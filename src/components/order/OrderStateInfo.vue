@@ -8,18 +8,11 @@
       {{orderStateMap.stateDesc}}
       <router-link to="/" class="refund-detail">{{orderStateMap.hrefContent || '查看退款详情'}}</router-link>
     </div>
-
-    <OrderStateIcon :stateIcon="orderStateMap.stateIcon"></OrderStateIcon>
   </div>
 </template>
 
 <script>
-  import OrderStateIcon from './OrderStateIcon'
-
   export default {
-    components: {
-      OrderStateIcon
-    },
     props: {
       orderStateMap: Object
     }
@@ -46,8 +39,7 @@
       position: absolute;
       content: "";
       left: -10px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 25px;
     }
 
     &::before {
@@ -75,13 +67,6 @@
       color: #2486ff;
     }
 
-    .order-state-icon {
-      position: absolute;
-      background-color: #fff;
-      top: 50%;
-      left: -42px;
-      transform: translateY(-50%);
-    }
   }
 
 </style>

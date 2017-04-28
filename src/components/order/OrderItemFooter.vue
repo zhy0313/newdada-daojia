@@ -25,8 +25,11 @@ export default {
 
     .btn {
       background-color: #fff;
-      color: #000;
+      color: #333;
+      font-size: 14px;
       border: 1px solid #d9d9d9;
+      padding: 0 8px;
+      margin-left: 10px;
     }
   }
 </style>
