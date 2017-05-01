@@ -1,9 +1,10 @@
 <template>
   <flex class="order-item-content">
-    <OrderStateTrack v-if="orderItem.orderStateMap" :stateIcon="orderItem.orderStateMap.stateIcon">
+    <OrderStateTrack v-if="orderItem.orderListShowTrack == 1" :stateIcon="orderItem.orderStateMap.stateIcon">
     </OrderStateTrack>
     <div class="order-item-info">
-      <OrderStateInfo :orderStateMap="orderItem.orderStateMap"></OrderStateInfo>
+      <OrderStateInfo v-if="orderItem.orderListShowTrack == 1"
+        :orderStateMap="orderItem.orderStateMap"></OrderStateInfo>
 
       <OrderTotalInfo :orderItem="orderItem"></OrderTotalInfo>
       <ProductList
@@ -59,7 +60,7 @@ export default {
     }
 
     .product-list-container {
-      padding: 0 40px 10px 0;
+      padding: 0 70px 10px 0;
       height: 65px;
       @include border-bottom();
     }

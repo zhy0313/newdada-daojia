@@ -52,6 +52,4 @@
       transform: translate3d(-13px, -32px, 0);
     }
   }
-
-
 </style>
