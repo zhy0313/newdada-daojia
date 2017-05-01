@@ -93,7 +93,6 @@ export default {
         background-position: -355px -62px;
     }
 
-
     // /*.status9{// 叹号 绿
     //     background-position: -288px 0;
     // }
@@ -103,6 +102,12 @@ export default {
     // .status11{// 叹号 灰
     //     background-position: -352px 0;
     // }*/
+
+    &.icon-state-estimate {
+      background-position: -334px -62px;
+      width: 20px;
+      height: 20px;
+    }
 
     // /* 打电话 图标 */
     &.order-state-phone{

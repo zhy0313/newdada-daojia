@@ -9,10 +9,9 @@ import DiscoverView from '@/views/tabBar/DiscoverView'
 import CartView from '@/views/tabBar/CartView'
 import OrderView from '@/views/tabBar/OrderView'
 import MyView from '@/views/tabBar/MyView'
-// 示例代码 START
-import CounterView from '@/views/CounterView'
-// 示例代码 END
+
 import CashierView from '@/views/Cashier/CashierView'
+import OrderDetailView from '@/views/order/OrderDetailView'
 import SettlementView from '@/views/Settlement/SettlementView'
 import StoreHome from '@/views/StoreHome/StoreHome.vue'
 import AddressListView from '@/views/AddressListView'
@@ -69,14 +68,14 @@ export default new Router({
       component: MyView
     },
     {
-      path: '/minicart',
-      name: 'CounterView',
-      component: CounterView
-    },
-    {
       path: '/settlement',
       name: 'settlement',
       component: SettlementView
+    },
+    {
+      path: '/orderdetail',
+      name: 'OrderDetail',
+      component: OrderDetailView
     },
     {
       path: '/cashier',
