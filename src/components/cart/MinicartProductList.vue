@@ -7,7 +7,6 @@
     </li>
     <!-- 满减组标题栏 -->
     <li v-else-if="lineClass != ''" :class="`suit-tip ${productSuit.suitType}`">
-      <!-- <div class="suit-name">{{productSuit.suitName}}</div> -->
       {{productSuit.suitDescrip.join('，')}}
     </li>
     <MiniCartProduct
@@ -15,15 +14,6 @@
     :key="item.skuId"
     :productItem="item">
     </MiniCartProduct>
-    <!-- <li
-      v-for="item in productSuit.skuList"
-      :key="item.skuId"
-      class="minicart-product-item">
-      <checkbox :disabled="item.skuState == 0" :value="item.checkType == 1"> </checkbox>
-      <ProductSingleItem :productItem="item"></ProductSingleItem>
-
-      <input-number :disabled="item.skuState == 0" class="minicart-product-operation" :min="1" :value="item.cartNum"></input-number>
-    </li> -->
   </ul>
 </template>
 
@@ -39,8 +29,6 @@ export default {
   props: {
     productSuit: Object,
     justInvalid: Boolean
-    // skuList: Array,
-    // className: String
   },
   computed: {
     lineClass () {
