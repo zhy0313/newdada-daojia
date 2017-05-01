@@ -14,6 +14,7 @@ import CounterView from '@/views/CounterView'
 // 示例代码 END
 import CashierView from '@/views/Cashier/CashierView'
 import SettlementView from '@/views/Settlement/SettlementView'
+import DeliverTime from '@/views/Settlement/deliverTime'
 import StoreHome from '@/views/StoreHome/StoreHome.vue'
 import AddressListView from '@/views/AddressListView'
 import NewAddressView from '@/views/NewAddressView'
@@ -77,6 +78,11 @@ export default new Router({
       path: '/settlement',
       name: 'settlement',
       component: SettlementView
+    },
+    {
+      path: '/deliverTime',
+      name: 'deliverTime',
+      component: DeliverTime
     },
     {
       path: '/cashier',

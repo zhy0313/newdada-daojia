@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 // 公共参数
-const commonParams = {platCode: 'H5', appName: 'paidaojia', appVersion: '3.9.0'}
+const commonParams = {platCode: 'H5', appName: 'paidaojia', appVersion: '4.1.0'}
 const url = '/client'
 // GET 请求
 Vue.getAPI = Vue.prototype.$getAPI = (params) => {

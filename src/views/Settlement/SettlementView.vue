@@ -12,7 +12,7 @@
         <i class="iconfont icon-FowordArrow"></i>
       </div>
       <div class="settlement-item deliverTime" v-if="item.moduleKey == 'deliverTime' && item.show">
-         {{item.title}}<span>{{item.data.nonPushTimeText}}<i class="iconfont icon-FowordArrow"></i></span>
+         {{item.title}}<span><router-link :to="{ name: 'deliverTime', params: { deliverTime: item.data }}">{{item.data.nonPushTimeText}}</router-link><i class="iconfont icon-FowordArrow"></i></span>
       </div>
       <div class="settlement-item bookInfo" v-if="item.moduleKey == 'bookInfo' && item.show">
          {{item.title}}<span>填写订购人昵称，电话等<i class="iconfont icon-FowordArrow"></i></span>
@@ -71,12 +71,16 @@ export default {
       totalMoney: '0.00',
       totalCost: '0.00',
       totalWeight: '0',
-      modules: []
+      modules: [],
+      deliverdate: '',
+      delivertime: ''
     }
   },
   created () {
     this.userLogin()
     this.initSettlement()
+    this.deliverdate = this.$route.params.deliverdate
+    this.delivertime = this.$route.params.delivertime
   },
   methods: {
     userLogin: function () {
@@ -98,15 +102,15 @@ export default {
           jingBeansNum: 0,
           source: 2,
           channelType: '0',
-          orgCode: '71598',
-          storeId: '10050212',
-          storeName: '商家中心1号测试门店',
-          openJPIndustry: '21',
-          addressType: true
-          // cityCode: 1,
-          // longitude: 116.50628,
-          // latitude: 39.79311,
-          // addressId: 8185
+          orgCode: '71472',
+          storeId: '10003450',
+          storeName: '沃尔玛-北大街店',
+          openJPIndustry: '1',
+          addressType: true,
+          cityCode: 1,
+          longitude: 116.50628,
+          latitude: 39.79311,
+          addressId: ''
         }
       }).then((response) => {
         if (response.body.code === '0') {
