@@ -6,10 +6,15 @@
 
 <script>
   import OrderDetailEstimate from '@/components/order/OrderDetailEstimate'
+  import OrderDetailState from '@/components/order/OrderDetailState'
 
   export default {
     components: {
-      OrderDetailEstimate
+      OrderDetailEstimate,
+      OrderDetailState
+    },
+    created () {
+
     }
   }
 </script>
