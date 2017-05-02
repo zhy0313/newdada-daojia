@@ -74,16 +74,12 @@ export default new Router({
       component: SettlementView
     },
     {
-<<<<<<< HEAD
-      path: '/orderdetail/:orderId',
-=======
       path: '/deliverTime',
       name: 'deliverTime',
       component: DeliverTime
     },
     {
-      path: '/orderdetail',
->>>>>>> 16871519b38bdee5c0280a32b7ef030d76ca5229
+      path: '/orderdetail/:orderId',
       name: 'OrderDetail',
       component: OrderDetailView
     },
