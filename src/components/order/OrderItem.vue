@@ -1,5 +1,5 @@
 <template>
-  <li class="orderlist-item">
+  <li class="orderlist-item" @click="itemClickHandler">
     <OrderItemHeader
       :mainOrderStateMap="orderItem.mainOrderStateMap"
       >
@@ -21,6 +21,17 @@ export default {
   },
   props: {
     orderItem: Object
+  },
+  methods: {
+    itemClickHandler (event) {
+      let orderId = this.orderItem.orderId
+      let to = event.target.dataset.to
+      let isButton = /button/i.test(event.target.tagName)
+      console.log(orderId, to, isButton)
+      if (!isButton) {
+        this.$router.push({path: `${to || 'orderdetail'}/${orderId}`})
+      }
+    }
   }
 }
 </script>

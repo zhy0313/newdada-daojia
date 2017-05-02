@@ -1,9 +1,9 @@
 <template>
   <flex class="order-item-content">
-    <OrderStateTrack v-if="orderItem.orderListShowTrack == 1" :stateIcon="orderItem.orderStateMap.stateIcon">
+    <OrderStateTrack data-to="orderstate" v-if="orderItem.orderListShowTrack == 1" :stateIcon="orderItem.orderStateMap.stateIcon">
     </OrderStateTrack>
     <div class="order-item-info">
-      <OrderStateInfo v-if="orderItem.orderListShowTrack == 1"
+      <OrderStateInfo data-to="orderstate" v-if="orderItem.orderListShowTrack == 1"
         :orderStateMap="orderItem.orderStateMap"></OrderStateInfo>
 
       <OrderTotalInfo :orderItem="orderItem"></OrderTotalInfo>

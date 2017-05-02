@@ -1,15 +1,15 @@
 <template>
-  <router-link to="/" class="order-item-header">
+  <div class="order-item-header">
     <span>
       <slot></slot>
       <i class="iconfont icon-FowordArrow"></i>
     </span>
-    <span
+    <span data-to="orderstate"
       v-if="mainOrderStateMap"
       :style="{color: mainOrderStateMap.orderColor}">
       {{mainOrderStateMap.orderStateName}}
     </span>
-  </router-link>
+  </div>
 </template>
 
 <script>

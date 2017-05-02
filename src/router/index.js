@@ -73,7 +73,7 @@ export default new Router({
       component: SettlementView
     },
     {
-      path: '/orderdetail',
+      path: '/orderdetail/:orderId',
       name: 'OrderDetail',
       component: OrderDetailView
     },
