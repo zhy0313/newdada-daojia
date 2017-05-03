@@ -50,9 +50,7 @@ export default {
 
   .order-item-content {
     padding: 10px 0 0 10px;
-    // position: relative;
     align-items: stretch;
-
 
     .order-item-info {
       flex: 1;

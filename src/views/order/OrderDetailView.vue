@@ -1,7 +1,8 @@
 <template>
   <div class="order-detail-container">
-    <OrderDetailEstimate
-      v-if="orderInfo.preDeliveryTimeStr"></OrderDetailEstimate>
+    <!--
+      v-if="orderInfo.preDeliveryTimeStr" -->
+    <OrderDetailEstimate></OrderDetailEstimate>
     <OrderDetailState
       v-if="orderInfo.orderStateMap"
       :orderState="orderInfo.orderStateMap"></OrderDetailState>

@@ -16,7 +16,7 @@
     <div class="cell-footer" v-if="$slots.footer">
       <slot name="footer"></slot>
     </div>
-    <i class="fa fa-angle-right cell-arrow" v-if="hasArrow" />
+    <i class="iconfont icon-FowordArrow" v-if="hasArrow" />
   </router-link>
 
   <a

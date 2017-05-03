@@ -1,7 +1,6 @@
 <template>
   <div class="order-detail-estimate">
-    <OrderStateIcon stateIcon="-estimate"></OrderStateIcon>
-    {{estimate || "预计送达时间：2017-11-11 11:11:11"}}
+    <OrderStateIcon stateIcon="-estimate"></OrderStateIcon>{{estimate || "预计送达时间：\n2017-11-11 11:11:11"}}
   </div>
 </template>
 
@@ -14,6 +13,17 @@
     },
     props: {
       estimate: String
+    },
+    computed: {
+      adapatEstimate () {
+        let width = window.innerWidth
+        let estimate = this.estimate
+        if (width <= 360 && this.estimate.indexOf('-') >= 0) {
+          estimate = estimate.replace('：', '：\n')
+        }
+
+        return estimate
+      }
     }
   }
 </script>
@@ -24,6 +34,8 @@
 
   .order-detail-estimate {
     position: relative;
+    font-size: 17px;
+    color: #333;
     padding: 15px 15px 15px 50px;
     margin-top: 10px;
     background-color: #fff;
