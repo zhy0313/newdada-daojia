@@ -2,8 +2,10 @@
   <flex class="order-detail-state">
     <OrderStateIcon stateIcon="orderState.stateIcon"></OrderStateIcon>
     <div class="state-content">
-      {{orderState.stateTitle}}
+      <div>{{orderState.stateTitle}}</div>
+      <div>{{orderState.stateDesc}}</div>
     </div>
+
   </flex>
 </template>
 
@@ -14,7 +16,7 @@
       OrderStateIcon
     },
     props: {
-      orderState: {}
+      orderState: Object
     }
   }
 </script>

@@ -1,7 +1,10 @@
 <template>
   <div class="order-detail-container">
-    <OrderDetailEstimate></OrderDetailEstimate>
-    <OrderDetailState :orderState="orderInfo.orderStateMap"></OrderDetailState>
+    <OrderDetailEstimate
+      v-if="orderInfo.preDeliveryTimeStr"></OrderDetailEstimate>
+    <OrderDetailState
+      v-if="orderInfo.orderStateMap"
+      :orderState="orderInfo.orderStateMap"></OrderDetailState>
   </div>
 </template>
 
