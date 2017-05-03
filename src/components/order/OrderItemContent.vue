@@ -6,12 +6,13 @@
       <OrderStateInfo data-to="orderstate" v-if="orderItem.orderListShowTrack == 1"
         :orderStateMap="orderItem.orderStateMap"></OrderStateInfo>
 
-      <OrderTotalInfo :orderItem="orderItem"></OrderTotalInfo>
       <ProductList
         :itemList="orderItem.productList"
         :showMore="hasMoreProduct"
         :isOrder="true"
-        ></ProductList>
+        >
+        <OrderTotalInfo :orderItem="orderItem"></OrderTotalInfo>
+      </ProductList>
 
       <OrderItemFooter :orderItem="orderItem"></OrderItemFooter>
     </div>

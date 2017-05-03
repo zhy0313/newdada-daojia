@@ -1,16 +1,16 @@
 .cell {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    text-decoration: none;
-    color: $cell-color;
-    font-size: 15px;
-    padding: $cell-padding;
-    @include border-bottom();
-    background-position: $cell-gap-left 100%;
-    background-color: $cell-bg-color;
+  @include border-bottom();
+  align-items: center;
+  background-color: $cell-bg-color;
+  background-position: $cell-gap-left 100%;
+  color: $cell-color;
+  display: flex;
+  font-size: 15px;
+  overflow: hidden;
+  padding: $cell-padding;
+  text-decoration: none;
 
-    .icon-FowordArrow:before {
+    .icon-FowordArrow::before {
       color: #c4c4c4;
     }
 }

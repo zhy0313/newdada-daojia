@@ -9,6 +9,7 @@
       :isOrder="isOrder"
       :key="item.skuId || item.sku">
     </ProductItem>
+    <slot></slot>
   </div>
 </template>
 
@@ -39,6 +40,7 @@ export default {
   .product-list-container {
     height: 100px;
     padding: 15px 30px 15px 10px;
+    position: relative;
     overflow: hidden;
   }
 </style>

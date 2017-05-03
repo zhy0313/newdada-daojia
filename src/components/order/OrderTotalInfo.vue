@@ -26,8 +26,9 @@ export default {
       flex-direction: column;
       position: absolute;
       right: 10px;
+      top: 0;
       text-align: right;
-      height: 53px;
+      height: 55px;
       justify-content: space-between;
 
       .total-price {
