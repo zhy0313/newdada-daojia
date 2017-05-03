@@ -10,16 +10,18 @@
       <span class="product-num">{{orderInfo.productTotalNumStr}}<i class="iconfont icon-FowordArrow"></i></span>
     </ProductList>
 
-
+    <OrderDetailMoney :orderInfo="orderInfo"></OrderDetailMoney>
   </div>
 </template>
 
 <script>
   import ProductList from '@/components/cart/ProductList'
+  import OrderDetailMoney from '@/components/order/OrderDetailMoney'
 
   export default {
     components: {
-      ProductList
+      ProductList,
+      OrderDetailMoney
     },
     props: {
       orderInfo: {}
