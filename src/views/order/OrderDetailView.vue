@@ -6,17 +6,20 @@
     <OrderDetailState
       v-if="orderInfo.orderStateMap"
       :orderState="orderInfo.orderStateMap"></OrderDetailState>
+    <OrderDetailProduct :orderInfo="orderInfo"></OrderDetailProduct>
   </div>
 </template>
 
 <script>
   import OrderDetailEstimate from '@/components/order/OrderDetailEstimate'
   import OrderDetailState from '@/components/order/OrderDetailState'
+  import OrderDetailProduct from '@/components/order/OrderDetailProduct'
 
   export default {
     components: {
       OrderDetailEstimate,
-      OrderDetailState
+      OrderDetailState,
+      OrderDetailProduct
     },
     data () {
       return {

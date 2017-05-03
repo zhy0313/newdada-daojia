@@ -4,10 +4,15 @@
     overflow: hidden;
     text-decoration: none;
     color: $cell-color;
+    font-size: 15px;
     padding: $cell-padding;
     @include border-bottom();
     background-position: $cell-gap-left 100%;
     background-color: $cell-bg-color;
+
+    .icon-FowordArrow:before {
+      color: #c4c4c4;
+    }
 }
 
 .cell-no-gap {
